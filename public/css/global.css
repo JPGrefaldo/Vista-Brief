@@ -1,0 +1,12 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+.header-box {
+	background-color: #2C3E50;
+}
+
+.header-box .title {
+	color: #ffffff;
+}
