@@ -13,7 +13,16 @@
 
 Route::get('/', function () {
     //return view('welcome');
-    return view('login');
+    return view('signin');
+});
+
+Route::get('forgotpassword', function () {
+    //return view('welcome');
+    return view('forgotpassword');
+});
+
+Route::get('dashboard', function () {
+	return view('dashboard');
 });
 
 Route::get('main', 'MainPagesController@main');
