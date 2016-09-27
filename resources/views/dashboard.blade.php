@@ -683,6 +683,57 @@ Dashboard
     </div>
     <!-- / main header -->
     <div class="wrapper-md" ng-controller="FlotChartDemoCtrl">
+
+      <!-- Main Actions -->
+      <div class="row">
+	    <div class="col-lg-6 col-md-6 col-sm-6">
+	      <div class="panel b-a">
+	        <div class="panel-heading text-center bg-info no-border">
+	          <h4 class="text-u-c m-b-none hide">Planning Requests</h4>
+	          <h2 class="m-t-none">
+	            <sup class="pos-rlt hide" style="top:-22px">$</sup>
+	            <span class="h3 m-t-xs mb-x-s text-lt">Planning Requests</span>
+	            <span class="text-xs hide">/ mo</span>
+	          </h2>
+	        </div>
+	        <ul class="list-group">
+	          <li class="list-group-item">
+	            <i class="icon-check text-success m-r-xs"></i> New Items (10)
+	          </li>
+	          <li class="list-group-item">
+	            <i class="icon-check text-success m-r-xs"></i> View All (46)
+	          </li>
+	        </ul>
+	        <div class="panel-footer text-center">
+	          <a href class="btn btn-info font-bold m">Create new Planning Request</a>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="col-lg-6 col-md-6 col-sm-6">
+	      <div class="panel b-a">
+	        <div class="panel-heading text-center bg-info no-border">
+	          <h4 class="text-u-c m-b-none hide">Brief Sheets</h4>
+	          <h2 class="m-t-none">
+	            <sup class="pos-rlt hide" style="top:-22px">$</sup>
+	            <span class="h3 m-t-xs mb-x-s text-lt">Brief Sheets</span>
+	            <span class="text-xs hide">/ mo</span>
+	          </h2>
+	        </div>
+	        <ul class="list-group">
+	          <li class="list-group-item">
+	            <i class="icon-check text-success m-r-xs"></i> New Items (10)
+	          </li>
+	          <li class="list-group-item">
+	            <i class="icon-check text-success m-r-xs"></i> View All (46)
+	          </li>
+	        </ul>
+	        <div class="panel-footer text-center">
+	          <a href class="btn btn-info font-bold m">Create new Brief</a>
+	        </div>
+	      </div>
+	    </div>
+      </div>
+      <!-- / Main Actions -->
       <!-- stats -->
       <div class="row">
         <div class="col-md-5">
