@@ -16,9 +16,14 @@ Route::get('/', function () {
     return view('signin');
 });
 
+Route::get('signin', function () {
+    //return view('welcome');
+    return view('signin');
+});
+
 Route::get('forgotpassword', function () {
     //return view('welcome');
-    return view('forgotpassword');
+    return view('forgotpwd');
 });
 
 Route::get('dashboard', function () {
@@ -30,6 +35,7 @@ Route::get('main', 'MainPagesController@main');
 Route::get('home', 'MainPagesController@main');
 
 Route::get('index', 'MainPagesController@main');
-Auth::routes();
+
+//Auth::routes();
 
 Route::get('/home', 'HomeController@index');
