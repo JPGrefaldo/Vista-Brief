@@ -7,10 +7,13 @@ Login
 @section('content')
 <div class="app app-header-fixed ">
   <div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
-    <a href class="navbar-brand block m-t">Brief System</a>
+    <div class="wrapper text-center">
+      <h1 class="h1 block m-t m-b-n" style="color:#23b7e5">Vista</h1>
+    </div>
+    <a href class="navbar-brand block m-t hide">VISTA Brief System</a>
     <div class="m-b-lg">
-      <div class="wrapper text-center hide">
-        <strong>Sign in to get in touch</strong>
+      <div class="wrapper text-center">
+        <h4 style="color:#19a9d5">Brief System</h4>
       </div>
       <form name="form" class="form-validation" action="dashboard">
         <div class="text-danger wrapper text-center" ng-show="authError">
@@ -24,8 +27,10 @@ Login
              <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
           </div>
         </div>
-        <button type="submit" class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled='form.$invalid'>Log in</button>
-        <div class="text-center m-t m-b"><a ui-sref="access.forgotpwd" href="forgotpassword">Forgot password?</a></div>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color:#23b7e5;border-color:#23b7e5" ng-disabled='form.$invalid'>Log in</button>
+        <div class="text-center m-t m-b">
+          Forgot your password? <a ui-sref="access.forgotpwd" href="forgotpassword" class="text-danger">recover it.</a>
+        </div>
         <div class="line line-dashed"></div>
         <p class="text-center hide"><small>Do not have an account?</small></p>
         <a ui-sref="access.signup" class="btn btn-lg btn-default btn-block hide">Create an account</a>

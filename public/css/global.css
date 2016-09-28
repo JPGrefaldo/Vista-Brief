@@ -23,3 +23,13 @@ body {
     border: 0px solid #dddddd;
     border-radius: 0;
 }
+
+.bg-blue-1 {
+	background-color: #19a9d5 ;
+}
+.bg-blue-1 .text-lt {
+	color: #eaebed;
+}
+.f-s-18 {
+	font-size: 18px;
+}
