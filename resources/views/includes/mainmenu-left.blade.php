@@ -4,7 +4,7 @@
                 <span>Menu</span>
               </li>
               <li>
-                <a href class="{{ url('dashboard') }}">
+                <a href="{{ url('dashboard') }}">
                   <i class="glyphicon glyphicon-stats icon text-info-lter"></i>
                   <span class="text-lt">Dashboard</span>
                 </a>

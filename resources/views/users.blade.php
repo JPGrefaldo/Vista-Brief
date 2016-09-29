@@ -70,7 +70,7 @@ Manage Users
         <div class="panel-heading">
           List of Users
           <div class="text-right">
-            <a href="{{ url('users/add') }}" class="btn btn-success">
+            <a href="{{ url('users/new') }}" class="btn btn-success">
               <i class="fa fa-fw fa-plus"></i>
               Add New User
             </a>

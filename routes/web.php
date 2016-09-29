@@ -11,41 +11,47 @@
 |
 */
 
-Route::get('/', function () {
-    //return view('welcome');
-    return view('signin');
+Route::group(['middleware' => ['web']], function() {
+	Route::get('/', function () {
+	    return view('signin');
+	});
+
+	Route::get('/signin', function () {
+	    //return view('welcome');
+	    return view('signin');
+	});
+
+	Route::get('/forgotpassword', function () {
+	    //return view('welcome');
+	    return view('forgotpwd');
+	});
+
+	Route::get('/dashboard', function () {
+		return view('dashboard');
+	});
+
+	Route::get('/users', function () {
+		return view('users');
+	});
+
+	Route::get('/users/new', function () {
+		return view('newuser');
+	});
+
+	Route::post('/users/new/save', [
+		'uses'	=>	'UserController@postNewUser',
+		'as'	=>	'postnewuser'
+	]);
 });
 
-Route::get('signin', function () {
-    //return view('welcome');
-    return view('signin');
-});
-
-Route::get('forgotpassword', function () {
-    //return view('welcome');
-    return view('forgotpwd');
-});
-
-Route::get('dashboard', function () {
-	return view('dashboard');
-});
-
-Route::get('users', function () {
-	return view('users');
-});
-
-Route::get('users/add', function () {
-	return view('adduser');
-});
 
 
+//Route::get('main', 'MainPagesController@main');
 
-Route::get('main', 'MainPagesController@main');
+//Route::get('home', 'MainPagesController@main');
 
-Route::get('home', 'MainPagesController@main');
-
-Route::get('index', 'MainPagesController@main');
+//Route::get('index', 'MainPagesController@main');
 
 //Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
