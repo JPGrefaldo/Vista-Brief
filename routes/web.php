@@ -30,6 +30,16 @@ Route::get('dashboard', function () {
 	return view('dashboard');
 });
 
+Route::get('users', function () {
+	return view('users');
+});
+
+Route::get('users/add', function () {
+	return view('adduser');
+});
+
+
+
 Route::get('main', 'MainPagesController@main');
 
 Route::get('home', 'MainPagesController@main');

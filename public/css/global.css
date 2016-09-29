@@ -33,3 +33,7 @@ body {
 .f-s-18 {
 	font-size: 18px;
 }
+
+.unblock {
+	display: inline;
+}
