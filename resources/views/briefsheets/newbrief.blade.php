@@ -53,72 +53,124 @@ Add New Brief Sheet
           <div class="panel panel-default">
             <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
               <div class="panel-body">
-                <div class="form-group">
-                  <div class="row-fluid">
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <label class="col-lg-3 control-label text-left">Client</label>
-                        <div class="col-lg-9">
-                          <input type="text" name="username" class="form-control" placeholder="Client">
-                          <span class="help-block m-b-none"></span>
-                        </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Client</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="client" class="form-control" placeholder="Client">
+                        <span class="help-block m-b-none"></span>
                       </div>
                     </div>
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <label class="col-lg-3 control-label text-left">Project Status</label>
-                        <div class="col-lg-9">
-                          <input type="text" name="username" class="form-control" placeholder="Project Status">
-                          <span class="help-block m-b-none"></span>
-                        </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Project Status</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="projectstatus" class="form-control" placeholder="Project Status">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Job Number</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="jobnumber" class="form-control" placeholder="Job Number">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Old Job Number</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="oldjobnumber" class="form-control" placeholder="Old Job Number">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
+                      <div class="col-lg-9">
+                        <input type="text" name="budget" class="form-control" placeholder="Your Budget">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Project Manager</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager">
+                        <span class="help-block m-b-none"></span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="row-fluid">
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <label class="col-lg-3 control-label text-left">Job Number</label>
-                        <div class="col-lg-9">
-                          <input type="text" name="username" class="form-control" placeholder="Job Number">
-                          <span class="help-block m-b-none"></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <label class="col-lg-3 control-label text-left">Old Job Number</label>
-                        <div class="col-lg-9">
-                          <input type="text" name="username" class="form-control" placeholder="Old Job Number">
-                          <span class="help-block m-b-none"></span>
-                        </div>
-                      </div>
-                    </div>
+                  <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
+                  <div class="col-lg-10">
+                    <input type="text" name="jobname" class="form-control" placeholder="Job Name">
+                    <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="row-fluid">
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
-                        <div class="col-lg-9">
-                          <input type="text" name="username" class="form-control" placeholder="Your Budget">
-                          <span class="help-block m-b-none"></span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="row">
-                        <label class="col-lg-3 control-label text-left">Project Manager</label>
-                        <div class="col-lg-9">
-                          <input type="text" name="username" class="form-control" placeholder="Project Manager">
-                          <span class="help-block m-b-none"></span>
+                  <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
+                  <div class="col-lg-10">
+                    <input type="text" name="keydeliv" class="form-control" placeholder="Key Deliverables">
+                    <span class="help-block m-b-none"></span>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <div class="form-group">
+                      <label class="col-lg-6 control-label text-left">Quote Required by</label>
+                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                        <div class="input-group w-md">
+                          <input type="text" class="form-control" name="keydeliv" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>                      
                         </div>
                       </div>
                     </div>
                   </div>
+                  <div class="col-lg-3">
+                    <div class="form-group">
+                      <label class="col-lg-6 control-label text-left">Proposed Required by</label>
+                      <div class="col-lg-6">
+                        <input type="text" name="keydeliv" class="form-control">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="form-group">
+                      <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
+                      <div class="col-lg-6">
+                        <input type="text" name="keydeliv" class="form-control">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="form-group">
+                      <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
+                      <div class="col-lg-6">
+                        <input type="text" name="keydeliv" class="form-control">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
+
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Forename</label>
                   <div class="col-lg-9">
