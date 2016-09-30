@@ -34,7 +34,7 @@ Route::group(['middleware' => ['web']], function() {
 		'uses'	=>	'AdminController@manageUsers',
 		'as'	=>	'users'
 	]);
-	
+
 	Route::get('/users/new', function () {
 		return view('newuser');
 	});
@@ -43,6 +43,18 @@ Route::group(['middleware' => ['web']], function() {
 		'uses'	=>	'UserController@postNewUser',
 		'as'	=>	'postnewuser'
 	]);
+
+	/* Brief Routes */
+	Route::get('/briefs', [
+		'uses'	=>	'BriefController@index',
+		'as'	=>	'briefs'
+	]);
+	
+	Route::get('/briefs/new', [
+		'uses'	=>	'BriefController@new',
+		'as'	=>	'briefs'
+	]);
+	/* / Brief Routes */
 });
 
 

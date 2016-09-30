@@ -10,7 +10,7 @@
                 </a>
               </li>
               <li>
-                <a href="">
+                <a href="{{ route('briefs') }}">
                   <b class="badge bg-info pull-right">9</b>
                   <i class="glyphicon glyphicon-envelope icon text-info-lter"></i>
                   <span class="text-lt">Brief Sheets</span>
