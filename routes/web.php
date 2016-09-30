@@ -30,10 +30,11 @@ Route::group(['middleware' => ['web']], function() {
 		return view('dashboard');
 	});
 
-	Route::get('/users', function () {
-		return view('users');
-	});
-
+	Route::get('/users', [
+		'uses'	=>	'AdminController@manageUsers',
+		'as'	=>	'users'
+	]);
+	
 	Route::get('/users/new', function () {
 		return view('newuser');
 	});

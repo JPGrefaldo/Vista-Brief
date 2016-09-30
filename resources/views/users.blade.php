@@ -118,36 +118,18 @@ Manage Users
               </tr>
             </thead>
             <tbody>
+              @foreach ($users as $user)
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>tata.nana</td>
-                <td><span class="text-ellipsis">Anna</span></td>
-                <td><span class="text-ellipsis">Marie</span></td>
-                <td>tata.nana@yahoo.com</td>
+                <td>{{ $user->username }}</td>
+                <td><span class="text-ellipsis">{{ $user->forename }}</span></td>
+                <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
+                <td>{{ $user->email }}</td>
                 <td>
                   <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
                 </td>
               </tr>
-              <tr>
-                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>tata.nana</td>
-                <td>Anna</td>
-                <td>Marie</td>
-                <td>tata.nana@yahoo.com</td>
-                <td>
-                  <a href ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>tata.nana</td>
-                <td>Anna</td>
-                <td>Marie</td>
-                <td>tata.nana@yahoo.com</td>
-                <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                </td>
-              </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -183,7 +165,6 @@ Manage Users
   </div>
   <!-- / main -->
 </div>
-
 
 
     </div>
