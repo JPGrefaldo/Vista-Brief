@@ -13,16 +13,8 @@ Manage Users
   <!-- / header -->
 
 
-    <!-- aside -->
-  <aside id="aside" class="app-aside hidden-xs bg-blue-1">
-      <div class="aside-wrap">
-        <div class="navi-wrap">
-          <!-- nav -->
-          @include('includes.mainmenu-left')
-          <!-- nav -->
-        </div>
-      </div>
-  </aside>
+  <!-- aside -->
+  @include('includes.mainmenu-left')
   <!-- / aside -->
 
 

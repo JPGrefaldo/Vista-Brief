@@ -8,7 +8,7 @@
           <i class="glyphicon glyphicon-align-justify"></i>
         </button>
         <!-- brand -->
-        <a href="" class="navbar-brand text-lt f-s-18">          
+        <a href="" class="navbar-brand text-white f-s-18">          
           <span class="hidden-folded m-l-xs">Vista Brief System</span>
         </a>
         <!-- / brand -->

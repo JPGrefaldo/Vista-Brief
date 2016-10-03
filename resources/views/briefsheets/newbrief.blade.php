@@ -13,16 +13,8 @@ Add New Brief Sheet
   <!-- / header -->
 
 
-    <!-- aside -->
-  <aside id="aside" class="app-aside hidden-xs bg-brand-1">
-      <div class="aside-wrap">
-        <div class="navi-wrap">
-          <!-- nav -->
-          @include('includes.mainmenu-left')
-          <!-- nav -->
-        </div>
-      </div>
-  </aside>
+  <!-- aside -->
+  @include('includes.mainmenu-left')
   <!-- / aside -->
 
 
