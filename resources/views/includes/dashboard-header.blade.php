@@ -1,6 +1,6 @@
   <header id="header" class="app-header navbar" role="menu">
       <!-- navbar header -->
-      <div class="navbar-header bg-blue-1">
+      <div class="navbar-header bg-brand-1">
         <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
           <i class="glyphicon glyphicon-cog"></i>
         </button>

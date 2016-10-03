@@ -37,3 +37,7 @@ body {
 .unblock {
 	display: inline;
 }
+
+.bg-brand-1 {
+	background-color: #00385b ;
+}
