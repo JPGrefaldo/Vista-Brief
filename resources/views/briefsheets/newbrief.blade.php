@@ -133,7 +133,7 @@ Add New Brief Sheet
                       <label class="col-lg-6 control-label text-left">Quote Required by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md">
-                          <input type="text" class="form-control" name="keydeliv" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -144,27 +144,38 @@ Add New Brief Sheet
                   <div class="col-lg-3">
                     <div class="form-group">
                       <label class="col-lg-6 control-label text-left">Proposed Required by</label>
-                      <div class="col-lg-6">
-                        <input type="text" name="keydeliv" class="form-control">
-                        <span class="help-block m-b-none"></span>
+                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                        <div class="input-group w-md">
+                          <input type="text" class="form-control" name="proposedreq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>                      
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
                       <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
-                      <div class="col-lg-6">
-                        <input type="text" name="keydeliv" class="form-control">
-                        <span class="help-block m-b-none"></span>
+                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                        <div class="input-group w-md">
+                          <input type="text" class="form-control" name="stagereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>                      
+                        </div>
                       </div>
-                    </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
                       <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
-                      <div class="col-lg-6">
-                        <input type="text" name="keydeliv" class="form-control">
-                        <span class="help-block m-b-none"></span>
+                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                        <div class="input-group w-md">
+                          <input type="text" class="form-control" name="projdel" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                          </span>                      
+                        </div>
                       </div>
                     </div>
                   </div>

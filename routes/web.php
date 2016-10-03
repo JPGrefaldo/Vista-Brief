@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web']], function() {
 	
 	Route::get('/briefs/new', [
 		'uses'	=>	'BriefController@new',
-		'as'	=>	'briefs'
+		'as'	=>	'newbrief'
 	]);
 	/* / Brief Routes */
 });
