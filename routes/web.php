@@ -20,6 +20,10 @@ Route::group(['middleware' => ['web']], function() {
 	    //return view('welcome');
 	    return view('signin');
 	});
+	Route::get('/login', function () {
+	    //return view('welcome');
+	    return view('signin');
+	});
 
 	Route::get('/forgotpassword', function () {
 	    //return view('welcome');
@@ -30,11 +34,12 @@ Route::group(['middleware' => ['web']], function() {
 		return view('dashboard');
 	});
 
+	/* Users */
 	Route::get('/users', [
 		'uses'	=>	'AdminController@manageUsers',
 		'as'	=>	'users'
 	]);
-
+	
 	Route::get('/users/new', function () {
 		return view('newuser');
 	});
@@ -43,18 +48,51 @@ Route::group(['middleware' => ['web']], function() {
 		'uses'	=>	'UserController@postNewUser',
 		'as'	=>	'postnewuser'
 	]);
+	/* Users */
 
 	/* Brief Routes */
-	Route::get('/briefs', [
+	Route::get('/briefsheets', [
 		'uses'	=>	'BriefController@index',
-		'as'	=>	'briefs'
+		'as'	=>	'briefsheets'
 	]);
 	
-	Route::get('/briefs/new', [
+	Route::get('/briefsheets/new', [
 		'uses'	=>	'BriefController@new',
-		'as'	=>	'newbrief'
+		'as'	=>	'newbriefsheet'
 	]);
 	/* / Brief Routes */
+
+	/* Planning Requests */
+	Route::get('/planningrequests', [
+		'uses'	=>	'PlanningController@index',
+		'as'	=>	'planningrequests'
+	]);
+	/* / Planning Requests */
+
+	/* Department Ruoting */
+	Route::get('/departments', [
+		'uses'	=>	'DepartmentController@index',
+		'as'	=>	'departments'
+	]);
+	/* / Department Ruoting */
+
+	/* Clients */
+	Route::get('/clients', [
+		'uses'	=>	'ClientController@index',
+		'as'	=>	'clients'
+	]);
+	/* / Clients */
+
+	/* Settings */
+	Route::get('/settings', [
+		'uses'	=>	'SettingController@index',
+		'as'	=>	'settings'
+	]);
+	/* / Settings */
+
+	Route::get('/profile', function() {
+		return view ('profile');
+	});
 });
 
 

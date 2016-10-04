@@ -8,12 +8,12 @@ Login
 <div class="app app-header-fixed ">
   <div class="container w-xxl w-auto-xs" ng-controller="SigninFormController" ng-init="app.settings.container = false;">
     <div class="wrapper text-center">
-      <h1 class="h1 block m-t m-b-n" style="color:#23b7e5">Vista</h1>
+      <h1 class="h1 block m-t m-b-n" style="color:#00385b">VISTA</h1>
     </div>
     <a href class="navbar-brand block m-t hide">VISTA Brief System</a>
     <div class="m-b-lg">
       <div class="wrapper text-center">
-        <h4 style="color:#19a9d5">Brief System</h4>
+        <h4 style="color:#00385b">Brief System</h4>
       </div>
       <form name="form" class="form-validation" action="dashboard">
         <div class="text-danger wrapper text-center" ng-show="authError">
@@ -27,7 +27,7 @@ Login
              <input type="password" placeholder="Password" class="form-control no-border" ng-model="user.password" required>
           </div>
         </div>
-        <button type="submit" class="btn btn-lg btn-primary btn-block" style="background-color:#23b7e5;border-color:#23b7e5" ng-disabled='form.$invalid'>Log in</button>
+        <button type="submit" class="btn btn-lg btn-brand-1 btn-block" style="background-color:#23b7e5;border-color:#23b7e5" ng-disabled='form.$invalid'>Log in</button>
         <div class="text-center m-t m-b">
           Forgot your password? <a ui-sref="access.forgotpwd" href="forgotpassword" class="text-danger">recover it.</a>
         </div>

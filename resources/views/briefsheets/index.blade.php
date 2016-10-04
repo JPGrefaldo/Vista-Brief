@@ -44,7 +44,7 @@ Brief Sheets
         <div class="panel-heading">
           List of Active Brief Sheets
           <div class="text-right">
-            <a href="{{ route('newbrief') }}" class="btn btn-success">
+            <a href="{{ route('newbriefsheet') }}" class="btn btn-success">
               <i class="fa fa-fw fa-plus"></i>
               Create New Brief
             </a>

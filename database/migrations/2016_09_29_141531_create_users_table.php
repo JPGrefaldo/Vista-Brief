@@ -21,9 +21,9 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->string('type')->default('');
-            $table->tinyInteger('department_id')->default(1);
+            //$table->tinyInteger('department_id')->default(1);
             $table->tinyInteger('is_active')->default('1');
-            $table->timestamp('last_login_at');
+            //$table->timestamp('last_login_at');
             $table->string('activation_key')->default('');
             $table->rememberToken();
             $table->timestamps();

@@ -14,27 +14,33 @@
                 </a>
               </li>
               <li>
-                <a href="{{ route('briefs') }}">
-                  <i class="glyphicon glyphicon-envelope icon text-white"></i>
+                <a href="{{ route('briefsheets') }}">
+                  <i class="icon icon-briefcase icon text-white"></i>
                   <span class="text-white">Brief Sheets</span>
                 </a>
               </li>
               <li>
-                <a href="">
-                  <i class="glyphicon glyphicon-envelope icon text-white"></i>
+                <a href="{{ route('planningrequests') }}">
+                  <i class="icon icon-doc icon text-white"></i>
                   <span class="text-white">Planning Requests</span>
                 </a>
               </li>
               <li>
-                <a href="{{ url('users') }}">
-                  <i class="glyphicon glyphicon-envelope icon text-white"></i>
+                <a href="{{ route('users') }}">
+                  <i class="icon icon-user icon text-white"></i>
                   <span class="text-white">Users</span>
                 </a>
               </li>
               <li>
-                <a href="">
-                  <i class="glyphicon glyphicon-envelope icon text-white"></i>
+                <a href="{{ route('departments') }}">
+                  <i class="icon icon-directions icon text-white"></i>
                   <span class="text-white">Departments</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('clients') }}">
+                  <i class="icon icon-users icon text-white"></i>
+                  <span class="text-white">Clients</span>
                 </a>
               </li>
               <li class="line dk"></li>

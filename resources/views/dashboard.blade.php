@@ -54,15 +54,12 @@ Dashboard
   	          </h2>
   	        </div>
   	        <ul class="list-group">
-  	          <li class="list-group-item">
-  	            <i class="icon-check text-success m-r-xs"></i> New Items (10)
-  	          </li>
-  	          <li class="list-group-item">
-  	            <i class="icon-check text-success m-r-xs"></i> View All (46)
+  	          <li class="list-group-item text-center">
+  	            <i class="icon-check text-success m-r-xs hide"></i> Notify Planning of a new equity and to request a Project Manager
   	          </li>
   	        </ul>
   	        <div class="panel-footer text-center">
-  	          <a href class="btn bg-brand-1 text-white block font-bold m">Create new Planning Request</a>
+  	          <a href="" class="btn bg-brand-1 text-white block font-bold m">Create New Planning Request</a>
   	        </div>
   	      </div>
   	    </div>
@@ -77,15 +74,12 @@ Dashboard
   	          </h2>
   	        </div>
   	        <ul class="list-group">
-  	          <li class="list-group-item">
-  	            <i class="icon-check text-success m-r-xs"></i> New Items (10)
-  	          </li>
-  	          <li class="list-group-item">
-  	            <i class="icon-check text-success m-r-xs"></i> View All (46)
+  	          <li class="list-group-item text-center">
+  	            <i class="icon-check text-success m-r-xs hide"></i> Use this to brief Studio, Exhibitions, Venue and Events/strategy teams on new Projects
   	          </li>
   	        </ul>
   	        <div class="panel-footer text-center">
-  	          <a href class="btn bg-brand-1 text-white block font-bold m">Create new Brief</a>
+  	          <a href="{{ route('newbriefsheet') }}" class="btn bg-brand-1 text-white block font-bold m">Create New Brief Sheets</a>
   	        </div>
   	      </div>
   	    </div>
