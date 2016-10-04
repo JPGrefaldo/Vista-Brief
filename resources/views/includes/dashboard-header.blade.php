@@ -49,7 +49,7 @@
               </li>
               <li class="divider"></li>
               <li>
-                <a ui-sref="access.signin">Logout</a>
+                <a href="{{ url('signin') }}" ui-sref="access.signin">Logout</a>
               </li>
             </ul>
             <!-- / dropdown -->
