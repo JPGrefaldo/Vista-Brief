@@ -84,10 +84,11 @@ Brief Sheets
                     <input type="checkbox"><i></i>
                   </label>
                 </th>
-                <th>Job Number</th>
-                <th>Job Name</th>
-                <th>Key Deliverables</th>
-                <th>Last Update by</th>
+                <th>Client</th>
+                <th>Job Title</th>
+                <th>Taken By</th>
+                <th>Format of Response</th>
+                <th>Date of Request Made</th>
                 <th>Status</th>
                 <th style="width:30px;">
                   <i class="fa fa-cog"></i>
@@ -97,26 +98,26 @@ Brief Sheets
             <tbody>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>1234567</td>
+                <td>ABC</td>
                 <td><span class="text-ellipsis">Evcom Award Entries</span></td>
-                <td><span class="text-ellipsis">Illustrations for hand held and freestanding props</span></td>
-                <td>Ray</td>
-                <td>Draft</td>
+                <td><span class="text-ellipsis">Jack Wilson</span></td>
+                <td>PDF</td>
+                <td>22/09/2016</td>
+                <td>Job</td>
                 <td>
-                  <a href class="active" title="edit"><i class="fa fa-edit text-primary"></i></a>
+                  <a href class="active" title="view"><i class="fa fa-eye text-primary"></i></a>
                 </td>
               </tr>
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>1234567</td>
+                <td>ABC</td>
                 <td><span class="text-ellipsis">Evcom Award Entries</span></td>
-                <td><span class="text-ellipsis">Illustrations for hand held and freestanding props</span></td>
-                <td>Ray</td>
-                <td>Submitted</td>
+                <td><span class="text-ellipsis">Jack Wilson</span></td>
+                <td>PDF</td>
+                <td>22/09/2016</td>
+                <td>Pitch</td>
                 <td>
-                  <a href class="active" title="view">
-                    <i class="fa fa-eye text-primary"></i>
-                  </a>
+                  <a href class="active" title="view"><i class="fa fa-eye text-primary"></i></a>
                 </td>
               </tr>
             </tbody>
