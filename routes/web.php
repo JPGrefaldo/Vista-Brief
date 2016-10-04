@@ -40,12 +40,13 @@ Route::group(['middleware' => ['web']], function() {
 		'as'	=>	'users'
 	]);
 	
-	Route::get('/users/new', function () {
-		return view('newuser');
-	});
+	Route::get('/users/new', [
+		'uses'	=>	'AdminController@formNewUser',
+		'as'	=>	'formnewuser'
+	]	);
 
 	Route::post('/users/new/save', [
-		'uses'	=>	'UserController@postNewUser',
+		'uses'	=>	'AdminController@postNewUser',
 		'as'	=>	'postnewuser'
 	]);
 	/* Users */

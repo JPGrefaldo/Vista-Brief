@@ -8,6 +8,7 @@ use App\User;
 
 class UserController extends Controller
 {
+    /*
     public function postNewUser(Request $request)
     {
     	$username = $request['username'];
@@ -31,4 +32,5 @@ class UserController extends Controller
     {
 
     }
+    */
 }

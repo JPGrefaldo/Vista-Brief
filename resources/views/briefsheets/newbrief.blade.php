@@ -41,9 +41,12 @@ Add New Brief Sheet
     <!-- / main header -->
     <div class="wrapper-md">
       <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default">
-            <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
+        <div class="col-sm-12">          
+          <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Untitled
+              </div>
               <div class="panel-body">
                 <div class="row">
                   <div class="col-lg-6">
@@ -159,6 +162,7 @@ Add New Brief Sheet
                           </span>                      
                         </div>
                       </div>
+                    </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
@@ -176,98 +180,115 @@ Add New Brief Sheet
                 </div>
               </div>
               <!-- / Required dates -->
+            </div>
+            
+            <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
-              <div class="line line-dashed b-b line-lg pull-in"></div>
 
-              <!-- Brief Summary -->
-              <div class="row-fluid">
-                <div class="form-group">
-                  <label class="control-label">01 - Brief Summary</label>
-                    <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
-                      <div class="btn-group dropdown" dropdown>
-                        <a class="btn btn-default" dropdown-toggle tooltip="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href data-edit="fontName Serif" style="font-family:'Serif'">Serif</a></li> 
-                          <li><a href data-edit="fontName Sans" style="font-family:'Sans'">Sans</a></li>
-                          <li><a href data-edit="fontName Arial" style="font-family:'Arial'">Arial</a></li></ul>
-                      </div>
-                      <div class="btn-group dropdown" dropdown>
-                        <a class="btn btn-default" dropdown-toggle data-toggle="dropdown" tooltip="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href data-edit="fontSize 5" style="font-size:24px">Huge</a></li>
-                          <li><a href data-edit="fontSize 3" style="font-size:18px">Normal</a></li>
-                          <li><a href data-edit="fontSize 1" style="font-size:14px">Small</a></li>
-                        </ul>
-                      </div>
-                      <div class="btn-group">
-                        <a class="btn btn-default" data-edit="bold" tooltip="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-                        <a class="btn btn-default" data-edit="italic" tooltip="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
-                        <a class="btn btn-default" data-edit="strikethrough" tooltip="Strikethrough"><i class="fa fa-strikethrough"></i></a>
-                        <a class="btn btn-default" data-edit="underline" tooltip="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
-                      </div>
-                      <div class="btn-group">
-                        <a class="btn btn-default" data-edit="insertunorderedlist" tooltip="Bullet list"><i class="fa fa-list-ul"></i></a>
-                        <a class="btn btn-default" data-edit="insertorderedlist" tooltip="Number list"><i class="fa fa-list-ol"></i></a>
-                        <a class="btn btn-default" data-edit="outdent" tooltip="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
-                        <a class="btn btn-default" data-edit="indent" tooltip="Indent (Tab)"><i class="fa fa-indent"></i></a>
-                      </div>
-                      <div class="btn-group">
-                        <a class="btn btn-default" data-edit="justifyleft" tooltip="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
-                        <a class="btn btn-default" data-edit="justifycenter" tooltip="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
-                        <a class="btn btn-default" data-edit="justifyright" tooltip="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
-                        <a class="btn btn-default" data-edit="justifyfull" tooltip="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
-                      </div>
-                      <div class="btn-group dropdown" dropdown>
-                        <a class="btn btn-default" dropdown-toggle tooltip="Hyperlink"><i class="fa fa-link"></i></a>
-                        <div class="dropdown-menu">
-                          <div class="input-group m-l-xs m-r-xs">
-                            <input class="form-control input-sm" id="LinkInput" placeholder="URL" type="text" data-edit="createLink"/>
-                            <div class="input-group-btn">
-                              <button class="btn btn-sm btn-default" type="button">Add</button>
+            <!-- Brief Summary -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                01 - Brief Summary
+              </div>
+              <div class="panel-body">
+                <div class="row-fluid">
+                  <div class="form-group">
+                    <label class="control-label"></label>
+                      <div class="btn-toolbar m-b-sm btn-editor" data-role="editor-toolbar" data-target="#editor">
+                        <div class="btn-group dropdown" dropdown>
+                          <a class="btn btn-default" dropdown-toggle tooltip="Font"><i class="fa fa-font"></i><b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                            <li><a href data-edit="fontName Serif" style="font-family:'Serif'">Serif</a></li> 
+                            <li><a href data-edit="fontName Sans" style="font-family:'Sans'">Sans</a></li>
+                            <li><a href data-edit="fontName Arial" style="font-family:'Arial'">Arial</a></li></ul>
+                        </div>
+                        <div class="btn-group dropdown" dropdown>
+                          <a class="btn btn-default" dropdown-toggle data-toggle="dropdown" tooltip="Font Size"><i class="fa fa-text-height"></i>&nbsp;<b class="caret"></b></a>
+                          <ul class="dropdown-menu">
+                            <li><a href data-edit="fontSize 5" style="font-size:24px">Huge</a></li>
+                            <li><a href data-edit="fontSize 3" style="font-size:18px">Normal</a></li>
+                            <li><a href data-edit="fontSize 1" style="font-size:14px">Small</a></li>
+                          </ul>
+                        </div>
+                        <div class="btn-group">
+                          <a class="btn btn-default" data-edit="bold" tooltip="Bold (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
+                          <a class="btn btn-default" data-edit="italic" tooltip="Italic (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+                          <a class="btn btn-default" data-edit="strikethrough" tooltip="Strikethrough"><i class="fa fa-strikethrough"></i></a>
+                          <a class="btn btn-default" data-edit="underline" tooltip="Underline (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
+                        </div>
+                        <div class="btn-group">
+                          <a class="btn btn-default" data-edit="insertunorderedlist" tooltip="Bullet list"><i class="fa fa-list-ul"></i></a>
+                          <a class="btn btn-default" data-edit="insertorderedlist" tooltip="Number list"><i class="fa fa-list-ol"></i></a>
+                          <a class="btn btn-default" data-edit="outdent" tooltip="Reduce indent (Shift+Tab)"><i class="fa fa-dedent"></i></a>
+                          <a class="btn btn-default" data-edit="indent" tooltip="Indent (Tab)"><i class="fa fa-indent"></i></a>
+                        </div>
+                        <div class="btn-group">
+                          <a class="btn btn-default" data-edit="justifyleft" tooltip="Align Left (Ctrl/Cmd+L)"><i class="fa fa-align-left"></i></a>
+                          <a class="btn btn-default" data-edit="justifycenter" tooltip="Center (Ctrl/Cmd+E)"><i class="fa fa-align-center"></i></a>
+                          <a class="btn btn-default" data-edit="justifyright" tooltip="Align Right (Ctrl/Cmd+R)"><i class="fa fa-align-right"></i></a>
+                          <a class="btn btn-default" data-edit="justifyfull" tooltip="Justify (Ctrl/Cmd+J)"><i class="fa fa-align-justify"></i></a>
+                        </div>
+                        <div class="btn-group dropdown" dropdown>
+                          <a class="btn btn-default" dropdown-toggle tooltip="Hyperlink"><i class="fa fa-link"></i></a>
+                          <div class="dropdown-menu">
+                            <div class="input-group m-l-xs m-r-xs">
+                              <input class="form-control input-sm" id="LinkInput" placeholder="URL" type="text" data-edit="createLink"/>
+                              <div class="input-group-btn">
+                                <button class="btn btn-sm btn-default" type="button">Add</button>
+                              </div>
                             </div>
                           </div>
+                          <a class="btn btn-default" data-edit="unlink" tooltip="Remove Hyperlink"><i class="fa fa-cut"></i></a>
                         </div>
-                        <a class="btn btn-default" data-edit="unlink" tooltip="Remove Hyperlink"><i class="fa fa-cut"></i></a>
+                        
+                        <div class="btn-group">
+                          <a class="btn btn-default" tooltip="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
+                          <input type="file" data-edit="insertImage" style="position:absolute; opacity:0; width:41px; height:34px" />
+                        </div>
+                        <div class="btn-group">
+                          <a class="btn btn-default" data-edit="undo" tooltip="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
+                          <a class="btn btn-default" data-edit="redo" tooltip="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
+                        </div>
                       </div>
-                      
-                      <div class="btn-group">
-                        <a class="btn btn-default" tooltip="Insert picture (or just drag & drop)" id="pictureBtn"><i class="fa fa-picture-o"></i></a>
-                        <input type="file" data-edit="insertImage" style="position:absolute; opacity:0; width:41px; height:34px" />
+                      <div ui-jq="wysiwyg" class="form-control" style="overflow:scroll;height:200px;max-height:200px">
+                        Go ahead&hellip;
                       </div>
-                      <div class="btn-group">
-                        <a class="btn btn-default" data-edit="undo" tooltip="Undo (Ctrl/Cmd+Z)"><i class="fa fa-undo"></i></a>
-                        <a class="btn btn-default" data-edit="redo" tooltip="Redo (Ctrl/Cmd+Y)"><i class="fa fa-repeat"></i></a>
-                      </div>
-                    </div>
-                    <div ui-jq="wysiwyg" class="form-control" style="overflow:scroll;height:200px;max-height:200px">
-                      Go ahead&hellip;
-                    </div>
-                </div>            
+                  </div>            
+                </div>
               </div>
-              <!-- / Brief Summary -->
+            </div>
+            <!-- / Brief Summary -->
 
-              <!-- Desciplines Required -->
-              <div class="row">
-                <div class="col-lg-3">
-                  <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Events</label>
-                    <div class="col-lg-9">
-                      <input type="text" name="jobnumber" class="form-control" placeholder="Job Number">
-                      <span class="help-block m-b-none"></span>
+            <!-- Desciplines Required -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                02 - Disciplines Required
+              </div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-lg-3">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Events</label>
+                      <div class="col-lg-9">
+                        <label class="i-checks">
+                        <input type="checkbox" name="disc_req" class="form-control">
+                        </label>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- / Desciplines Required -->
+            </div>
+            <!-- / Desciplines Required -->
 
-
+            <div class="panel panel-default">
               <div class="panel-footer">
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <button type="submit" class="btn btn-sm btn-info">Save</button>
                   <a href="{{ url('/briefs') }}" class="btn btn-sm btn-warning">Cancel</a>
               </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
