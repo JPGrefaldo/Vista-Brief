@@ -129,7 +129,7 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-6 control-label text-left">Quote Required by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md">
+                        <div class="input-group w-md1">
                           <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -142,7 +142,7 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-6 control-label text-left">Proposed Required by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md">
+                        <div class="input-group w-md1">
                           <input type="text" class="form-control" name="proposedreq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -155,7 +155,7 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md">
+                        <div class="input-group w-md1">
                           <input type="text" class="form-control" name="stagereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -168,7 +168,7 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md">
+                        <div class="input-group w-md1">
                           <input type="text" class="form-control" name="projdel" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
@@ -391,8 +391,8 @@ Add New Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       class="form-control" 
-                      style="overflow:hidden;min-height:50px;" 
-                      placeholder=""
+                      style="overflow:hidden;min-height:80px;" 
+                      placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?"
                     ></textarea>
                   </div>            
                 </div>
@@ -403,21 +403,36 @@ Add New Brief Sheet
             <!-- Budget, Timings and Outputs Required -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                09 - Budget, Timings and Outputs Required <span class="text-danger">*</span>
+                09 - Budget, Timings and Outputs Required
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       class="form-control" 
-                      style="overflow:hidden;min-height:50px;" 
-                      placeholder=""
+                      style="overflow:hidden;min-height:100px;" 
+                      placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?"
                     ></textarea>
                   </div>           
                 </div>
               </div>
             </div>
             <!-- / Budget, Timings and Outputs Required -->
+
+            <!-- Attachments -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                10 - Attachments
+              </div>
+              <div class="panel-body">
+                <div class="row-fluid">
+                  <div class="form-group m-b-n m-t-n">
+                  </div>           
+                </div>
+              </div>
+            </div>
+            <!-- / Attachments -->
+
 
             <div class="panel panel-default">
               <div class="panel-footer">
