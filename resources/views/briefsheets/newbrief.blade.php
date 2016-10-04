@@ -184,7 +184,6 @@ Add New Brief Sheet
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
-
             <!-- Brief Summary -->
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -426,19 +425,39 @@ Add New Brief Sheet
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
+                  <div class="form-group m-b-n m-t-n" style="height:100px">
+                    <div class="col-lg-4 m-l-n">
+                      <input ui-jq="filestyle" ui-options="{icon: false, buttonName: 'btn-primary'}" type="file">
+                    </div>
+                    <div class="col-lg-8 bg-ltblue text-center" style="height:100%;">
+                      Drop Files Here
+                    </div>
                   </div>           
                 </div>
               </div>
             </div>
             <!-- / Attachments -->
 
+            <!-- Notes -->
+            <div class="panel panel-default">
+              <div class="panel-body">
+                Need help writing the brief? Click here and request Specialist Support. Remember to save your brief as draft before closing.
+              </div>
+            </div>
+            <!-- / Notes -->
+
 
             <div class="panel panel-default">
               <div class="panel-footer">
-                  <input type="hidden" name="_token" value="{{ Session::token() }}">
-                  <button type="submit" class="btn btn-sm btn-info">Save</button>
-                  <a href="{{ url('/briefs') }}" class="btn btn-sm btn-warning">Cancel</a>
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <input type="submit" class="btn btn-lg btn-info btn-block" value="Save as Draft">
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
+                  </div>
+                </div>
               </div>
             </div>
           </form>
