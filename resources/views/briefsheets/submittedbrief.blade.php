@@ -58,7 +58,12 @@ Submitted - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <input type="text" name="client" class="form-control" placeholder="Client" value="sample client" disabled>
+                        <select name="client" class="form-control" disabled>
+                          <option value="0">select</option>
+                          <option selected>Option 1</option>
+                          <option>Option 2</option>
+                          <option>Option 3</option>
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -67,7 +72,12 @@ Submitted - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Status</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Project Status" value="Pitch" disabled>
+                        <select name="projectstatus" class="form-control" disabled>
+                          <option value="0">select</option>
+                          <option>Pitch</option>
+                          <option selected>Quote</option>
+                          <option>Live</option>
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>

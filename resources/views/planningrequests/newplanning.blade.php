@@ -53,7 +53,13 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <input type="text" name="client" class="form-control" placeholder="Client">
+                        <select name="client" class="form-control">
+                          <option value="0">select</option>
+                          <option>option 1</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>new client</option>
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -62,7 +68,13 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Taken By</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Taken By">
+                        <select name="takenby" class="form-control">
+                          <option value="0">select</option>
+                          <option>current user</option>
+                          <option>option 2</option>
+                          <option>option 3</option>
+                          <option>option 4</option>
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -122,7 +134,7 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Title</label>
                       <div class="col-lg-9">
-                        <input type="text" name="client" class="form-control" placeholder="Title">
+                        <input type="text" name="title" class="form-control" placeholder="Title">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -131,7 +143,11 @@ Add New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Status</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Status">
+                        <select name="status" class="form-control">
+                          <option value="0">select</option>
+                          <option value="1">Pitch</option>
+                          <option value="2">Job</option>
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -184,7 +200,7 @@ Add New Brief Sheet
                           <div class="input-group w-md1">
                             <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
                             </span>                      
                           </div>
                         </div>
@@ -207,7 +223,7 @@ Add New Brief Sheet
                           <div class="input-group w-md1">
                             <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
                             </span>                      
                           </div>
                         </div>
@@ -230,7 +246,7 @@ Add New Brief Sheet
                           <div class="input-group w-md1">
                             <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
                             </span>                      
                           </div>
                         </div>
@@ -253,7 +269,7 @@ Add New Brief Sheet
                           <div class="input-group w-md1">
                             <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
                             </span>                      
                           </div>
                         </div>

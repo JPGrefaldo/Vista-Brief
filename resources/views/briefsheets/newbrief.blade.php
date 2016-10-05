@@ -53,7 +53,13 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <input type="text" name="client" class="form-control" placeholder="Client">
+                        <select name="client" class="form-control">
+                          <option value="0">select</option>
+                          <option>Option 1</option>
+                          <option>Option 2</option>
+                          <option>Option 3</option>
+                          <option>new client</option>
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -62,7 +68,12 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Status</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Project Status">
+                        <select name="projectstatus" class="form-control">
+                          <option value="0">select</option>
+                          <option>Pitch</option>
+                          <option>Quote</option>
+                          <option>Live</option>
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
