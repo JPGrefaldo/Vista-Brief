@@ -56,10 +56,17 @@ Route::group(['middleware' => ['web']], function() {
 		'uses'	=>	'BriefController@index',
 		'as'	=>	'briefsheets'
 	]);
-	
 	Route::get('/briefsheets/new', [
 		'uses'	=>	'BriefController@new',
 		'as'	=>	'newbriefsheet'
+	]);
+	Route::get('/briefsheets/draft', [
+		'uses'	=>	'BriefController@drafted',
+		'as'	=>	'draftedbriefsheet'
+	]);
+	Route::get('/briefsheets/tempbriefid', [
+		'uses'	=>	'BriefController@submitted',
+		'as'	=>	'submittedbriefsheet'
 	]);
 	/* / Brief Routes */
 
@@ -67,6 +74,11 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('/planningrequests', [
 		'uses'	=>	'PlanningController@index',
 		'as'	=>	'planningrequests'
+	]);
+	
+	Route::get('/planningrequests/new', [
+		'uses'	=>	'PlanningController@new',
+		'as'	=>	'newplanningrequest'
 	]);
 	/* / Planning Requests */
 

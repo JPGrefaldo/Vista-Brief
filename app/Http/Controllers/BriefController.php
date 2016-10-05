@@ -15,4 +15,12 @@ class BriefController extends Controller
     public function new() {
     	return view ('briefsheets.newbrief');
     }
+
+    public function drafted() {
+    	return view ('briefsheets.draftedbrief');
+    }
+
+    public function submitted() {
+    	return view ('briefsheets.submittedbrief');
+    }
 }

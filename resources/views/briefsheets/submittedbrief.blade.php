@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Create New Brief Sheet
+Submitted - Brief Sheet
 @endsection
 
 @section('content')
@@ -30,10 +30,10 @@ Create New Brief Sheet
   <!-- main -->
   <div class="col">
     <!-- main header -->
-    <div class="bg-light lter b-b wrapper-md">
+    <div class="bg-light lter b-b wrapper-md hide">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Create New Brief Sheet</h1>
+          <h1 class="m-n font-thin h3 text-black">Submitted Brief Sheet</h1>
           <small class="text-muted">welcome</small>
         </div>
       </div>
@@ -41,7 +41,12 @@ Create New Brief Sheet
     <!-- / main header -->
     <div class="wrapper-md">
       <div class="row">
-        <div class="col-sm-12">          
+        <div class="col-sm-12">
+          <div class="panel panel-danger">
+            <div class="panel-body bg-danger">
+              <strong>Submitted.</strong> You can't edit this brief sheet as this had been submitted. You can add amends.
+            </div>
+          </div>
           <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -210,56 +215,56 @@ Create New Brief Sheet
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Events <input type="checkbox"><i></i>                        
+                          Events <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Strategy <input type="checkbox"><i></i>                        
+                          Strategy <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Content <input type="checkbox"><i></i>                        
+                          Content <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Design <input type="checkbox"><i></i>                        
+                          Design <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Digital <input type="checkbox"><i></i>                        
+                          Digital <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Film <input type="checkbox"><i></i>                        
+                          Film <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Exhibitions <input type="checkbox"><i></i>                        
+                          Exhibitions <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          VenueHub <input type="checkbox"><i></i>                        
+                          VenueHub <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Create New Brief Sheet
+Add New Brief Sheet
 @endsection
 
 @section('content')
@@ -33,7 +33,7 @@ Create New Brief Sheet
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Create New Brief Sheet</h1>
+          <h1 class="m-n font-thin h3 text-black">Create New Planning Request</h1>
           <small class="text-muted">welcome</small>
         </div>
       </div>
@@ -210,56 +210,56 @@ Create New Brief Sheet
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Events <input type="checkbox"><i></i>                        
+                          Events <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Strategy <input type="checkbox"><i></i>                        
+                          Strategy <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Content <input type="checkbox"><i></i>                        
+                          Content <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Design <input type="checkbox"><i></i>                        
+                          Design <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Digital <input type="checkbox"><i></i>                        
+                          Digital <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Film <input type="checkbox"><i></i>                        
+                          Film <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Exhibitions <input type="checkbox"><i></i>                        
+                          Exhibitions <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          VenueHub <input type="checkbox"><i></i>                        
+                          VenueHub <input type="checkbox" checked disabled><i></i>                        
                         </label>
                       </div>           
                     </div>
@@ -452,12 +452,10 @@ Create New Brief Sheet
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <div class="row">
                   <div class="col-lg-6">
-                    <!--<input type="submit" class="btn btn-lg btn-info btn-block" value="Save as Draft">-->
-                    <a href="{{ route('draftedbriefsheet') }}" class="btn btn-lg btn-info btn-block">Save as Draft</a>
+                    <input type="submit" class="btn btn-lg btn-info btn-block" value="Save as Draft">
                   </div>
                   <div class="col-lg-6">
-                    <!--<input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">-->
-                    <a href="{{ route('submittedbriefsheet') }}" class="btn btn-lg btn-success btn-block">Submit</a>
+                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
                   </div>
                 </div>
               </div>
