@@ -58,7 +58,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <input type="text" name="client" class="form-control" placeholder="Client">
+                        <input type="text" name="client" class="form-control" placeholder="Client" value="sample client">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -67,7 +67,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Status</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Project Status">
+                        <input type="text" name="projectstatus" class="form-control" placeholder="Project Status" value="Pitch">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -78,7 +78,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Job Number</label>
                       <div class="col-lg-9">
-                        <input type="text" name="jobnumber" class="form-control" placeholder="Job Number">
+                        <input type="text" name="jobnumber" class="form-control" placeholder="Job Number" value="123456789">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -87,7 +87,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Old Job Number</label>
                       <div class="col-lg-9">
-                        <input type="text" name="oldjobnumber" class="form-control" placeholder="Old Job Number">
+                        <input type="text" name="oldjobnumber" class="form-control" placeholder="987654321">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -98,7 +98,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
                       <div class="col-lg-9">
-                        <input type="text" name="budget" class="form-control" placeholder="Your Budget">
+                        <input type="text" name="budget" class="form-control" placeholder="Your Budget" value="1000.00">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -107,7 +107,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Manager</label>
                       <div class="col-lg-9">
-                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager">
+                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager" value="sample manager">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -116,14 +116,14 @@ Draft - Brief Sheet
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="jobname" class="form-control" placeholder="Job Name">
+                    <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="sample job name">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="keydeliv" class="form-control" placeholder="Key Deliverables">
+                    <input type="text" name="keydeliv" class="form-control" placeholder="Key Deliverables" value="sample deliverables">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -135,7 +135,7 @@ Draft - Brief Sheet
                       <label class="col-lg-6 control-label text-left">Quote Required by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -148,7 +148,7 @@ Draft - Brief Sheet
                       <label class="col-lg-6 control-label text-left">Proposed Required by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="proposedreq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <input type="text" class="form-control" name="proposedreq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -161,7 +161,7 @@ Draft - Brief Sheet
                       <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="stagereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <input type="text" class="form-control" name="stagereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -174,7 +174,7 @@ Draft - Brief Sheet
                       <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
                       <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="projdel" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <input type="text" class="form-control" name="projdel" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -197,7 +197,7 @@ Draft - Brief Sheet
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here."></textarea>
+                    <textarea class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here.">sample brief</textarea>
                   </div>            
                 </div>
               </div>
@@ -215,56 +215,56 @@ Draft - Brief Sheet
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Events <input type="checkbox" checked disabled><i></i>                        
+                          Events <input type="checkbox" checked><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Strategy <input type="checkbox" checked disabled><i></i>                        
+                          Strategy <input type="checkbox"><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Content <input type="checkbox" checked disabled><i></i>                        
+                          Content <input type="checkbox"><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Design <input type="checkbox" checked disabled><i></i>                        
+                          Design <input type="checkbox" checked><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Digital <input type="checkbox" checked disabled><i></i>                        
+                          Digital <input type="checkbox"><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Film <input type="checkbox" checked disabled><i></i>                        
+                          Film <input type="checkbox" checked><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          Exhibitions <input type="checkbox" checked disabled><i></i>                        
+                          Exhibitions <input type="checkbox" checked><i></i>                        
                         </label>
                       </div>           
                     </div>
                     <div class="col-lg-3">
                       <div class="checkbox1">
                         <label class="checkboc-inline">
-                          VenueHub <input type="checkbox" checked disabled><i></i>                        
+                          VenueHub <input type="checkbox" checked><i></i>                        
                         </label>
                       </div>           
                     </div>
@@ -286,7 +286,7 @@ Draft - Brief Sheet
                       class="form-control" 
                       style="overflow:hidden;min-height:120px;" 
                       placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
-                    ></textarea>
+                    >sample objective</textarea>
                   </div>          
                 </div>
               </div>
@@ -305,7 +305,7 @@ Draft - Brief Sheet
                       class="form-control" 
                       style="overflow:hidden;min-height:100px;" 
                       placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?"
-                    ></textarea>
+                    >sample context</textarea>
                   </div>
                 </div>
               </div>
@@ -324,7 +324,7 @@ Draft - Brief Sheet
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?"
-                    ></textarea>
+                    >sample insight</textarea>
                   </div>         
                 </div>
               </div>
@@ -344,21 +344,21 @@ Draft - Brief Sheet
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="Think?"
-                      ></textarea>
+                      >sample think</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="Feel?"
-                      ></textarea>
+                      >sample feel</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="Do?"
-                      ></textarea>
+                      >sample do</textarea>
                     </div>
                   </div>            
                 </div>
@@ -378,7 +378,7 @@ Draft - Brief Sheet
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?"
-                    ></textarea>
+                    >sample propositions</textarea>
                   </div>             
                 </div>
               </div>
@@ -397,7 +397,7 @@ Draft - Brief Sheet
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?"
-                    ></textarea>
+                    >sample creative</textarea>
                   </div>            
                 </div>
               </div>
@@ -416,7 +416,7 @@ Draft - Brief Sheet
                       class="form-control" 
                       style="overflow:hidden;min-height:100px;" 
                       placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?"
-                    ></textarea>
+                    >sample budget</textarea>
                   </div>           
                 </div>
               </div>
