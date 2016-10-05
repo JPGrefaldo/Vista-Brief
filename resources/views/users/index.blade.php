@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Manage Users
+Manage Users - Vista
 @endsection
 
 @section('content')

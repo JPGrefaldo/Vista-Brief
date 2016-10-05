@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Add New Brief Sheet
+Create New Planning Request
 @endsection
 
 @section('content')

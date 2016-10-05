@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Brief Sheets
+Clients - Vista
 @endsection
 
 @section('content')
@@ -40,13 +40,13 @@ Brief Sheets
     </div>
     <!-- / main header -->
     <div class="wrapper-md">
-<div class="panel panel-default">
+      <div class="panel panel-default">
         <div class="panel-heading">
-          List of Users
+          List of Clients
           <div class="text-right">
             <a href="{{ url('users/new') }}" class="btn btn-success">
               <i class="fa fa-fw fa-plus"></i>
-              Add New User
+              Add New Client
             </a>
             <a href="" class="btn btn-dark">
               Search

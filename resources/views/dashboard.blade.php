@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Dashboard
+Dashboard - Vista
 @endsection
 
 @section('content')
@@ -34,7 +34,7 @@ Dashboard
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Welcome to Vista Brief System</small>
         </div>
       </div>
     </div>

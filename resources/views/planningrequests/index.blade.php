@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Brief Sheets
+Planning Requests - Vista
 @endsection
 
 @section('content')

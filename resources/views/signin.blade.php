@@ -1,7 +1,7 @@
 @extends('layouts.page')
 
 @section('title')
-Login
+Signin - Vista
 @endsection
 
 @section('content')
