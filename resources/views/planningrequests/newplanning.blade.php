@@ -233,7 +233,7 @@ Add New Brief Sheet
                   <div class="col-lg-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
+                        <label class="col-lg-3 control-label text-left">Ideal Review</label>
                         <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
                           <div class="input-group w-md1">
                             <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
@@ -256,7 +256,7 @@ Add New Brief Sheet
                   <div class="col-lg-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
+                        <label class="col-lg-3 control-label text-left">Project Deadline</label>
                         <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
                           <div class="input-group w-md1">
                             <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
