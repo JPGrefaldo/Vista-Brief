@@ -60,9 +60,9 @@ Add New Brief Sheet
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Project Status</label>
+                      <label class="col-lg-3 control-label text-left">Taken By</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Project Status">
+                        <input type="text" name="projectstatus" class="form-control" placeholder="Taken By">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -71,18 +71,18 @@ Add New Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Job Number</label>
+                      <label class="col-lg-3 control-label text-left">Contact Name/Title</label>
                       <div class="col-lg-9">
-                        <input type="text" name="jobnumber" class="form-control" placeholder="Job Number">
+                        <input type="text" name="jobnumber" class="form-control" placeholder="Contact Name/Title">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Old Job Number</label>
+                      <label class="col-lg-3 control-label text-left">Contact Email</label>
                       <div class="col-lg-9">
-                        <input type="text" name="oldjobnumber" class="form-control" placeholder="Old Job Number">
+                        <input type="text" name="oldjobnumber" class="form-control" placeholder="Contact Email">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -91,177 +91,173 @@ Add New Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
+                      <label class="col-lg-3 control-label text-left">Contact Landline</label>
                       <div class="col-lg-9">
-                        <input type="text" name="budget" class="form-control" placeholder="Your Budget">
+                        <input type="text" name="budget" class="form-control" placeholder="Contact Landline">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Project Manager</label>
+                      <label class="col-lg-3 control-label text-left">Contact Mobile</label>
                       <div class="col-lg-9">
-                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager">
+                        <input type="text" name="pmanager" class="form-control" placeholder="Contact Mobile">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
-                  <div class="col-lg-10">
-                    <input type="text" name="jobname" class="form-control" placeholder="Job Name">
-                    <span class="help-block m-b-none"></span>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
-                  <div class="col-lg-10">
-                    <input type="text" name="keydeliv" class="form-control" placeholder="Key Deliverables">
-                    <span class="help-block m-b-none"></span>
-                  </div>
-                </div>
-
-                <!-- Required dates -->
-                <div class="row">
-                  <div class="col-lg-3">
-                    <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Quote Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                          </span>                      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Proposed Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="proposedreq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                          </span>                      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="stagereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                          </span>                      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-lg-3">
-                    <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="projdel" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
-                          </span>                      
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                </div>               
               </div>
-              <!-- / Required dates -->
             </div>
-            
-            <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
-            <!-- Brief Summary -->
+            <!-- Job Details -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                01 - Brief Summary
+                01 - Job Details
               </div>
               <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <textarea class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here."></textarea>
-                  </div>            
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Title</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="client" class="form-control" placeholder="Title">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Status</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="projectstatus" class="form-control" placeholder="Status">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Budget</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="client" class="form-control" placeholder="Budget">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="col-lg-3 control-label text-left">Contact Email</label>
+                      <div class="col-lg-9">
+                        <input type="text" name="projectstatus" class="form-control" placeholder="Contact Email">
+                        <span class="help-block m-b-none"></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <!-- / Brief Summary -->
+            <!-- / Job Details -->
 
-            <!-- Desciplines Required -->
+            <!-- Timings -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                02 - Disciplines Required
+                03 - Timings
               </div>
               <div class="panel-body">
-                <div class="form-group">
-                  <div class="row-fluid">
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Events <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="row-fluid">
+                      <div class="form-group">
+                        <label class="col-lg-3 control-label text-left">Pitch/Quote</label>
+                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Strategy <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="row-fluid">
+                      <div class="form-group">
+                        <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
+                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Content <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="row-fluid">
+                      <div class="form-group">
+                        <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
+                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Design <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Digital <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Film <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Exhibitions <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          VenueHub <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="row-fluid">
+                      <div class="form-group">
+                        <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
+                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                          <div class="input-group w-md1">
+                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            </span>                      
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -269,155 +265,25 @@ Add New Brief Sheet
             </div>
             <!-- / Desciplines Required -->
 
-            <!-- Objectives / Measure -->
+            <!-- Job Spec -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                03 - Objectives / Measure
+                03 - Job Spec
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       class="form-control" 
-                      style="overflow:hidden;min-height:120px;" 
-                      placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
+                      style="overflow:hidden;min-height:4px;" 
+                      placeholder="Type the description of the work required"
                     ></textarea>
                   </div>          
                 </div>
               </div>
             </div>
-            <!-- / Objectives / Measure -->
-
-            <!-- Context -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                04 - Context
-              </div>
-              <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <textarea 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:100px;" 
-                      placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?"
-                    ></textarea>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- / Context -->
-
-            <!-- Target Audience and Insight -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                05 - Target Audience and Insight
-              </div>
-              <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <textarea 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
-                      placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?"
-                    ></textarea>
-                  </div>         
-                </div>
-              </div>
-            </div>
-            <!-- / Target Audience and Insight -->
-
-            <!-- What do want the target audience to -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                06 - What do want the target audience to ...
-              </div>
-              <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <div class="col-lg-4 m-b-n">
-                      <textarea 
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
-                      placeholder="Think?"
-                      ></textarea>
-                    </div>
-                    <div class="col-lg-4 m-b-n">
-                      <textarea 
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
-                      placeholder="Feel?"
-                      ></textarea>
-                    </div>
-                    <div class="col-lg-4 m-b-n">
-                      <textarea 
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
-                      placeholder="Do?"
-                      ></textarea>
-                    </div>
-                  </div>            
-                </div>
-              </div>
-            </div>
-            <!-- / What do want the target audience to -->
-
-            <!-- Key Messages / Propositions -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                07 - Key Messages / Propositions
-              </div>
-              <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <textarea 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
-                      placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?"
-                    ></textarea>
-                  </div>             
-                </div>
-              </div>
-            </div>
-            <!-- / Key Messages / Propositions -->
-
-            <!-- Creative -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                08 - Creative
-              </div>
-              <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <textarea 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
-                      placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?"
-                    ></textarea>
-                  </div>            
-                </div>
-              </div>
-            </div>
-            <!-- / Creative -->
-
-            <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                09 - Budget, Timings and Outputs Required
-              </div>
-              <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <textarea 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:100px;" 
-                      placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?"
-                    ></textarea>
-                  </div>           
-                </div>
-              </div>
-            </div>
-            <!-- / Budget, Timings and Outputs Required -->
-
+            <!-- / Job Spec -->
+            
             <!-- Attachments -->
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -438,26 +304,10 @@ Add New Brief Sheet
             </div>
             <!-- / Attachments -->
 
-            <!-- Notes -->
-            <div class="panel panel-default">
-              <div class="panel-body">
-                Need help writing the brief? Click here and request Specialist Support. Remember to save your brief as draft before closing.
-              </div>
-            </div>
-            <!-- / Notes -->
-
-
             <div class="panel panel-default">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <input type="submit" class="btn btn-lg btn-info btn-block" value="Save as Draft">
-                  </div>
-                  <div class="col-lg-6">
-                    <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
-                  </div>
-                </div>
+                <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
               </div>
             </div>
           </form>
