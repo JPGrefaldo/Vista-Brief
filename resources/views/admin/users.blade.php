@@ -88,12 +88,11 @@ Manage Users - Vista
                 <th>Forename</th>
                 <th>Surename</th>
                 <th>Email Address</th>
-                <th style="width:30px;"></th>
+                <th style="width:110px;"><i class="fa fa-cog"></i></th>
               </tr>
             </thead>
             <tbody>
               @foreach ($users as $user)
-                @if ($user->username != 'admin')
                   <tr>
                     <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                     <td>{{ $user->username }}</td>
@@ -101,10 +100,14 @@ Manage Users - Vista
                     <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
                     <td>{{ $user->email }}</td>
                     <td>
-                      <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                      <a href="#">
+                        <i class="glyphicon glyphicon-edit text-info"></i>
+                      </a> 
+                      <a href="#">
+                        <i class="glyphicon glyphicon-remove-sign text-danger"></i>
+                      </a>
                     </td>
                   </tr>
-                @endif
               @endforeach
             </tbody>
           </table>
@@ -121,7 +124,7 @@ Manage Users - Vista
               <button class="btn btn-sm btn-default">Apply</button>                  
             </div>
             <div class="col-sm-4 text-center">
-              <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+              <small class="text-muted inline m-t-sm m-b-sm">showing 10-10 of 10 items</small>
             </div>
             <div class="col-sm-4 text-right text-center-xs">                
               <ul class="pagination pagination-sm m-t-none m-b-none">

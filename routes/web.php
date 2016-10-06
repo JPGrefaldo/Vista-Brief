@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function() {
+//Route::group(['middleware' => ['web']], function() {
 	Route::get('/', function () {
 	    return view('signin');
 	});
@@ -115,7 +115,7 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('/profile', function() {
 		return view ('profile');
 	});
-});
+//});
 
 
 

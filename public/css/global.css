@@ -44,17 +44,17 @@ body {
 .text-brand-1 {
 	color: #00385b;
 }
-
 .bg-ltyellow {
 	background-color: #ffffe6;
 }
-
 .bg-ltblue {
 	background-color: #e6eeff;
 }
-
 .bg-ltinfo {
 	background-color: #b3f0ff;
+}
+.bg-ltdanger {
+	background-color: #ffc2b3;
 }
 
 .table-borderless td, .table-borderless th {

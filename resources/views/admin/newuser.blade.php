@@ -41,7 +41,19 @@ Add New User
     <!-- / main header -->
     <div class="wrapper-md">
       <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-6">
+          @if (count($errors) > 0)
+            <div class="panel panel-danger">
+              <div class="panel-body bg-ltdanger text-danger">
+                <h4>Oh Snap!</h4>
+                <ul>
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            </div>
+          @endif
           <div class="panel panel-default">
             <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
               <div class="panel-body">
@@ -82,16 +94,16 @@ Add New User
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Confirm Password</label>
                   <div class="col-lg-9">
-                    <input type="password" name="confirmpwd" class="form-control" placeholder="Confirm Password">
+                    <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
                   </div>
                 </div>
 
-                <div class="line dk"></div>
+                <div class="line line-dashed b-b line-lg pull-in"></div>
 
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Your Password</label>
                   <div class="col-lg-9">
-                    <input type="password" name="adminpwd" class="form-control" placeholder="Verify by entering you password">
+                    <input type="password" name="password_admin" class="form-control" placeholder="Verify by entering you Admin password">
                   </div>
                 </div>              
               </div>
