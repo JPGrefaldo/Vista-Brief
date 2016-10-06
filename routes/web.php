@@ -16,25 +16,34 @@ Route::group(['middleware' => ['web']], function() {
 	    return view('signin');
 	});
 
-	Route::get('/signin', function () {
-	    //return view('welcome');
-	    return view('signin');
-	});
-	Route::get('/login', function () {
-	    //return view('welcome');
-	    return view('signin');
+	/* User */
+	Route::get('/signin', [
+		'uses'	=>	'UserController@formSignin',
+		'as'	=>	'signin'
+	]);
+	Route::get('/login', [
+		'uses'	=>	'UserController@formSignin',
+		'as'	=>	'login'
+	]);
+	Route::post('/signing_in', [
+		'uses'	=>	'UserController@postSignin',
+		'as'	=>	'postsignin'
+	]);
+	Route::get('/postsignin', function(){
+		return view('dashboard');
 	});
 
 	Route::get('/forgotpassword', function () {
 	    //return view('welcome');
 	    return view('forgotpwd');
 	});
+	/* / User */
 
 	Route::get('/dashboard', function () {
 		return view('dashboard');
 	});
 
-	/* Users */
+	/* Admin */
 	Route::get('/users', [
 		'uses'	=>	'AdminController@manageUsers',
 		'as'	=>	'users'
@@ -49,7 +58,7 @@ Route::group(['middleware' => ['web']], function() {
 		'uses'	=>	'AdminController@postNewUser',
 		'as'	=>	'postnewuser'
 	]);
-	/* Users */
+	/* Admin */
 
 	/* Brief Routes */
 	Route::get('/briefsheets', [

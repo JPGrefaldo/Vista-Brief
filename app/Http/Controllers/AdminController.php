@@ -8,6 +8,8 @@ use App\User;
 
 class AdminController extends Controller
 {
+    //public newUserRedirectTo = '/users';
+
     public function manageUsers() {
     	$users = User::all();
 
@@ -35,7 +37,7 @@ class AdminController extends Controller
         $user->type        = 2;
         $user->save();
 
-    	return redirect('/users');
+    	return redirect()->route('users');
     }
 
     public function postSignIn()

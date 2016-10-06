@@ -41,6 +41,9 @@ body {
 .bg-brand-1 {
 	background-color: #00385b ;
 }
+.text-brand-1 {
+	color: #00385b;
+}
 
 .bg-ltyellow {
 	background-color: #ffffe6;

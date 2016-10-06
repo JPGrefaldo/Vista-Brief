@@ -5,32 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    /*
-    public function postNewUser(Request $request)
+    public function formSignin()
     {
-    	$username = $request['username'];
-    	$forename = $request['forename'];
-    	$surname = $request['surname'];
-    	$email = $request['email'];
-    	$password = bcrypt($request['password']);
-
-    	$user = new User();
-    	$user->username = $username;
-    	$user->forename = $forename;
-    	$user->surname = $surname;
-    	$user->email = $email;
-    	$user->password = $password;
-    	$user->save();
-
-    	return redirect('/users');
+        return view('users.signin');
     }
 
-    public function postSignIn()
+    public function postSignin(Request $request)
     {
-
-    }
-    */
+        if ( Auth::attempt(['username'=>$request['username'], 'password'=>$request['password']]) ) {
+            return redirect('/dashboard');
+        }
+        return redirect()->route('signin');
+    }    
 }
