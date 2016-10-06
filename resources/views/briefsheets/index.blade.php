@@ -56,6 +56,7 @@ Brief Sheets - Vista
         </div>
         <div class="row wrapper">
           <div class="col-sm-5 m-b-xs">
+            <!-- Sorry, no brief sheets found. Begin by creating a <a href="{{ route('newbriefsheet') }}">new brief sheet</a> -->
             <select class="input-sm form-control w-sm inline v-middle">
               <option value="0">Bulk action</option>
               <option value="1">Delete selected</option>

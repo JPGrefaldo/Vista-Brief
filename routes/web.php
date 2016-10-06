@@ -12,10 +12,10 @@
 */
 
 //Route::group(['middleware' => ['web']], function() {
-	Route::get('/', function () {
-	    return view('signin');
-	});
-
+	Route::get('/', [
+		'uses'	=>	'UserController@formSignin',
+		'as'	=>	'signin'
+	]);
 	/* User */
 	Route::get('/signin', [
 		'uses'	=>	'UserController@formSignin',
