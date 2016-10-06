@@ -20,19 +20,20 @@ class AdminController extends Controller
 
     public function postNewUser(Request $request)
     {
-    	$username = $request['username'];
-    	$forename = $request['forename'];
-    	$surname = $request['surname'];
-    	$email = $request['email'];
-    	$password = bcrypt($request['password']);
+    	$username          = $request['username'];
+    	$forename          = $request['forename'];
+    	$surname           = $request['surname'];
+    	$email             = $request['email'];
+    	$password          = bcrypt($request['password']);
 
     	$user = new User();
-    	$user->username = $username;
-    	$user->forename = $forename;
-    	$user->surname = $surname;
-    	$user->email = $email;
-    	$user->password = $password;
-    	$user->save();
+    	$user->username    = $username;
+    	$user->forename    = $forename;
+    	$user->surname     = $surname;
+    	$user->email       = $email;
+    	$user->password    = $password;
+        $user->type        = 2;
+        $user->save();
 
     	return redirect('/users');
     }

@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('surname');
             $table->string('email');
             $table->string('password');
-            $table->string('type')->default('');
+            $table->string('type')->default('2'); /* 1=admin; 2=regular*/
             //$table->tinyInteger('department_id')->default(1);
             $table->tinyInteger('is_active')->default('1');
             //$table->timestamp('last_login_at');

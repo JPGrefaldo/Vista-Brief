@@ -93,16 +93,18 @@ Manage Users - Vista
             </thead>
             <tbody>
               @foreach ($users as $user)
-              <tr>
-                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>{{ $user->username }}</td>
-                <td><span class="text-ellipsis">{{ $user->forename }}</span></td>
-                <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
-                <td>{{ $user->email }}</td>
-                <td>
-                  <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
-                </td>
-              </tr>
+                @if ($user->username != 'admin')
+                  <tr>
+                    <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                    <td>{{ $user->username }}</td>
+                    <td><span class="text-ellipsis">{{ $user->forename }}</span></td>
+                    <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
+                    <td>{{ $user->email }}</td>
+                    <td>
+                      <a href class="active" ui-toggle-class><i class="fa fa-check text-success text-active"></i><i class="fa fa-times text-danger text"></i></a>
+                    </td>
+                  </tr>
+                @endif
               @endforeach
             </tbody>
           </table>
