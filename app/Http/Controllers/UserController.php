@@ -32,4 +32,20 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('signin');
     }
+
+    public function formresetpassword() {
+        return view('users.resetpassword');
+    }
+
+    public function postresetpassword(Request $request)
+    {
+        if (User::where('username', '=', $request->input('username'))->exists()) { // if user doesn't exist return with error
+            echo 'In working progress functionality!';
+            exit();
+        }
+        else {
+            $error = new MessageBag(['invalid_username' => 'Sorry, unable to find your details. Please check and try again']);
+            return redirect()->back()->withErrors($error)->withInput();
+        }
+    }
 }

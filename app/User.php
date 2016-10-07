@@ -15,4 +15,8 @@ class User extends Model implements Authenticatable
 		}
 		return false;
 	}
+
+	public function scopeUsername($query, $username){
+		return $query->where('username', $username);
+	}
 }

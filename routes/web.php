@@ -39,13 +39,18 @@ Route::post('/signin', [
 	'uses'	=>	'UserController@postSignin',
 	'as'	=>	'postsignin'
 ]);
-Route::get('/postsignin', function(){
-	return view('dashboard');
-});
+//Route::get('/postsignin', function(){
+//	return view('dashboard');
+//});
 
-Route::get('/forgotpassword', function () {
-    return view('forgotpwd');
-});
+Route::get('/resetpassword', [
+	'uses'	=>	'UserController@formresetpassword',
+	'as'	=>	'formresetpassword'
+]);
+Route::post('/resetpassword', [
+	'uses'	=>	'UserController@postresetpassword',
+	'as'	=>	'postresetpassword'
+]);
 /* / Access */
 
 
