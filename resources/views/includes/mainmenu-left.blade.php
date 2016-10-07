@@ -13,7 +13,7 @@
                   <span class="text-white">Dashboard</span>
                 </a>
               </li>
-              <li>
+              <li> 
                 <a href="{{ route('briefsheets') }}">
                   <i class="icon icon-briefcase icon text-white"></i>
                   <span class="text-white">Brief Sheets</span>

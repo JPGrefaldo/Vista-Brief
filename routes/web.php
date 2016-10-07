@@ -80,7 +80,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::group(['middleware' => ['admin']], function() {	/* Admin Middleware */		
 		Route::get('/users', [	/* Users */
 			'uses'	=>	'AdminController@manageUsers',
-			'as'	=>	'users'
+			'as'	=>	'users' 
 		]);
 		
 		Route::get('/users/new', [

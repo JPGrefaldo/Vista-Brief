@@ -18,7 +18,7 @@ class AdminMiddleware
     {
         //if(Auth::check() && Auth::user()->isAdmin()) {  
         if(Auth::check() && Auth::user()->type == 1) {            
-            return $next($request);
+            return $next($request); 
         } 
 
         return redirect()->back();
