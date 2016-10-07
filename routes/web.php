@@ -25,6 +25,14 @@ Route::get('/login', [
 	'uses'	=>	'UserController@formSignin',
 	'as'	=>	'login'
 ]);
+Route::get('/signout', [
+	'uses'	=>	'UserController@signout',
+	'as'	=>	'signout'
+]);
+Route::get('/logout', [
+	'uses'	=>	'UserController@signout',
+	'as'	=>	'logout'
+]);
 
 
 Route::post('/signin', [
@@ -77,31 +85,33 @@ Route::group(['middleware' => 'auth'], function() {
 	]);
 	/* / Planning Requests */
 
-	Route::group(['middleware' => ['admin']], function() {	/* Admin Middleware */		
-		Route::get('/users', [	/* Users */
-			'uses'	=>	'AdminController@manageUsers',
-			'as'	=>	'users' 
-		]);
-		
-		Route::get('/users/new', [
-			'uses'	=>	'AdminController@formNewUser',
-			'as'	=>	'formnewuser'
-		]);
+	Route::group(['middleware' => ['admin']], function() {	/* Admin Middleware */
+		Route::group(['prefix' => 'admin'], function () {
+			Route::get('/users', [	/* Users */
+				'uses'	=>	'AdminController@manageUsers',
+				'as'	=>	'users' 
+			]);
+			
+			Route::get('/users/new', [
+				'uses'	=>	'AdminController@formNewUser',
+				'as'	=>	'formnewuser'
+			]);
 
-		Route::post('/users/new/save', [
-			'uses'	=>	'AdminController@postNewUser',
-			'as'	=>	'postnewuser'
-		]);
-		
-		Route::get('/departments', [	/* Department Ruoting */
-			'uses'	=>	'DepartmentController@index',
-			'as'	=>	'departments'
-		]);
-		
-		Route::get('/clients', [	/* Clients */
-			'uses'	=>	'ClientController@index',
-			'as'	=>	'clients'
-		]);
+			Route::post('/users/new/save', [
+				'uses'	=>	'AdminController@postNewUser',
+				'as'	=>	'postnewuser'
+			]);
+			
+			Route::get('/departments', [	/* Department Ruoting */
+				'uses'	=>	'DepartmentController@index',
+				'as'	=>	'departments'
+			]);
+			
+			Route::get('/clients', [	/* Clients */
+				'uses'	=>	'ClientController@index',
+				'as'	=>	'clients'
+			]);
+		});
 	});	/* / Admin Middleware */
 	
 	Route::get('/settings', [	/* Settings */

@@ -60,28 +60,28 @@ Add New User
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
-                    <input type="text" name="username" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="Username" value="{{ old('username') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Forename</label>
                   <div class="col-lg-9">
-                    <input type="text" name="forename" class="form-control" placeholder="Forename">
+                    <input type="text" name="forename" class="form-control" placeholder="Forename" value="{{ old('forename') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Surname</label>
                   <div class="col-lg-9">
-                    <input type="text" name="surname" class="form-control" placeholder="Surname">
+                    <input type="text" name="surname" class="form-control" placeholder="Surname" value="{{ old('surname') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
-                    <input type="text" name="email" class="form-control" placeholder="Email">
+                    <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>

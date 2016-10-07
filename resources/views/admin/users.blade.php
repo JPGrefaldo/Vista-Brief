@@ -44,7 +44,7 @@ Manage Users - Vista
         <div class="panel-heading">
           List of Users
           <div class="text-right">
-            <a href="{{ url('users/new') }}" class="btn btn-success">
+            <a href="{{ route('formnewuser') }}" class="btn btn-success">
               <i class="fa fa-fw fa-plus"></i>
               Add New User
             </a>

@@ -12,6 +12,9 @@ class UserController extends Controller
 {
     public function formSignin()
     {
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
         return view('users.signin');
     }
 
@@ -22,5 +25,11 @@ class UserController extends Controller
         }
         $error = new MessageBag(['invalid_login'=>['Username or Password is incorrect']]);
         return redirect()->route('signin')->withErrors($error)->withInput();
-    }    
+    }
+
+    public function signout()
+    {
+        Auth::logout();
+        return redirect()->route('signin');
+    }
 }

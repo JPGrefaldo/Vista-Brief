@@ -38,7 +38,7 @@ class AdminController extends Controller
             'email'     =>  'bail|required|email|unique:users',
             'password'  =>  'bail|required|min:4|confirmed|alpha_num',
             'password_admin'    =>  'bail|required|isadmin|adminpass'
-        ]);
+        ])->withInput;
 
     	$username          = $request['username'];
     	$forename          = $request['forename'];
