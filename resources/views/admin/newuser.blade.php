@@ -41,7 +41,7 @@ Add New User
     <!-- / main header -->
     <div class="wrapper-md">
       <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           @if (count($errors) > 0)
             <div class="panel panel-danger">
               <div class="panel-body bg-ltdanger text-danger">
@@ -109,8 +109,14 @@ Add New User
               </div>
               <div class="panel-footer">
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
-                  <button type="submit" class="btn btn-sm btn-info">Save</button>
-                  <a href="{{ url('/users') }}" class="btn btn-sm btn-warning">Cancel</a>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <button type="submit" class="btn btn-sm btn-info btn-block">Save</button>
+                    </div>
+                    <div class="col-lg-6">
+                      <a href="{{ url('/users') }}" class="btn btn-sm btn-danger btn-block">Cancel</a>
+                    </div>
+                  </div>
               </div>
             </form>
           </div>
