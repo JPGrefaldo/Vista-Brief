@@ -25,6 +25,7 @@
                   <span class="text-white">Planning Requests</span>
                 </a>
               </li>
+              @if (Auth::user()->type == 1)
               <li>
                 <a href="{{ route('users') }}">
                   <i class="icon icon-user icon text-white"></i>
@@ -43,6 +44,7 @@
                   <span class="text-white">Clients</span>
                 </a>
               </li>
+              @endif
               <li class="line dk"></li>
             </ul>
           </nav>

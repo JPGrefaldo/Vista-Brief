@@ -16,16 +16,20 @@ Signin - Vista
         <h4 class="text-brand-1">Brief System</h4>
       </div>
       <form name="form" class="form-validation1" method="post" action="{{ route('postsignin') }}">
-        <div class="text-danger wrapper text-center" ng-show="authError">            
-        </div>
-        <div class="list-group list-group-sm">
+        <div class="list-group list-group-sm m-b-xs">
           <div class="list-group-item">
-            <input type="text" name="username" placeholder="Username" class="form-control no-border" ng-model1="user.username" required1>
+            <input type="text" name="username" placeholder="Username" class="form-control no-border" value="{{ old('username') }}">
           </div>
           <div class="list-group-item">
-             <input type="password" name="password" placeholder="Password" class="form-control no-border" ng-model1="user.password" required1>
+             <input type="password" name="password" placeholder="Password" class="form-control no-border">
           </div>
         </div>
+        @if ($error = $errors->first('invalid_login'))
+          <div class="text-danger wrapper text-center"> 
+            {{ $error }}
+          </div>
+        @endif
+
         <input type="hidden" name="_token" value="{{ Session::token() }}">
         <button type="submit" class="btn btn-lg bg-brand-1 btn-block text-white" ng-disabled='form.$invalid'>Log in</button>
 

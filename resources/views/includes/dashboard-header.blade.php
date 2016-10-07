@@ -34,7 +34,7 @@
                 <img src="{{ URL::asset('images/user_avatar_default.png')}}" alt="...">
                 <i class="on md b-white bottom"></i>
               </span>
-              <span class="hidden-sm hidden-md">John.Smith</span> <b class="caret"></b>
+              <span class="hidden-sm hidden-md">{{ Auth::user()->forename }} {{ Auth::user()->surname }}</span> <b class="caret"></b>
             </a>
             <!-- dropdown -->
             <ul class="dropdown-menu animated fadeInRight w">

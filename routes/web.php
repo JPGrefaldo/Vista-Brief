@@ -11,54 +11,41 @@
 |
 */
 
-//Route::group(['middleware' => ['web']], function() {
-	Route::get('/', [
-		'uses'	=>	'UserController@formSignin',
-		'as'	=>	'signin'
-	]);
-	/* User */
-	Route::get('/signin', [
-		'uses'	=>	'UserController@formSignin',
-		'as'	=>	'signin'
-	]);
-	Route::get('/login', [
-		'uses'	=>	'UserController@formSignin',
-		'as'	=>	'login'
-	]);
-	Route::post('/signin', [
-		'uses'	=>	'UserController@postSignin',
-		'as'	=>	'postsignin'
-	]);
-	Route::get('/postsignin', function(){
-		return view('dashboard');
-	});
+/* Access */
+Route::get('/', [
+	'uses'	=>	'UserController@formSignin',
+	'as'	=>	'signin'
+]);
 
-	Route::get('/forgotpassword', function () {
-	    //return view('welcome');
-	    return view('forgotpwd');
-	});
-	/* / User */
+Route::get('/signin', [
+	'uses'	=>	'UserController@formSignin',
+	'as'	=>	'signin'
+]);
+Route::get('/login', [
+	'uses'	=>	'UserController@formSignin',
+	'as'	=>	'login'
+]);
+
+
+Route::post('/signin', [
+	'uses'	=>	'UserController@postSignin',
+	'as'	=>	'postsignin'
+]);
+Route::get('/postsignin', function(){
+	return view('dashboard');
+});
+
+Route::get('/forgotpassword', function () {
+    return view('forgotpwd');
+});
+/* / Access */
+
+
+Route::group(['middleware' => 'auth'], function() {
 
 	Route::get('/dashboard', function () {
 		return view('dashboard');
-	});
-
-	/* Admin */
-	Route::get('/users', [
-		'uses'	=>	'AdminController@manageUsers',
-		'as'	=>	'users'
-	]);
-	
-	Route::get('/users/new', [
-		'uses'	=>	'AdminController@formNewUser',
-		'as'	=>	'formnewuser'
-	]	);
-
-	Route::post('/users/new/save', [
-		'uses'	=>	'AdminController@postNewUser',
-		'as'	=>	'postnewuser'
-	]);
-	/* Admin */
+	})->name('dashboard');
 
 	/* Brief Routes */
 	Route::get('/briefsheets', [
@@ -91,31 +78,44 @@
 	]);
 	/* / Planning Requests */
 
-	/* Department Ruoting */
-	Route::get('/departments', [
-		'uses'	=>	'DepartmentController@index',
-		'as'	=>	'departments'
-	]);
-	/* / Department Ruoting */
+	/* Admin Middleware */
+	Route::group(['middleware' => ['admin']], function() {		
+		Route::get('/users', [	/* Users */
+			'uses'	=>	'AdminController@manageUsers',
+			'as'	=>	'users'
+		]);
+		
+		Route::get('/users/new', [
+			'uses'	=>	'AdminController@formNewUser',
+			'as'	=>	'formnewuser'
+		]);
 
-	/* Clients */
-	Route::get('/clients', [
-		'uses'	=>	'ClientController@index',
-		'as'	=>	'clients'
-	]);
-	/* / Clients */
+		Route::post('/users/new/save', [
+			'uses'	=>	'AdminController@postNewUser',
+			'as'	=>	'postnewuser'
+		]);
+		
+		Route::get('/departments', [	/* Department Ruoting */
+			'uses'	=>	'DepartmentController@index',
+			'as'	=>	'departments'
+		]);
+		
+		Route::get('/clients', [	/* Clients */
+			'uses'	=>	'ClientController@index',
+			'as'	=>	'clients'
+		]);
+	});	/* / Admin Middleware */
 
-	/* Settings */
-	Route::get('/settings', [
+	
+	Route::get('/settings', [	/* Settings */
 		'uses'	=>	'SettingController@index',
 		'as'	=>	'settings'
 	]);
-	/* / Settings */
 
 	Route::get('/profile', function() {
 		return view ('profile');
 	});
-//});
+});
 
 
 
