@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public $newUserRedirectTo = '/users';
+    public $newUserRedirectRouteTo = 'users';
 
     public function manageUsers() {
     	$users = User::all();
@@ -28,14 +28,21 @@ class AdminController extends Controller
 
     public function postNewUser(Request $request)
     {
+        $request['username'] = strtolower($request['username']);
+        //$request['password_admin'] = bcrypt($request['password_admin']);
+
         $this->validate($request, [
-            'username'  =>  'required|unique:users',
-            'forename'  =>  'required|max:50',
-            'surname'   =>  'required|max:50',
-            'email'     =>  'required|email|unique:users',
-            'password'  =>  'required|min:4|confirmed',
-            'password_admin'    =>  'required'
+            'username'  =>  'bail|required|unique:users',
+            'forename'  =>  'bail|required|max:50|alpha',
+            'surname'   =>  'bail|required|max:50|alpha',
+            'email'     =>  'bail|required|email|unique:users',
+            'password'  =>  'bail|required|min:4|confirmed|alpha_num',
+            'password_admin'    =>  'bail|required|is_admin|adminpassword_check'
         ]);
+        
+        /*Validator::extend('adminpasscheck', function($attribute, $value, $parameters){
+            return Hash::check($value, Auth::user()->getAuthPassword());
+        });*/
 
     	$username          = $request['username'];
     	$forename          = $request['forename'];
@@ -54,6 +61,6 @@ class AdminController extends Controller
 
         //Auth::login($user);
 
-    	return redirect()->route( $this->newUserRedirectTo );
+    	return redirect()->route( $this->newUserRedirectRouteTo );
     }
 }

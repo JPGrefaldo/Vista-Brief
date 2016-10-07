@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function postSignin(Request $request)
     {
-        if ( Auth::attempt(['username'=>$request['username'], 'password'=>$request['password']]) ) {
+        if ( Auth::attempt(['username'=>strtolower($request['username']), 'password'=>$request['password']]) ) {
             return redirect('/dashboard');
         }
         return redirect()->route('signin');

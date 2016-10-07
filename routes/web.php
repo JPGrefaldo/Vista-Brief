@@ -25,7 +25,7 @@
 		'uses'	=>	'UserController@formSignin',
 		'as'	=>	'login'
 	]);
-	Route::post('/signing_in', [
+	Route::post('/signin', [
 		'uses'	=>	'UserController@postSignin',
 		'as'	=>	'postsignin'
 	]);
