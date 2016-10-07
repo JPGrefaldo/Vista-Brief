@@ -41,8 +41,7 @@ Route::get('/forgotpassword', function () {
 /* / Access */
 
 
-Route::group(['middleware' => 'auth'], function() {
-
+//Route::group(['middleware' => 'auth'], function() {
 	Route::get('/dashboard', function () {
 		return view('dashboard');
 	})->name('dashboard');
@@ -78,8 +77,7 @@ Route::group(['middleware' => 'auth'], function() {
 	]);
 	/* / Planning Requests */
 
-	/* Admin Middleware */
-	Route::group(['middleware' => ['admin']], function() {		
+	//Route::group(['middleware' => ['admin']], function() {	/* Admin Middleware */		
 		Route::get('/users', [	/* Users */
 			'uses'	=>	'AdminController@manageUsers',
 			'as'	=>	'users'
@@ -104,8 +102,7 @@ Route::group(['middleware' => 'auth'], function() {
 			'uses'	=>	'ClientController@index',
 			'as'	=>	'clients'
 		]);
-	});	/* / Admin Middleware */
-
+	//});	/* / Admin Middleware */
 	
 	Route::get('/settings', [	/* Settings */
 		'uses'	=>	'SettingController@index',
@@ -115,7 +112,7 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/profile', function() {
 		return view ('profile');
 	});
-});
+//});
 
 
 
