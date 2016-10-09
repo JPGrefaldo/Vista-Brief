@@ -41,6 +41,18 @@ class UserController extends Controller
     {
         if (User::where('username', '=', $request->input('username'))->exists()) { // if user doesn't exist return with error
             echo 'In working progress functionality!';
+
+            $user = User::where('username', '=', $request->input('username'))->firstorfail();
+            //dd(\Config::get('mail'));
+
+            Mail::send('emails/resetpassword', ['user'=>'Admin - Vista Brief'], function($message) {
+                $message->to('ray.romero@objective.agency', 'Admin')->subject('Reset Password test')
+            });
+
+            /*Mail:send('resetpassword', array('user'=>'test user'), function($message) {
+                $message->to('ray.romero@objective.agency', 'test name')->subject('test mail subject');
+            });*/
+
             exit();
         }
         else {
