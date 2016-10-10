@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
