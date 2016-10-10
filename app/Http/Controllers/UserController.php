@@ -46,7 +46,7 @@ class UserController extends Controller
             //dd(\Config::get('mail'));
 
             Mail::send('emails/resetpassword', ['user'=>'Admin - Vista Brief'], function($message) {
-                $message->to('ray.romero@objective.agency', 'Admin')->subject('Reset Password test')
+                $message->to('ray.romero@objective.agency', 'Admin')->subject('Reset Password test');
             });
 
             /*Mail:send('resetpassword', array('user'=>'test user'), function($message) {
