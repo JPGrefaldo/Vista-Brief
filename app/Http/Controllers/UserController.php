@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 //use Illuminate\Support\Facades\Mail;
+
 use App\Mail\ResetPasswordMail;
+use App\User;
+use App\ResetPasswordRequest;
+
 
 class UserController extends Controller
 {
@@ -35,7 +38,13 @@ class UserController extends Controller
         return redirect()->route('signin');
     }
 
-    public function formresetpassword() {
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
+
+    public function formresetpassword()
+    {
         return view('users.resetpassword');
     }
 
@@ -44,10 +53,14 @@ class UserController extends Controller
         if (User::where('username', '=', $request->input('username'))->exists()) { 
 
             $user = User::where('username', '=', $request->input('username'))->firstorfail();
+            $reset_pw_request = new ResetPasswordRequest();
+            $reset_pw_request->user_id = $user->id;
+            $reset_pw_request->validation_key = str_random(30);
+            $reset_pw_request->save();
             
             $mailer
                 ->to($user->email)
-                ->send(new \App\Mail\ResetPasswordMail($request));
+                ->send(new \App\Mail\ResetPasswordMail($request,$reset_pw_request->validation_key));
             
             return redirect()->back()->with('status', 'Success! Check your email to complete resetting your password.');
         }
@@ -55,5 +68,23 @@ class UserController extends Controller
             $error = new MessageBag(['invalid_username' => 'Sorry, unable to find your details. Please check and try again']);
             return redirect()->back()->withErrors($error)->withInput();
         }
+    }
+
+    public function formchangepassword(Request $request)
+    {
+        if (User::where('username', '=', $request->input('u'))->exists()) {
+            $user = User::where('username', '=', $request->input('u'))->firstorfail();
+        } else {
+            return view('errors.503'); // TO BE CHANGE ERROR PAGE LATER ON
+        }
+
+        if (!ResetPasswordRequest::where([['user_id','=',$user->id],['validation_key','=',$request->input('k')]])->exists() ) {
+            return view('errors.503'); // TO BE CHANGE ERROR PAGE LATER ON
+        }
+        return view('users.changepassword');
+    }
+
+    public function postchangepassword(Request $request) {
+        echo 'functionality in working progress';
     }
 }

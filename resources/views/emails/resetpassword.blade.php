@@ -12,7 +12,9 @@ A request to change your password for VISTA Brief had been activated. Click the 
 </p>
 
 <p>
-..LINK HERE..
+<a href="{{ route('formchangepassword', ['u'=>$username, 'k'=>$validation_key]) }}">
+{{ route('formchangepassword', ['u'=>$username, 'k'=>$validation_key]) }}
+</a>
 </p>
 
 <p>Your Account Username: <strong>{{ $username }}</strong></p>

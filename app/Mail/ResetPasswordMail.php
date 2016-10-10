@@ -15,15 +15,17 @@ class ResetPasswordMail extends Mailable
 
     public $title = "Reset Password Request";
     protected $username;
+    protected $validation_key;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Request $request)
+    public function __construct(Request $request, $validation_key)
     {
         $this->username = $request->username;
+        $this->validation_key = $validation_key;
     }
 
     /**
@@ -35,7 +37,8 @@ class ResetPasswordMail extends Mailable
     {
         return $this->view('emails.resetpassword')
                     ->with([
-                        'username'  =>  $this->username,
+                        'username'          =>  $this->username,
+                        'validation_key'    =>  $this->validation_key,
                     ]);
     }
 }

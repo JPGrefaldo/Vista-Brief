@@ -21,6 +21,10 @@ Route::get('/signin', [
 	'uses'	=>	'UserController@formSignin',
 	'as'	=>	'signin'
 ]);
+Route::post('/signin', [
+	'uses'	=>	'UserController@postSignin',
+	'as'	=>	'postsignin'
+]);
 Route::get('/login', [
 	'uses'	=>	'UserController@formSignin',
 	'as'	=>	'login'
@@ -34,15 +38,6 @@ Route::get('/logout', [
 	'as'	=>	'logout'
 ]);
 
-
-Route::post('/signin', [
-	'uses'	=>	'UserController@postSignin',
-	'as'	=>	'postsignin'
-]);
-//Route::get('/postsignin', function(){
-//	return view('dashboard');
-//});
-
 Route::get('/resetpassword', [
 	'uses'	=>	'UserController@formresetpassword',
 	'as'	=>	'formresetpassword'
@@ -51,26 +46,23 @@ Route::post('/resetpassword', [
 	'uses'	=>	'UserController@postresetpassword',
 	'as'	=>	'postresetpassword'
 ]);
-/*Route::post('/testmail', function(\Illuminate\Http\Request $request, \Illuminate\Mail\Mailer $mailer){
 
-        //dd(\Config::get('mail'));
-
-        $mailer
-            ->to('ray.romero@objective.agency')
-            ->send(new \App\Mail\ResetPasswordMail());
-
-
-
-        exit();
-
-})->name('testmail');*/
+Route::get('/changepassword', [
+	'uses'	=>	'UserController@formchangepassword',
+	'as'	=>	'formchangepassword'
+]);
+Route::post('/changepassword', [
+	'uses'	=>	'UserController@postchangepassword',
+	'as'	=>	'postchangepassword'
+]);
 /* / Access */
 
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/dashboard', function () {
-		return view('dashboard');
-	})->name('dashboard');
+	Route::get('/dashboard', [
+		'uses'	=>	'UserController@dashboard',
+		'as'	=>	'dashboard'
+	]);
 
 	/* Brief Routes */
 	Route::get('/briefsheets', [
