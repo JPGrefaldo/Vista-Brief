@@ -51,36 +51,19 @@ Route::post('/resetpassword', [
 	'uses'	=>	'UserController@postresetpassword',
 	'as'	=>	'postresetpassword'
 ]);
-Route::post('/testmail', function(\Illuminate\Http\Request $request, \Illuminate\Mail\Mailer $mailer){
+/*Route::post('/testmail', function(\Illuminate\Http\Request $request, \Illuminate\Mail\Mailer $mailer){
 
-
-	//if (User::where('username', '=', $request->input('username'))->exists()) { // if user doesn't exist return with error
-        echo 'In working progress functionality!';
-
-        //$user = User::where('username', '=', $request->input('username'))->firstorfail();
         //dd(\Config::get('mail'));
 
         $mailer
             ->to('ray.romero@objective.agency')
             ->send(new \App\Mail\ResetPasswordMail());
 
-        /*Mail::send('emails.resetpassword', ['user'=>$user], function($message) use ($user) {
-            $message->from('ray.romero@objective.agency', 'Admin - Vista Brief');
 
-            $message->to('ray.romero@objective.agency', 'sample user name')->subject('Reset Password test');
-        });
-
-        /*Mail:send('resetpassword', array('user'=>'test user'), function($message) {
-            $message->to('ray.romero@objective.agency', 'test name')->subject('test mail subject');
-        });*/
 
         exit();
-    //}
-   // else {
-        //$error = new MessageBag(['invalid_username' => 'Sorry, unable to find your details. Please check and try again']);
-        //return redirect()->back();
-    //}
-})->name('testmail');
+
+})->name('testmail');*/
 /* / Access */
 
 

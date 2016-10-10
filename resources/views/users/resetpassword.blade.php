@@ -18,15 +18,21 @@ Reset Password - Vista
         Enter your username to reset your password
       </div>
 
-      <form name="form" class="form-validation1" method="post" action="{{ route('testmail') }}">        
+      <form name="form" class="form-validation1" method="post" action="{{ route('postresetpassword') }}">        
         <div class="list-group list-group-sm m-b-xs">
           <div class="list-group-item">
             <input type="text" name="username" placeholder="Username" class="no-border form-control" value="{{ old('username') }}">
           </div>
         </div>
         @if ($error = $errors->first('invalid_username'))
-          <div class="text-danger wrapper text-center"> 
+          <div class="alert-dangertext-danger wrapper text-center"> 
             {{ $error }}
+          </div>
+        @endif
+
+        @if (session('status'))
+          <div class="alert-success text-success wrapper text-center"> 
+            {{ session('status') }}
           </div>
         @endif
 

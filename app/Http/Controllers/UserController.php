@@ -7,8 +7,7 @@ use App\Http\Requests;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
-use Illuminate\Support\Facades\Mail;
-//use Illuminate\Mail\Mailer;
+//use Illuminate\Support\Facades\Mail;
 use App\Mail\ResetPasswordMail;
 
 class UserController extends Controller
@@ -40,32 +39,19 @@ class UserController extends Controller
         return view('users.resetpassword');
     }
 
-    public function postresetpassword(Request $request)
+    public function postresetpassword(Request $request, \Illuminate\Mail\Mailer $mailer)
     {
-        if (User::where('username', '=', $request->input('username'))->exists()) { // if user doesn't exist return with error
-            echo 'In working progress functionality!';
+        if (User::where('username', '=', $request->input('username'))->exists()) { 
 
             $user = User::where('username', '=', $request->input('username'))->firstorfail();
-            //dd(\Config::get('mail'));
-            /*\Illuminate\Mail\Mailer $mailer;
-            //$mailer = new Mailer();
+            
             $mailer
-                ->to('ray.romero@objective.agency')
-                ->send(new \App\Mail\ResetPasswordMail());
-
-            /*Mail::send('emails.resetpassword', ['user'=>$user], function($message) use ($user) {
-                $message->from('ray.romero@objective.agency', 'Admin - Vista Brief');
-
-                $message->to('ray.romero@objective.agency', 'sample user name')->subject('Reset Password test');
-            });
-
-            /*Mail:send('resetpassword', array('user'=>'test user'), function($message) {
-                $message->to('ray.romero@objective.agency', 'test name')->subject('test mail subject');
-            });*/
-
-            exit();
+                ->to($user->email)
+                ->send(new \App\Mail\ResetPasswordMail($request));
+            
+            return redirect()->back()->with('status', 'Success! Check your email to complete resetting your password.');
         }
-        else {
+        else { // if user doesn't exist return with error
             $error = new MessageBag(['invalid_username' => 'Sorry, unable to find your details. Please check and try again']);
             return redirect()->back()->withErrors($error)->withInput();
         }
