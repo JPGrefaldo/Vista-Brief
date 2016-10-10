@@ -72,13 +72,15 @@ class UserController extends Controller
 
     public function formchangepassword(Request $request)
     {
+        // check if input username exist
         if (User::where('username', '=', $request->input('u'))->exists()) {
             $user = User::where('username', '=', $request->input('u'))->firstorfail();
         } else {
             return view('errors.503'); // TO BE CHANGE ERROR PAGE LATER ON
         }
 
-        if (!ResetPasswordRequest::where([['user_id','=',$user->id],['validation_key','=',$request->input('k')]])->exists() ) {
+        // check if input: user_id and vaidation key exist from reset_password_request table
+        if (!ResetPasswordRequest::where([['user_id','=',$user->id],['validation_key','=',$request->input('k')]])->isrequested()->exists() ) {
             return view('errors.503'); // TO BE CHANGE ERROR PAGE LATER ON
         }
         return view('users.changepassword');
