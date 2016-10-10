@@ -8,6 +8,8 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Mail;
+//use Illuminate\Mail\Mailer;
+use App\Mail\ResetPasswordMail;
 
 class UserController extends Controller
 {
@@ -45,8 +47,13 @@ class UserController extends Controller
 
             $user = User::where('username', '=', $request->input('username'))->firstorfail();
             //dd(\Config::get('mail'));
+            /*\Illuminate\Mail\Mailer $mailer;
+            //$mailer = new Mailer();
+            $mailer
+                ->to('ray.romero@objective.agency')
+                ->send(new \App\Mail\ResetPasswordMail());
 
-            Mail::send('emails.resetpassword', ['user'=>$user], function($message) use ($user) {
+            /*Mail::send('emails.resetpassword', ['user'=>$user], function($message) use ($user) {
                 $message->from('ray.romero@objective.agency', 'Admin - Vista Brief');
 
                 $message->to('ray.romero@objective.agency', 'sample user name')->subject('Reset Password test');

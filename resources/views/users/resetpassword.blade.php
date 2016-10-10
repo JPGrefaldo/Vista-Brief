@@ -18,7 +18,7 @@ Reset Password - Vista
         Enter your username to reset your password
       </div>
 
-      <form name="form" class="form-validation1" method="post" action="{{ route('postresetpassword') }}">        
+      <form name="form" class="form-validation1" method="post" action="{{ route('testmail') }}">        
         <div class="list-group list-group-sm m-b-xs">
           <div class="list-group-item">
             <input type="text" name="username" placeholder="Username" class="no-border form-control" value="{{ old('username') }}">
@@ -36,9 +36,6 @@ Reset Password - Vista
         <div class="text-center m-t m-b">
           Remember your password? <a href="{{ route('signin') }}" class="text-danger">Login here.</a>
         </div>
-        <div class="line line-dashed"></div>
-        <p class="text-danger text-center hide"><small>TEST ACCESS BELOW:</small></p>
-        <a ui-sref="access.signup" class="btn btn-lg btn-default btn-block hide">Create an account</a>
       </form>
     </div>
   </div>
