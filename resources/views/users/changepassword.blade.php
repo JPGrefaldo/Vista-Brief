@@ -18,7 +18,7 @@ Change Password - Vista
         Enter your new password
       </div>
 
-      <form name="form" class="form-validation1" method="post" action="{{ route('postchangepassword') }}">        
+      <form name="form" class="form-validation1" method="post" action="{{ route('updatechangepassword') }}">        
         <div class="list-group list-group-sm m-b-xs">
           <div class="list-group-item">
             <input type="password" name="password" placeholder="Type your New Password" class="no-border form-control">
@@ -27,15 +27,13 @@ Change Password - Vista
             <input type="password" name="password_confirmation" placeholder="Type again your New Password" class="no-border form-control">
           </div>
         </div>
-        @if ($error = $errors->first('invalid_username'))
-          <div class="alert-dangertext-danger wrapper text-center"> 
-            {{ $error }}
-          </div>
-        @endif
-
-        @if (session('status'))
-          <div class="alert-success text-success wrapper text-center"> 
-            {{ session('status') }}
+        @if (count($errors) > 0)
+          <div class="alert text-danger wrapper">
+            <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
           </div>
         @endif
 

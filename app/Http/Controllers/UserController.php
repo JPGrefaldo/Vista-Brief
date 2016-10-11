@@ -7,6 +7,7 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 //use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 use App\Mail\ResetPasswordMail;
 use App\User;
@@ -50,8 +51,14 @@ class UserController extends Controller
 
     public function postresetpassword(Request $request, \Illuminate\Mail\Mailer $mailer)
     {
-        if (User::where('username', '=', $request->input('username'))->exists()) { 
+        // validate user input:username
+        /*$this->validate($request, [
+            'username'  =>  'bail|required|exists:users,username'
+        ])->withInput;*/
 
+
+        // check if user exist (issue: duplicate checked)
+        if (User::where('username', '=', $request->input('username'))->exists()) {
             $user = User::where('username', '=', $request->input('username'))->firstorfail();
             $reset_pw_request = new ResetPasswordRequest();
             $reset_pw_request->user_id = $user->id;
@@ -83,10 +90,38 @@ class UserController extends Controller
         if (!ResetPasswordRequest::where([['user_id','=',$user->id],['validation_key','=',$request->input('k')]])->isrequested()->exists() ) {
             return view('errors.503'); // TO BE CHANGE ERROR PAGE LATER ON
         }
+
+        $request->session()->put('reset_username', $request->input('u'));
+        $request->session()->put('reset_activation_key', $request->input('k'));
         return view('users.changepassword');
     }
 
-    public function postchangepassword(Request $request) {
-        echo 'functionality in working progress';
+    public function updatechangepassword(Request $request) {
+        $messages = [
+            'confirmed' =>  'Password did not matched. Please type again.'
+        ];
+        $validator = Validator::make($request->all(),[
+            'password'  =>  'bail|required|min:4|confirmed|alpha_num'
+        ], $messages);
+
+        // if validation failes redirecct back with custom error message
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+
+        // get the user model
+        $user = User::where('username','=',session('reset_username'))->firstorfail(); // NEED PROPER ERROR MANAGEMENT
+        $user->password = bcrypt($request->password);
+
+        // get the request model
+        $reset_pw_request = ResetPasswordRequest::where([['user_id','=',$user->id],['validation_key','=',session('reset_activation_key')]])->isrequested()->firstorfail(); // NEED PROPER ERROR MANAGEMENT
+        $reset_pw_request->state = 2;
+        
+        // save the changes
+        $reset_pw_request->save();        
+        $user->save();
+
+        // redirect to signin page with alert message
+        return redirect()->route('signin')->with('change_pass_success', 'Your new password have been changed. You can now login with your new password.');
     }
 }

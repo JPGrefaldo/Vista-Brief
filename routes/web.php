@@ -52,8 +52,8 @@ Route::get('/changepassword', [
 	'as'	=>	'formchangepassword'
 ]);
 Route::post('/changepassword', [
-	'uses'	=>	'UserController@postchangepassword',
-	'as'	=>	'postchangepassword'
+	'uses'	=>	'UserController@updatechangepassword',
+	'as'	=>	'updatechangepassword'
 ]);
 /* / Access */
 
@@ -108,8 +108,8 @@ Route::group(['middleware' => 'auth'], function() {
 			]);
 
 			Route::post('/users/new/save', [
-				'uses'	=>	'AdminController@postNewUser',
-				'as'	=>	'postnewuser'
+				'uses'	=>	'AdminController@createNewUser',
+				'as'	=>	'createnewuser'
 			]);
 			
 			Route::get('/departments', [	/* Department Ruoting */

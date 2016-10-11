@@ -55,7 +55,7 @@ Add New User
             </div>
           @endif
           <div class="panel panel-default">
-            <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
+            <form class="bs-example form-horizontal" action="{{ route('createnewuser') }}" method="post">
               <div class="panel-body">
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>

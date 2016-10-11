@@ -30,6 +30,12 @@ Signin - Vista
           </div>
         @endif
 
+        @if (session('change_pass_success'))
+          <div class="alert alert-success text-center">
+            {{ session('change_pass_success') }}
+          </div>
+        @endif
+
         <input type="hidden" name="_token" value="{{ Session::token() }}">
         <button type="submit" class="btn btn-lg bg-brand-1 btn-block text-white" ng-disabled='form.$invalid'>Log in</button>
 
