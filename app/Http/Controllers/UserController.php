@@ -86,7 +86,7 @@ class UserController extends Controller
             return view('errors.503'); // TO BE CHANGE ERROR PAGE LATER ON
         }
 
-        // check if input: user_id and vaidation key exist from reset_password_request table
+        // check if input: user_id and validation key exist from reset_password_request table
         if (!ResetPasswordRequest::where([['user_id','=',$user->id],['validation_key','=',$request->input('k')]])->isrequested()->exists() ) {
             return view('errors.503'); // TO BE CHANGE ERROR PAGE LATER ON
         }
