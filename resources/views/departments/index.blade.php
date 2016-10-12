@@ -52,134 +52,26 @@ Manage Departments - Vista
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>
-                    <input type="text" value="Events" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="events@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" value="Digital" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="digital@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" value="Strategy" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="strategy@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" value="Film" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="film@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" value="Content" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="content@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" value="Exhibitions" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="exhibitions@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" value="Designs" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="designs@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <input type="text" value="Venue Hub" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <input type="text" value="venuehub@wearevista.com" class="form-control" disabled>
-                  </td>
-                  <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-edit"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
-                  </td>
-                </tr>
+                @foreach($departments as $department)
+                  <tr>
+                    <td>
+                      <input type="text" name="name" value="{{ $department->name }}" class="form-control" disabled>
+                    </td>
+                    <td>
+                      <input type="text" name="email" value="{{ $department->email }}" class="form-control" disabled>
+                    </td>
+                    <td>
+                      <div class="actionbox">
+                        <i class="glyphicon glyphicon-edit cpointer action-edit" title="edit"></i>
+                        <i class="glyphicon glyphicon-remove cpointer action-remove" title="remove" data-toggle="modal" data-target="#modal-remove-department" data-backdrop='false'></i>
+                      </div>
+                      <div class="editingbox hide">
+                        <i class="glyphicon glyphicon-ok cpointer action-save" title="save"></i>
+                        <i class="glyphicon glyphicon-remove cpointer action-cancel" title="cancel"></i>
+                      </div>
+                    </td>
+                  </tr>
+                @endforeach
                 <tr id="tr-department-new" class="hide">
                   <td>
                     <div class="has-success">
@@ -192,19 +84,15 @@ Manage Departments - Vista
                     </div>
                   </td>
                   <td>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-ok"></i> 
-                    </a>
-                    <a href="#">
-                      <i class="glyphicon glyphicon-remove"></i>
-                    </a>
+                    <i class="glyphicon glyphicon-ok cpointer" title="save"></i>                 
+                    <i id="new-department-cancel" class="glyphicon glyphicon-remove cpointer" title="cancel"></i>
                   </td>
                 </tr>
                 <tr>
-                <td colspan="2">
-                  <button id="add-department-btn" class="btn btn-success btn-lg btn-block">Add New Department</button>
-                </td>
-                <td></td>
+                  <td colspan="2">
+                    <button id="add-department-btn" class="btn btn-success btn-lg btn-block">Add New Department</button>
+                  </td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
@@ -212,6 +100,25 @@ Manage Departments - Vista
         </div>
       </div>
     </div>
+
+    <!-- Modal: remove department -->
+    <div id="modal-remove-department" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
   </div>
   <!-- / main -->
 </div>
