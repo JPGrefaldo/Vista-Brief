@@ -221,7 +221,16 @@ Manage Departments - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
+<script>
+jq2 = jQuery.noConflict();
+$(function(){
+  alert('ff');
+});
 
+$(document).ready(function() {
+  alert('ready');
+});
+</script>
 
 </div>
 @endsection

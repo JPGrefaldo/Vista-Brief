@@ -15,7 +15,8 @@ class AdminController extends Controller
 {
     public $newUserRedirectRouteTo = 'users';
 
-    public function manageUsers() {
+    public function manageUsers()
+    {
     	$users = User::all();
         foreach ($users as $key => $val) {      /* eclude user:admin from the list */
             if ($users[$key]['username'] == 'admin') {
@@ -25,7 +26,8 @@ class AdminController extends Controller
     	return view('admin.users', compact('users'));
     }
 
-    public function formNewUser() {
+    public function formNewUser()
+    {
     	return view('admin.newuser');
     }
 
@@ -34,6 +36,11 @@ class AdminController extends Controller
         $request['username'] = strtolower($request['username']);
         //$request['password_admin'] = bcrypt($request['password_admin']);
 
+        $messages = [
+            'confirmed' =>  "The passwords you entered don't match.",
+            'email'     =>  'The email you entered is not real.',
+        ];
+
         $validator = Validator::make($request->all(),[
             'username'  =>  'bail|required|unique:users',
             'forename'  =>  'bail|required|max:50|alpha',
@@ -41,11 +48,11 @@ class AdminController extends Controller
             'email'     =>  'bail|required|email|unique:users',
             'password'  =>  'bail|required|min:4|confirmed|alpha_num',
             'password_admin'    =>  'bail|required|isadmin|adminpass'
-        ]);
+        ], $messages);
 
         // if validation failes redirect back with error message
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         // if valid prepare data

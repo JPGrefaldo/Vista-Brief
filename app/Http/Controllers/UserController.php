@@ -96,7 +96,8 @@ class UserController extends Controller
         return view('users.changepassword');
     }
 
-    public function updatechangepassword(Request $request) {
+    public function updatechangepassword(Request $request)
+    {
         $messages = [
             'confirmed' =>  'Password did not matched. Please type again.'
         ];

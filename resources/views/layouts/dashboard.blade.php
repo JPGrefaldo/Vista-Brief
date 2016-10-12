@@ -24,6 +24,7 @@
 
 <script src="{{ URL::asset('libs/jquery/jquery/dist/jquery.js') }}"></script>
 <script src="{{ URL::asset('libs/jquery/bootstrap/dist/js/bootstrap.js') }}"></script>
+<script src="{{ URL::asset('js/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ URL::asset('js/ui-load.js') }}"></script>
 <script src="{{ URL::asset('js/ui-jp.config.js') }}"></script>
 <script src="{{ URL::asset('js/ui-jp.js') }}"</script>

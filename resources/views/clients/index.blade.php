@@ -43,8 +43,8 @@ Clients - Vista
       <div class="panel panel-default">
         <div class="panel-heading">
           List of Clients
-          <div class="text-right">
-            <a href="{{ url('users/new') }}" class="btn btn-success">
+          <div class="text-right hide">
+            <a href="{{ route('formnewclient') }}" class="btn btn-success">
               <i class="fa fa-fw fa-plus"></i>
               Add New Client
             </a>

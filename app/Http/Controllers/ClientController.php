@@ -8,7 +8,13 @@ use App\Http\Requests;
 
 class ClientController extends Controller
 {
-    public function index() {
+    public function index()
+    {
     	return view ('clients.index');
+    }
+
+    public function formNewClient()
+    {
+    	return view('clients.newclient');
     }
 }

@@ -116,10 +116,15 @@ Route::group(['middleware' => 'auth'], function() {
 				'uses'	=>	'DepartmentController@index',
 				'as'	=>	'departments'
 			]);
-			
+
+			/* Clients */
 			Route::get('/clients', [	/* Clients */
 				'uses'	=>	'ClientController@index',
 				'as'	=>	'clients'
+			]);
+			Route::get('/clients/new', [	/* NOT IMPLEMENTED YET */
+				'uses'	=>	'ClientController@formNewClient',
+				'as'	=>	'formnewclient'
 			]);
 		});
 	});	/* / Admin Middleware */
