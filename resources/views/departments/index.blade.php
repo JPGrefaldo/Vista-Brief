@@ -180,12 +180,16 @@ Manage Departments - Vista
                     </a>
                   </td>
                 </tr>
-                <tr>
+                <tr id="tr-department-new" class="hide">
                   <td>
-                    <input type="text" value="" class="form-control" placeholder="Enter New Department Name">
+                    <div class="has-success">
+                      <input type="text" value="" class="form-control" placeholder="Enter New Department Name">
+                    </div>
                   </td>
                   <td>
-                    <input type="text" value="" class="form-control"  placeholder="Enter New Department Email">
+                    <div class="has-success">
+                      <input type="text" value="" class="form-control"  placeholder="Enter New Department Email">
+                    </div>
                   </td>
                   <td>
                     <a href="#">
@@ -198,7 +202,7 @@ Manage Departments - Vista
                 </tr>
                 <tr>
                 <td colspan="2">
-                  <button class="btn btn-success btn-lg btn-block">Add New Department</button>
+                  <button id="add-department-btn" class="btn btn-success btn-lg btn-block">Add New Department</button>
                 </td>
                 <td></td>
                 </tr>
@@ -221,16 +225,7 @@ Manage Departments - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
-<script>
-jq2 = jQuery.noConflict();
-$(function(){
-  alert('ff');
-});
-
-$(document).ready(function() {
-  alert('ready');
-});
-</script>
+  <script src="{{ URL::asset('js/department/action-department.js') }}"></script>
 
 </div>
 @endsection
