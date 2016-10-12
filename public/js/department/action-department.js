@@ -3,6 +3,7 @@
 // });
 var input_name;
 var input_email;
+var modal_btn;
 
 $('#add-department-btn').click(function(){
 	$container = $('#tr-department-new');
@@ -60,4 +61,20 @@ $('.action-cancel').click(function(){
 
 });
 
-// $('.action-remove').modal();
+$('.action-remove').click(function(){
+	$modal_view = $('#modal-remove-department')
+
+	modal_btn = $(this)
+	$modal_view.modal({backdrop:false})
+	// $modal_view.modal('show');
+
+
+});
+$('#modal-remove-department').on('show.bs.modal', function(event){
+	var button = modal_btn
+	var name = button.data('dname')
+	var email = button.data('demail')
+
+	var modal = $(this)
+	modal.find('#department-name').text(name)
+})

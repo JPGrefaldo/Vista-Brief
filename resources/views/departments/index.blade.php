@@ -63,7 +63,7 @@ Manage Departments - Vista
                     <td>
                       <div class="actionbox">
                         <i class="glyphicon glyphicon-edit cpointer action-edit" title="edit"></i>
-                        <i class="glyphicon glyphicon-remove cpointer action-remove" title="remove" data-toggle="modal" data-target="#modal-remove-department" data-backdrop='false'></i>
+                        <i class="glyphicon glyphicon-remove cpointer action-remove" title="remove" data-dname="{{ $department->name }}" data-demail="{{ $department->email }}"></i>
                       </div>
                       <div class="editingbox hide">
                         <i class="glyphicon glyphicon-ok cpointer action-save" title="save"></i>
@@ -102,18 +102,20 @@ Manage Departments - Vista
     </div>
 
     <!-- Modal: remove department -->
-    <div id="modal-remove-department" class="modal fade" role="dialog">
+    <div id="modal-remove-department" class="modal" role="dialog">
       <div class="modal-dialog modal-sm">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
+            <h4 class="modal-title">Remove</h4>
           </div>
           <div class="modal-body">
-            <p>Some text in the modal.</p>
+            <p>Are you sure you want to permanently remove this Department?</p>
+            <p class="alert alert-danger">You are about to remove <strong><span id="department-name"></span></strong>!</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+            <button type="button" class="btn btn-danger">Yes! Please remove.</button>
           </div>
         </div>
       </div>
