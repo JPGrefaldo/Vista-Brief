@@ -48,10 +48,10 @@ Manage Departments - Vista
                 <tr>
                   <th>Department Name</th>
                   <th>Routing Email</th>
-                  <th><i class="fa fa-cog"></i></th>
+                  <th class="text-center"><i class="fa fa-cog"></i></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody id="tbody-department-list">
                 @foreach($departments as $department)
                   <tr>
                     <td>
@@ -61,13 +61,13 @@ Manage Departments - Vista
                       <input type="text" name="email" value="{{ $department->email }}" class="form-control" disabled>
                     </td>
                     <td>
-                      <div class="actionbox">
+                      <div class="actionbox box-action-1 text-center">
                         <i class="glyphicon glyphicon-edit cpointer action-edit" title="edit"></i>
                         <i class="glyphicon glyphicon-remove cpointer action-remove" title="remove" data-dname="{{ $department->name }}" data-demail="{{ $department->email }}"></i>
                       </div>
-                      <div class="editingbox hide">
-                        <i class="glyphicon glyphicon-ok cpointer action-save" title="save"></i>
-                        <i class="glyphicon glyphicon-remove cpointer action-cancel" title="cancel"></i>
+                      <div class="editingbox hide box-action-1 text-center text-info">
+                        <i class="glyphicon glyphicon-ok cpointer action-edit-save" title="save"></i>
+                        <i class="glyphicon glyphicon-remove cpointer action-edit-cancel" title="cancel"></i>
                       </div>
                     </td>
                   </tr>
@@ -75,17 +75,19 @@ Manage Departments - Vista
                 <tr id="tr-department-new" class="hide">
                   <td>
                     <div class="has-success">
-                      <input type="text" value="" class="form-control" placeholder="Enter New Department Name">
+                      <input type="text" name="new_name" value="" class="form-control" placeholder="Enter New Department Name">
                     </div>
                   </td>
                   <td>
                     <div class="has-success">
-                      <input type="text" value="" class="form-control"  placeholder="Enter New Department Email">
+                      <input type="text" name="new_email" value="" class="form-control"  placeholder="Enter New Department Email">
                     </div>
                   </td>
                   <td>
-                    <i class="glyphicon glyphicon-ok cpointer" title="save"></i>                 
-                    <i id="new-department-cancel" class="glyphicon glyphicon-remove cpointer" title="cancel"></i>
+                    <div class="box-action-1 text-center text-info">
+                      <i class="glyphicon glyphicon-ok cpointer" title="save"></i>                 
+                      <i id="add-department-cancel" class="glyphicon glyphicon-remove cpointer" title="cancel"></i>
+                    </div>
                   </td>
                 </tr>
                 <tr>
