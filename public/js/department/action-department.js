@@ -4,12 +4,14 @@
 var input_name;
 var input_email;
 var modal_btn;
+var errors = [];
 
 $(document).ready(function() {
 
 	// SHOW ADD Box
 	$('#add-department-btn').click(function(){
 		$btn = $(this)
+		$btn_cancel2 = $btn.next('button#add-department-cancel2')
 		$tbody_list = $(this).closest('tbody#tbody-department-list')
 		$container = $('#tr-department-new');
 
@@ -18,19 +20,78 @@ $(document).ready(function() {
 		// prevent the other actionbox to be clickable
 		make_other_action_unclickable()
 
+		// hide add button then show cancel2 button
+		$btn.addClass('hide')
+		$btn_cancel2.removeClass('hide')
 		$container.removeClass('hide');
-	});
+	})
 
 	// HIDE ADD Box
 	$('#add-department-cancel').click(function() {
 		$container = $(this).closest('tr')
 		$tbody_list = $(this).closest('tbody#tbody-department-list')
+		$btn_cancel2 = $('button#add-department-cancel2')
+		$btn_add = $('#add-department-btn')
+		$error_box = $('#error-messages')
 
 		// make the other actionbox clickable again
 		make_other_action_clickable_again()
 
+		// re-hide the error box if its not hidden
+		if ( !$error_box.hasClass('hide') )
+			$error_box.addClass('hide')
+
+		errors = []
+
+		$btn_cancel2.addClass('hide')
+		$btn_add.removeClass('hide')
 		$container.addClass('hide');
-	});
+	})
+
+	// HIDE ADD Box via Cancel2 button
+	$('#add-department-cancel2').click(function() {
+		$btn_cancel2 = $(this)
+		$container = $('tr#tr-department-new')
+		$tbody_list = $(this).closest('tbody#tbody-department-list')
+		$btn_add = $('#add-department-btn')
+		$error_box = $('#error-messages')
+
+		// make the other actionbox clickable again
+		make_other_action_clickable_again()
+
+		// re-hide the error box if its not hidden
+		if ( !$error_box.hasClass('hide') )
+			$error_box.addClass('hide')
+
+		$btn_cancel2.addClass('hide')
+		$btn_add.removeClass('hide')
+		$container.addClass('hide');
+	})
+
+	// ACTION: ADD NEW
+	$('#add-department-save').click(function() {
+		$btn = $(this)		
+		$container = $(this).closest('tr')
+		$input_name = $container.find('input[name="new_name"]')
+		$input_email = $container.find('input[name="new_email"]')
+		$error_box = $('#error-messages')
+
+		// re-hide the error box if its not hidden
+		if ( !$error_box.hasClass('hide') )
+			$error_box.addClass('hide')
+
+		// clear the erros message on errorbox
+		$error_box.find('ul').text('')
+
+		// return false if not valid input
+		if ( !input_must_not_be_empty($input_name.val(), $input_email.val()) ) {
+			errors.forEach(show_error_message)
+			return false	
+		}
+
+		save_new_department($input_name.val(), $input_email.val())
+
+	})
 
 	// SHOW EDIT Box
 	$('.action-edit').click(function(){
@@ -61,7 +122,7 @@ $(document).ready(function() {
 		input_name = $input_name.val();
 		input_email = $input_email.val();
 
-	});
+	})
 
 
 	$('.action-edit-cancel').click(function(){
@@ -89,7 +150,7 @@ $(document).ready(function() {
 		$input_name.val(input_name);
 		$input_email.val(input_email);
 
-	});
+	})
 
 	// SHOW REMOVE Modal
 	$('.action-remove').click(function(){
@@ -109,7 +170,7 @@ $(document).ready(function() {
 		// $modal_view.modal('show');
 
 
-	});
+	})
 	$('#modal-remove-department').on('show.bs.modal', function(event){
 		var button = modal_btn
 		var name = button.data('dname')
@@ -143,4 +204,66 @@ function make_other_action_clickable_again () {
 	// enabled back the add button
 	$('#add-department-btn').removeClass('unclickable btn-muted')
 	$('#add-department-btn').addClass('btn-success')
+}
+
+function input_must_not_be_empty(name, email) {
+	errors = []
+
+	if ( !$.trim(name) ) {
+		errors.push('Department name cannot be empty.')
+	}
+
+	if ( !$.trim(email) ) {
+		errors.push('Routing email cannot be empty.')
+	}
+
+	if ( errors.length > 0 )
+		return false;
+	else
+		return true
+}
+
+function show_error_message(value, index, array) {
+	$error_box = $('#error-messages')
+
+	$error_box.find('ul').append("<li>"+value+"</li>")
+
+	$error_box.removeClass('hide')
+}
+
+function save_new_department(name, email) {
+
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+	$.ajax({
+		type: 'POST',
+		url: "/ajax/departments/new",
+		data: { name: name, email: email },
+		success: function(data){
+			if (data == 'success') {
+				location.reload()
+			}
+		},
+		error: function(xhr, status, response) {
+			var error = jQuery.parseJSON(xhr.responseText)
+			console.log(error)
+			var $error_box = $('#error-messages')
+			$error_box.addClass('hide').find('ul').empty()
+			for(var k in error.message) {
+				if (error.message.hasOwnProperty(k)) {
+					error.message[k].forEach(function(val) {
+						$error_box.find('ul').append('<li>'+val+'</li>')
+					})
+				}
+			}
+			$error_box.removeClass('hide')
+		},
+	})
+	.done(function(data) {
+		console.log(data)
+	})
 }

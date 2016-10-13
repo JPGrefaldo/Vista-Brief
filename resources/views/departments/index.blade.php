@@ -73,6 +73,7 @@ Manage Departments - Vista
                   </tr>
                 @endforeach
                 <tr id="tr-department-new" class="hide">
+                  <form method="post" action="{{ route('postnewdepartment') }}">
                   <td>
                     <div class="has-success">
                       <input type="text" name="new_name" value="" class="form-control" placeholder="Enter New Department Name">
@@ -81,18 +82,30 @@ Manage Departments - Vista
                   <td>
                     <div class="has-success">
                       <input type="text" name="new_email" value="" class="form-control"  placeholder="Enter New Department Email">
+                      {{ csrf_field()   }}
                     </div>
                   </td>
                   <td>
                     <div class="box-action-1 text-center text-info">
-                      <i class="glyphicon glyphicon-ok cpointer" title="save"></i>                 
+                      <i id="add-department-save" class="glyphicon glyphicon-ok cpointer" title="save"></i>                 
                       <i id="add-department-cancel" class="glyphicon glyphicon-remove cpointer" title="cancel"></i>
                     </div>
                   </td>
+                  </form>
+                </tr>
+                <tr id="error-messages" class="hide">
+                  <td colspan="2">
+                    <div class="alert alert-danger">
+                      <ul>
+                      </ul>
+                    </div>
+                  </td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td colspan="2">
                     <button id="add-department-btn" class="btn btn-success btn-lg btn-block">Add New Department</button>
+                    <button id="add-department-cancel2" class="btn btn-warning btn-lg btn-block hide">Cancel</button>
                   </td>
                   <td></td>
                 </tr>

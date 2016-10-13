@@ -116,6 +116,7 @@ Route::group(['middleware' => 'auth'], function() {
 				'uses'	=>	'DepartmentController@index',
 				'as'	=>	'departments'
 			]);
+			
 
 			/* Clients */
 			Route::get('/clients', [	/* Clients */
@@ -139,8 +140,11 @@ Route::group(['middleware' => 'auth'], function() {
 	});
 });
 
-
-
+			Route::post('/ajax/departments/new', [
+				'uses'	=>	'DepartmentController@postNewDepartment',
+				'as'	=>	'postnewdepartment'
+			]);
+			
 //Route::get('main', 'MainPagesController@main');
 
 //Route::get('home', 'MainPagesController@main');
