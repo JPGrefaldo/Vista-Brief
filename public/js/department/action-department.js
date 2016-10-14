@@ -203,9 +203,24 @@ $(document).ready(function() {
 		var button = modal_btn
 		var name = button.data('dname')
 		var email = button.data('demail')
+		var id = button.data('did')
 
 		var modal = $(this)
 		modal.find('#department-name').text(name)
+		modal.find('#id-to-be-deleted').val(id)
+	})
+
+	$('#remove-department-save').click(function(){
+		$modal = $('#modal-remove-department')
+		var id = $modal.find('#id-to-be-deleted').val()
+		
+		if (!$.isNumeric(id)) {
+			console.log('fatal error: department id is invalid!')
+			$modal.modal('toggle')
+			return false
+		}
+		$modal.modal('toggle')
+		delete_department(id)
 	})
 
 })
@@ -329,5 +344,31 @@ function save_edited_department($tr, name, email, id) {
 	})
 	.done(function(data) {
 		// console.log(data)
+	})
+}
+
+function delete_department(id) {
+	// return false
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+	$.ajax({
+		type: 'POST',
+		url: "/ajax/departments/delete",
+		data: { id:id },
+		success: function(data){
+			if (data == 'success') {
+				location.reload()
+			}
+		},
+		error: function(xhr, status, response) {
+			// not expecting error except, internal error
+		},
+	})
+	.done(function(data) {
+		console.log(data)
 	})
 }

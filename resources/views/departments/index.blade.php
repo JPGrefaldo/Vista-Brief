@@ -64,7 +64,7 @@ Manage Departments - Vista
                     <td>
                       <div class="actionbox box-action-1 text-center">
                         <i class="glyphicon glyphicon-edit cpointer action-edit" title="edit"></i>
-                        <i class="glyphicon glyphicon-remove cpointer action-remove" title="remove" data-dname="{{ $department->name }}" data-demail="{{ $department->email }}"></i>
+                        <i class="glyphicon glyphicon-remove cpointer action-remove" title="remove" data-dname="{{ $department->name }}" data-demail="{{ $department->email }}" data-did="{{ $department->id }}"></i>
                       </div>
                       <div class="editingbox hide box-action-1 text-center text-info">
                         <i class="glyphicon glyphicon-ok cpointer action-edit-save" title="save"></i>
@@ -128,10 +128,11 @@ Manage Departments - Vista
           <div class="modal-body">
             <p>Are you sure you want to permanently remove this Department?</p>
             <p class="alert alert-danger">You are about to remove <strong><span id="department-name"></span></strong>!</p>
+            <input type="hidden" id="id-to-be-deleted" value="" />
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-            <button type="button" class="btn btn-danger">Yes! Please remove.</button>
+            <button type="button" class="btn btn-danger" id="remove-department-save">Yes! Please remove.</button>
           </div>
         </div>
       </div>

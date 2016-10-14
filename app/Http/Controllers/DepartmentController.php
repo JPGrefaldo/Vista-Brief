@@ -80,4 +80,13 @@ class DepartmentController extends Controller
 
         return 'success';
     }
+
+    public function postDeleteDepartment(Request $request)
+    {
+        if ( $department = Department::find($request->input('id')) ) {
+            $department->delete();
+        }        
+
+        return 'success';
+    }
 }

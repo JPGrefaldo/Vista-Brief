@@ -150,6 +150,10 @@ Route::post('/ajax/departments/edit/save', [
 	'uses'	=>	'DepartmentController@postEditDepartment',
 	'as'	=>	'posteditdepartment'
 ]);
+Route::post('/ajax/departments/delete', [
+	'uses'	=>	'DepartmentController@postDeleteDepartment',
+	'as'	=>	'postdeletedepartment'
+]);
 			
 //Route::get('main', 'MainPagesController@main');
 
