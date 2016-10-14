@@ -55,6 +55,7 @@ Manage Departments - Vista
                 @foreach($departments as $department)
                   <tr>
                     <td>
+                      <input type="hidden" name="id" value="{{ $department->id }}" >
                       <input type="text" name="name" value="{{ $department->name }}" class="form-control" disabled>
                     </td>
                     <td>

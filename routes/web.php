@@ -116,6 +116,7 @@ Route::group(['middleware' => 'auth'], function() {
 				'uses'	=>	'DepartmentController@index',
 				'as'	=>	'departments'
 			]);
+
 			
 
 			/* Clients */
@@ -140,10 +141,15 @@ Route::group(['middleware' => 'auth'], function() {
 	});
 });
 
-			Route::post('/ajax/departments/new', [
-				'uses'	=>	'DepartmentController@postNewDepartment',
-				'as'	=>	'postnewdepartment'
-			]);
+
+Route::post('/ajax/departments/new/save', [
+	'uses'	=>	'DepartmentController@postNewDepartment',
+	'as'	=>	'postnewdepartment'
+]);
+Route::post('/ajax/departments/edit/save', [
+	'uses'	=>	'DepartmentController@postEditDepartment',
+	'as'	=>	'posteditdepartment'
+]);
 			
 //Route::get('main', 'MainPagesController@main');
 

@@ -13,7 +13,7 @@ $(document).ready(function() {
 		$btn = $(this)
 		$btn_cancel2 = $btn.next('button#add-department-cancel2')
 		$tbody_list = $(this).closest('tbody#tbody-department-list')
-		$container = $('#tr-department-new');
+		$tr = $('#tr-department-new');
 
 		if ($btn.hasClass('unclickable')) { return false }
 
@@ -23,7 +23,10 @@ $(document).ready(function() {
 		// hide add button then show cancel2 button
 		$btn.addClass('hide')
 		$btn_cancel2.removeClass('hide')
-		$container.removeClass('hide');
+		$tr.removeClass('hide');
+
+		// focus in the input name
+		$tr.find('input[name="new_name"]').focus()
 	})
 
 	// HIDE ADD Box
@@ -95,11 +98,11 @@ $(document).ready(function() {
 
 	// SHOW EDIT Box
 	$('.action-edit').click(function(){
-		$container = $(this).closest('tr');
-		$tbody_list = $container.closest('tbody#tbody-department-list')
+		$tr = $(this).closest('tr')
+		$tbody_list = $tr.closest('tbody#tbody-department-list')
 
-		$actionbox = $container.find('div.actionbox');
-		$editingbox = $container.find('div.editingbox');
+		$actionbox = $tr.find('div.actionbox')
+		$editingbox = $tr.find('div.editingbox')
 
 		// failsafe: in case the the css(unclickable) is not working in some browser, add another js security
 		if($actionbox.hasClass('unclickable')) { return false }
@@ -108,48 +111,75 @@ $(document).ready(function() {
 		make_other_action_unclickable()
 
 		// hide and edit/remove button and show the save/cancel button for editing
-		$actionbox.addClass('hide');
-		$editingbox.removeClass('hide');
+		$actionbox.addClass('hide')
+		$editingbox.removeClass('hide')
 
-		$input_name = $container.find("input[name='name']");
-		$input_email = $container.find("input[name='email']");
+		$input_name = $tr.find("input[name='name']")
+		$input_email = $tr.find("input[name='email']")		
 
 		// make the 2 input to be editable
-		$input_name.removeAttr('disabled');
-		$input_email.removeAttr('disabled');
+		$input_name.removeAttr('disabled')
+		$input_email.removeAttr('disabled')
 
 		// push the input value to be able to revert back if cancelled 
-		input_name = $input_name.val();
-		input_email = $input_email.val();
+		input_name = $input_name.val()
+		input_email = $input_email.val()
 
+		// focus on the input name
+		$input_name.focus()
 	})
 
-
+	// CANCL EDIT Box
 	$('.action-edit-cancel').click(function(){
-		$container = $(this).closest('tr');
-		$tbody_list = $container.closest('tbody#tbody-department-list')
+		$tr = $(this).closest('tr')
+		$tbody_list = $tr.closest('tbody#tbody-department-list')
 
-		$actionbox = $container.find('div.actionbox');
-		$editingbox = $container.find('div.editingbox');
+		$actionbox = $tr.find('div.actionbox')
+		$editingbox = $tr.find('div.editingbox')
 
 		// make the other actionbox clickable again
 		make_other_action_clickable_again()
 
 		// hide and edit/remove button and show the save/cancel button for editing
-		$actionbox.removeClass('hide');
-		$editingbox.addClass('hide');
+		$actionbox.removeClass('hide')
+		$editingbox.addClass('hide')
 
-		$input_name = $container.find("input[name='name']");
-		$input_email = $container.find("input[name='email']");
+		$input_name = $tr.find("input[name='name']")
+		$input_email = $tr.find("input[name='email']")
 
 		// make the 2 input to be non-editable
-		$input_name.attr('disabled','');
-		$input_email.attr('disabled', '');
+		$input_name.attr('disabled','')
+		$input_email.attr('disabled', '')
 
 		// revert back the initial value if changed
-		$input_name.val(input_name);
-		$input_email.val(input_email);
+		$input_name.val(input_name)
+		$input_email.val(input_email)
+	})
 
+	// SAVE EDIT Box
+	$('.action-edit-save').click(function(){
+		$btn = $(this)
+		$tr = $btn.closest('tr')
+		$actionbox = $tr.find('.actionbox')
+		$editingbox = $tr.find('.editingbox')
+		$input_id = $tr.find('input[name="id"]')
+		$input_name = $tr.find('input[name="name"]')
+		$input_email = $tr.find('input[name="email"]')
+
+		// delete the html of error message if exists
+		$('tr#editing-error-tr').remove()
+		// show error message & return false if input is not valid
+		if ( !input_must_not_be_empty($input_name.val(), $input_email.val()) ) {
+			var ul_error_msg = ""
+			errors.forEach(function(val){
+				ul_error_msg += '<li>'+val+'</li>'
+			})
+
+			$tr.after('<tr id="editing-error-tr"><td colspan="2"><div class="alert alert-danger"><ul>'+ul_error_msg+'</ul></div></td><td></td></tr>')
+			return false	
+		}
+
+		save_edited_department($tr, $input_name.val(), $input_email.val(), $input_id.val())
 	})
 
 	// SHOW REMOVE Modal
@@ -168,8 +198,6 @@ $(document).ready(function() {
 		modal_btn = $(this)
 		$modal_view.modal({backdrop:false})
 		// $modal_view.modal('show');
-
-
 	})
 	$('#modal-remove-department').on('show.bs.modal', function(event){
 		var button = modal_btn
@@ -241,7 +269,7 @@ function save_new_department(name, email) {
 
 	$.ajax({
 		type: 'POST',
-		url: "/ajax/departments/new",
+		url: "/ajax/departments/new/save",
 		data: { name: name, email: email },
 		success: function(data){
 			if (data == 'success') {
@@ -250,7 +278,7 @@ function save_new_department(name, email) {
 		},
 		error: function(xhr, status, response) {
 			var error = jQuery.parseJSON(xhr.responseText)
-			console.log(error)
+			// console.log(error)
 			var $error_box = $('#error-messages')
 			$error_box.addClass('hide').find('ul').empty()
 			for(var k in error.message) {
@@ -264,6 +292,42 @@ function save_new_department(name, email) {
 		},
 	})
 	.done(function(data) {
-		console.log(data)
+		// console.log(data)
+	})
+}
+
+function save_edited_department($tr, name, email, id) {
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+
+	$.ajax({
+		type: 'POST',
+		url: "/ajax/departments/edit/save",
+		data: { name:name, email:email, id:id },
+		success: function(data){
+			if (data == 'success') {
+				location.reload()
+			}
+		},
+		error: function(xhr, status, response) {
+			var error = jQuery.parseJSON(xhr.responseText)
+			// console.log(error)
+			var ul_error_msg = ""
+			for(var k in error.message) {
+				if (error.message.hasOwnProperty(k)) {
+					error.message[k].forEach(function(val) {
+						ul_error_msg += '<li>'+val+'</li>'
+					})
+				}
+			}
+			$tr.after('<tr id="editing-error-tr"><td colspan="2"><div class="alert alert-danger"><ul>'+ul_error_msg+'</ul></div></td><td></td></tr>')
+			return false
+		},
+	})
+	.done(function(data) {
+		// console.log(data)
 	})
 }
