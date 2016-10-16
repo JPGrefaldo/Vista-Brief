@@ -6,21 +6,37 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Client;
+use App\ProjectStatus;
+
 class BriefController extends Controller
 {
-    public function index() {
+    public function index() 
+    {
     	return view ('briefsheets.index');
     }
 
-    public function new() {
-    	return view ('briefsheets.newbrief');
+    public function new() 
+    {
+        $clients = Client::isactive()->get();
+        $projectstatus = ProjectStatus::all();
+
+    	return view ('briefsheets.newbrief', compact('clients', 'projectstatus'));
     }
 
-    public function drafted() {
+    public function drafted() 
+    {
     	return view ('briefsheets.draftedbrief');
     }
 
-    public function submitted() {
+    public function submitted() 
+    {
     	return view ('briefsheets.submittedbrief');
+    }
+
+    public function postNewBrief(Request $request) 
+    {
+        echo $request->input('projectstatus');
+        return;
     }
 }

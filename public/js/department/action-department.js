@@ -129,7 +129,7 @@ $(document).ready(function() {
 		$input_name.focus()
 	})
 
-	// CANCL EDIT Box
+	// CANCEL EDIT Box
 	$('.action-edit-cancel').click(function(){
 		$tr = $(this).closest('tr')
 		$tbody_list = $tr.closest('tbody#tbody-department-list')

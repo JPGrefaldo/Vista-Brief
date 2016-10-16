@@ -47,7 +47,7 @@ Submitted - Brief Sheet
               <strong>Submitted.</strong> You can't edit this brief sheet as this had been submitted. You can add amends.
             </div>
           </div>
-          <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
+          <form class="bs-example form-horizontal" action="{{ route('draftedbriefsheet') }}" method="post">
             <div class="panel panel-default">
               <div class="panel-heading">
                 Information

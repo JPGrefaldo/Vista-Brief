@@ -47,7 +47,7 @@ Draft - Brief Sheet
               <strong>Draft.</strong> This brief sheet has not been submitted yet.
             </div>
           </div>
-          <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
+          <form class="bs-example form-horizontal" action="{{ route('draftedbriefsheet') }}" method="post">
             <div class="panel panel-default">
               <div class="panel-heading">
                 Information

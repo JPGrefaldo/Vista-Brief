@@ -39,10 +39,10 @@ Create New Brief Sheet
       </div>
     </div>
     <!-- / main header -->
-    <div class="wrapper-md">
+    <div class="wrapper-md" id="newbriefwrapper">
       <div class="row">
         <div class="col-sm-12">          
-          <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
+          <form class="bs-example form-horizontal" action="{{ route('postnewbrief') }}" method="post">
             <div class="panel panel-default">
               <div class="panel-heading">
                 Information
@@ -53,12 +53,12 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <select name="client" class="form-control">
+                        <select id="select-client" name="client" class="form-control">
                           <option value="0">select</option>
-                          <option>Option 1</option>
-                          <option>Option 2</option>
-                          <option>Option 3</option>
-                          <option>new client</option>
+                          @foreach($clients as $client)
+                            <option value="{{ $client->id }}">{{ $client->name }}</option>
+                          @endforeach
+                          <option value="newclient">new client</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -70,9 +70,9 @@ Create New Brief Sheet
                       <div class="col-lg-9">
                         <select name="projectstatus" class="form-control">
                           <option value="0">select</option>
-                          <option>Pitch</option>
-                          <option>Quote</option>
-                          <option>Live</option>
+                          @foreach($projectstatus as $pstatus)
+                            <option value="{{ $pstatus->id }}">{{ $pstatus->name }}</option>
+                          @endforeach
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -437,11 +437,8 @@ Create New Brief Sheet
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n" style="height:100px">
-                    <div class="col-lg-4 m-l-n">
+                    <div class="col-lg-12 m-l-n">
                       <input ui-jq="filestyle" ui-options="{icon: false, buttonName: 'btn-primary'}" type="file">
-                    </div>
-                    <div class="col-lg-8 bg-ltblue text-center" style="height:100%;">
-                      Drop Files Here
                     </div>
                   </div>           
                 </div>
@@ -463,12 +460,12 @@ Create New Brief Sheet
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <div class="row">
                   <div class="col-lg-6">
-                    <!--<input type="submit" class="btn btn-lg btn-info btn-block" value="Save as Draft">-->
-                    <a href="{{ route('draftedbriefsheet') }}" class="btn btn-lg btn-info btn-block">Save as Draft</a>
+                    <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
+                    <!--<a href="{{ route('draftedbriefsheet') }}" class="btn btn-lg btn-info btn-block">Save as Draft</a>-->
                   </div>
                   <div class="col-lg-6">
-                    <!--<input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">-->
-                    <a href="{{ route('submittedbriefsheet') }}" class="btn btn-lg btn-success btn-block">Submit</a>
+                    <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
+                    <!--<a href="{{ route('submittedbriefsheet') }}" class="btn btn-lg btn-success btn-block">Submit</a>-->
                   </div>
                 </div>
               </div>
@@ -477,6 +474,26 @@ Create New Brief Sheet
         </div>
       </div>
     </div>
+
+    <!-- Modal: Add Client -->
+    <div id="modal-add-client" class="modal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Create New Client</h4>
+          </div>
+          <div class="modal-body">
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
   </div>
   <!-- / main -->
 </div>
@@ -491,7 +508,7 @@ Create New Brief Sheet
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
-
+  <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>
 
 </div>
 @endsection
