@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
     }
+    // password: qwqwqw = $2y$10$efGa1isY3AC4Tk0Sv3JenOK5Ngwi/rYQ9XDVHh/IjQ1dH1m.VEL0u
 
     /**
      * Reverse the migrations.
