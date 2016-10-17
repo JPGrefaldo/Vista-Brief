@@ -10,6 +10,7 @@ use App\Http\Requests\StoreBriefRequest;
 
 use Storage;
 
+use App\Brief;
 use App\Client;
 use App\ProjectStatus;
 use App\Department;
@@ -48,54 +49,65 @@ class BriefAddEditController extends Controller
         // Storage::disk('local')->put('temp/'.$file->getClientOriginalName(), file_get_contents($file));
 
 
+        $action					= $request->input('action');
+        $is_draft				= ($action == 'Submit') ? 0 : 1;
+        $user_id				= $request->user()->id;
         $client_id 				= $request->input('client');
-        $project_status_id 		= $request->input('projectstatus');
-        $job_number 			= $request->input('jobnumber');
-        $old_job_number 		= $request->input('oldjobnumber');
+        $projectstatus_id 		= $request->input('projectstatus');
+        $jobnumber 				= $request->input('jobnumber');
+        $old_jobnumber 			= $request->input('oldjobnumber');
         $budget 				= $request->input('budget');
-        $project_manager 		= $request->input('pmanager');
-        $job_name 				= $request->input('jobname');
-        $key_deliverables 		= $request->input('keydeliverables');
-        $quote_required_by 		= $this->convertTo_MysqlDate($request->input('quotereq'));
-        $proposed_required_by 	= $this->convertTo_MysqlDate($request->input('proposedreq'));
-        $first_stage_required_by = $this->convertTo_MysqlDate($request->input('stagereq'));
-        $projects_delivered_by 	= $this->convertTo_MysqlDate($request->input('projdelivered'));
+        $projectmanager 		= $request->input('pmanager');
+        $jobname 				= $request->input('jobname');
+        $keydeliverables 		= $request->input('keydeliverables');
+        $quoted_required_by_at 	= $this->convertTo_MysqlDate($request->input('quotereq'));
+        $proposal_required_by_at 	= $this->convertTo_MysqlDate($request->input('proposedreq'));
+        $firststage_required_by_at = $this->convertTo_MysqlDate($request->input('stagereq'));
+        $project_delivered_by_at 	= $this->convertTo_MysqlDate($request->input('projdelivered'));
         $summary 				= $request->input('summary');
-        $department_ids 		= $this->convertTo_CommaSeparatedIds($request->input('department'));  
-        $objectives_measures 	= $request->input('objmeasure');
-        $context 				= $request->input('context');
-        $target_audience_insight = $request->input('targetaudience_insight');
-        $target_audience_think 	= $request->input('targetaudience_think');
-        $target_audience_feel 	= $request->input('targetaudience_feel');
-        $target_audience_do 	= $request->input('targetaudience_do');
-        $key_mesgs_propositions = $request->input('keymsg_propositions');
+        $disciplines_required_ids 	= $this->convertTo_CommaSeparatedIds($request->input('department'));  
+        $objectives_or_measures = $request->input('objmeasure');
+        $content 				= $request->input('context');
+        $targetaudience_and_insight = $request->input('targetaudience_insight');
+        $targetaudience_think 	= $request->input('targetaudience_think');
+        $targetaudience_feel 	= $request->input('targetaudience_feel');
+        $targetaudience_do 		= $request->input('targetaudience_do');
+        $keymessages_or_propositions = $request->input('keymsg_propositions');
         $creative = $request->input('creative');
-        $budget_timings_outputs_required = $request->input('budget_timings_outputs_req');
+        $budget_timings_and_outputs = $request->input('budget_timings_outputs_req');
 
-        echo '<p>client_id: '.$client_id.'</p>';
-        echo '<p>project_status_id: '.$project_status_id.'</p>';
-        echo '<p>job_number: '.$job_number.'</p>';
-        echo '<p>old_job_number: '.$old_job_number.'</p>';
-        echo '<p>budget: '.$budget.'</p>';
-        echo '<p>project_manager: '.$project_manager.'</p>';
-        echo '<p>job_name: '.$job_name.'</p>';
-        echo '<p>key_deliverables: '.$key_deliverables.'</p>';
-        echo '<p>quote_required_by: '.$quote_required_by.'</p>';
-        echo '<p>proposed_required_by: '.$proposed_required_by.'</p>';
-        echo '<p>first_stage_required_by: '.$first_stage_required_by.'</p>';
-        echo '<p>projects_delivered_by: '.$projects_delivered_by.'</p>';
-        echo '<p>summary: '.$summary.'</p>';
-        echo '<p>department_ids: '.$department_ids.'</p>';
-        echo '<p>objectives_measures: '.$objectives_measures.'</p>';
-        echo '<p>context: '.$context.'</p>';
-        echo '<p>target_audience_insight: '.$target_audience_insight.'</p>';
-        echo '<p>target_audience_think: '.$target_audience_think.'</p>';
-        echo '<p>target_audience_feel: '.$target_audience_feel.'</p>';
-        echo '<p>target_audience_do: '.$target_audience_do.'</p>';
-        echo '<p>key_mesgs_propositions: '.$key_mesgs_propositions.'</p>';
-        echo '<p>creative: '.$creative.'</p>';
-        echo '<p>budget_timings_outputs_required: '.$budget_timings_outputs_required.'</p>';
+        
 
+        $brief = new Brief();
+        $brief->user_id = $user_id;
+        $brief->client_id = $client_id;
+        $brief->jobnumber = $jobnumber;
+        $brief->old_jobnumber = $old_jobnumber;
+        $brief->jobname = $jobname;
+        $brief->projectstatus_id = $projectstatus_id;
+        $brief->is_draft = $is_draft;
+        $brief->projectmanager = $projectmanager;
+        $brief->budget = $budget;
+        $brief->keydeliverables = $keydeliverables;
+        $brief->quoted_required_by_at = $quoted_required_by_at;
+        $brief->proposal_required_by_at = $proposal_required_by_at;
+        $brief->firststage_required_by_at = $firststage_required_by_at;
+        $brief->project_delivered_by_at = $project_delivered_by_at;
+        $brief->disciplines_required_ids = $disciplines_required_ids;
+        $brief->objectives_or_measures = $objectives_or_measures;
+        $brief->content = $content;
+        $brief->targetaudience_and_insight = $targetaudience_and_insight;
+        $brief->targetaudience_think = $targetaudience_think;
+        $brief->targetaudience_feel = $targetaudience_feel;
+        $brief->targetaudience_do = $targetaudience_do;
+        $brief->keymessages_or_propositions = $keymessages_or_propositions;
+        $brief->creative = $creative;
+        $brief->budget_timings_and_outputs = $budget_timings_and_outputs;
+        //$brief->attachment_ids = $xxxx;
+
+        $brief->save();
+
+        return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
         // return \Response::json(array('success'=>true));
     }
 
@@ -117,3 +129,31 @@ class BriefAddEditController extends Controller
     	return implode($id_input, ',');
     }
 }
+
+
+
+		// echo '<p>is_draft: '.$is_draft.'</p>';
+        // echo '<p>user_id: '.$user_id.'</p>';
+        // echo '<p>client_id: '.$client_id.'</p>';
+        // echo '<p>project_status_id: '.$project_status_id.'</p>';
+        // echo '<p>job_number: '.$job_number.'</p>';
+        // echo '<p>old_job_number: '.$old_job_number.'</p>';
+        // echo '<p>budget: '.$budget.'</p>';
+        // echo '<p>project_manager: '.$project_manager.'</p>';
+        // echo '<p>job_name: '.$job_name.'</p>';
+        // echo '<p>key_deliverables: '.$key_deliverables.'</p>';
+        // echo '<p>quote_required_by: '.$quote_required_by.'</p>';
+        // echo '<p>proposed_required_by: '.$proposed_required_by.'</p>';
+        // echo '<p>first_stage_required_by: '.$first_stage_required_by.'</p>';
+        // echo '<p>projects_delivered_by: '.$projects_delivered_by.'</p>';
+        // echo '<p>summary: '.$summary.'</p>';
+        // echo '<p>department_ids: '.$department_ids.'</p>';
+        // echo '<p>objectives_measures: '.$objectives_measures.'</p>';
+        // echo '<p>context: '.$context.'</p>';
+        // echo '<p>target_audience_insight: '.$target_audience_insight.'</p>';
+        // echo '<p>target_audience_think: '.$target_audience_think.'</p>';
+        // echo '<p>target_audience_feel: '.$target_audience_feel.'</p>';
+        // echo '<p>target_audience_do: '.$target_audience_do.'</p>';
+        // echo '<p>key_mesgs_propositions: '.$key_mesgs_propositions.'</p>';
+        // echo '<p>creative: '.$creative.'</p>';
+        // echo '<p>budget_timings_outputs_required: '.$budget_timings_outputs_required.'</p>';

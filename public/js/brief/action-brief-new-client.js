@@ -12,7 +12,7 @@ $(document).ready(function() {
 	})
 	$('#modal-add-client').on('hide.bs.modal', function(event){
 		var $select_client = $('#select-client')
-		$select_client.val(0)
+		$select_client.val('')
 	})
 
 

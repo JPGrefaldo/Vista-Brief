@@ -9,13 +9,18 @@ class User extends Model implements Authenticatable
 {
 	use \Illuminate\Auth\Authenticatable;
 
-	public function isAdmin() 
+	public function briefs()
 	{
-		if ($this->type == 1) {
-			return true;
-		}
-		return false;
+		return $this->hasMany('App\Brief');
 	}
+
+	// public function isAdmin() 
+	// {
+	// 	if ($this->type == 1) {
+	// 		return true;
+	// 	}
+	// 	return false;
+	// }
 
 	public function scopeUsername($query, $username) 
 	{

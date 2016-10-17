@@ -76,3 +76,11 @@ body {
 .p-sm {
 	padding: 10px 0 10px 0;
 }
+
+.p-r-sm {
+	padding-right: 10px;
+}
+
+.p-l-sm {
+	padding-left: 10px;
+}

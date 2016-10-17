@@ -32,9 +32,12 @@ Brief Sheets - Vista
     <!-- main header -->
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-12 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Brief Sheets</h1>
           <small class="text-muted">welcome</small>
+          @if (session('new_brief_success'))
+            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_brief_success') }}</span>
+          @endif
         </div>
       </div>
     </div>
@@ -48,7 +51,7 @@ Brief Sheets - Vista
               <i class="fa fa-fw fa-plus"></i>
               Create New Brief
             </a>
-            <a href="" class="btn btn-dark">
+            <a href="" class="btn btn-dark hide"><!-- search field: hide for now -->
               Search
               <i class="fa fa-fw fa-search"></i>
             </a>
@@ -67,7 +70,7 @@ Brief Sheets - Vista
           </div>
           <div class="col-sm-4">
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-3 hide"><!-- search field: hide for now -->
             <div class="input-group">
               <input type="text" class="input-sm form-control" placeholder="Search">
               <span class="input-group-btn">
@@ -96,30 +99,27 @@ Brief Sheets - Vista
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>1234567</td>
-                <td><span class="text-ellipsis">Evcom Award Entries</span></td>
-                <td><span class="text-ellipsis">Illustrations for hand held and freestanding props</span></td>
-                <td>Ray</td>
-                <td>Draft</td>
-                <td>
-                  <a href class="active" title="edit"><i class="fa fa-edit text-primary"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>1234567</td>
-                <td><span class="text-ellipsis">Evcom Award Entries</span></td>
-                <td><span class="text-ellipsis">Illustrations for hand held and freestanding props</span></td>
-                <td>Ray</td>
-                <td>Submitted</td>
-                <td>
-                  <a href class="active" title="view">
-                    <i class="fa fa-eye text-primary"></i>
-                  </a>
-                </td>
-              </tr>
+              @foreach ($briefs as $brief)
+                <tr>
+                  <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                  <td>{{ $brief->jobnumber }}</td>
+                  <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
+                  <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
+                  <td>{{ $brief->user->forename }}</td>
+                  <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
+                  <td>
+                    @if ($brief->is_draft == 0)
+                      <a href class="active" title="edit">
+                        <i class="fa fa-eye text-primary"></i>
+                      </a>
+                    @else
+                      <a href class="active" title="edit">
+                        <i class="fa fa-edit text-primary"></i>
+                      </a>
+                    @endif
+                  </td> 
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -141,10 +141,10 @@ Brief Sheets - Vista
               <ul class="pagination pagination-sm m-t-none m-b-none">
                 <li><a href><i class="fa fa-chevron-left"></i></a></li>
                 <li><a href>1</a></li>
-                <li><a href>2</a></li>
+                <!--<li><a href>2</a></li>
                 <li><a href>3</a></li>
                 <li><a href>4</a></li>
-                <li><a href>5</a></li>
+                <li><a href>5</a></li>-->
                 <li><a href><i class="fa fa-chevron-right"></i></a></li>
               </ul>
             </div>

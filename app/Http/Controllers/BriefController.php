@@ -9,6 +9,7 @@ use App\Http\Requests;
 
 // use Storage;
 
+use App\Brief;
 use App\Client;
 use App\ProjectStatus;
 use App\Department;
@@ -17,7 +18,13 @@ class BriefController extends Controller
 {
     public function index() 
     {
-    	return view ('briefsheets.index');
+        $briefs = Brief::isactive()->get();
+
+        // foreach ($briefs as $brief) {
+        //     echo $brief->user->surname;
+        // }
+
+    	return view ('briefsheets.index', compact('briefs'));
     }
 
     public function drafted() 
