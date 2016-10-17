@@ -69,8 +69,8 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'BriefController@index',
 		'as'	=>	'briefsheets'
 	]);
-	Route::get('/briefsheets/new', [
-		'uses'	=>	'BriefController@new',
+	Route::get('/briefsheets/post/create', [
+		'uses'	=>	'BriefAddEditController@new',
 		'as'	=>	'newbriefsheet'
 	]);
 	Route::get('/briefsheets/draft', [
@@ -81,8 +81,8 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'BriefController@submitted',
 		'as'	=>	'submittedbriefsheet'
 	]);
-	Route::post('/briefsheets/new/save', [
-		'uses'	=>	'BriefController@postNewBrief',
+	Route::post('/briefsheets/post/save', [
+		'uses'	=>	'BriefAddEditController@postNewBrief',
 		'as'	=>	'postnewbrief'
 	]);
 	/* / Brief Routes */

@@ -42,7 +42,7 @@ Create New Brief Sheet
     <div class="wrapper-md" id="newbriefwrapper">
       <div class="row">
         <div class="col-sm-12">          
-          <form class="bs-example form-horizontal" action="{{ route('postnewbrief') }}" method="post">
+          <form class="bs-example form-horizontal" action="{{ route('postnewbrief') }}" method="post" enctype="multipart/form-data">
 
             <div class="panel panel-default">
               <div class="panel-heading">
@@ -55,7 +55,7 @@ Create New Brief Sheet
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
                         <select id="select-client" name="client" class="form-control">
-                          <option value="0">select</option>
+                          <option value="">select</option>
                           @foreach($clients as $client)
                             <option value="{{ $client->id }}">{{ $client->name }}</option>
                           @endforeach
@@ -70,7 +70,7 @@ Create New Brief Sheet
                       <label class="col-lg-3 control-label text-left">Project Status</label>
                       <div class="col-lg-9">
                         <select name="projectstatus" class="form-control">
-                          <option value="0">select</option>
+                          <option value="">select</option>
                           @foreach($projectstatus as $pstatus)
                             <option value="{{ $pstatus->id }}">{{ $pstatus->name }}</option>
                           @endforeach
@@ -139,10 +139,10 @@ Create New Brief Sheet
                 <div class="row">
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Quote Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="quotereq" />
+                          <input type="text" class="form-control" name="quotereq" readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_quotereq"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -152,8 +152,8 @@ Create New Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Proposed Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
                           <input type="text" class="form-control" name="proposedreq" />
                           <span class="input-group-btn">
@@ -165,8 +165,8 @@ Create New Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
                           <input type="text" class="form-control" name="stagereq" />
                           <span class="input-group-btn">
@@ -178,8 +178,8 @@ Create New Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
                           <input type="text" class="form-control" name="projdelivered" />
                           <span class="input-group-btn">
@@ -401,7 +401,7 @@ Create New Brief Sheet
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n" style="height:100px">
                     <div class="col-lg-12 m-l-n">
-                      <input ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-primary'}" type="file">
+                      <input name="attachments" ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-primary'}" type="file">
                     </div>
                   </div>           
                 </div>
@@ -416,6 +416,18 @@ Create New Brief Sheet
               </div>
             </div>
             <!-- / Notes -->
+
+            @if (count($errors) > 0)
+            <div class="panel panel-default">
+                <div class="alert alert-danger text-danger m-b-n">
+                  <ul class="m-b-n">
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+            </div>
+            @endif
 
             <div class="panel panel-default">
               <div class="panel-footer">
@@ -475,6 +487,8 @@ Create New Brief Sheet
   <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
   <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
   <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+  <!-- filestyle -->
+  <!-- <script src="{{ URL::asset('libs/jquery/bootstrap-filestyle/src/bootstrap-filestyle.js') }}"></script> -->
 
 
   <!-- load ACTION JS scripts -->
