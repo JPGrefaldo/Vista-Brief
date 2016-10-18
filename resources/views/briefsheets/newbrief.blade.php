@@ -44,6 +44,7 @@ Create New Brief Sheet
         <div class="col-sm-12">          
           <form class="bs-example form-horizontal" action="{{ route('postnewbrief') }}" method="post" enctype="multipart/form-data">
 
+            <!-- Information -->
             <div class="panel panel-default">
               <div class="panel-heading">
                 Information
@@ -193,6 +194,7 @@ Create New Brief Sheet
               </div>
               <!-- / Required dates -->
             </div>
+            <!-- / Information -->
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
@@ -465,7 +467,9 @@ Create New Brief Sheet
             <h4 class="modal-title">Create New Client</h4>
           </div>
           <div class="modal-body">
-            
+            <div class="form-group1">
+              <input class="form-control input-lg" type="text" name="newclientname" placeholder="Client Name" value="">
+            </div>            
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -99,7 +99,7 @@ Brief Sheets - Vista
               </tr>
             </thead>
             <tbody>
-              @if (!empty($briefs))
+              @if (empty($briefs))
                 <tr>
                   <td colspan="7">
                     <p class="text-center m-md">Sorry, no brief sheets found. Begin by creating a <a href="{{ route('newbriefsheet') }}" class="text-info"><u>new brief sheet here</u></a>.</p>
@@ -143,7 +143,7 @@ Brief Sheets - Vista
               <button class="btn btn-sm btn-default">Apply</button>                  
             </div>
             <div class="col-sm-4 text-center">
-              <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+              <small class="text-muted inline m-t-sm m-b-sm">showing 1-10 of 10 items</small>
             </div>
             <div class="col-sm-4 text-right text-center-xs">                
               <ul class="pagination pagination-sm m-t-none m-b-none">
