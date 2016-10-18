@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Validator;
 
 use App\Http\Requests;
 use App\Http\Requests\StoreBriefRequest;
@@ -109,6 +110,39 @@ class BriefAddEditController extends Controller
 
         return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
         // return \Response::json(array('success'=>true));
+    }
+
+    public function postNewClient(Request $request) 
+    {
+    	$messages = [
+            'name.required'     =>  'Client name must not be empty.',
+            'name.unique'		=> 	'Client name is already taken.'
+        ];
+
+        $validator = Validator::make($request->all(),[
+            'name'      =>  'bail|required|unique:clients,name',
+        ], $messages);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            $errors = json_decode($errors);
+
+            return response()->json([
+                'success'   => false,
+                'message'   => $errors
+            ], 422);
+        }
+        
+        $client = new Client();
+        $client->name = $request->input('name');
+        $client->save();
+
+        return 'success';
+    }
+
+    public function getClients()
+    {
+    	return response()->json(Client::isactive()->get());
     }
 
     private function convertTo_MysqlDate($str_input)

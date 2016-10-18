@@ -60,7 +60,7 @@ Create New Brief Sheet
                           @foreach($clients as $client)
                             <option value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>{{ $client->name }}</option>
                           @endforeach
-                          <option value="newclient">new client</option>
+                          <option value="newclient">[new client]</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -467,12 +467,17 @@ Create New Brief Sheet
             <h4 class="modal-title">Create New Client</h4>
           </div>
           <div class="modal-body">
-            <div class="form-group1">
-              <input class="form-control input-lg" type="text" name="newclientname" placeholder="Client Name" value="">
-            </div>            
+            <input id="input-newclient-name" class="form-control input-lg" type="text" name="newclientname" placeholder="Client Name">      
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="row">
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
+              </div>
+              <div class="col-sm-8">
+                <button type="button" class="btn btn-success btn-block" id="btn-client-create">Create Client</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

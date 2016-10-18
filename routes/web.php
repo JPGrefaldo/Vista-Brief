@@ -158,6 +158,12 @@ Route::post('/ajax/departments/delete', [
 	'uses'	=>	'DepartmentController@postDeleteDepartment',
 	'as'	=>	'postdeletedepartment'
 ]);
+Route::post('/ajax/brief/post/create/newclient/save', [
+	'uses'	=>	'BriefAddEditController@postNewClient'
+]);
+Route::get('/ajax/brief/post/create/get/clients', [
+	'uses'	=>	'BriefAddEditController@getClients'
+]);
 			
 //Route::get('main', 'MainPagesController@main');
 
