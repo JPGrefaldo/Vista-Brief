@@ -99,27 +99,35 @@ Brief Sheets - Vista
               </tr>
             </thead>
             <tbody>
-              @foreach ($briefs as $brief)
+              @if (!empty($briefs))
                 <tr>
-                  <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                  <td>{{ $brief->jobnumber }}</td>
-                  <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
-                  <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
-                  <td>{{ $brief->user->forename }}</td>
-                  <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
-                  <td>
-                    @if ($brief->is_draft == 0)
-                      <a href class="active" title="edit">
-                        <i class="fa fa-eye text-primary"></i>
-                      </a>
-                    @else
-                      <a href class="active" title="edit">
-                        <i class="fa fa-edit text-primary"></i>
-                      </a>
-                    @endif
-                  </td> 
+                  <td colspan="7">
+                    <p class="text-center m-md">Sorry, no brief sheets found. Begin by creating a <a href="{{ route('newbriefsheet') }}" class="text-info"><u>new brief sheet here</u></a>.</p>
+                  </td>
                 </tr>
-              @endforeach
+              @else
+                @foreach ($briefs as $brief)
+                  <tr>
+                    <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                    <td>{{ $brief->jobnumber }}</td>
+                    <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
+                    <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
+                    <td>{{ $brief->user->forename }}</td>
+                    <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
+                    <td>
+                      @if ($brief->is_draft == 0)
+                        <a href class="active" title="edit">
+                          <i class="fa fa-eye text-primary"></i>
+                        </a>
+                      @else
+                        <a href class="active" title="edit">
+                          <i class="fa fa-edit text-primary"></i>
+                        </a>
+                      @endif
+                    </td> 
+                  </tr>
+                @endforeach
+              @endif
             </tbody>
           </table>
         </div>
