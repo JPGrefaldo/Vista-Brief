@@ -99,12 +99,7 @@ Brief Sheets - Vista
               </tr>
             </thead>
             <tbody>
-                <tr>
-                  <td colspan="7">
-                    <p class="text-center m-md">Sorry, no brief sheets found. Begin by creating a <a href="{{ route('newbriefsheet') }}" class="text-info"><u>new brief sheet here</u></a>.</p>
-                  </td>
-                </tr>
-              @if (empty($briefs) || !$briefs)
+              @if ($briefs->isEmpty())
                 <tr>
                   <td colspan="7">
                     <p class="text-center m-md">Sorry, no brief sheets found. Begin by creating a <a href="{{ route('newbriefsheet') }}" class="text-info"><u>new brief sheet here</u></a>.</p>
