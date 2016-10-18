@@ -407,12 +407,23 @@ Create New Brief Sheet
                 10 - Attachments
               </div>
               <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n" style="height:100px">
-                    <div class="col-lg-12 m-l-n">
-                      <input name="attachments" ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-primary'}" type="file">
-                    </div>
-                  </div>           
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
+                    <div class="form-group">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                      <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
+                    </div>  
+                  </div>
+                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
+                    <button class="btn btn-primary btn-block">Add File(s)</button>
+                  </div>
+                  <div class="col-sm-12 hide"> <!-- hide for now -->
+                    <ul>
+                      <li>file list</li>
+                      <li>file list</li>
+                      <li>file list</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -503,13 +514,14 @@ Create New Brief Sheet
   <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
   <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
   <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-  <!-- filestyle -->
-  <!-- <script src="{{ URL::asset('libs/jquery/bootstrap-filestyle/src/bootstrap-filestyle.js') }}"></script> -->
+  <!-- multifile-upload -->
+  <!--<script src="{{ URL::asset('libs/jquery/multifile-master/jQuery.MultiFile.min.js') }}"></script>-->
 
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>  
+  <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
 @endsection

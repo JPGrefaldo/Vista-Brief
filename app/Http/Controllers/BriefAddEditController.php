@@ -15,6 +15,7 @@ use App\Brief;
 use App\Client;
 use App\ProjectStatus;
 use App\Department;
+use App\Attachment;
 
 use Response;
 
@@ -30,20 +31,25 @@ class BriefAddEditController extends Controller
     	return view ('briefsheets.newbrief', compact('clients', 'projectstatus', 'departments'));
     }
 
-    public function postNewBrief(StoreBriefRequest $request) 
+    public function postNewBrief(StoreBriefRequest $request)
     {
-        if ($request->hasFile('attachments')) {
-            echo '<p>there is a file</p>';
-        } else {
-            echo '<p>there is no file</p>';
-        }
-        
+        // if ($request->hasFile('attachments')) {
+        //     echo '<p>there is a file</p>';
+        // } else {
+        //     echo '<p>there is no file</p>';
+        // }        
 
         // if ($request->file('attachments')->isValid()) {
         //     echo '<p>the file is valid</p>';
         // } else {
         //     echo '<p>the file is NOT valid</p>';
         // }
+
+        // echo '<p>count: '.count($request->file('attachments')).'</p>';
+        // echo '<pre>';
+        // print_r($request->file('attachments'));
+
+        // return;
 
         // $path = $request->attachments->store('default', 'test.php', 'local');
         // $file = $request->file('attachments');
@@ -77,8 +83,6 @@ class BriefAddEditController extends Controller
         $creative = $request->input('creative');
         $budget_timings_and_outputs = $request->input('budget_timings_outputs_req');
 
-        
-
         $brief = new Brief();
         $brief->user_id = $user_id;
         $brief->client_id = $client_id;
@@ -90,10 +94,14 @@ class BriefAddEditController extends Controller
         $brief->projectmanager = $projectmanager;
         $brief->budget = $budget;
         $brief->keydeliverables = $keydeliverables;
-        $brief->quoted_required_by_at = $quoted_required_by_at;
-        $brief->proposal_required_by_at = $proposal_required_by_at;
-        $brief->firststage_required_by_at = $firststage_required_by_at;
-        $brief->project_delivered_by_at = $project_delivered_by_at;
+        if ( !empty($quoted_required_by_at) )
+        	$brief->quoted_required_by_at = $quoted_required_by_at;
+        if ( !empty($proposal_required_by_at) )
+        	$brief->proposal_required_by_at = $proposal_required_by_at;
+        if ( !empty($firststage_required_by_at) )
+        	$brief->firststage_required_by_at = $firststage_required_by_at;
+        if ( !empty($project_delivered_by_at) )
+        	$brief->project_delivered_by_at = $project_delivered_by_at;
         $brief->disciplines_required_ids = $disciplines_required_ids;
         $brief->objectives_or_measures = $objectives_or_measures;
         $brief->content = $content;
@@ -106,6 +114,30 @@ class BriefAddEditController extends Controller
         $brief->budget_timings_and_outputs = $budget_timings_and_outputs;
         //$brief->attachment_ids = $xxxx;
 
+        $brief->save();
+
+        $arr_attachment_ids = array();
+
+        $files = $request->file('attachments');
+        if ( !empty($files) ) {
+        	foreach ($files as $file):
+        		$filename = $file->getClientOriginalName();
+
+		        $attachments = new Attachment();
+		        $attachments->user_id = $user_id;
+		        $attachments->brief_id = $brief->id;
+		        $attachments->filename = $filename;
+		        $attachments->disk = 'local';
+		        $attachments->directory = $brief->id.'/'.$user_id.'/';
+		        $attachments->save();
+
+		        $arr_attachment_ids[] = $attachments->id;
+
+        		Storage::disk('local')->put($attachments->directory.$filename, file_get_contents($file));
+        	endforeach;
+        }
+
+        $brief->attachment_ids = implode($arr_attachment_ids,',');
         $brief->save();
 
         return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
@@ -148,7 +180,7 @@ class BriefAddEditController extends Controller
     private function convertTo_MysqlDate($str_input)
     {
     	if ( empty($str_input) ) :
-    		return $str_input;
+    		return trim($str_input);
     	endif;
 
     	return date('Y-m-d', strtotime($str_input));
@@ -157,7 +189,7 @@ class BriefAddEditController extends Controller
     private function convertTo_CommaSeparatedIds($id_input) 
     {
     	if ( !is_array($id_input) ) :
-    		return $id_input;
+    		return trim($id_input);
     	endif;
 
     	return implode($id_input, ',');
@@ -167,27 +199,27 @@ class BriefAddEditController extends Controller
 
 
 		// echo '<p>is_draft: '.$is_draft.'</p>';
-        // echo '<p>user_id: '.$user_id.'</p>';
-        // echo '<p>client_id: '.$client_id.'</p>';
-        // echo '<p>project_status_id: '.$project_status_id.'</p>';
-        // echo '<p>job_number: '.$job_number.'</p>';
-        // echo '<p>old_job_number: '.$old_job_number.'</p>';
-        // echo '<p>budget: '.$budget.'</p>';
-        // echo '<p>project_manager: '.$project_manager.'</p>';
-        // echo '<p>job_name: '.$job_name.'</p>';
-        // echo '<p>key_deliverables: '.$key_deliverables.'</p>';
-        // echo '<p>quote_required_by: '.$quote_required_by.'</p>';
-        // echo '<p>proposed_required_by: '.$proposed_required_by.'</p>';
-        // echo '<p>first_stage_required_by: '.$first_stage_required_by.'</p>';
-        // echo '<p>projects_delivered_by: '.$projects_delivered_by.'</p>';
-        // echo '<p>summary: '.$summary.'</p>';
-        // echo '<p>department_ids: '.$department_ids.'</p>';
-        // echo '<p>objectives_measures: '.$objectives_measures.'</p>';
-        // echo '<p>context: '.$context.'</p>';
-        // echo '<p>target_audience_insight: '.$target_audience_insight.'</p>';
-        // echo '<p>target_audience_think: '.$target_audience_think.'</p>';
-        // echo '<p>target_audience_feel: '.$target_audience_feel.'</p>';
-        // echo '<p>target_audience_do: '.$target_audience_do.'</p>';
-        // echo '<p>key_mesgs_propositions: '.$key_mesgs_propositions.'</p>';
-        // echo '<p>creative: '.$creative.'</p>';
-        // echo '<p>budget_timings_outputs_required: '.$budget_timings_outputs_required.'</p>';
+  //       echo '<p>user_id: '.$user_id.'</p>';
+  //       echo '<p>client_id: '.$client_id.'</p>';
+  //       echo '<p>project_status_id: '.$projectstatus_id.'</p>';
+  //       echo '<p>job_number: '.$jobnumber.'</p>';
+  //       echo '<p>old_job_number: '.$old_jobnumber.'</p>';
+  //       echo '<p>budget: '.$budget.'</p>';
+  //       echo '<p>project_manager: '.$projectmanager.'</p>';
+  //       echo '<p>job_name: '.$jobname.'</p>';
+  //       echo '<p>key_deliverables: '.$keydeliverables.'</p>';
+  //       echo '<p>quote_required_by: '.$quoted_required_by_at.'</p>';
+  //       echo '<p>proposed_required_by: '.$proposal_required_by_at.'</p>';
+  //       echo '<p>first_stage_required_by: '.$firststage_required_by_at.'</p>';
+  //       echo '<p>projects_delivered_by: '.$project_delivered_by_at.'</p>';
+  //       echo '<p>summary: '.$summary.'</p>';
+  //       echo '<p>department_ids: '.$disciplines_required_ids.'</p>';
+  //       echo '<p>objectives_measures: '.$objectives_or_measures.'</p>';
+  //       echo '<p>context: '.$content.'</p>';
+  //       echo '<p>target_audience_insight: '.$targetaudience_and_insight.'</p>';
+  //       echo '<p>target_audience_think: '.$targetaudience_think.'</p>';
+  //       echo '<p>target_audience_feel: '.$targetaudience_feel.'</p>';
+  //       echo '<p>target_audience_do: '.$targetaudience_do.'</p>';
+  //       echo '<p>key_mesgs_propositions: '.$keymessages_or_propositions.'</p>';
+  //       echo '<p>creative: '.$creative.'</p>';
+  //       echo '<p>budget_timings_outputs_required: '.$budget_timings_and_outputs.'</p>';
