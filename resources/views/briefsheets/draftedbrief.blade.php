@@ -39,15 +39,17 @@ Draft - Brief Sheet
       </div>
     </div>
     <!-- / main header -->
-    <div class="wrapper-md">
+    <div class="wrapper-md" id="editbriefwrapper">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12">    
           <div class="panel panel-info">
             <div class="panel-body bg-ltinfo">
               <strong>Draft.</strong> This brief sheet has not been submitted yet.
             </div>
-          </div>
-          <form class="bs-example form-horizontal" action="{{ route('draftedbriefsheet') }}" method="post">
+          </div>      
+          <form class="bs-example form-horizontal" action="" method="post" enctype="multipart/form-data">
+
+            <!-- Information -->
             <div class="panel panel-default">
               <div class="panel-heading">
                 Information
@@ -58,11 +60,22 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <select name="client" class="form-control">
-                          <option value="0">select</option>
-                          <option selected>Option 1</option>
-                          <option>Option 2</option>
-                          <option>Option 3</option>
+                        <select id="select-client" name="client" class="form-control">
+                          <option value="">select</option>
+                          @foreach($clients as $client)
+                            @if ( old('client') )
+                              <option 
+                                value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>
+                                  {{ $client->name }}
+                              </option>
+                            @else
+                              <option 
+                                value="{{ $client->id }}" {{ ($brief->client_id == $client->id) ? "selected":"" }}>
+                                  {{ $client->name }}
+                              </option>
+                            @endif
+                          @endforeach
+                          <option value="newclient">[new client]</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -73,10 +86,20 @@ Draft - Brief Sheet
                       <label class="col-lg-3 control-label text-left">Project Status</label>
                       <div class="col-lg-9">
                         <select name="projectstatus" class="form-control">
-                          <option value="0">select</option>
-                          <option>Pitch</option>
-                          <option selected>Quote</option>
-                          <option>Live</option>
+                          <option value="">select</option>
+                          @foreach($projectstatus as $pstatus)
+                            @if ( old('projectstatus') )
+                              <option 
+                                value="{{ $pstatus->id }}" {{ (old('projectstatus') == $pstatus->id) ? "selected":"" }}>
+                                  {{ $pstatus->name }}
+                              </option>
+                            @else
+                              <option 
+                                value="{{ $pstatus->id }}" {{ ($brief->projectstatus_id == $pstatus->id) ? "selected":"" }}>
+                                  {{ $pstatus->name }}
+                              </option>
+                            @endif
+                          @endforeach
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -88,7 +111,12 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Job Number</label>
                       <div class="col-lg-9">
-                        <input type="text" name="jobnumber" class="form-control" placeholder="Job Number" value="123456789">
+                        <input 
+                          type="text" 
+                          name="jobnumber" 
+                          class="form-control" 
+                          placeholder="Job Number" 
+                          value="{{ (old('jobnumber')) ? old('jobnumber') : $brief->jobnumber }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -97,7 +125,12 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Old Job Number</label>
                       <div class="col-lg-9">
-                        <input type="text" name="oldjobnumber" class="form-control" placeholder="987654321">
+                        <input 
+                          type="text" 
+                          name="oldjobnumber" 
+                          class="form-control" 
+                          placeholder="Old Job Number" 
+                          value="{{ (old('oldjobnumber')) ? old('oldjobnumber') : $brief->old_jobnumber }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -108,7 +141,12 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
                       <div class="col-lg-9">
-                        <input type="text" name="budget" class="form-control" placeholder="Your Budget" value="1000.00">
+                        <input 
+                          type="text" 
+                          name="budget" 
+                          class="form-control" 
+                          placeholder="Your Budget" 
+                          value="{{ (old('budget')) ? old('budget') : $brief->budget }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -117,7 +155,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Manager</label>
                       <div class="col-lg-9">
-                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager" value="sample manager">
+                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager" value="{{ old('pmanager') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -126,14 +164,14 @@ Draft - Brief Sheet
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="sample job name">
+                    <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="{{ old('jobname') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="keydeliv" class="form-control" placeholder="Key Deliverables" value="sample deliverables">
+                    <input type="text" name="keydeliverables" class="form-control" placeholder="Key Deliverables" value="{{ old('keydeliverables') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -142,12 +180,12 @@ Draft - Brief Sheet
                 <div class="row">
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Quote Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
+                          <input type="text" class="form-control" name="quotereq" value="{{ old('quotereq') }}" readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_quotereq"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
                         </div>
                       </div>
@@ -155,12 +193,12 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Proposed Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="proposedreq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
+                          <input type="text" class="form-control" name="proposedreq" value="{{ old('proposedreq') }}" readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_proposedreq"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
                         </div>
                       </div>
@@ -168,12 +206,12 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="stagereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
+                          <input type="text" class="form-control" name="stagereq" value="{{ old('stagereq') }}" readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_stagereq"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
                         </div>
                       </div>
@@ -181,12 +219,12 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="projdel" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" />
+                          <input type="text" class="form-control" name="projdelivered" value="{{ old('projdelivered') }}" readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_projdelivered"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
                         </div>
                       </div>
@@ -196,6 +234,7 @@ Draft - Brief Sheet
               </div>
               <!-- / Required dates -->
             </div>
+            <!-- / Information -->
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
@@ -207,7 +246,7 @@ Draft - Brief Sheet
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here.">sample brief</textarea>
+                    <textarea name="summary" class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here.">{{ old('summary') }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -222,62 +261,22 @@ Draft - Brief Sheet
               <div class="panel-body">
                 <div class="form-group">
                   <div class="row-fluid">
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Events <input type="checkbox" checked><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Strategy <input type="checkbox"><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Content <input type="checkbox"><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Design <input type="checkbox" checked><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Digital <input type="checkbox"><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Film <input type="checkbox" checked><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Exhibitions <input type="checkbox" checked><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          VenueHub <input type="checkbox" checked><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
+                    @foreach ($departments as $department)
+                      <div class="col-lg-3">
+                        <div class="checkbox1">
+                          <label class="checkboc-inline">
+                            {{ $department->name }} 
+                            <input 
+                              type="checkbox" 
+                              name="department[{{ $department->id }}]" 
+                              value="{{ $department->id }}"
+                              @if(array_key_exists($department->id, old('department',[]))) checked @endif
+                              >
+                            <i></i>
+                          </label>
+                        </div>           
+                      </div>
+                    @endforeach
                   </div>
                 </div>
               </div>
@@ -292,11 +291,12 @@ Draft - Brief Sheet
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea 
+                    <textarea
+                      name="objmeasure" 
                       class="form-control" 
                       style="overflow:hidden;min-height:120px;" 
                       placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
-                    >sample objective</textarea>
+                    >{{ old('objmeasure') }}</textarea>
                   </div>          
                 </div>
               </div>
@@ -311,11 +311,12 @@ Draft - Brief Sheet
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea 
+                    <textarea
+                      name="context" 
                       class="form-control" 
                       style="overflow:hidden;min-height:100px;" 
                       placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?"
-                    >sample context</textarea>
+                    >{{ old('context') }}</textarea>
                   </div>
                 </div>
               </div>
@@ -331,10 +332,11 @@ Draft - Brief Sheet
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="targetaudience_insight"
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?"
-                    >sample insight</textarea>
+                    >{{ old('targetaudience_insight') }}</textarea>
                   </div>         
                 </div>
               </div>
@@ -351,24 +353,27 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <div class="col-lg-4 m-b-n">
                       <textarea 
+                      name="targetaudience_think"
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="Think?"
-                      >sample think</textarea>
+                      >{{ old('targetaudience_think') }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
+                      name="targetaudience_feel"
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="Feel?"
-                      >sample feel</textarea>
+                      >{{ old('targetaudience_feel') }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
+                      name="targetaudience_do"
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="Do?"
-                      >sample do</textarea>
+                      >{{ old('targetaudience_do') }}</textarea>
                     </div>
                   </div>            
                 </div>
@@ -385,10 +390,11 @@ Draft - Brief Sheet
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="keymsg_propositions" 
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?"
-                    >sample propositions</textarea>
+                    >{{ old('keymsg_propositions') }}</textarea>
                   </div>             
                 </div>
               </div>
@@ -404,10 +410,11 @@ Draft - Brief Sheet
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="creative"
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
                       placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?"
-                    >sample creative</textarea>
+                    >{{ old('creative') }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -423,10 +430,11 @@ Draft - Brief Sheet
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="budget_timings_outputs_req"
                       class="form-control" 
                       style="overflow:hidden;min-height:100px;" 
                       placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?"
-                    >sample budget</textarea>
+                    >{{ old('budget_timings_outputs_req') }}</textarea>
                   </div>           
                 </div>
               </div>
@@ -439,15 +447,23 @@ Draft - Brief Sheet
                 10 - Attachments
               </div>
               <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n" style="height:100px">
-                    <div class="col-lg-4 m-l-n">
-                      <input ui-jq="filestyle" ui-options="{icon: false, buttonName: 'btn-primary'}" type="file">
-                    </div>
-                    <div class="col-lg-8 bg-ltblue text-center" style="height:100%;">
-                      Drop Files Here
-                    </div>
-                  </div>           
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
+                    <div class="form-group">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                      <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
+                    </div>  
+                  </div>
+                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
+                    <button class="btn btn-primary btn-block">Add File(s)</button>
+                  </div>
+                  <div class="col-sm-12 hide"> <!-- hide for now -->
+                    <ul>
+                      <li>file list</li>
+                      <li>file list</li>
+                      <li>file list</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -461,18 +477,29 @@ Draft - Brief Sheet
             </div>
             <!-- / Notes -->
 
+            @if (count($errors) > 0)
+            <div class="panel panel-default">
+                <div class="alert alert-danger text-danger m-b-n">
+                  <ul class="m-b-n">
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+            </div>
+            @endif
 
             <div class="panel panel-default">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <div class="row">
                   <div class="col-lg-6">
-                    <!--<input type="submit" class="btn btn-lg btn-info btn-block" value="Save as Draft">-->
-                    <a href="{{ route('draftedbriefsheet') }}" class="btn btn-lg btn-info btn-block">Save as Draft</a>
+                    <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
+                    <!--<a href="{{ route('draftedbriefsheet') }}" class="btn btn-lg btn-info btn-block">Save as Draft</a>-->
                   </div>
                   <div class="col-lg-6">
-                    <!--<input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">-->
-                    <a href="{{ route('submittedbriefsheet') }}" class="btn btn-lg btn-success btn-block">Submit</a>
+                    <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
+                    <!--<a href="{{ route('submittedbriefsheet') }}" class="btn btn-lg btn-success btn-block">Submit</a>-->
                   </div>
                 </div>
               </div>
@@ -481,6 +508,33 @@ Draft - Brief Sheet
         </div>
       </div>
     </div>
+
+    <!-- Modal: Add Client -->
+    <div id="modal-add-client" class="modal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Create New Client</h4>
+          </div>
+          <div class="modal-body">
+            <input id="input-newclient-name" class="form-control input-lg" type="text" name="newclientname" placeholder="Client Name">      
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
+              </div>
+              <div class="col-sm-8">
+                <button type="button" class="btn btn-success btn-block" id="btn-client-create">Create Client</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
   </div>
   <!-- / main -->
 </div>
@@ -495,7 +549,19 @@ Draft - Brief Sheet
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
+  <!-- load JS/CSS dependencies -->
+  <!-- data range picker -->  
+  <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
+  <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
+  <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+  <!-- multifile-upload -->
+  <!--<script src="{{ URL::asset('libs/jquery/multifile-master/jQuery.MultiFile.min.js') }}"></script>-->
 
+
+  <!-- load ACTION JS scripts -->
+  <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>  
+  <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
 @endsection

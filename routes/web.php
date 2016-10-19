@@ -85,6 +85,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'BriefAddEditController@postNewBrief',
 		'as'	=>	'postnewbrief'
 	]);
+	Route::get('/briefsheets/draft/{id}', [
+		'uses'	=>	'BriefAddEditController@formEditBrief',
+		'as'	=>	'formeditbrief'
+	]);
 	/* / Brief Routes */
 
 	/* Planning Requests */

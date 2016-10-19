@@ -115,13 +115,13 @@ Brief Sheets - Vista
                     <td>{{ $brief->user->forename }}</td>
                     <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
                     <td>
-                      @if ($brief->is_draft == 0)
-                        <a href class="active" title="edit">
-                          <i class="fa fa-eye text-primary"></i>
+                      @if ($brief->is_draft == 1)
+                        <a href="{{ route('formeditbrief', [$brief->id]) }}" class="active" title="edit">
+                          <i class="fa fa-edit text-primary"></i>
                         </a>
                       @else
                         <a href class="active" title="edit">
-                          <i class="fa fa-edit text-primary"></i>
+                          <i class="fa fa-eye text-primary"></i>
                         </a>
                       @endif
                     </td> 

@@ -144,6 +144,16 @@ class BriefAddEditController extends Controller
         // return \Response::json(array('success'=>true));
     }
 
+    public function formEditBrief($id) 
+    {
+    	$brief = Brief::find($id);
+        $clients = Client::isactive()->get();
+        $projectstatus = ProjectStatus::all();
+        $departments = Department::isactive()->get();
+
+    	return view ('briefsheets.draftedbrief', compact('brief','clients','projectstatus','departments'));
+    }
+
     public function postNewClient(Request $request) 
     {
     	$messages = [
