@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Validator;
+// use Illuminate\Support\Collection;
 
 use App\Http\Requests;
 use App\Http\Requests\StoreBriefRequest;
@@ -102,6 +103,7 @@ class BriefAddEditController extends Controller
         	$brief->firststage_required_by_at = $firststage_required_by_at;
         if ( !empty($project_delivered_by_at) )
         	$brief->project_delivered_by_at = $project_delivered_by_at;
+        $brief->summary = $summary;
         $brief->disciplines_required_ids = $disciplines_required_ids;
         $brief->objectives_or_measures = $objectives_or_measures;
         $brief->content = $content;
@@ -194,6 +196,15 @@ class BriefAddEditController extends Controller
     	endif;
 
     	return date('Y-m-d', strtotime($str_input));
+    }
+
+    private function convertFrom_Mysqldate($str_input) 
+    {
+    	if ( empty($str_input) ) :
+    		return trim($str_input);
+    	endif;
+
+    	return date('m/d/Y', strtotime($str_input));
     }
 
     private function convertTo_CommaSeparatedIds($id_input) 

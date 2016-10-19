@@ -39,7 +39,7 @@ Draft - Brief Sheet
       </div>
     </div>
     <!-- / main header -->
-    <div class="wrapper-md" id="editbriefwrapper">
+    <div class="wrapper-md" id="newbriefwrapper">
       <div class="row">
         <div class="col-sm-12">    
           <div class="panel panel-info">
@@ -155,7 +155,12 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Manager</label>
                       <div class="col-lg-9">
-                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager" value="{{ old('pmanager') }}">
+                        <input 
+                          type="text" 
+                          name="pmanager" 
+                          class="form-control" 
+                          placeholder="Project Manager" 
+                          value="{{ (old('pmanager')) ? old('pmanager') : $brief->projectmanager }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -164,14 +169,24 @@ Draft - Brief Sheet
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="{{ old('jobname') }}">
+                    <input 
+                      type="text" 
+                      name="jobname" 
+                      class="form-control" 
+                      placeholder="Job Name" 
+                      value="{{ (old('jobname')) ? old('jobname') : $brief->jobname }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="keydeliverables" class="form-control" placeholder="Key Deliverables" value="{{ old('keydeliverables') }}">
+                    <input 
+                      type="text" 
+                      name="keydeliverables" 
+                      class="form-control" 
+                      placeholder="Key Deliverables" 
+                      value="{{ (old('keydeliverables')) ? old('keydeliverables') : $brief->keydeliverables }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -183,9 +198,16 @@ Draft - Brief Sheet
                       <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="quotereq" value="{{ old('quotereq') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="quotereq" 
+                            value="{{ (old('quotereq')) ? old('quotereq') : $brief->quoted_required_by_at->format('m/d/Y') }}" 
+                            readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" id="btn_quotereq"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_quotereq">
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -196,9 +218,16 @@ Draft - Brief Sheet
                       <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="proposedreq" value="{{ old('proposedreq') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="proposedreq" 
+                            value="{{ (old('proposedreq')) ? old('proposedreq') : $brief->proposal_required_by_at->format('m/d/Y') }}" 
+                            readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" id="btn_proposedreq"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_proposedreq">
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -209,9 +238,16 @@ Draft - Brief Sheet
                       <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="stagereq" value="{{ old('stagereq') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="stagereq" 
+                            value="{{ (old('stagereq')) ? old('stagereq') : $brief->firststage_required_by_at->format('m/d/Y') }}" 
+                            readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" id="btn_stagereq"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_stagereq">
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -222,9 +258,16 @@ Draft - Brief Sheet
                       <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="projdelivered" value="{{ old('projdelivered') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="projdelivered" 
+                            value="{{ (old('projdelivered')) ? old('projdelivered') : $brief->project_delivered_by_at->format('m/d/Y') }}" 
+                            readonly />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" id="btn_projdelivered"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_projdelivered">
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -246,7 +289,11 @@ Draft - Brief Sheet
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea name="summary" class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here.">{{ old('summary') }}</textarea>
+                    <textarea 
+                      name="summary" 
+                      class="form-control" 
+                      style="overflow:auto;min-height:50px" 
+                      placeholder="Enter short overview description of the requirements here.">{{ (old('summary')) ? old('summary') : $brief->summary }}</textarea>
                   </div>            
                 </div>
               </div>
