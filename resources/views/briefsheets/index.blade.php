@@ -122,7 +122,7 @@ Brief Sheets - Vista
                           <i class="fa fa-edit text-primary"></i>
                         </a>
                       @else
-                        <a href class="active" title="edit">
+                        <a href="{{ route('submittedbriefsheet', [$brief->id]) }}" class="active" title="edit">
                           <i class="fa fa-eye text-primary"></i>
                         </a>
                       @endif

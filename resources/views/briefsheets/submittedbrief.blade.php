@@ -39,30 +39,29 @@ Submitted - Brief Sheet
       </div>
     </div>
     <!-- / main header -->
-    <div class="wrapper-md">
+
+    <div class="wrapper-md" id="briefwrapper">
       <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-danger">
+        <div class="col-sm-12">    
+          <div class="panel panel-info">
             <div class="panel-body bg-danger">
               <strong>Submitted.</strong> You can't edit this brief sheet as this had been submitted. You can add amends.
             </div>
           </div>
-          <form class="bs-example form-horizontal" action="{{ route('draftedbriefsheet') }}" method="post">
+
+            <!-- Information -->
             <div class="panel panel-default">
               <div class="panel-heading">
                 Information
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <select name="client" class="form-control" disabled>
-                          <option value="0">select</option>
-                          <option selected>Option 1</option>
-                          <option>Option 2</option>
-                          <option>Option 3</option>
+                        <select id="select-client" name="client" class="form-control" disabled>
+                          <option value="{{ $brief->client_id }}">{{ $brief->client->name }}</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -73,10 +72,7 @@ Submitted - Brief Sheet
                       <label class="col-lg-3 control-label text-left">Project Status</label>
                       <div class="col-lg-9">
                         <select name="projectstatus" class="form-control" disabled>
-                          <option value="0">select</option>
-                          <option>Pitch</option>
-                          <option selected>Quote</option>
-                          <option>Live</option>
+                          <option value="{{ $brief->projectstatus_id }}">{{ $brief->projectstatus->name }}</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -88,7 +84,13 @@ Submitted - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Job Number</label>
                       <div class="col-lg-9">
-                        <input type="text" name="jobnumber" class="form-control" placeholder="Job Number" value="123456789" disabled>
+                        <input 
+                          type="text" 
+                          name="jobnumber" 
+                          class="form-control" 
+                          placeholder="Job Number" 
+                          value="{{ $brief->jobnumber }}" 
+                          disabled>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -97,7 +99,13 @@ Submitted - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Old Job Number</label>
                       <div class="col-lg-9">
-                        <input type="text" name="oldjobnumber" class="form-control" placeholder="987654321" disabled>
+                        <input 
+                          type="text" 
+                          name="oldjobnumber" 
+                          class="form-control" 
+                          placeholder="Old Job Number" 
+                          value="{{ $brief->old_jobnumber }}" 
+                          disabled>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -108,7 +116,13 @@ Submitted - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
                       <div class="col-lg-9">
-                        <input type="text" name="budget" class="form-control" placeholder="Your Budget" value="1000.00" disabled>
+                        <input 
+                          type="text" 
+                          name="budget" 
+                          class="form-control" 
+                          placeholder="Your Budget" 
+                          value="{{ $brief->budget }}" 
+                          disabled>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -117,7 +131,13 @@ Submitted - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Manager</label>
                       <div class="col-lg-9">
-                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager" value="sample manager" disabled>
+                        <input 
+                          type="text" 
+                          name="pmanager" 
+                          class="form-control" 
+                          placeholder="Project Manager" 
+                          value="{{ $brief->projectmanager }}" 
+                          disabled>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -126,14 +146,26 @@ Submitted - Brief Sheet
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="sample job name" disabled>
+                    <input 
+                      type="text" 
+                      name="jobname" 
+                      class="form-control" 
+                      placeholder="Job Name" 
+                      value="{{ $brief->jobname }}" 
+                      disabled>
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
                   <div class="col-lg-10">
-                    <input type="text" name="keydeliv" class="form-control" placeholder="Key Deliverables" value="sample deliverables" disabled>
+                    <input 
+                      type="text" 
+                      name="keydeliverables" 
+                      class="form-control" 
+                      placeholder="Key Deliverables" 
+                      value="{{ $brief->keydeliverables }}" 
+                      disabled>
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -142,12 +174,20 @@ Submitted - Brief Sheet
                 <div class="row">
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Quote Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" disabled />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="quotereq" 
+                            value="@if(!empty($brief->quoted_required_by_at)) {{ $brief->quoted_required_by_at->format('m/d/Y') }} @endif" 
+                            readonly 
+                            disabled />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)" disabled><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_quotereq" disabled>
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -155,12 +195,20 @@ Submitted - Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Proposed Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="proposedreq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" disabled />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="proposedreq" 
+                            value="@if(!empty($brief->proposal_required_by_at)) {{ $brief->proposal_required_by_at->format('m/d/Y') }} @endif"
+                            readonly 
+                            disabled />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)" disabled><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_proposedreq" disabled>
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -168,12 +216,20 @@ Submitted - Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">1st Stage Required by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="stagereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" disabled />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="stagereq" 
+                            value="@if(!empty($brief->firststage_required_by_at)) {{ $brief->firststage_required_by_at->format('m/d/Y') }} @endif" 
+                            readonly 
+                            disabled />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)" disabled><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_stagereq" disabled>
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -181,12 +237,20 @@ Submitted - Brief Sheet
                   </div>
                   <div class="col-lg-3">
                     <div class="form-group">
-                      <label class="col-lg-6 control-label text-left">Projects Delivered by</label>
-                      <div class="col-lg-6" ng-controller="DatepickerDemoCtrl">
+                      <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
+                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="projdel" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" value="1/2/2016" disabled />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="projdelivered" 
+                            value="@if(!empty($brief->project_delivered_by_at)) {{ $brief->project_delivered_by_at->format('m/d/Y') }} @endif"
+                            readonly 
+                            disabled />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open($event)" disabled><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" id="btn_projdelivered" disabled>
+                              <i class="glyphicon glyphicon-calendar"></i>
+                            </button>
                           </span>                      
                         </div>
                       </div>
@@ -196,6 +260,7 @@ Submitted - Brief Sheet
               </div>
               <!-- / Required dates -->
             </div>
+            <!-- / Information -->
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
@@ -204,10 +269,16 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 01 - Brief Summary
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here." disabled>sample brief</textarea>
+                    <textarea 
+                      name="summary" 
+                      class="form-control" 
+                      style="overflow:auto;min-height:50px" 
+                      placeholder="Enter short overview description of the requirements here." 
+                      disabled
+                      >{{ $brief->summary }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -219,65 +290,28 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 02 - Disciplines Required
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="form-group">
                   <div class="row-fluid">
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Events <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Strategy <input type="checkbox" disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Content <input type="checkbox" disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Design <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Digital <input type="checkbox" disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Film <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          Exhibitions <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
-                    <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          VenueHub <input type="checkbox" checked disabled><i></i>                        
-                        </label>
-                      </div>           
-                    </div>
+                    @foreach ($departments as $department)
+                      <div class="col-lg-3">
+                        <div class="checkbox1">
+                          <label class="checkboc-inline">
+                            {{ $department->name }} 
+                            <input 
+                              disabled
+                              type="checkbox" 
+                              name="department[{{ $department->id }}]" 
+                              value="{{ $department->id }}"                              
+                              @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
+                                checked
+                              @endif
+                              >
+                            <i></i>
+                          </label>
+                        </div>           
+                      </div>
+                    @endforeach
                   </div>
                 </div>
               </div>
@@ -289,14 +323,16 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 03 - Objectives / Measure
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea 
+                    <textarea
+                      name="objmeasure" 
                       class="form-control" 
                       style="overflow:hidden;min-height:120px;" 
-                      placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?" disabled
-                    >sample objective</textarea>
+                      placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?" 
+                      disabled
+                    >{{ $brief->objectives_or_measures }}</textarea>
                   </div>          
                 </div>
               </div>
@@ -308,14 +344,16 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 04 - Context
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea 
+                    <textarea
+                      name="context" 
                       class="form-control" 
                       style="overflow:hidden;min-height:100px;" 
-                      placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?" disabled
-                    >sample context</textarea>
+                      placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?" 
+                      disabled
+                    >{{ $brief->content }}</textarea>
                   </div>
                 </div>
               </div>
@@ -327,14 +365,16 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 05 - Target Audience and Insight
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="targetaudience_insight"
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
-                      placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?" disabled
-                    >sample insight</textarea>
+                      placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?" 
+                      disabled
+                    >{{ $brief->targetaudience_and_insight }}</textarea>
                   </div>         
                 </div>
               </div>
@@ -346,29 +386,35 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 06 - What do want the target audience to ...
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <div class="col-lg-4 m-b-n">
                       <textarea 
+                      name="targetaudience_think"
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
-                      placeholder="Think?" disabled
-                      >sample think</textarea>
+                      placeholder="Think?" 
+                      disabled
+                      >{{ $brief->targetaudience_think }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
+                      name="targetaudience_feel"
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
-                      placeholder="Feel?" disabled
-                      >sample feel</textarea>
+                      placeholder="Feel?" 
+                      disabled
+                      >{{ $brief->targetaudience_feel }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
+                      name="targetaudience_do"
                       class="form-control m-l-n m-r-n" 
                       style="overflow:hidden;min-height:80px;" 
-                      placeholder="Do?" disabled
-                      >sample do</textarea>
+                      placeholder="Do?" 
+                      disabled
+                      >{{ $brief->targetaudience_do }}</textarea>
                     </div>
                   </div>            
                 </div>
@@ -381,14 +427,16 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 07 - Key Messages / Propositions
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="keymsg_propositions" 
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
-                      placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?" disabled
-                    >sample propositions</textarea>
+                      placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?" 
+                      disabled
+                    >{{ $brief->keymessages_or_propositions }}</textarea>
                   </div>             
                 </div>
               </div>
@@ -400,14 +448,16 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 08 - Creative
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="creative"
                       class="form-control" 
                       style="overflow:hidden;min-height:80px;" 
-                      placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?" disabled
-                    >sample creative</textarea>
+                      placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?" 
+                      disabled
+                    >{{ $brief->creative }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -419,41 +469,113 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 09 - Budget, Timings and Outputs Required
               </div>
-              <div class="panel-body">
+              <div class="panel-body bg-light lter">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="budget_timings_outputs_req"
                       class="form-control" 
                       style="overflow:hidden;min-height:100px;" 
-                      placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?" disabled
-                    >sample budget</textarea>
+                      placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?" 
+                      disabled
+                    >{{ $brief->budget_timings_and_outputs }}</textarea>
                   </div>           
                 </div>
               </div>
             </div>
             <!-- / Budget, Timings and Outputs Required -->
 
-            <!-- Attachments -->
+            <!-- Brief Attachments -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                10 - Attachments
+                Brief Sheet Attachments
               </div>
-              <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n" style="height:100px">
-                    <div class="col-lg-4 m-l-n">
-                      <input ui-jq="filestyle" ui-options="{icon: false, buttonName: 'btn-primary'}" type="file">
-                    </div>
-                    <div class="col-lg-8 bg-ltblue text-center" style="height:100%;">
-                      Drop Files Here
-                    </div>
-                  </div>           
+              <div class="panel-body bg-light lter">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <ul>
+                      @foreach ($brief->attachments as $attachment)
+                        <li>
+                          <ul class="p-l-n l-s-n">
+                            <li class="text-info">{{ $attachment->filename }}</li>
+                            <li class="text-muted">Uploaded by {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
+                          </ul>
+                        </li>
+                      @endforeach
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
             <!-- / Attachments -->
 
-          </form>
+            <!-- Ammendments -->
+            <form class="bs-example form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                Ammends
+              </div>
+              <div class="panel-body">
+                <div class="row-fluid">
+                  <div class="form-group m-b-n m-t-n">
+                    <textarea 
+                      name="new_amends"
+                      class="form-control" 
+                      style="overflow:hidden;min-height:100px;" 
+                      placeholder="Type new amends here" 
+                    >{{ old('new_amends') }}</textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
+                    <div class="form-group">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                    </div>  
+                  </div>
+                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
+                    <button class="btn btn-primary btn-block">Add File(s)</button>
+                  </div>
+
+                </div>
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                <div class="row">
+                old amends here
+                </div>
+              </div>
+            </div>
+            <!-- / Ammendments -->
+
+            @if (count($errors) > 0)
+            <div class="panel panel-default">
+                <div class="alert alert-danger text-danger m-b-n">
+                  <ul class="m-b-n">
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+            </div>
+            @endif
+
+            <div class="panel panel-default">
+              <div class="panel-footer">
+                <input type="hidden" name="_token" value="{{ Session::token() }}">
+                <input type="hidden" name="brief_id" value="{{ $brief->id }}">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
+                  </div>
+                  <div class="col-lg-6">
+                    <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
+                  </div>
+                </div>
+              </div>
+            </div>
+            </form>
+
         </div>
       </div>
     </div>
@@ -471,7 +593,19 @@ Submitted - Brief Sheet
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
+  <!-- load JS/CSS dependencies -->
+  <!-- data range picker -->  
+  <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
+  <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
+  <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+  <!-- multifile-upload -->
+  <!--<script src="{{ URL::asset('libs/jquery/multifile-master/jQuery.MultiFile.min.js') }}"></script>-->
 
+
+  <!-- load ACTION JS scripts -->
+  <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>  
+  <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
-@endsection   
+@endsection

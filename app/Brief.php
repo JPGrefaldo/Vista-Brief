@@ -19,6 +19,16 @@ class Brief extends Model
     	return $this->belongsTo('App\User');
     }
 
+    public function client() 
+    {
+        return $this->belongsTo('App\Client');
+    }
+
+    public function projectstatus() 
+    {
+        return $this->belongsTo('App\ProjectStatus');
+    }
+
     public function attachments() 
     {
         return $this->hasMany('App\Attachment');

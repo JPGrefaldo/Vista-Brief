@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Brief;
-use App\Client;
-use App\ProjectStatus;
+// use App\Client;
+// use App\ProjectStatus;
 use App\Department;
 
 class BriefController extends Controller
@@ -20,14 +20,12 @@ class BriefController extends Controller
     	return view ('briefsheets.index', compact('briefs'));
     }
 
-    // public function drafted() 
-    // {
-    // 	return view ('briefsheets.draftedbrief');
-    // }
-
-    public function submitted() 
+    public function submitted($id) 
     {
-    	return view ('briefsheets.submittedbrief');
+        $brief = Brief::find($id); // add isactive validation in the future
+        $departments = Department::isactive()->get();
+
+    	return view ('briefsheets.submittedbrief', compact('brief', 'departments'));
     }
 
 
