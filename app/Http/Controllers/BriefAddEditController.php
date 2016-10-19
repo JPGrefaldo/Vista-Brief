@@ -74,7 +74,7 @@ class BriefAddEditController extends Controller
         $firststage_required_by_at = $this->convertTo_MysqlDate($request->input('stagereq'));
         $project_delivered_by_at 	= $this->convertTo_MysqlDate($request->input('projdelivered'));
         $summary 				= $request->input('summary');
-        $disciplines_required_ids 	= $this->convertTo_CommaSeparatedIds($request->input('department'));  
+        $disciplines_required_ids 	= $this->convertTo_CommaSeparatedIds($request->input('department'));
         $objectives_or_measures = $request->input('objmeasure');
         $content 				= $request->input('context');
         $targetaudience_and_insight = $request->input('targetaudience_insight');

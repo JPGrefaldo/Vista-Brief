@@ -34,6 +34,16 @@ class Brief extends Model
         return $this->hasMany('App\Attachment');
     }
 
+    public function attachmentsNotAmend() 
+    {
+        return $this->hasMany('App\Attachment')->isnotamend();
+    }
+
+    public function amendments() 
+    {
+        return $this->hasMany('App\Amendment');
+    }
+
     public function scopeIsactive($request)
     {
     	return $request->where('is_active', 1);

@@ -19,4 +19,8 @@ class Attachment extends Model
     public function scopeIsactive($query) {
     	return $query->where('is_active', 1);
     }
+
+    public function scopeIsnotamend($query) {
+    	return $query->where('amendment_id', 0);
+    }
 }

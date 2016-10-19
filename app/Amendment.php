@@ -20,4 +20,9 @@ class Amendment extends Model
     {
     	return $this->hasMany('App\Attachment');
     }
+
+    public function scopeIsactive($query) 
+    {
+        return $query->where('is_active', 1);
+    }
 }

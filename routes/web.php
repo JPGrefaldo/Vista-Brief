@@ -97,6 +97,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'BriefController@submitted',
 		'as'	=>	'submittedbriefsheet'
 	]);
+	Route::post('/briefsheets/amend/save', [
+		'uses'	=>	'BriefController@postNewAmend',
+		'as'	=>	'postnewamend'
+	]);
 	/* / Brief Routes */
 
 	/* Planning Requests */

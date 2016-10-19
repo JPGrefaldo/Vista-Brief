@@ -494,7 +494,7 @@ Submitted - Brief Sheet
                 <div class="row">
                   <div class="col-sm-12">
                     <ul>
-                      @foreach ($brief->attachments as $attachment)
+                      @foreach ($brief->attachmentsNotAmend as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">
                             <li class="text-info">{{ $attachment->filename }}</li>
@@ -507,22 +507,25 @@ Submitted - Brief Sheet
                 </div>
               </div>
             </div>
-            <!-- / Attachments -->
+            <!-- / Brief Attachments -->
 
             <!-- Ammendments -->
-            <form class="bs-example form-horizontal" action="" method="post" enctype="multipart/form-data">
-            <div class="panel panel-default">
+            <div class="panel panel-default col-sm-10 col-sm-offset-1">
               <div class="panel-heading">
-                Ammends
+                Amends
               </div>
-              <div class="panel-body">
+              <div class="panel-body">                
+                <form class="bs-example form-horizontal" action="{{ route('postnewamend') }}" method="post" enctype="multipart/form-data">
                 <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
+                  <div class="form-group">
+                    Internal Amend <input type="checkbox" name="internal">
+                  </div>
+                  <div class="form-group">
                     <textarea 
-                      name="new_amends"
+                      name="content"
                       class="form-control" 
                       style="overflow:hidden;min-height:100px;" 
-                      placeholder="Type new amends here" 
+                      placeholder="Type new amend here.." 
                     >{{ old('new_amends') }}</textarea>
                   </div>
                 </div>
@@ -539,42 +542,107 @@ Submitted - Brief Sheet
 
                 </div>
 
-                <div class="line line-dashed b-b line-lg"></div>
+                <div class="row">
+                  <div class="form-group">
+                    <label class="col-lg-12 fom-control text-info">Who to notify?</label>
+                    @foreach ($departments as $department)
+                      <div class="col-lg-3">
+                        <div class="checkbox1">
+                          <label class="checkbox-inline1">
+                            {{ $department->name }} 
+                            <input 
+                              class="form-control1"
+                              type="checkbox" 
+                              name="department[{{ $department->id }}]" 
+                              value="{{ $department->id }}">
+                            <i></i>
+                          </label>
+                        </div>           
+                      </div>
+                    @endforeach
+                  </div>
+                </div>
 
                 <div class="row">
-                old amends here
+                  @if (count($errors) > 0)
+                    <div class="col-sm-12">
+                        <div class="alert alert-danger text-danger m-b-n">
+                          <ul class="">
+                            @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                            @endforeach
+                          </ul>
+                        </div>
+                    </div>
+                  @endif
                 </div>
+
+                <div class="row">
+                  <div class="col-sm-12 text-center">
+                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                    <input type="hidden" name="brief_id" value="{{ $brief->id }}">
+                    <input type="submit" name="action" class="btn btn-md btn-success" value="Submit New Amend">
+                  </div>
+                </div>                
+                </form>
+
+                <div class="row">
+                  @if (session('new_amend_success'))
+                    <span class="alert-success p-r-sm p-l-sm">{{ session('new_amend_success') }}</span>
+                  @endif
+                </div>
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                @foreach ($brief->amendments as $amend)
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <h4>
+                        Amend {{ $amend->id }} 
+                        @if ($amend->is_internal)
+                          - Internal
+                        @endif
+                      </h4>
+                      <h6 class="text-muted">
+                        {{ $amend->updated_at->format('h:m l, d M Y') }} - {{ $amend->user->forename }}
+                      </h6>
+                      <p>{{ $amend->content }}</p>
+                      <ul>
+                        @foreach ($amend->attachments as $attachment)
+                          <li>
+                            <p class="text-muted">{{ $attachment->filename }}</p>
+                            <h6 class="text-muted">
+                              Uploaded by: {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</h6>
+                          </li>
+                        @endforeach
+                      </ul>
+                      <h6 class="text-muted">
+                        Sent to: 
+                        <?php
+                          if (empty(trim($amend->department_ids))) {
+                            echo 'none';
+                          }
+                          else {
+                            $arr_department_ids = explode(',', $amend->department_ids);
+                            $arr_department_name;
+                            foreach ($departments as $department) {
+                              if (in_array($department->id, $arr_department_ids)) {
+                                $arr_department_name[] = $department->name;
+                              }
+                            }
+                            echo implode($arr_department_name, ', ');
+                            $arr_department_name = [];
+                          }
+                        ?>
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="line line-dashed b-b line-lg"></div>
+                @endforeach
+
               </div>
             </div>
             <!-- / Ammendments -->
-
-            @if (count($errors) > 0)
-            <div class="panel panel-default">
-                <div class="alert alert-danger text-danger m-b-n">
-                  <ul class="m-b-n">
-                    @foreach ($errors->all() as $error)
-                      <li>{{ $error }}</li>
-                    @endforeach
-                  </ul>
-                </div>
-            </div>
-            @endif
-
-            <div class="panel panel-default">
-              <div class="panel-footer">
-                <input type="hidden" name="_token" value="{{ Session::token() }}">
-                <input type="hidden" name="brief_id" value="{{ $brief->id }}">
-                <div class="row">
-                  <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
-                  </div>
-                  <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
-                  </div>
-                </div>
-              </div>
-            </div>
-            </form>
 
         </div>
       </div>
