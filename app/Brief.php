@@ -19,6 +19,11 @@ class Brief extends Model
     	return $this->belongsTo('App\User');
     }
 
+    public function attachments() 
+    {
+        return $this->hasMany('App\Attachment');
+    }
+
     public function scopeIsactive($request)
     {
     	return $request->where('is_active', 1);

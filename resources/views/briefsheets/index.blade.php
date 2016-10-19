@@ -38,6 +38,9 @@ Brief Sheets - Vista
           @if (session('new_brief_success'))
             <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_brief_success') }}</span>
           @endif
+          @if (session('update_brief_success'))
+            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('update_brief_success') }}</span>
+          @endif
         </div>
       </div>
     </div>
@@ -59,7 +62,6 @@ Brief Sheets - Vista
         </div>
         <div class="row wrapper">
           <div class="col-sm-5 m-b-xs">
-            <!-- Sorry, no brief sheets found. Begin by creating a <a href="{{ route('newbriefsheet') }}">new brief sheet</a> -->
             <select class="input-sm form-control w-sm inline v-middle">
               <option value="0">Bulk action</option>
               <option value="1">Delete selected</option>

@@ -455,11 +455,9 @@ Create New Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
-                    <!--<a href="{{ route('draftedbriefsheet') }}" class="btn btn-lg btn-info btn-block">Save as Draft</a>-->
                   </div>
                   <div class="col-lg-6">
                     <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
-                    <!--<a href="{{ route('submittedbriefsheet') }}" class="btn btn-lg btn-success btn-block">Submit</a>-->
                   </div>
                 </div>
               </div>

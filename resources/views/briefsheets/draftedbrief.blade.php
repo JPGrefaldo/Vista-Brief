@@ -47,7 +47,7 @@ Draft - Brief Sheet
               <strong>Draft.</strong> This brief sheet has not been submitted yet.
             </div>
           </div>      
-          <form class="bs-example form-horizontal" action="" method="post" enctype="multipart/form-data">
+          <form class="bs-example form-horizontal" action="{{ route('posteditbrief') }}" method="post" enctype="multipart/form-data">
 
             <!-- Information -->
             <div class="panel panel-default">
@@ -202,7 +202,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="quotereq" 
-                            value="{{ (old('quotereq')) ? old('quotereq') : $brief->quoted_required_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('quotereq') || empty($brief->quoted_required_by_at)) ? old('quotereq') : $brief->quoted_required_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_quotereq">
@@ -222,7 +222,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="proposedreq" 
-                            value="{{ (old('proposedreq')) ? old('proposedreq') : $brief->proposal_required_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('proposedreq') || empty($brief->proposal_required_by_at)) ? old('proposedreq') : $brief->proposal_required_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_proposedreq">
@@ -242,7 +242,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="stagereq" 
-                            value="{{ (old('stagereq')) ? old('stagereq') : $brief->firststage_required_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('stagereq') || empty($brief->firststage_required_by_at)) ? old('stagereq') : $brief->firststage_required_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_stagereq">
@@ -262,7 +262,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="projdelivered" 
-                            value="{{ (old('projdelivered')) ? old('projdelivered') : $brief->project_delivered_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('projdelivered') || empty($brief->project_delivered_by_at)) ? old('projdelivered') : $brief->project_delivered_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_projdelivered">
@@ -511,11 +511,16 @@ Draft - Brief Sheet
                   <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
                     <button class="btn btn-primary btn-block">Add File(s)</button>
                   </div>
-                  <div class="col-sm-12 hide"> <!-- hide for now -->
+                  <div class="col-sm-12 hide1"> <!-- hide for now -->
                     <ul>
-                      <li>file list</li>
-                      <li>file list</li>
-                      <li>file list</li>
+                      @foreach ($brief->attachments as $attachment)
+                        <li>
+                          <ul class="p-l-n l-s-n">
+                            <li class="text-info">{{ $attachment->filename }}</li>
+                            <li class="text-muted">Uploaded by {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
+                          </ul>
+                        </li>
+                      @endforeach
                     </ul>
                   </div>
                 </div>
@@ -546,14 +551,13 @@ Draft - Brief Sheet
             <div class="panel panel-default">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
+                <input type="hidden" name="brief_id" value="{{ $brief->id }}">
                 <div class="row">
                   <div class="col-lg-6">
                     <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
-                    <!--<a href="{{ route('draftedbriefsheet') }}" class="btn btn-lg btn-info btn-block">Save as Draft</a>-->
                   </div>
                   <div class="col-lg-6">
                     <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
-                    <!--<a href="{{ route('submittedbriefsheet') }}" class="btn btn-lg btn-success btn-block">Submit</a>-->
                   </div>
                 </div>
               </div>

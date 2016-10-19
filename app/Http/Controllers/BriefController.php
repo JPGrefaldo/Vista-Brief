@@ -20,10 +20,10 @@ class BriefController extends Controller
     	return view ('briefsheets.index', compact('briefs'));
     }
 
-    public function drafted() 
-    {
-    	return view ('briefsheets.draftedbrief');
-    }
+    // public function drafted() 
+    // {
+    // 	return view ('briefsheets.draftedbrief');
+    // }
 
     public function submitted() 
     {

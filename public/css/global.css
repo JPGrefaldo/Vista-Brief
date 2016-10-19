@@ -85,6 +85,14 @@ body {
 	padding-left: 10px;
 }
 
+.p-l-n {
+	padding-left: 0px;
+}
+
+.l-s-n {
+	list-style: none;
+}
+
 .btn-file {
 	position: relative;
 	overflow: hidden;
