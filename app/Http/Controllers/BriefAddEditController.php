@@ -215,6 +215,10 @@ class BriefAddEditController extends Controller
 
     	return implode($id_input, ',');
     }
+
+    public function test1(){
+    	return 'sss';
+    }
 }
 
 
