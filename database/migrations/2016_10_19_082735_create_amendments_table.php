@@ -20,6 +20,7 @@ class CreateAmendmentsTable extends Migration
             $table->boolean('is_internal')->default(0);
             $table->string('content')->nullable();
             $table->string('attachment_ids')->nullable();
+            $table->string('department_ids')->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
