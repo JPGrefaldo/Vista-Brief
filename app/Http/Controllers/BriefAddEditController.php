@@ -21,6 +21,8 @@ use App\Attachment; // may not be needed
 
 use Response;
 
+// use App\Mail\SubmittedBriefMail;
+
 class BriefAddEditController extends Controller
 {
     //
@@ -33,7 +35,7 @@ class BriefAddEditController extends Controller
     	return view ('briefsheets.newbrief', compact('clients', 'projectstatus', 'departments'));
     }
 
-    public function postNewBrief(StoreBriefRequest $request)
+    public function postNewBrief(StoreBriefRequest $request, \Illuminate\Mail\Mailer $mailer)
     {
         // if ($request->hasFile('attachments')) {
         //     echo '<p>there is a file</p>';
@@ -142,6 +144,18 @@ class BriefAddEditController extends Controller
 
         $brief->attachment_ids = implode($arr_attachment_ids,',');
         $brief->save();
+
+        // Send email to selected departments
+        if ( $is_draft == 0 && !empty($request->input('department')) ) {
+            $departments_to_be_email = Department::find($request->input('department'));
+
+            foreach ($departments_to_be_email as $department) {
+                $mailer
+                    ->to($department->email)
+                    ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
+
+            }
+        }
 
         return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
         // return \Response::json(array('success'=>true));

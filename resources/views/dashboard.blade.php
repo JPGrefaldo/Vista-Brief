@@ -59,7 +59,7 @@ Dashboard - Vista
   	          </li>
   	        </ul>
   	        <div class="panel-footer text-center">
-  	          <a href="" class="btn bg-brand-1 text-white block font-bold m">Create New Planning Request</a>
+  	          <a href="{{ route('newplanningrequest') }}" class="btn bg-brand-1 text-white block font-bold m">Create New Planning Request</a>
   	        </div>
   	      </div>
   	    </div>
