@@ -172,7 +172,7 @@ Submitted - Brief Sheet
 
                 <!-- Required dates -->
                 <div class="row">
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
                       <div class="col-lg-7">
@@ -193,7 +193,7 @@ Submitted - Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
                       <div class="col-lg-7">
@@ -214,7 +214,7 @@ Submitted - Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
@@ -235,7 +235,7 @@ Submitted - Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">

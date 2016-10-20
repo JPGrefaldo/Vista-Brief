@@ -42,7 +42,9 @@ Create New Planning Request
     <div class="wrapper-md">
       <div class="row">
         <div class="col-sm-12">          
-          <form class="bs-example form-horizontal" action="{{ route('postnewuser') }}" method="post">
+          <form class="bs-example form-horizontal" action="" method="post">
+
+            <!-- Information -->
             <div class="panel panel-default">
               <div class="panel-heading">
                 Information
@@ -122,6 +124,7 @@ Create New Planning Request
                 </div>               
               </div>
             </div>
+            <!-- / Information -->
 
             <!-- Job Details -->
             <div class="panel panel-default">
@@ -165,9 +168,9 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Contact Email</label>
+                      <label class="col-lg-3 control-label text-left">Format of Response</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Contact Email">
+                        <input type="text" name="projectstatus" class="form-control" placeholder="Format of Response">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
