@@ -45,7 +45,7 @@ Create New Brief Sheet
           <form class="bs-example form-horizontal" action="{{ route('postnewbrief') }}" method="post" enctype="multipart/form-data">
 
             <!-- Information -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 Information
               </div>
@@ -58,7 +58,10 @@ Create New Brief Sheet
                         <select id="select-client" name="client" class="form-control">
                           <option value="">select</option>
                           @foreach($clients as $client)
-                            <option value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>{{ $client->name }}</option>
+                            <option 
+                              value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>
+                                {{ $client->name }}
+                            </option>
                           @endforeach
                           <option value="newclient">[new client]</option>
                         </select>
@@ -70,10 +73,15 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Project Status</label>
                       <div class="col-lg-9">
-                        <select name="projectstatus" class="form-control">
+                        <select id="select-projectstatus" name="projectstatus" class="form-control">
                           <option value="">select</option>
                           @foreach($projectstatus as $pstatus)
-                            <option value="{{ $pstatus->id }}" {{ (old('projectstatus') == $pstatus->id) ? "selected":"" }}>{{ $pstatus->name }}</option>
+                            <option 
+                              value="{{ $pstatus->id }}" 
+                              data-color="{{ $pstatus->color }}" 
+                              {{ (old('projectstatus') == $pstatus->id) ? "selected":"" }}>
+                                {{ $pstatus->name }}
+                            </option>
                           @endforeach
                         </select>
                         <span class="help-block m-b-none"></span>
@@ -199,7 +207,7 @@ Create New Brief Sheet
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
             <!-- Brief Summary -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 01 - Brief Summary
               </div>
@@ -214,7 +222,7 @@ Create New Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 02 - Disciplines Required
               </div>
@@ -244,7 +252,7 @@ Create New Brief Sheet
             <!-- / Desciplines Required -->
 
             <!-- Objectives / Measure -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 03 - Objectives / Measure
               </div>
@@ -264,7 +272,7 @@ Create New Brief Sheet
             <!-- / Objectives / Measure -->
 
             <!-- Context -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 04 - Context
               </div>
@@ -284,7 +292,7 @@ Create New Brief Sheet
             <!-- / Context -->
 
             <!-- Target Audience and Insight -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 05 - Target Audience and Insight
               </div>
@@ -304,7 +312,7 @@ Create New Brief Sheet
             <!-- / Target Audience and Insight -->
 
             <!-- What do want the target audience to -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 06 - What do want the target audience to ...
               </div>
@@ -342,7 +350,7 @@ Create New Brief Sheet
             <!-- / What do want the target audience to -->
 
             <!-- Key Messages / Propositions -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 07 - Key Messages / Propositions
               </div>
@@ -362,7 +370,7 @@ Create New Brief Sheet
             <!-- / Key Messages / Propositions -->
 
             <!-- Creative -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 08 - Creative
               </div>
@@ -382,7 +390,7 @@ Create New Brief Sheet
             <!-- / Creative -->
 
             <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 09 - Budget, Timings and Outputs Required
               </div>
@@ -402,7 +410,7 @@ Create New Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Attachments -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 10 - Attachments
               </div>
@@ -449,7 +457,7 @@ Create New Brief Sheet
             </div>
             @endif
 
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <div class="row">
@@ -518,7 +526,8 @@ Create New Brief Sheet
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
-  <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>  
+  <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
