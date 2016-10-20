@@ -69,7 +69,7 @@ class BriefController extends Controller
                 $attachments->amendment_id = $amend->id;
                 $attachments->filename = $filename;
                 $attachments->disk = 'local';
-                $attachments->directory = $brief_id.'/'.$user_id.'/';
+                $attachments->directory = 'brief-'.$brief_id.'/'.$user_id.'/';
                 $attachments->save();
 
                 $arr_attachment_ids[] = $attachments->id;

@@ -108,10 +108,17 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'PlanningController@index',
 		'as'	=>	'planningrequests'
 	]);
-	
 	Route::get('/planningrequests/post/create', [
 		'uses'	=>	'PlanningController@new',
 		'as'	=>	'newplanningrequest'
+	]);
+	Route::post('/planningrequests/post/save', [
+		'uses'	=>	'PlanningController@postNewPlanning',
+		'as'	=>	'postnewplanning'
+	]);
+	Route::get('/planningrequests/{id}', [
+		'uses'	=>	'PlanningController@submitted',
+		'as'	=>	'submittedplanningrequest'
 	]);
 	/* / Planning Requests */
 

@@ -39,10 +39,10 @@ Create New Planning Request
       </div>
     </div>
     <!-- / main header -->
-    <div class="wrapper-md">
+    <div class="wrapper-md" id="newplanningwrapper">
       <div class="row">
         <div class="col-sm-12">          
-          <form class="bs-example form-horizontal" action="" method="post">
+          <form class="bs-example form-horizontal" action="{{ route('postnewplanning') }}" method="post" enctype="multipart/form-data">
 
             <!-- Information -->
             <div class="panel panel-default">
@@ -55,12 +55,12 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Client</label>
                       <div class="col-lg-9">
-                        <select name="client" class="form-control">
-                          <option value="0">select</option>
-                          <option>option 1</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>new client</option>
+                        <select name="client" class="form-control" id="select-client">
+                          <option value="">select</option>
+                          @foreach ($clients as $client)
+                            <option value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>{{ $client->name }}</option>
+                          @endforeach
+                          <option value="newclient">[new client]</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -70,13 +70,8 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Taken By</label>
                       <div class="col-lg-9">
-                        <select name="takenby" class="form-control">
-                          <option value="0">select</option>
-                          <option>current user</option>
-                          <option>option 2</option>
-                          <option>option 3</option>
-                          <option>option 4</option>
-                        </select>
+                        <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}" readonly>
+                        <input type="text" name="user_name" class="form-control" value="{{ Auth::user()->forename }} {{ Auth::user()->surname }}" readonly>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -87,7 +82,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Contact Name/Title</label>
                       <div class="col-lg-9">
-                        <input type="text" name="jobnumber" class="form-control" placeholder="Contact Name/Title">
+                        <input type="text" name="contact_name" class="form-control" placeholder="Contact Name/Title" value="{{ old('contact_name') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -96,7 +91,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Contact Email</label>
                       <div class="col-lg-9">
-                        <input type="text" name="oldjobnumber" class="form-control" placeholder="Contact Email">
+                        <input type="text" name="contact_email" class="form-control" placeholder="Contact Email" value="{{ old('contact_email') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -107,7 +102,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Contact Landline</label>
                       <div class="col-lg-9">
-                        <input type="text" name="budget" class="form-control" placeholder="Contact Landline">
+                        <input type="text" name="contact_landline" class="form-control" placeholder="Contact Landline" value="{{ old('contact_landline') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -116,7 +111,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Contact Mobile</label>
                       <div class="col-lg-9">
-                        <input type="text" name="pmanager" class="form-control" placeholder="Contact Mobile">
+                        <input type="text" name="contact_mobile" class="form-control" placeholder="Contact Mobile" value="{{ old('contact_mobile') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -137,7 +132,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Title</label>
                       <div class="col-lg-9">
-                        <input type="text" name="title" class="form-control" placeholder="Title">
+                        <input type="text" name="title" class="form-control" placeholder="Title" value="{{ old('title') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -146,10 +141,11 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Status</label>
                       <div class="col-lg-9">
-                        <select name="status" class="form-control">
-                          <option value="0">select</option>
-                          <option value="1">Pitch</option>
-                          <option value="2">Job</option>
+                        <select name="jobstatus" class="form-control">
+                          <option value="">select</option>
+                          @foreach ($jobstatus as $jstatus)
+                            <option value="{{ $jstatus->id }}" {{ (old('jobstatus') == $jstatus->id) ? "selected":"" }}>{{ $jstatus->name }}</option>
+                          @endforeach
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -161,7 +157,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Budget</label>
                       <div class="col-lg-9">
-                        <input type="text" name="client" class="form-control" placeholder="Budget">
+                        <input type="text" name="budget" class="form-control" placeholder="Budget" value="{{ old('budget') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -170,7 +166,12 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">Format of Response</label>
                       <div class="col-lg-9">
-                        <input type="text" name="projectstatus" class="form-control" placeholder="Format of Response">
+                        <select name="formatofresponse" class="form-control">
+                          <option value="">select</option>
+                          @foreach ($formatofresponses as $for)
+                            <option value="{{ $for->id }}" {{ (old('formatofresponse') == $for->id) ? "selected":"" }}>{{ $for->name }}</option>
+                          @endforeach
+                        </select>
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -187,92 +188,132 @@ Create New Planning Request
               </div>
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-lg-6">
+                  <div class="col-lg-3 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">Pitch/Quote</label>
-                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                        <label class="col-lg-4 control-label text-left">Pitch/Quote</label>
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <input 
+                              type="text" 
+                              class="form-control" 
+                              name="pitch_quote_date" 
+                              placeholder="dd/mm/yy" 
+                              value="{{ old('pitch_quote_date') }}" 
+                              readonly/>
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" id="btn_pitch_quote_date">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
-                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                        <div class="col-lg-4 hide">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <input type="text" class="form-control" name="pitch_quote_time" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
+                              <button type="button" class="btn btn-default" id="btn_pitch_quote_time">
+                                <i class="glyphicon glyphicon-time"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-3 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
-                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                        <label class="col-lg-4 control-label text-left">Ideal Q&amp;A</label>
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <input 
+                              type="text" 
+                              class="form-control" 
+                              name="ideal_qa_date" 
+                              placeholder="dd/mm/yy" 
+                              value="{{ old('ideal_qa_date') }}" 
+                              readonly/>
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" id="btn_ideal_qa_date">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
-                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                        <div class="col-lg-4 hide">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <input type="text" class="form-control" name="ideal_qa_time" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
+                              <button type="button" class="btn btn-default">
+                                <i class="glyphicon glyphicon-time"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-3 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">Ideal Review</label>
-                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                        <label class="col-lg-4 control-label text-left">Ideal Review</label>
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <input 
+                              type="text" 
+                              class="form-control" 
+                              name="ideal_review_date" 
+                              placeholder="dd/mm/yy" 
+                              value="{{ old('ideal_review_date') }}" 
+                              readonly/>
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" id="btn_ideal_review_date">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
-                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                        <div class="col-lg-4 hide">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <input type="text" class="form-control" name="ideal_review_time" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
+                              <button type="button" class="btn btn-default">
+                                <i class="glyphicon glyphicon-time"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  <div class="col-lg-3 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">Project Deadline</label>
-                        <div class="col-lg-5" ng-controller="DatepickerDemoCtrl">
+                        <label class="col-lg-4 control-label text-left">Project Deadline</label>
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="dd/mm/yy" />
+                            <input 
+                              type="text" 
+                              class="form-control" 
+                              name="project_deadline_date" 
+                              placeholder="dd/mm/yy" 
+                              value="{{ old('project_deadline_date') }}"  
+                              readonly/>
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                              <button type="button" class="btn btn-default" id="btn_project_deadline_date">
+                                <i class="glyphicon glyphicon-calendar"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
-                        <div class="col-lg-4" ng-controller="DatepickerDemoCtrl">
+                        <div class="col-lg-4 hide">
                           <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="quotereq" datepicker-popup="" ng-model="dt" is-open="opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" placeholder="hh:mm" />
+                            <input type="text" class="form-control" name="project_deadline_time" placeholder="hh:mm" />
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-time"></i></button>
+                              <button type="button" class="btn btn-default">
+                                <i class="glyphicon glyphicon-time"></i>
+                              </button>
                             </span>                      
                           </div>
                         </div>
@@ -293,10 +334,11 @@ Create New Planning Request
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
+                      name="job_spec"
                       class="form-control" 
                       style="overflow:hidden;min-height:4px;" 
                       placeholder="Type the description of the work required"
-                    ></textarea>
+                    >{{ old('job_spec') }}</textarea>
                   </div>          
                 </div>
               </div>
@@ -309,19 +351,32 @@ Create New Planning Request
                 10 - Attachments
               </div>
               <div class="panel-body">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n" style="height:100px">
-                    <div class="col-lg-4 m-l-n">
-                      <input ui-jq="filestyle" ui-options="{icon: false, buttonName: 'btn-primary'}" type="file">
-                    </div>
-                    <div class="col-lg-8 bg-ltblue text-center" style="height:100%;">
-                      Drop Files Here
-                    </div>
-                  </div>           
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
+                    <div class="form-group">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                      <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
+                    </div>  
+                  </div>
+                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
+                    <button class="btn btn-primary btn-block">Add File(s)</button>
+                  </div>
                 </div>
               </div>
             </div>
             <!-- / Attachments -->
+
+            @if (count($errors) > 0)
+            <div class="panel panel-default">
+                <div class="alert alert-danger text-danger m-b-n">
+                  <ul class="m-b-n">
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+            </div>
+            @endif
 
             <div class="panel panel-default">
               <div class="panel-footer">
@@ -333,6 +388,33 @@ Create New Planning Request
         </div>
       </div>
     </div>
+
+    <!-- Modal: Add Client -->
+    <div id="modal-add-client" class="modal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Create New Client</h4>
+          </div>
+          <div class="modal-body">
+            <input id="input-newclient-name" class="form-control input-lg" type="text" name="newclientname" placeholder="Client Name">      
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
+              </div>
+              <div class="col-sm-8">
+                <button type="button" class="btn btn-success btn-block" id="btn-client-create">Create Client</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
   </div>
   <!-- / main -->
 </div>
@@ -347,7 +429,18 @@ Create New Planning Request
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
+  <!-- load JS/CSS dependencies -->
+  <!-- data range picker -->  
+  <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
+  <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
+  <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
+  <!-- multifile-upload -->
+  <!--<script src="{{ URL::asset('libs/jquery/multifile-master/jQuery.MultiFile.min.js') }}"></script>-->
 
+  <!-- load ACTION JS scripts -->
+  <script src="{{ URL::asset('js/planning/init-daterangepicker.js') }}"></script>
+  <script src="{{ URL::asset('js/planning/action-planning-new-client.js') }}"></script>  
+  <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
 @endsection

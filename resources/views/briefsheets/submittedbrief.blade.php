@@ -488,20 +488,24 @@ Submitted - Brief Sheet
             <!-- Brief Attachments -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                Brief Sheet Attachments
+                Brief Sheet Attached Files
               </div>
               <div class="panel-body bg-light lter">
                 <div class="row">
                   <div class="col-sm-12">
                     <ul>
-                      @foreach ($brief->attachmentsNotAmend as $attachment)
-                        <li>
-                          <ul class="p-l-n l-s-n">
-                            <li class="text-info">{{ $attachment->filename }}</li>
-                            <li class="text-muted">Uploaded by {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
-                          </ul>
-                        </li>
-                      @endforeach
+                      @if (count($brief->attachmentsNotAmend) < 1)
+                        <li class="text-muted">no attachments</li>
+                      @else
+                        @foreach ($brief->attachmentsNotAmend as $attachment)
+                          <li>
+                            <ul class="p-l-n l-s-n">
+                              <li class="text-info">{{ $attachment->filename }}</li>
+                              <li class="text-muted">Uploaded by {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
+                            </ul>
+                          </li>
+                        @endforeach
+                      @endif
                     </ul>
                   </div>
                 </div>

@@ -131,7 +131,7 @@ class BriefAddEditController extends Controller
 		        $attachments->brief_id = $brief->id;
 		        $attachments->filename = $filename;
 		        $attachments->disk = 'local';
-		        $attachments->directory = $brief->id.'/'.$user_id.'/';
+		        $attachments->directory = 'brief-'.$brief->id.'/user-'.$user_id.'/';
 		        $attachments->save();
 
 		        $arr_attachment_ids[] = $attachments->id;
@@ -232,7 +232,7 @@ class BriefAddEditController extends Controller
 		        $attachments->brief_id = $brief->id;
 		        $attachments->filename = $filename;
 		        $attachments->disk = 'local';
-		        $attachments->directory = $brief->id.'/'.$user_id.'/';
+		        $attachments->directory = 'brief-'.$brief->id.'/user-'.$user_id.'/';
 		        $attachments->save();
 
 		        $arr_attachment_ids[] = $attachments->id;

@@ -32,9 +32,12 @@ Planning Requests - Vista
     <!-- main header -->
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-12 col-xs-12 col-lg-12">
           <h1 class="m-n font-thin h3 text-black">Planning Requests</h1>
           <small class="text-muted">welcome</small>
+          @if (session('new_planning_success'))
+            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_planning_success') }}</span>
+          @endif
         </div>
       </div>
     </div>
@@ -96,30 +99,22 @@ Planning Requests - Vista
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>ABC</td>
-                <td><span class="text-ellipsis">Evcom Award Entries</span></td>
-                <td><span class="text-ellipsis">Jack Wilson</span></td>
-                <td>PDF</td>
-                <td>22/09/2016</td>
-                <td>Job</td>
-                <td>
-                  <a href class="active" title="view"><i class="fa fa-eye text-primary"></i></a>
-                </td>
-              </tr>
-              <tr>
-                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>ABC</td>
-                <td><span class="text-ellipsis">Evcom Award Entries</span></td>
-                <td><span class="text-ellipsis">Jack Wilson</span></td>
-                <td>PDF</td>
-                <td>22/09/2016</td>
-                <td>Pitch</td>
-                <td>
-                  <a href class="active" title="view"><i class="fa fa-eye text-primary"></i></a>
-                </td>
-              </tr>
+              @foreach ($plannings as $planning)
+                <tr>
+                  <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                  <td>{{ $planning->client->name }}</td>
+                  <td><span class="text-ellipsis">{{ $planning->title }}</span></td>
+                  <td><span class="text-ellipsis">{{ $planning->user->forename }} {{ $planning->user->surname }}</span></td>
+                  <td>{{ $planning->formofresponse->name }}</td>
+                  <td>{{ $planning->created_at->format('M d, Y') }}</td>
+                  <td>{{ $planning->jobstatus->name }}</td>
+                  <td>
+                    <a href="{{ route('submittedplanningrequest', [$planning->id]) }}" class="active" title="view">
+                      <i class="fa fa-eye text-primary"></i>
+                    </a>
+                  </td>
+                </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
