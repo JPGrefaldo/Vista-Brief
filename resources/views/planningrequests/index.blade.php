@@ -99,22 +99,30 @@ Planning Requests - Vista
               </tr>
             </thead>
             <tbody>
-              @foreach ($plannings as $planning)
+              @if ($plannings->isEmpty())
                 <tr>
-                  <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                  <td>{{ $planning->client->name }}</td>
-                  <td><span class="text-ellipsis">{{ $planning->title }}</span></td>
-                  <td><span class="text-ellipsis">{{ $planning->user->forename }} {{ $planning->user->surname }}</span></td>
-                  <td>{{ $planning->formofresponse->name }}</td>
-                  <td>{{ $planning->created_at->format('M d, Y') }}</td>
-                  <td>{{ $planning->jobstatus->name }}</td>
-                  <td>
-                    <a href="{{ route('submittedplanningrequest', [$planning->id]) }}" class="active" title="view">
-                      <i class="fa fa-eye text-primary"></i>
-                    </a>
+                  <td colspan="8">
+                    <p class="text-center m-md">Sorry, no planning requests found. Begin by creating a <a href="{{ route('newplanningrequest') }}" class="text-info"><u>new planning request here</u></a>.</p>
                   </td>
                 </tr>
-              @endforeach
+              @else
+                @foreach ($plannings as $planning)
+                  <tr>
+                    <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                    <td>{{ $planning->client->name }}</td>
+                    <td><span class="text-ellipsis">{{ $planning->title }}</span></td>
+                    <td><span class="text-ellipsis">{{ $planning->user->forename }} {{ $planning->user->surname }}</span></td>
+                    <td>{{ $planning->formofresponse->name }}</td>
+                    <td>{{ $planning->created_at->format('M d, Y') }}</td>
+                    <td>{{ $planning->jobstatus->name }}</td>
+                    <td>
+                      <a href="{{ route('submittedplanningrequest', [$planning->id]) }}" class="active" title="view">
+                        <i class="fa fa-eye text-primary"></i>
+                      </a>
+                    </td>
+                  </tr>
+                @endforeach
+              @endif
             </tbody>
           </table>
         </div>
