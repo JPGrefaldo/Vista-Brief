@@ -32,9 +32,15 @@ Manage Users - Vista
     <!-- main header -->
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-12 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Manage Users</h1>
           <small class="text-muted">welcome</small>
+          @if (session('user_edit_success'))
+            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('user_edit_success') }}</span>
+          @endif
+          @if (session('user_delete_success'))
+            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('user_delete_success') }}</span>
+          @endif
         </div>
       </div>
     </div>
@@ -100,10 +106,10 @@ Manage Users - Vista
                     <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
                     <td>{{ $user->email }}</td>
                     <td>
-                      <a href="#">
+                      <a href="{{ route('formeditprofile', [$user->id]) }}">
                         <i class="glyphicon glyphicon-edit text-info"></i>
                       </a> 
-                      <a href="#">
+                      <a href="{{ route('confirmdeleteuser', [$user->id]) }}">
                         <i class="glyphicon glyphicon-remove-sign text-danger"></i>
                       </a>
                     </td>

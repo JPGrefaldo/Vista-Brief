@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Mail\NewUserMail;
 
 use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\UpdateUserRequest;
 
 class AdminController extends Controller
 {
@@ -78,5 +79,52 @@ class AdminController extends Controller
             ->send(new \App\Mail\NewUserMail($username, $request['password']));
 
     	return redirect()->route( $this->newUserRedirectRouteTo );
+    }
+
+    public function formEditProfile($id) 
+    {
+        $user = User::find($id);
+        return view('admin.edituser', compact('user'));
+    }
+
+    public function postEditProfile(UpdateUserRequest $request) 
+    {
+        $username          = $request['username'];
+        $forename          = $request['forename'];
+        $surname           = $request['surname'];
+        $email             = $request['email'];
+        if( !empty($request->input('password'))) {
+            $password      = bcrypt($request['password']);
+        }
+
+        $user = User::find($request->input('user_id'));
+        $user->username    = $username;
+        $user->forename    = $forename;
+        $user->surname     = $surname;
+        $user->email       = $email;
+        if ( !empty($password)) {
+            $user->password = $password;
+        }
+        $user->save();
+
+        return redirect()->route('users')->with('user_edit_success', 'Successfully Updated the account of '.$forename.' '.$surname);
+    }
+
+    public function confirmDeleteUser($id) 
+    {
+        $user = User::find($id);
+
+        return view('admin.confirmdeleteuser', compact('user'));
+    }
+
+    public function deleteUser(Request $request) 
+    {
+        $user = User::find($request->input('user_id'));
+        $forename = $user->forename;
+        $surname = $user->surname;
+
+        $user->delete();
+
+        return redirect()->route('users')->with('user_delete_success', 'Successfully Deleted the account of '.$forename.' '.$surname);
     }
 }

@@ -141,16 +141,30 @@ Route::group(['middleware' => 'auth'], function() {
 			Route::get('/users', [	/* Users */
 				'uses'	=>	'AdminController@manageUsers',
 				'as'	=>	'users' 
-			]);
-			
+			]);			
 			Route::get('/users/new', [
 				'uses'	=>	'AdminController@formNewUser',
 				'as'	=>	'formnewuser'
 			]);
-
 			Route::post('/users/new/save', [
 				'uses'	=>	'AdminController@createNewUser',
 				'as'	=>	'createnewuser'
+			]);
+			Route::get('/user/edit/{id}', [
+				'uses'	=>	'AdminController@formEditProfile',
+				'as'	=>	'formeditprofile'
+			]);
+			Route::post('/user/edit/update', [
+				'uses'	=>	'AdminController@postEditProfile',
+				'as'	=>	'posteditprofile'
+			]);
+			Route::get('/user/confirmdelete/{id}', [
+				'uses'	=>	'AdminController@confirmDeleteUser',
+				'as'	=>	'confirmdeleteuser'
+			]);
+			Route::post('/user/delete/', [
+				'uses'	=>	'AdminController@deleteUser',
+				'as'	=>	'deleteuser'
 			]);
 			
 			Route::get('/departments', [	/* Department Ruoting */
