@@ -45,7 +45,7 @@ class SubmittedBriefMail extends Mailable
     public function build()
     {
         return $this->view('emails.submittedbriefemail')
-                    ->attach($this->attachment())
+                    ->attach($this->attachment(), ['as'=>'Brief Sheet.pdf'])
                     ->with([
                         'updated_at'        => $this->updated_at,
                         'jobnumber'         => $this->jobnumber,

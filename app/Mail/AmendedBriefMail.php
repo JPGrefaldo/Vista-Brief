@@ -45,7 +45,7 @@ class AmendedBriefMail extends Mailable
     public function build()
     {
         return $this->view('emails.amendedbriefemail')
-                    ->attach($this->attachment())
+                    ->attach($this->attachment(), ['as'=>'Brief Sheet.pdf'])
                     ->with([
                         'updated_at'        => $this->updated_at,
                         'jobnumber'         => $this->jobnumber,
