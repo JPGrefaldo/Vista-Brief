@@ -44,6 +44,11 @@ class Brief extends Model
         return $this->hasMany('App\Amendment');
     }
 
+    public function amendments_desc() 
+    {
+        return $this->hasMany('App\Amendment')->desc();
+    }
+
     public function scopeIsactive($request)
     {
     	return $request->where('is_active', 1);

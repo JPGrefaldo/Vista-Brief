@@ -85,6 +85,14 @@ body {
 	padding-left: 10px;
 }
 
+.p-l-md {
+	padding-left: 20px;
+}
+
+.p-l-lg {
+	padding-left: 30px;
+}
+
 .p-l-n {
 	padding-left: 0px;
 }

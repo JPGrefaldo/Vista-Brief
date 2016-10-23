@@ -5349,94 +5349,24 @@ body {
       cursor: inherit;
       display: block;
 }
-
-.page-break {
-                  page-break-after: always;
-            }
-
-      </style>
+</style>
+<style type="text/css" media="print">
+    div.page
+    {
+        page-break-after: always;
+        page-break-inside: avoid;
+        overflow: hidden;
+    }
+</style>
 </head>
 <body>
 
 
-<div class="row bg-white">
-  <div class="col-xs-12 col-lg-12">
-
-    <!-- Title -->
-	<div class="row m-b-md">
-	  <div class="col-xs-6 m-b-n m-t-n">
-		<h1 class="text-default">VISTA</h1>
-	  </div>
-	  <div class="col-xs-6 m-t-sm">
-		<p class="pull-right text-muted">date</p>
-	  </div>
-	  <div class="col-xs-12 m-t-n">
-		<h2 class="text-primary">Brief Sheet</h2>
-	  </div>
-	</div>
-	<!-- / Title -->
-
-	<!-- Information -->
-	<div class="row">
-            <div class="col-xs-6">
-      	    <label class="control-label text-left"><strong>Client</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-            <div class="col-xs-6">
-      	    <label class="control-label text-left"><strong>Project Status</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-
-            <div class="col-xs-6">
-      	    <label class="control-label text-left"><strong>Job Number</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-            <div class="col-xs-6">
-      	    <label class="control-label text-left"><strong>Old Job Number</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-
-            <div class="col-xs-9">
-      	    <label class="control-label text-left"><strong>Job Name</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-            <div class="col-xs-3">
-      	    <label class="control-label text-left"><strong>Your Budget</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-
-            <div class="col-xs-9">
-      	    <label class="control-label text-left"><strong>Key Deliverables</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-            <div class="col-xs-3">
-      	    <label class="control-label text-left"><strong>Project Manager</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-
-            <div class="page-break"></div>
-
-
-            <div class="col-xs-3">
-      	    <label class="control-label text-left"><strong>Quote Required By</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-            <div class="col-xs-3">
-      	    <label class="control-label text-left"><strong>Proposal Required By</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-            <div class="col-xs-3">
-      	    <label class="control-label text-left"><strong>1st Stage Required By</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-            <div class="col-xs-3">
-      	    <label class="control-label text-left"><strong>Project Delivered By</strong></label>
-            	<p class="bg-light p-l-sm">dummy</p>
-            </div>
-	</div>
-	<!-- / Information -->
-
-  </div>
+<div>
+    First page
+</div>
+<div class="page" style="page-break-after: always">
+    Second page
 </div>
 
 

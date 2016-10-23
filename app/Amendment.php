@@ -25,4 +25,9 @@ class Amendment extends Model
     {
         return $query->where('is_active', 1);
     }
+
+    public function scopeDesc($query) 
+    {
+        return $query->orderBy('id', 'desc');
+    }
 }

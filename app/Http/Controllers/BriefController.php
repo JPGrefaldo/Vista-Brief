@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Requests\StoreBriefAmendRequest;
 
 use Storage;
+use PDF;
 
 use App\Brief;
 // use App\Client;
@@ -15,6 +16,7 @@ use App\Brief;
 use App\Department;
 use App\Amendment;
 use App\Attachment;
+
 
 class BriefController extends Controller
 {
@@ -85,6 +87,7 @@ class BriefController extends Controller
 
         // Send email to selected departments
         $brief = Brief::find($brief_id);
+
         if ( !empty($request->input('department')) ) {
             $departments_to_be_email = Department::find($request->input('department'));
 
