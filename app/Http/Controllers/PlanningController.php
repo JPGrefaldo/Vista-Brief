@@ -34,7 +34,7 @@ class PlanningController extends Controller
     	return view ('planningrequests.newplanning', compact('clients', 'jobstatus', 'formatofresponses'));
     }
 
-    public function postNewPlanning(StorePlanningRequest $request) 
+    public function postNewPlanning(StorePlanningRequest $request, \Illuminate\Mail\Mailer $mailer) 
     {
     	$user_id = $request->user()->id;
     	$client_id = $request->input('client');
@@ -97,11 +97,13 @@ class PlanningController extends Controller
         if ( !empty($files) ) {
         	foreach ($files as $file):
         		$filename = $file->getClientOriginalName();
+                $filetype = $file->getClientMimeType();
 
 		        $attachments = new Attachment();
 		        $attachments->user_id = $user_id;
 		        $attachments->planning_id = $planning->id;
 		        $attachments->filename = $filename;
+                $attachments->filetype = $filetype;
 		        $attachments->disk = 'local';
 		        $attachments->directory = 'planning-'.$planning->id.'/user-'.$user_id.'/';
 		        $attachments->save();
@@ -114,6 +116,10 @@ class PlanningController extends Controller
 
         $planning->attachment_ids = implode($arr_attachment_ids,',');
         $planning->save();
+
+        $mailer
+            ->to('request@wearevista.co.uk')
+            ->send(new \App\Mail\SubmittedPlanningMail($planning));
 
     	return redirect()->route('planningrequests')->with('new_planning_success', 'Successfully created new planning request: '.$title.'.');
     }

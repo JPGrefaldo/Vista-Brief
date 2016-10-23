@@ -122,6 +122,20 @@ Route::group(['middleware' => 'auth'], function() {
 	]);
 	/* / Planning Requests */
 
+	/* PDF Generator 8*/
+	Route::get('/pdf/file/{id}', [
+		'uses'	=> 'PdfController@pdfBriefSubmittedAttachment',
+		'as'	=>	'pdfbriefsubmit'
+	]);
+	/* / PDF Generator */
+
+	/* Attachment */
+	Route::get('/attachment/{id}', [
+		'uses'	=> 'AttachmentController@download',
+		'as'	=> 'download_attachment'
+	]);
+	/* / Attachment */
+
 	Route::group(['middleware' => ['admin']], function() {	/* Admin Middleware */
 		Route::group(['prefix' => 'admin'], function () {
 			Route::get('/users', [	/* Users */
@@ -197,3 +211,4 @@ Route::get('/ajax/brief/post/create/get/clients', [
 //Auth::routes();
 
 //Route::get('/home', 'HomeController@index');
+

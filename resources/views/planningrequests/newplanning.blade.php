@@ -167,7 +167,7 @@ Create New Planning Request
                       <label class="col-lg-3 control-label text-left">Format of Response</label>
                       <div class="col-lg-9">
                         <select name="formatofresponse" class="form-control">
-                          <option value="">select</option>
+                          <option value="0">select</option>
                           @foreach ($formatofresponses as $for)
                             <option value="{{ $for->id }}" {{ (old('formatofresponse') == $for->id) ? "selected":"" }}>{{ $for->name }}</option>
                           @endforeach

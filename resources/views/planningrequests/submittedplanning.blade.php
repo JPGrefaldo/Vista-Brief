@@ -193,7 +193,9 @@ Create New Planning Request
                     <label class="col-lg-3 control-label text-left">Format of Response</label>
                     <div class="col-lg-9">
                       <select name="formatofresponse" class="form-control" disabled>
-                        <option value="{{ $planning->formatofresponse_id }}" selected>{{ $planning->formofresponse->name }}</option>
+                        @if ($planning->formofresponse_id != 0)
+                          <option value="{{ $planning->formatofresponse_id }}" selected>{{ $planning->formofresponse->name }}</option>
+                        @endif
                       </select>
                       <span class="help-block m-b-none"></span>
                     </div>
@@ -380,7 +382,11 @@ Create New Planning Request
                       @foreach ($planning->attachments as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">
-                            <li class="text-info">{{ $attachment->filename }}</li>
+                            <li class="text-info">
+                              <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                                {{ $attachment->filename }}
+                              </a>
+                            </li>
                             <li class="text-muted">
                               Uploaded by 
                               {{ $attachment->user->forename }} 

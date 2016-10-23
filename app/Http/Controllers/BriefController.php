@@ -33,7 +33,7 @@ class BriefController extends Controller
     	return view ('briefsheets.submittedbrief', compact('brief', 'departments'));
     }
 
-    public function postNewAmend(StoreBriefAmendRequest $request) 
+    public function postNewAmend(StoreBriefAmendRequest $request, \Illuminate\Mail\Mailer $mailer) 
     {
         $user_id = $request->user()->id;
         $brief_id = $request->input('brief_id');
@@ -62,14 +62,16 @@ class BriefController extends Controller
         if ( !empty($files) ) {
             foreach ($files as $file):
                 $filename = $file->getClientOriginalName();
+                $filetype = $file->getClientMimeType();
 
                 $attachments = new Attachment();
                 $attachments->user_id = $user_id;
                 $attachments->brief_id = $brief_id;
                 $attachments->amendment_id = $amend->id;
                 $attachments->filename = $filename;
+                $attachments->filetype = $filetype;
                 $attachments->disk = 'local';
-                $attachments->directory = 'brief-'.$brief_id.'/'.$user_id.'/';
+                $attachments->directory = 'brief-'.$brief_id.'/user-'.$user_id.'/';
                 $attachments->save();
 
                 $arr_attachment_ids[] = $attachments->id;
@@ -80,6 +82,19 @@ class BriefController extends Controller
 
         $amend->attachment_ids = implode($arr_attachment_ids,',');
         $amend->save();
+
+        // Send email to selected departments
+        $brief = Brief::find($brief_id);
+        if ( !empty($request->input('department')) ) {
+            $departments_to_be_email = Department::find($request->input('department'));
+
+            foreach ($departments_to_be_email as $department) {
+                $mailer
+                    ->to($department->email)
+                    ->send(new \App\Mail\AmendedBriefMail($brief,$department->name));
+
+            }
+        }
 
         return redirect()->route('submittedbriefsheet', [$brief_id])->with('new_amend_success', 'New Amend created.');
 

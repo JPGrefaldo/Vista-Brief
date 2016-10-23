@@ -6,13 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-// use App\Exception\Handler;
+use App\Client;
 
 class ClientController extends Controller
 {
     public function index()
     {
-    	return view ('clients.index');
+        $clients = Client::isactive()->get();
+
+    	return view ('clients.index', compact('clients'));
     }
 
     public function formNewClient()

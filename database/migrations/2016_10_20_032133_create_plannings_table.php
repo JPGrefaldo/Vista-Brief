@@ -24,7 +24,7 @@ class CreatePlanningsTable extends Migration
             $table->string('title');
             $table->tinyInteger('jobstatus_id');
             $table->string('budget')->nullable();
-            $table->tinyInteger('formatofresponse_id');
+            $table->tinyInteger('formatofresponse_id')->default(0)->nullable();
             $table->datetime('pitch_quote_datetime')->nullable();
             $table->date('pitch_quote_date')->nullable();
             $table->time('pitch_quote_time')->nullable();

@@ -112,7 +112,7 @@ Planning Requests - Vista
                     <td>{{ $planning->client->name }}</td>
                     <td><span class="text-ellipsis">{{ $planning->title }}</span></td>
                     <td><span class="text-ellipsis">{{ $planning->user->forename }} {{ $planning->user->surname }}</span></td>
-                    <td>{{ $planning->formofresponse->name }}</td>
+                    <td>{{ (!empty($planning->formofresponse->name)) ? $planning->formofresponse->name : '' }}</td>
                     <td>{{ $planning->created_at->format('M d, Y') }}</td>
                     <td>{{ $planning->jobstatus->name }}</td>
                     <td>

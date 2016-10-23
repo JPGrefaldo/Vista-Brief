@@ -127,11 +127,13 @@ class BriefAddEditController extends Controller
         if ( !empty($files) ) {
         	foreach ($files as $file):
         		$filename = $file->getClientOriginalName();
+                $filetype = $file->getClientMimeType();
 
 		        $attachments = new Attachment();
 		        $attachments->user_id = $user_id;
 		        $attachments->brief_id = $brief->id;
 		        $attachments->filename = $filename;
+                $attachments->filetype = $filetype;
 		        $attachments->disk = 'local';
 		        $attachments->directory = 'brief-'.$brief->id.'/user-'.$user_id.'/';
 		        $attachments->save();
@@ -158,7 +160,6 @@ class BriefAddEditController extends Controller
         }
 
         return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
-        // return \Response::json(array('success'=>true));
     }
 
     public function formEditBrief($id) 

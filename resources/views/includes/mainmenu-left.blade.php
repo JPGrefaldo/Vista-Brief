@@ -1,4 +1,4 @@
-  <aside id="aside" class="app-aside hidden-xs bg-brand-1">
+  <aside id="aside" class="app-aside hidden-xs bg-brand-1" style="position:fixed; height:100%">
       <div class="aside-wrap">
         <div class="navi-wrap">
           <!-- nav -->

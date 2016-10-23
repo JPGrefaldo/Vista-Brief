@@ -87,13 +87,15 @@ Clients - Vista
               </tr>
             </thead>
             <tbody>
+              @foreach ($clients as $client)
               <tr>
                 <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                <td>ABC</td>
+                <td>{{ $client->name }}</td>
                 <td>
                   <a href class="active" ui-toggle-class><i class="fa fa-eye text-primary text"></i></a>
                 </td>
               </tr>
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -109,16 +111,12 @@ Clients - Vista
               <button class="btn btn-sm btn-default">Apply</button>                  
             </div>
             <div class="col-sm-4 text-center">
-              <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+              <small class="text-muted inline m-t-sm m-b-sm">showing 1-10 of 10 items</small>
             </div>
             <div class="col-sm-4 text-right text-center-xs">                
               <ul class="pagination pagination-sm m-t-none m-b-none">
                 <li><a href><i class="fa fa-chevron-left"></i></a></li>
                 <li><a href>1</a></li>
-                <li><a href>2</a></li>
-                <li><a href>3</a></li>
-                <li><a href>4</a></li>
-                <li><a href>5</a></li>
                 <li><a href><i class="fa fa-chevron-right"></i></a></li>
               </ul>
             </div>

@@ -513,11 +513,17 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-sm-12 hide1"> <!-- hide for now -->
                     <ul>
-                      @foreach ($brief->attachments as $attachment)
+                      @foreach ($brief->attachmentsNotAmend as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">
-                            <li class="text-info">{{ $attachment->filename }}</li>
-                            <li class="text-muted">Uploaded by {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
+                            <li class="text-info">
+                              <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                                {{ $attachment->filename }}
+                              </a>
+                            </li>
+                            <li class="text-muted">
+                              Uploaded by {{ $attachment->user->forename }} - 
+                              {{ $attachment->updated_at->format('h:m l, M d, Y') }}</li>
                           </ul>
                         </li>
                       @endforeach

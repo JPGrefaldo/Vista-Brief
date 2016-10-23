@@ -146,10 +146,10 @@ Create New Brief Sheet
 
                 <!-- Required dates -->
                 <div class="row">
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input type="text" class="form-control" name="quotereq" value="{{ old('quotereq') }}" readonly />
                           <span class="input-group-btn">
@@ -159,10 +159,10 @@ Create New Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input type="text" class="form-control" name="proposedreq" value="{{ old('proposedreq') }}" readonly />
                           <span class="input-group-btn">
@@ -172,10 +172,10 @@ Create New Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input type="text" class="form-control" name="stagereq" value="{{ old('stagereq') }}" readonly />
                           <span class="input-group-btn">
@@ -185,10 +185,10 @@ Create New Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input type="text" class="form-control" name="projdelivered" value="{{ old('projdelivered') }}" readonly />
                           <span class="input-group-btn">

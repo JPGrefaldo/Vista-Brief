@@ -500,7 +500,11 @@ Submitted - Brief Sheet
                         @foreach ($brief->attachmentsNotAmend as $attachment)
                           <li>
                             <ul class="p-l-n l-s-n">
-                              <li class="text-info">{{ $attachment->filename }}</li>
+                              <li class="text-info">
+                                <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                                  {{ $attachment->filename }}
+                                </a>
+                              </li>
                               <li class="text-muted">Uploaded by {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
                             </ul>
                           </li>
@@ -598,11 +602,11 @@ Submitted - Brief Sheet
 
                 <div class="line line-dashed b-b line-lg"></div>
 
-                @foreach ($brief->amendments as $amend)
+                @foreach ($brief->amendments as $key => $amend)
                   <div class="row">
                     <div class="col-sm-12">
                       <h4>
-                        Amend {{ $amend->id }} 
+                        Amend {{ $key+1 }} 
                         @if ($amend->is_internal)
                           - Internal
                         @endif
@@ -611,10 +615,14 @@ Submitted - Brief Sheet
                         {{ $amend->updated_at->format('h:m l, d M Y') }} - {{ $amend->user->forename }}
                       </h6>
                       <p>{{ $amend->content }}</p>
-                      <ul>
+                      <ul class="bg-light">
                         @foreach ($amend->attachments as $attachment)
                           <li>
-                            <p class="text-muted">{{ $attachment->filename }}</p>
+                            <p class="text-muted">
+                              <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                                {{ $attachment->filename }}
+                              </a>
+                            </p>
                             <h6 class="text-muted">
                               Uploaded by: {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</h6>
                           </li>
