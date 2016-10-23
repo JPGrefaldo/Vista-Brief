@@ -44,6 +44,18 @@ Create New Brief Sheet
         <div class="col-sm-12">          
           <form class="bs-example form-horizontal" action="{{ route('postnewbrief') }}" method="post" enctype="multipart/form-data">
 
+            @if (count($errors) > 0)
+            <div class="panel panel-default">
+                <div class="alert alert-danger text-danger m-b-n">
+                  <ul class="m-b-n">
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+            </div>
+            @endif
+
             <!-- Information -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">

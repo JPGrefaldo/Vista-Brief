@@ -49,6 +49,18 @@ Draft - Brief Sheet
           </div>      
           <form class="bs-example form-horizontal" action="{{ route('posteditbrief') }}" method="post" enctype="multipart/form-data">
 
+            @if (count($errors) > 0)
+            <div class="panel panel-default">
+                <div class="alert alert-danger text-danger m-b-n">
+                  <ul class="m-b-n">
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+            </div>
+            @endif
+
             <!-- Information -->
             <div class="panel panel-default">
               <div class="panel-heading">

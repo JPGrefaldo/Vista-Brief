@@ -35,7 +35,7 @@ class StoreBriefRequest extends FormRequest
     {
         return [
             'client.required'           =>  'Client is required.',
-            'projectstatus.required'    =>  'Project Status is requried.',
+            'projectstatus.required'    =>  'Project Status is required.',
             'jobnumber.required'        =>  'Job Number is required.',
             'jobname.required'          =>  'Job Name is required.',
             'jobname.unique'            =>  'That Job Name is already taken.',
