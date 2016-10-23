@@ -122,9 +122,9 @@ Route::group(['middleware' => 'auth'], function() {
 	]);
 	/* / Planning Requests */
 
-	/* PDF Generator */
+	/* PDF Generator: Test Controller */
 	Route::get('/pdf/file/{id}', [
-		'uses'	=> 'PdfController@get_pdfAmendedBriefAttachment',
+		'uses'	=> 'PdfController@get_pdfSubmittedPlanningAttachment',
 		'as'	=>	'pdfbriefsubmit'
 	]);
 	/* / PDF Generator */

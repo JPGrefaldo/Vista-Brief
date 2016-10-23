@@ -132,7 +132,7 @@ Brief Submitted File
 
           <div class="col-xs-12">
             <p class="bg-light">
-              {{ $amend->content }}
+              {{ $amend->content }}&nbsp;
             </p>
           </div>
         @endforeach
@@ -161,7 +161,7 @@ Brief Submitted File
       <div class="row m-b-md">
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#01 Brief Summary</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->summary }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->summary }}&nbsp;</p>
         </div>
 
         <div class="col-xs-12">
@@ -171,7 +171,7 @@ Brief Submitted File
           <div class="row">
             @foreach ($departments as $department)
             <div class="col-xs-3">
-              <p><strong>{{ $department->name }}</strong></p>
+              <p><strong>{{ $department->name }}&nbsp;</strong></p>
               <p class="bg-light p-l-sm">
                 {{ (in_array($department->id, explode(',',$brief->disciplines_required_ids))) ? 'Yes':'&nbsp;' }}
               </p>
@@ -182,17 +182,17 @@ Brief Submitted File
 
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#03 Objectives / Measure</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->objectives_or_measures }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->objectives_or_measures }}&nbsp;</p>
         </div>
 
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#04 Creative</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->creative }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->creative }}&nbsp;</p>
         </div>
 
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#05 Budgets, Timings and Outputs Required</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->budget_timings_and_outputs }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->budget_timings_and_outputs }}&nbsp;</p>
         </div>
       </div>
     </div>

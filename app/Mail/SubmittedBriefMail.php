@@ -60,7 +60,7 @@ class SubmittedBriefMail extends Mailable
         $brief = Brief::find($this->brief_id);
         $departments = Department::isactive()->get();
 
-        $pdf = PDF::loadView('pdf.amendedbriefpdf-1', compact('brief', 'departments'))->setPaper('a4');
+        $pdf = PDF::loadView('pdf.submittedbriefpdf-1', compact('brief', 'departments'))->setPaper('a4');
         $save_directory = storage_path().'/app/temp/';
         $random_filename = str_random(10).'.pdf';
         $pdf->save($save_directory.$random_filename);

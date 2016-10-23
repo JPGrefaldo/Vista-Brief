@@ -10,6 +10,7 @@ use PDF;
 use Storage;
 
 use App\Brief;
+use App\Planning;
 use App\Department;
 
 class PdfController extends Controller
@@ -36,5 +37,15 @@ class PdfController extends Controller
         $pdf = PDF::loadView('pdf.amendedbriefpdf-1', compact('brief', 'departments'))->setPaper('a4');
         // $pdf->save(storage_path().'/app/temp/'.str_random(10).'.pdf');
         return $pdf->stream('Brief Sheet.pdf');
+    }
+
+    public function get_pdfSubmittedPlanningAttachment($id) 
+    {
+        $planning = Planning::find($id);
+        $departments = Department::all();
+        // return view('pdf.submittedplanningpdf', compact('planning', 'departments'));
+        $pdf = PDF::loadView('pdf.submittedplanningpdf', compact('planning', 'departments'))->setPaper('a4');
+        // $pdf->save(storage_path().'/app/temp/'.str_random(10).'.pdf');
+        return $pdf->stream('Planning Request.pdf');
     }
 }
