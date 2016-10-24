@@ -111,4 +111,14 @@ class Brief extends Model
         
         return $query;
     }
+
+    public function scopeWhereDeparmentWithArray($query, $arr_deparment_id) 
+    {
+        if (empty($arr_deparment_id))
+            return $query;
+        foreach ($arr_deparment_id as $id) {
+            $query->whereRaw('FIND_IN_SET('.$id.', disciplines_required_ids)');
+        }
+        return $query;
+    }
 }

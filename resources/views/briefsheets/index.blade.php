@@ -54,7 +54,7 @@ Brief Sheets - Vista
               <i class="fa fa-fw fa-plus"></i>
               Create New Brief
             </a>
-            <a href="" class="btn btn-dark">
+            <a class="btn btn-dark" id="open-advancesearch-modal">
               Advance Search
               <i class="fa fa-fw fa-search"></i>
             </a>
@@ -196,6 +196,125 @@ Brief Sheets - Vista
         </footer>
       </div>
     </div>
+
+    <!-- Modal: Advance Search -->
+    <div id="modal-advance-search" class="modal" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Search Brief Sheet</h4>
+          </div>
+          <form role="form" method="GET" action="{{ route('advancesearchbrief') }}">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Job Number</label>
+                  <input 
+                    type="text" 
+                    name="jobnumber" 
+                    class="form-control" 
+                    placeholder="Job Number" 
+                    value="{{old('jobnumber')}}">
+                </div>
+              </div>              
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Job Name</label>
+                  <input 
+                    type="text" 
+                    name="jobname" 
+                    class="form-control" 
+                    placeholder="Job Name" 
+                    value="{{old('jobname')}}">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Client</label>
+                  <select name="client" class="form-control">
+                    <option value="">select</option>
+                    @foreach($clients as $client)
+                      <option 
+                        value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>
+                          {{ $client->name }}
+                      </option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>              
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Project Status</label>
+                  <select name="projectstatus" class="form-control">
+                    <option value="">select</option>
+                    @foreach($projectstatus as $pstatus)
+                      <option 
+                        value="{{ $pstatus->id }}" 
+                        {{ (old('projectstatus') == $pstatus->id) ? "selected":"" }}>
+                          {{ $pstatus->name }}
+                      </option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Budget</label>
+                  <input 
+                    type="text" 
+                    name="budget" 
+                    class="form-control" 
+                    placeholder="Budget" 
+                    value="{{old('budget')}}">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <label>Project Manager</label>
+                  <input 
+                    type="text" 
+                    name="projectmanager" 
+                    class="form-control" 
+                    placeholder="Project Manager" 
+                    value="{{old('projectmanager')}}">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="row">
+                  @foreach ($departments as $department)
+                    <div class="col-xs-6 col-sm-3">
+                      <label class="checkbox-inline">
+                        <input 
+                          type="checkbox" 
+                          name="departments[{{ $department->id }}]" 
+                          value="{{ $department->id }}" 
+                          @if(array_key_exists($department->id, old('departments',[]))) checked @endif> 
+                        {{ $department->name }}
+                      </label>
+                    </div>
+                  @endforeach
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-sm-3">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+              </div>
+              <div class="col-sm-9">
+                <button type="submit" class="btn btn-success btn-block">Search</button>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
   </div>
   <!-- / main -->
 </div>
@@ -209,7 +328,7 @@ Brief Sheets - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
-
+  <script src="{{ URL::asset('js/brief/action-brief-advancesearch.js') }}"></script>
 
 </div>
 @endsection

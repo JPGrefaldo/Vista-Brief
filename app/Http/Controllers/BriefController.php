@@ -22,10 +22,12 @@ class BriefController extends Controller
 {
     public function index() 
     {
-
         $briefs = Brief::isactive()->latest()->paginate(20);
+        $clients = \App\Client::isactive()->latest()->get();
+        $projectstatus = \App\ProjectStatus::all();
+        $departments = Department::all();
 
-    	return view ('briefsheets.index', compact('briefs'));
+    	return view ('briefsheets.index', compact('briefs', 'clients', 'projectstatus', 'departments'));
     }
 
     public function submitted($id) 

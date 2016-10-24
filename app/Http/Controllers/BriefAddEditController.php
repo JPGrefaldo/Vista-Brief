@@ -28,7 +28,7 @@ class BriefAddEditController extends Controller
     //
     public function new() 
     {
-        $clients = Client::isactive()->get();
+        $clients = Client::isactive()->latest()->get();
         $projectstatus = ProjectStatus::all();
         $departments = Department::isactive()->get();
 
@@ -165,7 +165,7 @@ class BriefAddEditController extends Controller
     public function formEditBrief($id) 
     {
     	$brief = Brief::find($id);
-        $clients = Client::isactive()->get();
+        $clients = Client::isactive()->latest()->get();
         $projectstatus = ProjectStatus::all();
         $departments = Department::isactive()->get();
 

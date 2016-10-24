@@ -97,6 +97,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'SearchController@quickSearchBrief',
 		'as'	=>	'quicksearchbrief'
 	]);
+	Route::get('/briefsheets/advancesearch/criteria', [
+		'uses'	=>	'SearchController@advanceSearchBrief',
+		'as'	=>	'advancesearchbrief'
+	]);
 	/* / Brief Routes */
 
 	/* Planning Requests */
