@@ -101,6 +101,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'BriefController@postNewAmend',
 		'as'	=>	'postnewamend'
 	]);
+	Route::get('/briefsheets/find/', [
+		'uses'	=>	'SearchController@quickSearchBrief',
+		'as'	=>	'quicksearchbrief'
+	]);
 	/* / Brief Routes */
 
 	/* Planning Requests */
@@ -170,9 +174,7 @@ Route::group(['middleware' => 'auth'], function() {
 			Route::get('/departments', [	/* Department Ruoting */
 				'uses'	=>	'DepartmentController@index',
 				'as'	=>	'departments'
-			]);
-
-			
+			]);			
 
 			/* Clients */
 			Route::get('/clients', [	/* Clients */

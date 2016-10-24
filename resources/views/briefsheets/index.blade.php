@@ -54,8 +54,8 @@ Brief Sheets - Vista
               <i class="fa fa-fw fa-plus"></i>
               Create New Brief
             </a>
-            <a href="" class="btn btn-dark hide"><!-- search field: hide for now -->
-              Search
+            <a href="" class="btn btn-dark">
+              Advance Search
               <i class="fa fa-fw fa-search"></i>
             </a>
           </div>
@@ -70,15 +70,17 @@ Brief Sheets - Vista
             </select>
             <button class="btn btn-sm btn-default">Apply</button>                
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-1 col-md-4">
           </div>
-          <div class="col-sm-3 hide"><!-- search field: hide for now -->
-            <div class="input-group">
-              <input type="text" class="input-sm form-control" placeholder="Search">
-              <span class="input-group-btn">
-                <button class="btn btn-sm btn-default" type="button">Go!</button>
-              </span>
-            </div>
+          <div class="col-sm-6 col-md-3">
+            <form method="GET" action="{{ route('quicksearchbrief') }}">
+              <div class="input-group">
+                <input type="text" name="input_quick_search" class="input-sm form-control" placeholder="Quick Search">
+                <span class="input-group-btn">
+                  <button class="btn btn-sm btn-default" type="button">Go!</button>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
         <div class="table-responsive">
