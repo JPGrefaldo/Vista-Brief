@@ -34,20 +34,22 @@
                 <img src="{{ URL::asset('images/user_avatar_default.png')}}" alt="...">
                 <i class="on md b-white bottom"></i>
               </span>
-              <span class="hidden-sm hidden-md">{{ Auth::user()->forename }} {{ Auth::user()->surname }}</span> <b class="caret"></b>
+              <span class="hidden-sm hidden-md">
+                {{ Auth::user()->forename }} {{ Auth::user()->surname }}
+              </span> <b class="caret"></b>
             </a>
             <!-- dropdown -->
             <ul class="dropdown-menu animated fadeInRight w">
-              <li>
+              <li class="hide">
                 <a href="{{ route('settings') }}">
                   <span class="badge bg-danger pull-right hide">30%</span>
                   <span>Settings</span>
                 </a>
               </li>
-              <li>
+              <li class="hide"
                 <a href="{{ url('profile') }}" ui-sref="app.page.profile">Profile</a>
               </li>
-              <li class="divider"></li>
+              <li class="divider hide"></li>
               <li>
                 <a href="{{ route('signout') }}" ui-sref="access.signin">Logout</a>
               </li>
