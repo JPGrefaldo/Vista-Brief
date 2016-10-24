@@ -122,3 +122,11 @@ body {
 	display: block;
 }
 
+.nohovereffect:hover {
+	text-decoration: none;
+	color: #fff;
+}
+.nohovereffect:focus {
+	text-decoration: none;
+	color: #fff;
+}

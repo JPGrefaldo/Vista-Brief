@@ -51,7 +51,7 @@ Planning Requests - Vista
               <i class="fa fa-fw fa-plus"></i>
               Create New Planning Request
             </a>
-            <a href="" class="btn btn-dark">
+            <a href="" class="btn btn-dark hide">
               Advance Search
               <i class="fa fa-fw fa-search"></i>
             </a>
