@@ -75,9 +75,9 @@ Brief Sheets - Vista
           <div class="col-sm-6 col-md-3">
             <form method="GET" action="{{ route('quicksearchbrief') }}">
               <div class="input-group">
-                <input type="text" name="input_quick_search" class="input-sm form-control" placeholder="Quick Search">
+                <input type="text" name="keyword" class="input-sm form-control" placeholder="Quick Search">
                 <span class="input-group-btn">
-                  <button class="btn btn-sm btn-default" type="button">Go!</button>
+                  <button class="btn btn-sm btn-default" type="submit">Find!</button>
                 </span>
               </div>
             </form>
@@ -106,7 +106,10 @@ Brief Sheets - Vista
               @if ($briefs->isEmpty())
                 <tr>
                   <td colspan="7">
-                    <p class="text-center m-md">Sorry, no brief sheets found. Begin by creating a <a href="{{ route('newbriefsheet') }}" class="text-info"><u>new brief sheet here</u></a>.</p>
+                    <p class="text-center m-md">
+                      Sorry, no brief sheets found. Begin by creating a 
+                      <a href="{{ route('newbriefsheet') }}" class="text-info"><u>new brief sheet here</u></a>.
+                    </p>
                   </td>
                 </tr>
               @else

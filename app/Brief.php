@@ -53,4 +53,49 @@ class Brief extends Model
     {
     	return $request->where('is_active', 1);
     }
+
+    public function scopeLatest($request) 
+    {
+        return $request->orderBy('id', 'desc');
+    }
+
+    public function scopeOrWhereUser($query, $keyword) 
+    {
+        $users = \App\User::select('id')
+            ->where('forename','LIKE','%'.$keyword.'%')
+            ->orWhere('surname','LIKE','%'.$keyword.'%')
+            ->orWhere('email','LIKE','%'.$keyword.'%')
+            ->get();
+
+        foreach ($users as $user) {
+            $query->orWhere('user_id', '=', $user->id);
+        }
+
+        return $query;
+    }
+
+    public function scopeOrWhereProjectStatus($query, $keyword) 
+    {
+        $projectstatus = \App\ProjectStatus::select('id')
+            ->where('name', 'LIKE', '%'.$keyword.'%')
+            ->get();
+
+        foreach ($projectstatus as $status) {
+            $query->orWhere('projectstatus_id', '=', $status->id);
+        }
+
+        return $query;
+    }
+
+    public function scopeOrWhereStatus($query, $keyword) 
+    {
+        if ( strtolower($keyword) == 'submitted' ) {
+            return $query->orWhere('is_draft', '=', 0);
+        }
+        else if( strtolower($keyword) == 'draft' ) {
+            return $query->orWhere('is_draft', '=', 1);
+        }
+        
+        return $query;
+    }
 }

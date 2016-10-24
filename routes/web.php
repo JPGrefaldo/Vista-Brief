@@ -73,14 +73,6 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'BriefAddEditController@new',
 		'as'	=>	'newbriefsheet'
 	]);
-	// Route::get('/briefsheets/draft', [
-	// 	'uses'	=>	'BriefController@drafted',
-	// 	'as'	=>	'draftedbriefsheet'
-	// ]);
-	// Route::get('/briefsheets/tempbriefid', [
-	// 	'uses'	=>	'BriefController@submitted',
-	// 	'as'	=>	'submittedbriefsheet'
-	// ]);
 	Route::post('/briefsheets/post/save', [
 		'uses'	=>	'BriefAddEditController@postNewBrief',
 		'as'	=>	'postnewbrief'
@@ -101,7 +93,7 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'BriefController@postNewAmend',
 		'as'	=>	'postnewamend'
 	]);
-	Route::get('/briefsheets/find/', [
+	Route::get('/briefsheets/find/criteria', [
 		'uses'	=>	'SearchController@quickSearchBrief',
 		'as'	=>	'quicksearchbrief'
 	]);
