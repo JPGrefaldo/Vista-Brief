@@ -32,9 +32,12 @@ Clients - Vista
     <!-- main header -->
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-12 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Clients</h1>
           <small class="text-muted">welcome</small>
+          @if (session('client_delete_success'))
+            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('client_delete_success') }}</span>
+          @endif
         </div>
       </div>
     </div>
@@ -107,7 +110,9 @@ Clients - Vista
                   <td class="hide"><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                   <td>{{ $client->name }}</td>
                   <td>
-                    <a href class="active"><i class="glyphicon glyphicon-remove-sign text-danger"></i></a>
+                    <a class="active action-delete" data-dname="{{ $client->name }}" data-did="{{ $client->id }}">
+                      <i class="glyphicon glyphicon-remove-sign text-danger"></i>
+                    </a>
                   </td>
                 </tr>
                 @endforeach
@@ -160,6 +165,34 @@ Clients - Vista
         </footer>
       </div>
     </div>
+
+    <!-- Modal: Confirm Delete -->
+    <div id="modal-confirm-delete-client" class="modal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Confirm Delete</h4>
+          </div>
+          <div class="modal-body text-center">
+            <h3>Are you sure you want to delete '<span id="client-name"></span>'</h3>
+            <input type="hidden" id="id-to-be-deleted" name="id-to-be-deleted">      
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-sm-4">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+              </div>
+              <div class="col-sm-8">
+                <button type="button" class="btn btn-warning btn-block" id="btn-client-delete">Confirm</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
   </div>
   <!-- / main -->
 </div>
@@ -173,7 +206,7 @@ Clients - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
-
+  <script src="{{ URL::asset('js/client/action-client-delete-client.js') }}"></script>
 
 </div>
 @endsection

@@ -23,4 +23,16 @@ class ClientController extends Controller
     	// throw new \Symfony\Component\HttpKernel\Exception\HttpException(503);
     	// abort(404, 'invalid action');
     }
+
+    public function deleteClient($id) 
+    {
+        $client = Client::find($id);
+        echo $name = $client->name;
+
+        $client->delete();
+
+        return redirect()
+            ->route('clients')
+            ->with('client_delete_success', 'Successfully deleted the client '.$name);
+    }
 }

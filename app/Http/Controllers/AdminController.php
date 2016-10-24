@@ -125,6 +125,8 @@ class AdminController extends Controller
 
         $user->delete();
 
-        return redirect()->route('users')->with('user_delete_success', 'Successfully Deleted the account of '.$forename.' '.$surname);
+        return redirect()
+            ->route('users')
+            ->with('user_delete_success', 'Successfully deleted the account of '.$forename.' '.$surname);
     }
 }
