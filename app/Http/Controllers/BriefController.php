@@ -22,7 +22,8 @@ class BriefController extends Controller
 {
     public function index() 
     {
-        $briefs = Brief::isactive()->latest()->get();
+
+        $briefs = Brief::isactive()->latest()->paginate(20);
 
     	return view ('briefsheets.index', compact('briefs'));
     }

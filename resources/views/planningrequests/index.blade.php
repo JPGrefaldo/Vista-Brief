@@ -59,13 +59,13 @@ Planning Requests - Vista
         </div>
         <div class="row wrapper">
           <div class="col-sm-5 m-b-xs">
-            <select class="input-sm form-control w-sm inline v-middle">
+            <!--<select class="input-sm form-control w-sm inline v-middle">
               <option value="0">Bulk action</option>
               <option value="1">Delete selected</option>
               <option value="2">Bulk edit</option>
               <option value="3">Export</option>
-            </select>
-            <button class="btn btn-sm btn-default">Apply</button>                
+            </select>-->
+            <button class="btn btn-sm btn-default hide">Apply</button>                
           </div>
           <div class="col-sm-1 col-md-4">
           </div>
@@ -89,7 +89,7 @@ Planning Requests - Vista
           <table class="table table-striped b-t b-light">
             <thead>
               <tr>
-                <th style="width:20px;">
+                <th class="hide" style="width:20px;">
                   <label class="i-checks m-b-none">
                     <input type="checkbox"><i></i>
                   </label>
@@ -108,14 +108,27 @@ Planning Requests - Vista
             <tbody>
               @if ($plannings->isEmpty())
                 <tr>
-                  <td colspan="8">
-                    <p class="text-center m-md">Sorry, no planning requests found. Begin by creating a <a href="{{ route('newplanningrequest') }}" class="text-info"><u>new planning request here</u></a>.</p>
+                  <td colspan="7">
+                    <p class="text-center m-md">
+                      Sorry, no planning requests found. 
+                      @if (!isset($keyword)) 
+                        Begin by creating a 
+                        <a href="{{ route('newplanningrequest') }}" class="text-info">
+                          <u>new planning request here</u>
+                        </a>.
+                      @endif
+                    </p>
                   </td>
                 </tr>
               @else
                 @foreach ($plannings as $planning)
                   <tr>
-                    <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
+                    <td class="hide">
+                      <label class="i-checks m-b-none">
+                        <input type="checkbox" name="post[]">
+                        <i></i>
+                      </label>
+                    </td>
                     <td>{{ $planning->client->name }}</td>
                     <td><span class="text-ellipsis">{{ $planning->title }}</span></td>
                     <td><span class="text-ellipsis">{{ $planning->user->forename }} {{ $planning->user->surname }}</span></td>
@@ -135,7 +148,7 @@ Planning Requests - Vista
         </div>
         <footer class="panel-footer">
           <div class="row">
-            <div class="col-sm-4 hidden-xs">
+            <div class="col-sm-4 hidden-xs hide">
               <select class="input-sm form-control w-sm inline v-middle">
                 <option value="0">Bulk action</option>
                 <option value="1">Delete selected</option>
@@ -144,18 +157,34 @@ Planning Requests - Vista
               </select>
               <button class="btn btn-sm btn-default">Apply</button>                  
             </div>
-            <div class="col-sm-4 text-center">
-              <small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
+            <div class="col-sm-5 text-center">
+              <small class="text-muted inline m-t-sm m-b-sm">
+                showing {{ $plannings->firstItem() }}-{{ $plannings->lastItem() }} of {{ $plannings->total() }} items
+              </small>
             </div>
-            <div class="col-sm-4 text-right text-center-xs">                
+            <div class="col-sm-7 text-right text-center-xs">                
               <ul class="pagination pagination-sm m-t-none m-b-none">
-                <li><a href><i class="fa fa-chevron-left"></i></a></li>
-                <li><a href>1</a></li>
-                <li><a href>2</a></li>
-                <li><a href>3</a></li>
-                <li><a href>4</a></li>
-                <li><a href>5</a></li>
-                <li><a href><i class="fa fa-chevron-right"></i></a></li>
+                @if ($plannings->onFirstPage())
+                  <li class="disabled"><a><i class="fa fa-chevron-left"></i></a></li>
+                @else
+                  <li>
+                    <a href="{{ $plannings->previousPageUrl() }}"><i class="fa fa-chevron-left"></i></a>
+                  </li>                
+                @endif
+
+                @foreach ($plannings->getUrlRange(1, $plannings->lastPage()) as $page=>$url)
+                  @if ($page == $plannings->currentPage())
+                    <li class="disabled"><a>{{ $page }}</a></li>
+                  @else
+                    <li><a href="{{ $url }}">{{ $page }}</a></li>
+                  @endif
+                @endforeach
+
+                @if ($plannings->hasMorePages())
+                  <li><a href="{{ $plannings->nextPageUrl() }}"><i class="fa fa-chevron-right"></i></a></li>
+                @else
+                  <li class="disabled"><a><i class="fa fa-chevron-right"></i></a></li>
+                @endif
               </ul>
             </div>
           </div>

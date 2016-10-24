@@ -38,7 +38,7 @@ class SearchController extends Controller
     		->orWhere('creative','LIKE','%'.$keyword.'%')
     		->orWhere('budget_timings_and_outputs','LIKE','%'.$keyword.'%')
     		->latest()
-    		->get();
+    		->paginate(20);
 
     	return view ('briefsheets.index', compact('briefs', 'keyword'));
     }
@@ -63,7 +63,7 @@ class SearchController extends Controller
     		->orWhere('budget','LIKE','%'.$keyword.'%')
     		->orWhere('job_specifications','LIKE','%'.$keyword.'%')
     		->latest()
-    		->get();
+    		->paginate(20);
 
     	return view ('planningrequests.index', compact('plannings', 'keyword'));
     }
@@ -79,8 +79,22 @@ class SearchController extends Controller
     		->orWhere('forename','LIKE','%'.$keyword.'%')
     		->orWhere('surname','LIKE','%'.$keyword.'%')
     		->orWhere('email','LIKE','%'.$keyword.'%')
-    		->get();
+    		->paginate(20);
 
     	return view ('admin.users', compact('users', 'keyword'));
+    }
+
+    public function quickSearchClient(Request $request) 
+    {
+        if (empty(trim($request->input('keyword')))) return redirect()->route('clients');
+
+        $keyword = $request->input('keyword');
+
+        $clients = \App\Client::isactive()
+            ->select(DB::raw("*"))
+            ->where('name','LIKE','%'.$keyword.'%')
+            ->paginate(20);
+
+        return view ('clients.index', compact('clients', 'keyword'));
     }
 }

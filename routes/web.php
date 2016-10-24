@@ -185,6 +185,10 @@ Route::group(['middleware' => 'auth'], function() {
 				'uses'	=>	'ClientController@formNewClient',
 				'as'	=>	'formnewclient'
 			]);
+			Route::get('/clients/find/criteria', [
+				'uses'	=>	'SearchController@quickSearchClient',
+				'as'	=>	'quicksearchclient'
+			]);
 		});
 	});	/* / Admin Middleware */
 	

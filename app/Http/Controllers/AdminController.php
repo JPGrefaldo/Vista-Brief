@@ -18,8 +18,8 @@ class AdminController extends Controller
 
     public function manageUsers()
     {
-    	$users = User::all();
-        foreach ($users as $key => $val) {      /* eclude user:admin from the list */
+    	$users = User::paginate(20);
+        foreach ($users as $key => $val) { /* eclude user:admin from the list */
             if ($users[$key]['username'] == 'admin') {
                 unset($users[$key]);
             }
