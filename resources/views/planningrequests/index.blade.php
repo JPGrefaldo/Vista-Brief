@@ -52,7 +52,7 @@ Planning Requests - Vista
               Create New Planning Request
             </a>
             <a href="" class="btn btn-dark">
-              Search
+              Advance Search
               <i class="fa fa-fw fa-search"></i>
             </a>
           </div>
@@ -67,15 +67,22 @@ Planning Requests - Vista
             </select>
             <button class="btn btn-sm btn-default">Apply</button>                
           </div>
-          <div class="col-sm-4">
+          <div class="col-sm-1 col-md-4">
           </div>
-          <div class="col-sm-3">
-            <div class="input-group">
-              <input type="text" class="input-sm form-control" placeholder="Search">
-              <span class="input-group-btn">
-                <button class="btn btn-sm btn-default" type="button">Go!</button>
-              </span>
-            </div>
+          <div class="col-sm-6 col-md-3">
+            <form method="GET" action="{{ route('quicksearchplanning') }}">
+              <div class="input-group">
+                <input 
+                  type="text" 
+                  name="keyword" 
+                  class="input-sm form-control" 
+                  placeholder="Quick Search" 
+                  value="{{ (isset($keyword)) ? $keyword : '' }}">
+                <span class="input-group-btn">
+                  <button class="btn btn-sm btn-default" type="submit">Find!</button>
+                </span>
+              </div>
+            </form>
           </div>
         </div>
         <div class="table-responsive">

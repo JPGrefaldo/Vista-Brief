@@ -75,7 +75,12 @@ Brief Sheets - Vista
           <div class="col-sm-6 col-md-3">
             <form method="GET" action="{{ route('quicksearchbrief') }}">
               <div class="input-group">
-                <input type="text" name="keyword" class="input-sm form-control" placeholder="Quick Search">
+                <input 
+                  type="text" 
+                  name="keyword" 
+                  class="input-sm form-control" 
+                  placeholder="Quick Search" 
+                  value="{{ (isset($keyword)) ? $keyword : '' }}">
                 <span class="input-group-btn">
                   <button class="btn btn-sm btn-default" type="submit">Find!</button>
                 </span>

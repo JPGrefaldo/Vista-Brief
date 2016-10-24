@@ -42,4 +42,63 @@ class Planning extends Model
     {
     	return $query->where('is_active', 1);
     }
+
+    public function scopeLatest($request) 
+    {
+        return $request->orderBy('id', 'desc');
+    }
+
+    public function scopeOrWhereUser($query, $keyword) 
+    {
+        $users = \App\User::select('id')
+            ->where('forename','LIKE','%'.$keyword.'%')
+            ->orWhere('surname','LIKE','%'.$keyword.'%')
+            ->orWhere('email','LIKE','%'.$keyword.'%')
+            ->get();
+
+        foreach ($users as $user) {
+            $query->orWhere('user_id', '=', $user->id);
+        }
+
+        return $query;
+    }
+
+    public function scopeOrWhereClient($query, $keyword) 
+    {
+        $clients = \App\Client::select('id')
+            ->where('name','LIKE','%'.$keyword.'%')
+            ->get();
+
+        foreach ($clients as $client) {
+            $query->orWhere('client_id', '=', $client->id);
+        }
+
+        return $query;
+    }
+
+    public function scopeOrWhereJobStatus($query, $keyword) 
+    {
+        $jobstatus = \App\JobStatus::select('id')
+            ->where('name', 'LIKE', '%'.$keyword.'%')
+            ->get();
+
+        foreach ($jobstatus as $status) {
+            $query->orWhere('jobstatus_id', '=', $status->id);
+        }
+
+        return $query;
+    }
+
+    public function scopeOrWhereFormatOfResponse($query, $keyword) 
+    {
+        $formatofresponse = \App\FormOfResponse::select('id')
+            ->where('name', 'LIKE', '%'.$keyword.'%')
+            ->get();
+
+        foreach ($formatofresponse as $format) {
+            $query->orWhere('formatofresponse_id', '=', $format->id);
+        }
+
+        return $query;
+    }
 }

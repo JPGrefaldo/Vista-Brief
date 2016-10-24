@@ -22,7 +22,7 @@ class BriefController extends Controller
 {
     public function index() 
     {
-        $briefs = Brief::isactive()->get();
+        $briefs = Brief::isactive()->latest()->get();
 
     	return view ('briefsheets.index', compact('briefs'));
     }

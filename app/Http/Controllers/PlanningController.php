@@ -19,7 +19,7 @@ class PlanningController extends Controller
 {
     public function index() 
     {
-    	$plannings = Planning::isactive()->get();
+    	$plannings = Planning::isactive()->latest()->get();
 
     	return view ('planningrequests.index', compact('plannings'));
     }

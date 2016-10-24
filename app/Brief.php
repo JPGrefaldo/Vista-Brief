@@ -74,6 +74,19 @@ class Brief extends Model
         return $query;
     }
 
+    public function scopeOrWhereClient($query, $keyword) 
+    {
+        $clients = \App\Client::select('id')
+            ->where('name','LIKE','%'.$keyword.'%')
+            ->get();
+
+        foreach ($clients as $client) {
+            $query->orWhere('client_id', '=', $client->id);
+        }
+
+        return $query;
+    }
+
     public function scopeOrWhereProjectStatus($query, $keyword) 
     {
         $projectstatus = \App\ProjectStatus::select('id')

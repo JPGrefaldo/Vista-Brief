@@ -116,6 +116,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'PlanningController@submitted',
 		'as'	=>	'submittedplanningrequest'
 	]);
+	Route::get('/planningrequests/find/criteria', [
+		'uses'	=>	'SearchController@quickSearchPlanning',
+		'as'	=>	'quicksearchplanning'
+	]);
 	/* / Planning Requests */
 
 	/* PDF Generator: Test Controller */
@@ -161,6 +165,10 @@ Route::group(['middleware' => 'auth'], function() {
 			Route::post('/user/delete/', [
 				'uses'	=>	'AdminController@deleteUser',
 				'as'	=>	'deleteuser'
+			]);
+			Route::get('/users/find/criteria', [
+				'uses'	=>	'SearchController@quickSearchUser',
+				'as'	=>	'quicksearchuser'
 			]);
 			
 			Route::get('/departments', [	/* Department Ruoting */

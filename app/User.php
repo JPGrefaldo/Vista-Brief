@@ -27,10 +27,10 @@ class User extends Model implements Authenticatable
 		return $query->where('username', $username);
 	}
 
-	public function scopeIsactive($query) 
-	{
-		return $query->where('is_active', 1);
-	}
+	public function scopeIsactive($request)
+    {
+    	return $request->where('is_active', 1);
+    }
 
 	public function scopeIsadmin($query)
 	{

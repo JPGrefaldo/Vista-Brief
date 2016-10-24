@@ -21,6 +21,8 @@ class SearchController extends Controller
     		->where('jobname','LIKE','%'.$keyword.'%')
     		->orWhere('jobnumber','LIKE','%'.$keyword.'%')
     		->orWhereUser($keyword)
+    		->OrWhereClient($keyword)
+    		->OrWhereProjectStatus($keyword)
     		->OrWhereStatus($keyword)
     		->orWhere('projectmanager','LIKE','%'.$keyword.'%')
     		->orWhere('budget','LIKE','%'.$keyword.'%')
@@ -38,10 +40,47 @@ class SearchController extends Controller
     		->latest()
     		->get();
 
+    	return view ('briefsheets.index', compact('briefs', 'keyword'));
+    }
 
-    	// echo '<pre>';
-    	// print_r($briefs);
+    public function quickSearchPlanning(Request $request) 
+    {
+    	if (empty(trim($request->input('keyword')))) return redirect()->route('planningrequests');
 
-    	return view ('briefsheets.index', compact('briefs'));
+    	$keyword = $request->input('keyword');
+    	
+    	$plannings = \App\Planning::isactive()
+    		->select(DB::raw("*"))
+    		->where('title','LIKE','%'.$keyword.'%')
+    		->orWhereUser($keyword)
+    		->OrWhereClient($keyword)
+    		->OrWhereJobStatus($keyword)
+    		->OrWhereFormatOfResponse($keyword)
+    		->orWhere('contact_name','LIKE','%'.$keyword.'%')
+    		->orWhere('contact_email','LIKE','%'.$keyword.'%')
+    		->orWhere('contact_landline','LIKE','%'.$keyword.'%')
+    		->orWhere('contact_mobile','LIKE','%'.$keyword.'%')
+    		->orWhere('budget','LIKE','%'.$keyword.'%')
+    		->orWhere('job_specifications','LIKE','%'.$keyword.'%')
+    		->latest()
+    		->get();
+
+    	return view ('planningrequests.index', compact('plannings', 'keyword'));
+    }
+
+    public function quickSearchUser(Request $request) 
+    {
+    	if (empty(trim($request->input('keyword')))) return redirect()->route('users');
+
+    	$keyword = $request->input('keyword');
+
+    	$users = \App\User::select(DB::raw("*"))
+    		->where('username','LIKE','%'.$keyword.'%')
+    		->orWhere('forename','LIKE','%'.$keyword.'%')
+    		->orWhere('surname','LIKE','%'.$keyword.'%')
+    		->orWhere('email','LIKE','%'.$keyword.'%')
+    		->get();
+
+    	return view ('admin.users', compact('users', 'keyword'));
     }
 }
