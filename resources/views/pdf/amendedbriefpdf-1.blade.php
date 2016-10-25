@@ -15,7 +15,7 @@ Brief Submitted File
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ $brief->updated_at->format('M d, Y') }}</p>
+      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
         </div>
         <div class="col-xs-12 m-t-n">
       	  <h2 class="text-primary">Brief Sheet</h2>
