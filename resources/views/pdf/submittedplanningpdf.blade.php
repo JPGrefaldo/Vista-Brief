@@ -90,7 +90,7 @@ Planning Request File
             {{ (!empty($planning->pitch_quote_date)) ? $planning->pitch_quote_date->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6 hide">
           <label class="control-label text-left"><strong>Time</strong></label>
         	<p class="bg-light p-l-sm">&nbsp;</p>
         </div>
@@ -100,7 +100,7 @@ Planning Request File
             {{ (!empty($planning->ideal_qa_date)) ? $planning->ideal_qa_date->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6 hide">
           <label class="control-label text-left"><strong>Time</strong></label>
           <p class="bg-light p-l-sm">&nbsp;</p>
         </div>
@@ -110,7 +110,7 @@ Planning Request File
             {{ (!empty($planning->ideal_review_date)) ? $planning->ideal_review_date->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6 hide">
           <label class="control-label text-left"><strong>Time</strong></label>
           <p class="bg-light p-l-sm">&nbsp;</p>
         </div>
@@ -120,7 +120,7 @@ Planning Request File
             {{ (!empty($planning->project_deadline_date)) ? $planning->project_deadline_date->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6 hide">
           <label class="control-label text-left"><strong>Time</strong></label>
           <p class="bg-light p-l-sm">&nbsp;</p>
         </div>
