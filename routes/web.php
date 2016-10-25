@@ -229,14 +229,11 @@ Route::post('/ajax/brief/post/create/newclient/save', [
 Route::get('/ajax/brief/post/create/get/clients', [
 	'uses'	=>	'BriefAddEditController@getClients'
 ]);
-			
-//Route::get('main', 'MainPagesController@main');
 
-//Route::get('home', 'MainPagesController@main');
 
-//Route::get('index', 'MainPagesController@main');
 
-//Auth::routes();
-
-//Route::get('/home', 'HomeController@index');
+// test	
+Route::get('/phpinfo', function() {
+	return view('phpinfo');
+});
 
