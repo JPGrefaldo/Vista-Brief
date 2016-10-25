@@ -123,7 +123,11 @@ Brief Submitted File
 
           @foreach ($amend->attachments as $attachment)
           <div class="col-xs-12">
-            <p class="p-l-md text-info">{{ $attachment->filename }}</p>
+            <p class="p-l-md text-info">
+              <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                {{ $attachment->filename }}
+              </a>
+            </p>
             <h6 class="p-l-md text-muted">
               Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
               {{ $attachment->updated_at->format('l, M d, Y') }}</h6>

@@ -631,13 +631,16 @@ Submitted - Brief Sheet
                     <ul class="bg-light">
                       @foreach ($amend->attachments as $attachment)
                         <li>
-                          <p class="text-muted">
+                          <p class="text-info">
                             <a href="{{ route('download_attachment', [$attachment->id]) }}">
                               {{ $attachment->filename }}
                             </a>
                           </p>
                           <h6 class="text-muted">
-                            Uploaded by: {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</h6>
+                            Uploaded by: 
+                            {{ $attachment->user->forename }} - 
+                            {{ $attachment->updated_at->format('h:m l d M Y') }}
+                          </h6>
                         </li>
                       @endforeach
                     </ul>
