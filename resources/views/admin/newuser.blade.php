@@ -114,7 +114,7 @@ Add New User
                       <button type="submit" class="btn btn-sm btn-info btn-block">Save</button>
                     </div>
                     <div class="col-lg-6">
-                      <a href="{{ url('/users') }}" class="btn btn-sm btn-danger btn-block">Cancel</a>
+                      <a href="{{ route('users') }}" class="btn btn-sm btn-danger btn-block">Cancel</a>
                     </div>
                   </div>
               </div>
