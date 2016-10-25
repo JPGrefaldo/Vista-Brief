@@ -130,7 +130,7 @@ Planning Request File
       <!-- Job Spec -->
       <div class="row">
         <div class="col-xs-12">
-          <p class="bg-primary p-l-sm"><strong>Timings</strong></p>
+          <p class="bg-primary p-l-sm"><strong>Job Spec</strong></p>
         </div>
         <div class="col-xs-12">
           <p class="bg-light p-l-sm">{{ $planning->job_specifications }}&nbsp;</p>
