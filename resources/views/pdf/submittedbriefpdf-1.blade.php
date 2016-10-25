@@ -40,7 +40,7 @@ Brief Submitted File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Old Job Number</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->old_jobnumber }}</p>
+        	<p class="bg-light p-l-sm">{{ $brief->old_jobnumber }}&nbsp;</p>
         </div>
 
         <div class="col-xs-9">
@@ -49,41 +49,41 @@ Brief Submitted File
         </div>
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>Your Budget</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->budget }}</p>
+        	<p class="bg-light p-l-sm">{{ $brief->budget }}&nbsp;</p>
         </div>
 
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Key Deliverables</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->keydeliverables }}</p>
+        	<p class="bg-light p-l-sm">{{ $brief->keydeliverables }}&nbsp;</p>
         </div>
         <div class="col-xs-3">
             <label class="control-label text-left"><strong>Project Manager</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->projectmanager }}</p>
+        	<p class="bg-light p-l-sm">{{ $brief->projectmanager }}&nbsp;</p>
         </div>
 
 
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '' }}
+            {{ (!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '' }}&nbsp;
           </p>
         </div>
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>Proposal Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->proposal_required_by_at)) ? $brief->proposal_required_by_at->format('M d, Y') : '' }}
+            {{ (!empty($brief->proposal_required_by_at)) ? $brief->proposal_required_by_at->format('M d, Y') : '' }}&nbsp;
           </p>
         </div>
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>1st Stage Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->firststage_required_by_at)) ? $brief->firststage_required_by_at->format('M d, Y') : '' }}
+            {{ (!empty($brief->firststage_required_by_at)) ? $brief->firststage_required_by_at->format('M d, Y') : '' }}&nbsp;
           </p>
         </div>
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>Project Delivered By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->project_delivered_by_at)) ? $brief->project_delivered_by_at->format('M d, Y') : '' }}
+            {{ (!empty($brief->project_delivered_by_at)) ? $brief->project_delivered_by_at->format('M d, Y') : '' }}&nbsp;
           </p>
         </div>
       </div>
@@ -111,7 +111,7 @@ Brief Submitted File
       <div class="row m-b-md">
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#01 Brief Summary</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->summary }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->summary }}&nbsp;</p>
         </div>
 
         <div class="col-xs-12">
@@ -132,17 +132,17 @@ Brief Submitted File
 
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#03 Objectives / Measure</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->objectives_or_measures }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->objectives_or_measures }}&nbsp;</p>
         </div>
 
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#04 Creative</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->creative }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->creative }}&nbsp;</p>
         </div>
 
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm"><strong>#05 Budgets, Timings and Outputs Required</strong></p>
-          <p class="bg-light p-l-sm">{{ $brief->budget_timings_and_outputs }}</p>
+          <p class="bg-light p-l-sm">{{ $brief->budget_timings_and_outputs }}&nbsp;</p>
         </div>
       </div>
     </div>
