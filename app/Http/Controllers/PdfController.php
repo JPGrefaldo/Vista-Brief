@@ -25,7 +25,9 @@ class PdfController extends Controller
     	$brief = Brief::find($id);
         $departments = Department::all();
     	// return view('pdf.submittedbriefpdf-1', compact('brief', 'departments'));
-    	$pdf1 = PDF::loadView('pdf.submittedbriefpdf-1', compact('brief', 'departments'))->setPaper('a4');
+    	$pdf1 = PDF::loadView('pdf.submittedbriefpdf-1', compact('brief', 'departments'))
+            ->setPaper('a4')
+            ->setOption('encoding', 'utf-8');
     	return $pdf1->stream('Brief Sheet.pdf');
     }
 
