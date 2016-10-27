@@ -37,7 +37,7 @@ class CreatePlanningsTable extends Migration
             $table->datetime('project_deadline_datetime')->nullable();
             $table->date('project_deadline_date')->nullable();
             $table->time('project_deadline_time')->nullable();
-            $table->string('job_specifications')->nullable();
+            $table->text('job_specifications', 40000)->nullable();
             $table->string('attachment_ids')->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();

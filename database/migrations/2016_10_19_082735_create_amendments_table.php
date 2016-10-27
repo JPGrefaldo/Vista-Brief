@@ -18,7 +18,7 @@ class CreateAmendmentsTable extends Migration
             $table->integer('user_id');
             $table->integer('brief_id')->default(0);
             $table->boolean('is_internal')->default(0);
-            $table->string('content')->nullable();
+            $table->text('content', 40000)->nullable();
             $table->string('attachment_ids')->nullable();
             $table->string('department_ids')->nullable();
             $table->boolean('is_active')->default(1);

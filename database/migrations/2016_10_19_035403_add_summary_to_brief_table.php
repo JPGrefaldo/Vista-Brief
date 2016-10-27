@@ -14,7 +14,7 @@ class AddSummaryToBriefTable extends Migration
     public function up()
     {
         Schema::table('briefs', function(Blueprint $table){
-            $table->string('summary')->nullable()->after('project_delivered_by_at');
+            $table->text('summary', 40000)->nullable()->after('project_delivered_by_at');
         });
     }
 

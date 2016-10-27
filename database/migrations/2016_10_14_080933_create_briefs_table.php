@@ -24,21 +24,21 @@ class CreateBriefsTable extends Migration
             $table->boolean('is_draft');
             $table->string('projectmanager')->nullable();
             $table->string('budget')->nullable();
-            $table->string('keydeliverables')->nullable();
+            $table->text('keydeliverables', 1000)->nullable();
             $table->date('quoted_required_by_at')->nullable();
             $table->date('proposal_required_by_at')->nullable();
             $table->date('firststage_required_by_at')->nullable();
             $table->date('project_delivered_by_at')->nullable();
             $table->string('disciplines_required_ids')->nullable();
-            $table->string('objectives_or_measures')->nullable();
-            $table->string('content')->nullable(); // suppose to be context
-            $table->string('targetaudience_and_insight')->nullable();
-            $table->string('targetaudience_think')->nullable();
-            $table->string('targetaudience_feel')->nullable();
-            $table->string('targetaudience_do')->nullable();
-            $table->string('keymessages_or_propositions')->nullable();
-            $table->string('creative')->nullable();
-            $table->string('budget_timings_and_outputs')->nullable();
+            $table->text('objectives_or_measures', 40000)->nullable();
+            $table->text('content', 40000)->nullable(); // suppose to be context
+            $table->text('targetaudience_and_insight', 40000)->nullable();
+            $table->text('targetaudience_think', 40000)->nullable();
+            $table->text('targetaudience_feel', 40000)->nullable();
+            $table->text('targetaudience_do', 40000)->nullable();
+            $table->text('keymessages_or_propositions', 40000)->nullable();
+            $table->text('creative', 40000)->nullable();
+            $table->text('budget_timings_and_outputs', 40000)->nullable();
             $table->string('attachment_ids')->nullable();
             $table->string('amendment_ids')->nullable();
             $table->boolean('is_active')->default(1);
