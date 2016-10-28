@@ -308,9 +308,8 @@ Submitted - Brief Sheet
                 <div class="row-fluid">
                   @foreach ($departments as $department)
                     <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkboc-inline">
-                          {{ $department->name }} 
+                      <div class="checkbox">
+                        <label class="i-checks">
                           <input 
                             disabled
                             type="checkbox" 
@@ -321,6 +320,7 @@ Submitted - Brief Sheet
                             @endif
                             >
                           <i></i>
+                          {{ $department->name }}
                         </label>
                       </div>           
                     </div>
