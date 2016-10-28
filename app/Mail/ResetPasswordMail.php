@@ -13,6 +13,7 @@ class ResetPasswordMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $subject = "Reset Password - Vista Brief";
     public $title = "Reset Password Request";
     protected $username;
     protected $validation_key;
@@ -36,6 +37,7 @@ class ResetPasswordMail extends Mailable
     public function build()
     {
         return $this->view('emails.resetpasswordemail')
+                    ->subject($this->subject)
                     ->with([
                         'username'          =>  $this->username,
                         'validation_key'    =>  $this->validation_key,

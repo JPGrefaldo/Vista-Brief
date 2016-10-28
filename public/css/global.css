@@ -130,3 +130,11 @@ body {
 	text-decoration: none;
 	color: #fff;
 }
+
+.hover-color-primary:hover {
+	color: #A1D3F2;
+}
+
+.hover-color-primary:focus {
+	color: #A1D3F2;
+}

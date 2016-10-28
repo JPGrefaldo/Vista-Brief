@@ -38,7 +38,7 @@ Change Password - Vista
         @endif
 
         <input type="hidden" name="_token" value="{{ Session::token() }}">
-        <button type="submit" class="btn btn-lg bg-brand-1 btn-block text-white" ng-disabled='form.$invalid'>Submit New Password</button>
+        <button type="submit" class="btn btn-lg bg-brand-1 btn-block text-white hover-color-primary">Save New Password</button>
 
         <div class="text-center m-t m-b">
           Remember your password? <a href="{{ route('signin') }}" class="text-danger">Login here.</a>

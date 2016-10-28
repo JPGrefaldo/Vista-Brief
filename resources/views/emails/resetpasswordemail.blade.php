@@ -8,7 +8,7 @@
 <h3>{{ $title }}</h3>
 
 <p>
-A request to change your password for VISTA Brief had been activated. Click the link below to enter your new password.
+A request to change your password for VISTA Brief had been activated for your account. Click the link below to save your new password.
 </p>
 
 <p>

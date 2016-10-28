@@ -43,12 +43,12 @@ class AdminController extends Controller
         ];
 
         $validator = Validator::make($request->all(),[
-            'username'  =>  'bail|required|unique:users',
+            'username'  =>  'bail|required|max:200|unique:users',
             'forename'  =>  'bail|required|max:50|alpha',
             'surname'   =>  'bail|required|max:50|alpha',
-            'email'     =>  'bail|required|email|unique:users',
-            'password'  =>  'bail|required|min:4|confirmed|alpha_num',
-            'password_admin'    =>  'bail|required|isadmin|adminpass'
+            'email'     =>  'bail|required|max:200|email|unique:users',
+            'password'  =>  'bail|required|min:4|max:255|confirmed|alpha_num',
+            'password_admin'    =>  'bail|required|max:255|isadmin|adminpass'
         ], $messages);
 
         // if validation failes redirect back with error message

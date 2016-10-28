@@ -11,6 +11,7 @@ class NewUserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $subject = 'Account - Vista Brief';
     public $title;
     protected $username;
     protected $password;
@@ -35,6 +36,7 @@ class NewUserMail extends Mailable
     {
         return $this
                 ->view('emails.newuseremail')
+                ->subject($this->subject)
                 ->with([
                     'username'  =>  $this->username,
                     'password'  =>  $this->password,

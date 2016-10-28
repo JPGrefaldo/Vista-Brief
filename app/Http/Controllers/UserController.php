@@ -102,7 +102,7 @@ class UserController extends Controller
             'confirmed' =>  'Password did not matched. Please type again.'
         ];
         $validator = Validator::make($request->all(),[
-            'password'  =>  'bail|required|min:4|confirmed|alpha_num'
+            'password'  =>  'bail|required|min:4|max:255|confirmed|alpha_num'
         ], $messages);
 
         // if validation failes redirecct back with custom error message

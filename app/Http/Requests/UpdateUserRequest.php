@@ -24,12 +24,12 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'username'      =>  'bail|required|unique:users,username,'.$this->user_id,
+            'username'      =>  'bail|required|max:200|unique:users,username,'.$this->user_id,
             'forename'      =>  'bail|required|max:50|alpha',
             'surname'       =>  'bail|required|max:50|alpha',
-            'email'         =>  'bail|required|email|unique:users,email,'.$this->user_id,
-            'password'      =>  'bail|min:4|confirmed|alpha_num',
-            'password_admin'    =>  'bail|required|isadmin|adminpass'
+            'email'         =>  'bail|required|max:200|email|unique:users,email,'.$this->user_id,
+            'password'      =>  'bail|min:4|max:255|confirmed|alpha_num',
+            'password_admin'    =>  'bail|required|max:255|isadmin|adminpass'
         ];
     }
 
@@ -42,8 +42,9 @@ class UpdateUserRequest extends FormRequest
             'surname.required'      =>  'Surname is required.',
             'email.required'        =>  'Email is required.',
             'email.unique'          =>  'Email is already taken.',
-            'password_admin.required'   =>  'You need to enter the correct Admin password',
-            'password_admin.adminpass'  =>  'You need to enter the correct Admin password',
+            'password.confirmed'    =>  'The password you entered don\'t match.',
+            'password_admin.required'   =>  'You need to enter the correct Admin password.',
+            'password_admin.adminpass'  =>  'You need to enter the correct Admin password.',
         ];
     }
 }

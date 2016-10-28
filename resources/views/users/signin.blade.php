@@ -25,7 +25,7 @@ Signin - Vista
           </div>
         </div>
         @if ($error = $errors->first('invalid_login'))
-          <div class="text-danger wrapper text-center"> 
+          <div class="alert alert-danger text-center"> 
             {{ $error }}
           </div>
         @endif
@@ -37,7 +37,7 @@ Signin - Vista
         @endif
 
         <input type="hidden" name="_token" value="{{ Session::token() }}"> 
-        <button type="submit" class="btn btn-lg bg-brand-1 btn-block text-white nohovereffect" ng-disabled='form.$invalid'>Log in</button>
+        <button type="submit" class="btn btn-lg bg-brand-1 btn-block text-white hover-color-primary">Log in</button>
 
         <div class="text-center m-t m-b">
           Forgot your password? <a href="{{ route('formresetpassword') }}" class="text-danger">recover it.</a>
