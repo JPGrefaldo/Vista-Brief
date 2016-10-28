@@ -326,7 +326,7 @@ Create New Brief Sheet
             <!-- What do want the target audience to -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                06 - What do want the target audience to ...
+                06 - What do I want the target audience to ...
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -430,7 +430,7 @@ Create New Brief Sheet
                 <div class="row">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
-                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                      <input name="attachments[]" class="" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-primary bg-brand-1', buttonText:'Attach Files'}" type="file">
                       <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
                     </div>  
                   </div>
@@ -474,10 +474,10 @@ Create New Brief Sheet
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <div class="row">
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
+                    <input type="submit" name="action" class="btn btn-lg btn-block bg-brand-1 text-white hover-color-primary" value="Save as Draft">
                   </div>
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
+                    <input type="submit" name="action" class="btn btn-lg btn-block bg-brand-1 text-white hover-color-primary" value="Submit">
                   </div>
                 </div>
               </div>

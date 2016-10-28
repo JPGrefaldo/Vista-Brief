@@ -136,12 +136,42 @@ Brief Submitted File
         </div>
 
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm"><strong>#04 Creative</strong></p>
+          <p class="bg-primary p-l-sm"><strong>#04 Context</strong></p>
+          <p class="bg-light p-l-sm">{{ $brief->content }}&nbsp;</p>
+        </div>
+
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-primary p-l-sm"><strong>#05 Target Audience and Insight</strong></p>
+          <p class="bg-light p-l-sm">{{ $brief->targetaudience_and_insight }}&nbsp;</p>
+        </div>
+
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-primary p-l-sm"><strong>#06 What do I want the target audience to Think?</strong></p>
+          <p class="bg-light p-l-sm">{{ $brief->targetaudience_think }}&nbsp;</p>
+        </div>
+
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-primary p-l-sm"><strong>#06 What do I want the target audience to Feel?</strong></p>
+          <p class="bg-light p-l-sm">{{ $brief->targetaudience_feel }}&nbsp;</p>
+        </div>
+
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-primary p-l-sm"><strong>#06 What do I want the target audience to Do?</strong></p>
+          <p class="bg-light p-l-sm">{{ $brief->targetaudience_do }}&nbsp;</p>
+        </div>
+
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-primary p-l-sm"><strong>#07 Key Messages / Propositions</strong></p>
+          <p class="bg-light p-l-sm">{{ $brief->keymessages_or_propositions }}&nbsp;</p>
+        </div>
+
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-primary p-l-sm"><strong>#08 Creative</strong></p>
           <p class="bg-light p-l-sm">{{ $brief->creative }}&nbsp;</p>
         </div>
 
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm"><strong>#05 Budgets, Timings and Outputs Required</strong></p>
+          <p class="bg-primary p-l-sm"><strong>#09 Budgets, Timings and Outputs Required</strong></p>
           <p class="bg-light p-l-sm">{{ $brief->budget_timings_and_outputs }}&nbsp;</p>
         </div>
       </div>
