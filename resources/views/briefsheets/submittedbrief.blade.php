@@ -518,7 +518,7 @@ Submitted - Brief Sheet
                                 {{ $attachment->filename }}
                               </a>
                             </li>
-                            <li class="text-muted">Uploaded by {{ $attachment->user->forename }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
+                            <li class="text-muted">Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
                           </ul>
                         </li>
                       @endforeach
@@ -625,8 +625,9 @@ Submitted - Brief Sheet
                       @endif
                     </h4>
                     <h6 class="text-muted">
-                      {{ $amend->updated_at->format('h:m l, d M Y') }} - {{ $amend->user->forename }}
-                    </h6>
+                      {{ $amend->updated_at->format('h:m l, d M Y') }} - 
+                      {{ $amend->user->forename }} {{ $amend->user->surname }}
+                    </h6> 
                     <p>{{ $amend->content }}</p>
                     <ul class="bg-light">
                       @foreach ($amend->attachments as $attachment)
@@ -638,7 +639,7 @@ Submitted - Brief Sheet
                           </p>
                           <h6 class="text-muted">
                             Uploaded by: 
-                            {{ $attachment->user->forename }} - 
+                            {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
                             {{ $attachment->updated_at->format('h:m l d M Y') }}
                           </h6>
                         </li>
