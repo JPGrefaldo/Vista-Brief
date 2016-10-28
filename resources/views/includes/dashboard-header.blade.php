@@ -46,12 +46,12 @@
                   <span>Settings</span>
                 </a>
               </li>
-              <li class="hide"
-                <a href="{{ url('profile') }}" ui-sref="app.page.profile">Profile</a>
+              <li class="">
+                <a href="{{ url('profile') }}">My Account</a>
               </li>
-              <li class="divider hide"></li>
+              <li class="divider"></li>
               <li>
-                <a href="{{ route('signout') }}" ui-sref="access.signin">Logout</a>
+                <a href="{{ route('signout') }}">Logout</a>
               </li>
             </ul>
             <!-- / dropdown -->

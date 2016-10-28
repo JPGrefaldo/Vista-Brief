@@ -554,7 +554,7 @@ Submitted - Brief Sheet
               <div class="row">
                 <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                   <div class="form-group">
-                    <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                    <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
                   </div>  
                 </div>
                 <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
@@ -602,7 +602,7 @@ Submitted - Brief Sheet
                 <div class="col-sm-12 text-center">
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <input type="hidden" name="brief_id" value="{{ $brief->id }}">
-                  <input type="submit" name="action" class="btn btn-md btn-success" value="Submit New Amend">
+                  <input type="submit" name="action" class="btn btn-md btn-brand1" value="Submit New Amend">
                 </div>
               </div>                
               </form>

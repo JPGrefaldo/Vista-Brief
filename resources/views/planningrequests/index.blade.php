@@ -47,7 +47,7 @@ Planning Requests - Vista
         <div class="panel-heading">
           List of Active Planning Request
           <div class="text-right">
-            <a href="{{ route('newplanningrequest') }}" class="btn btn-success">
+            <a href="{{ route('newplanningrequest') }}" class="btn btn-brand1">
               <i class="fa fa-fw fa-plus"></i>
               Create New Planning Request
             </a>

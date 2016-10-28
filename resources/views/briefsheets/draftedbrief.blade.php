@@ -522,7 +522,7 @@ Draft - Brief Sheet
                 <div class="row">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
-                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'bg-brand-1 text-white hover-color-primary', buttonText:'Attach Files'}" type="file">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
                       <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
                     </div>  
                   </div>
@@ -578,10 +578,10 @@ Draft - Brief Sheet
                 <input type="hidden" name="brief_id" value="{{ $brief->id }}">
                 <div class="row">
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-block bg-brand-1 text-white hover-color-primary" value="Save as Draft">
+                    <input type="submit" name="action" class="btn btn-lg btn-block btn-brand1" value="Save as Draft">
                   </div>
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-block bg-brand-1 text-white hover-color-primary" value="Submit">
+                    <input type="submit" name="action" class="btn btn-lg btn-block btn-brand1" value="Submit">
                   </div>
                 </div>
               </div>
@@ -608,7 +608,7 @@ Draft - Brief Sheet
                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
               </div>
               <div class="col-sm-8">
-                <button type="button" class="btn btn-success btn-block" id="btn-client-create">Create Client</button>
+                <button type="button" class="btn btn-brand1 btn-block" id="btn-client-create">Create Client</button>
               </div>
             </div>
           </div>

@@ -105,8 +105,8 @@ Manage Departments - Vista
                 </tr>
                 <tr>
                   <td colspan="2">
-                    <button id="add-department-btn" class="btn btn-success btn-lg btn-block">Add New Department</button>
-                    <button id="add-department-cancel2" class="btn btn-warning btn-lg btn-block hide">Cancel</button>
+                    <button id="add-department-btn" class="btn btn-brand1 btn-lg btn-block">Add New Department</button>
+                    <button id="add-department-cancel2" class="btn btn-default btn-lg btn-block hide">Cancel</button>
                   </td>
                   <td></td>
                 </tr>

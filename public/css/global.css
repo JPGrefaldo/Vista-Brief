@@ -138,3 +138,45 @@ body {
 .hover-color-primary:focus {
 	color: #A1D3F2;
 }
+
+
+.btn-brand1 {
+  color: #ffffff !important;
+  background-color: #00385b;
+  border-color: #00385b;
+}
+
+.btn-brand1:hover,
+.btn-brand1:focus,
+.btn-brand1:active,
+.btn-brand1.active,
+.open .dropdown-toggle.btn-brand1 {
+  color: #ffffff !important;
+  background-color: #05436A;
+  border-color: #05436A;
+}
+
+.btn-brand1:active,
+.btn-brand1.active,
+.open .dropdown-toggle.btn-brand1 {
+  background-image: none;
+}
+
+.btn-brand1.disabled,
+.btn-brand1[disabled],
+fieldset[disabled] .btn-brand1,
+.btn-brand1.disabled:hover,
+.btn-brand1[disabled]:hover,
+fieldset[disabled] .btn-brand1:hover,
+.btn-brand1.disabled:focus,
+.btn-brand1[disabled]:focus,
+fieldset[disabled] .btn-brand1:focus,
+.btn-brand1.disabled:active,
+.btn-brand1[disabled]:active,
+fieldset[disabled] .btn-brand1:active,
+.btn-brand1.disabled.active,
+.btn-brand1[disabled].active,
+fieldset[disabled] .btn-brand1.active {
+  background-color: #7266ba;
+  border-color: #7266ba;
+}

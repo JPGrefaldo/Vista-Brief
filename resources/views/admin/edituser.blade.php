@@ -131,11 +131,11 @@ Edit User
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <div class="row">
                     <div class="col-lg-6">
-                      <input type="hidden" name="user_id" value="{{ $user->id }}">
-                      <button type="submit" class="btn btn-sm btn-info btn-block">Save</button>
+                      <a href="{{ route('users') }}" class="btn btn-sm btn-default btn-block">Cancel</a>
                     </div>
                     <div class="col-lg-6">
-                      <a href="{{ route('users') }}" class="btn btn-sm btn-danger btn-block">Cancel</a>
+                      <input type="hidden" name="user_id" value="{{ $user->id }}">
+                      <button type="submit" class="btn btn-sm btn-brand1 btn-block">Save</button>
                     </div>
                   </div>
               </div>

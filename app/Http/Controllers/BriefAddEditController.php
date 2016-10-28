@@ -305,7 +305,7 @@ class BriefAddEditController extends Controller
 
     public function getClients()
     {
-    	return response()->json(Client::isactive()->get());
+    	return response()->json(Client::isactive()->latest()->get());
     }
 
     private function convertTo_MysqlDate($str_input)

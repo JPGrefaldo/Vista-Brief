@@ -354,7 +354,7 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
-                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
                       <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
                     </div>  
                   </div>
@@ -381,7 +381,7 @@ Create New Planning Request
             <div class="panel panel-default">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
-                <input type="submit" class="btn btn-lg btn-success btn-block" value="Submit">
+                <input type="submit" class="btn btn-lg btn-brand1 btn-block" value="Submit">
               </div>
             </div>
           </form>
@@ -406,7 +406,7 @@ Create New Planning Request
                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
               </div>
               <div class="col-sm-8">
-                <button type="button" class="btn btn-success btn-block" id="btn-client-create">Create Client</button>
+                <button type="button" class="btn btn-brand1 btn-block" id="btn-client-create">Create Client</button>
               </div>
             </div>
           </div>

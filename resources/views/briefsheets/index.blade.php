@@ -50,11 +50,11 @@ Brief Sheets - Vista
         <div class="panel-heading">
           List of Active Brief Sheets
           <div class="text-right">
-            <a href="{{ route('newbriefsheet') }}" class="btn btn-success">
+            <a href="{{ route('newbriefsheet') }}" class="btn btn-brand1">
               <i class="fa fa-fw fa-plus"></i>
               Create New Brief
             </a>
-            <a class="btn btn-dark" id="open-advancesearch-modal">
+            <a class="btn btn-brand1" id="open-advancesearch-modal">
               Advance Search
               <i class="fa fa-fw fa-search"></i>
             </a>
@@ -305,7 +305,7 @@ Brief Sheets - Vista
                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
               </div>
               <div class="col-sm-9">
-                <button type="submit" class="btn btn-success btn-block">Search</button>
+                <button type="submit" class="btn btn-brand1 btn-block">Search</button>
               </div>
             </div>
           </div>

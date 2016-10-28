@@ -184,7 +184,7 @@ Clients - Vista
                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
               </div>
               <div class="col-sm-8">
-                <button type="button" class="btn btn-warning btn-block" id="btn-client-delete">Confirm</button>
+                <button type="button" class="btn btn-brand1 btn-block" id="btn-client-delete">Confirm</button>
               </div>
             </div>
           </div>

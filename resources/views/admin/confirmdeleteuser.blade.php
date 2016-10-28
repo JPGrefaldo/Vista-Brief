@@ -64,7 +64,7 @@ Delete User
                   <div class="col-lg-10">
                     <input type="hidden" name="_token" value="{{ Session::token() }}">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
-                    <button type="submit" class="btn btn-md btn-warning btn-block">Confirm</button>
+                    <button type="submit" class="btn btn-md btn-brand1 btn-block">Confirm</button>
                   </div>
                 </div>
               </div>
