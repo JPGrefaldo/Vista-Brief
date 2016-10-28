@@ -137,7 +137,12 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Project Manager</label>
                       <div class="col-lg-8">
-                        <input type="text" name="pmanager" class="form-control" placeholder="Project Manager" value="{{ old('pmanager') }}">
+                        <input 
+                          type="text" 
+                          name="pmanager" 
+                          class="form-control" 
+                          placeholder="Project Manager" 
+                          value="{{ (old('pmanager')) ? old('pmanager') : Auth::user()->forename.' '.Auth::user()->surname }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
