@@ -172,7 +172,7 @@ class BriefAddEditController extends Controller
     	return view ('briefsheets.draftedbrief', compact('brief','clients','projectstatus','departments'));
     }
 
-    public function postEditBrief(UpdateBriefRequest $request) 
+    public function postEditBrief(UpdateBriefRequest $request, \Illuminate\Mail\Mailer $mailer) 
     {
     	$action					= $request->input('action');
         $is_draft				= ($action == 'Submit') ? 0 : 1;
@@ -259,6 +259,18 @@ class BriefAddEditController extends Controller
         $new_arr_attachment_ids = $this->mergeTwo_array($arr_attachment_ids, explode(',', $brief->attachment_ids));
         $brief->attachment_ids = implode($new_arr_attachment_ids,',');
         $brief->save();
+
+        // Send email to selected departments
+        if ( $is_draft == 0 && !empty($request->input('department')) ) {
+            $departments_to_be_email = Department::find($request->input('department'));
+
+            foreach ($departments_to_be_email as $department) {
+                $mailer
+                    ->to($department->email)
+                    ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
+
+            }
+        }
 
         return redirect()->route('briefsheets')->with('update_brief_success', 'Successfully updated brief sheet: '.$jobname.'.');
     }

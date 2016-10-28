@@ -65,8 +65,8 @@ Create New Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Client</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Client</label>
+                      <div class="col-lg-8">
                         <select id="select-client" name="client" class="form-control">
                           <option value="">select</option>
                           @foreach($clients as $client)
@@ -83,8 +83,8 @@ Create New Brief Sheet
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Project Status</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Project Status</label>
+                      <div class="col-lg-8">
                         <select id="select-projectstatus" name="projectstatus" class="form-control">
                           <option value="">select</option>
                           @foreach($projectstatus as $pstatus)
@@ -104,8 +104,8 @@ Create New Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Job Number</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Job Number</label>
+                      <div class="col-lg-8">
                         <input type="text" name="jobnumber" class="form-control" placeholder="Job Number" value="{{ old('jobnumber') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -113,8 +113,8 @@ Create New Brief Sheet
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Old Job Number</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Old Job Number</label>
+                      <div class="col-lg-8">
                         <input type="text" name="oldjobnumber" class="form-control" placeholder="Old Job Number" value="{{ old('oldjobnumber') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -124,8 +124,10 @@ Create New Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Your Budget 
+                        <i class="icon icon-question" data-toggle="tooltip" title="im a budget tooltip"></i>
+                      </label>
+                      <div class="col-lg-8">
                         <input type="text" name="budget" class="form-control" placeholder="Your Budget" value="{{ old('budget') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -133,8 +135,8 @@ Create New Brief Sheet
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Project Manager</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Project Manager</label>
+                      <div class="col-lg-8">
                         <input type="text" name="pmanager" class="form-control" placeholder="Project Manager" value="{{ old('pmanager') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -142,14 +144,18 @@ Create New Brief Sheet
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
+                  <label class="col-lg-2 control-label text-left">Job Name 
+                    <i class="icon icon-question" data-toggle="tooltip" title="im a job name tooltip"></i>
+                  </label>
                   <div class="col-lg-10">
                     <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="{{ old('jobname') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
+                  <label class="col-lg-2 control-label text-left">Key Deliverables 
+                    <i class="icon icon-question" data-toggle="tooltip" title="im a key deliverable tooltip"></i>
+                  </label>
                   <div class="col-lg-10">
                     <input type="text" name="keydeliverables" class="form-control" placeholder="Key Deliverables" value="{{ old('keydeliverables') }}">
                     <span class="help-block m-b-none"></span>

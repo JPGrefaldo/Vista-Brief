@@ -70,8 +70,8 @@ Draft - Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Client</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Client</label>
+                      <div class="col-lg-8">
                         <select id="select-client" name="client" class="form-control">
                           <option value="">select</option>
                           @foreach($clients as $client)
@@ -95,8 +95,8 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Project Status</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Project Status</label>
+                      <div class="col-lg-8">
                         <select name="projectstatus" class="form-control">
                           <option value="">select</option>
                           @foreach($projectstatus as $pstatus)
@@ -121,8 +121,8 @@ Draft - Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Job Number</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Job Number</label>
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="jobnumber" 
@@ -135,8 +135,8 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Old Job Number</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Old Job Number</label>
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="oldjobnumber" 
@@ -151,8 +151,10 @@ Draft - Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Your Budget <i class="icon icon-question"></i></label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Your Budget 
+                        <i class="icon icon-question" data-toggle="tooltip" title="im a budget tooltip"></i>
+                      </label>
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="budget" 
@@ -165,8 +167,8 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Project Manager</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Project Manager</label>
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="pmanager" 
@@ -179,7 +181,9 @@ Draft - Brief Sheet
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-2 control-label text-left">Job Name <i class="icon icon-question"></i></label>
+                  <label class="col-lg-2 control-label text-left">Job Name 
+                    <i class="icon icon-question" data-toggle="tooltip" title="im a job name tooltip"></i>
+                  </label>
                   <div class="col-lg-10">
                     <input 
                       type="text" 
@@ -191,7 +195,9 @@ Draft - Brief Sheet
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-2 control-label text-left">Key Deliverables <i class="icon icon-question"></i></label>
+                  <label class="col-lg-2 control-label text-left">Key Deliverables 
+                    <i class="icon icon-question" data-toggle="tooltip" title="im a job name tooltip"></i>
+                  </label>
                   <div class="col-lg-10">
                     <input 
                       type="text" 
@@ -205,7 +211,7 @@ Draft - Brief Sheet
 
                 <!-- Required dates -->
                 <div class="row">
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
@@ -225,7 +231,7 @@ Draft - Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
@@ -245,7 +251,7 @@ Draft - Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
@@ -265,7 +271,7 @@ Draft - Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
                       <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
@@ -516,7 +522,7 @@ Draft - Brief Sheet
                 <div class="row">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
-                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-info', buttonText:'Attach Files'}" type="file">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'bg-brand-1 text-white hover-color-primary', buttonText:'Attach Files'}" type="file">
                       <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
                     </div>  
                   </div>
@@ -534,7 +540,7 @@ Draft - Brief Sheet
                               </a>
                             </li>
                             <li class="text-muted">
-                              Uploaded by {{ $attachment->user->forename }} - 
+                              Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
                               {{ $attachment->updated_at->format('h:m l, M d, Y') }}</li>
                           </ul>
                         </li>
@@ -572,10 +578,10 @@ Draft - Brief Sheet
                 <input type="hidden" name="brief_id" value="{{ $brief->id }}">
                 <div class="row">
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-info btn-block" value="Save as Draft">
+                    <input type="submit" name="action" class="btn btn-lg btn-block bg-brand-1 text-white hover-color-primary" value="Save as Draft">
                   </div>
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-success btn-block" value="Submit">
+                    <input type="submit" name="action" class="btn btn-lg btn-block bg-brand-1 text-white hover-color-primary" value="Submit">
                   </div>
                 </div>
               </div>
