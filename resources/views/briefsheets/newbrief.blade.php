@@ -125,7 +125,7 @@ Create New Brief Sheet
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Your Budget 
-                        <i class="icon icon-question" data-toggle="tooltip" title="im a budget tooltip"></i>
+                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="The maximum budget allocation to deliver this brief. Detail split between teams in Job Description section below if available."></i>
                       </label>
                       <div class="col-lg-8">
                         <input type="text" name="budget" class="form-control" placeholder="Your Budget" value="{{ old('budget') }}">
@@ -150,7 +150,7 @@ Create New Brief Sheet
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Job Name 
-                    <i class="icon icon-question" data-toggle="tooltip" title="im a job name tooltip"></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Job name as it appears in Access."></i>
                   </label>
                   <div class="col-lg-10">
                     <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="{{ old('jobname') }}">
@@ -159,7 +159,7 @@ Create New Brief Sheet
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables 
-                    <i class="icon icon-question" data-toggle="tooltip" title="im a key deliverable tooltip"></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Name this Brief Sheet based on the specific deliverable it refers to i.e 'Opener Video' or 'Pitch Work'. Multiple Brief Sheets can be created against a single Job Number and identified by the name in this section."></i>
                   </label>
                   <div class="col-lg-10">
                     <input type="text" name="keydeliverables" class="form-control" placeholder="Key Deliverables" value="{{ old('keydeliverables') }}">
@@ -232,7 +232,9 @@ Create New Brief Sheet
             <!-- Brief Summary -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                01 - Brief Summary
+                #01 -  
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter quick overview description of the requirements here."></i> 
+                Brief Summary
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -247,7 +249,9 @@ Create New Brief Sheet
             <!-- Desciplines Required -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                02 - Disciplines Required
+                #02 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
+                Disciplines Required 
               </div>
               <div class="panel-body">
                 <div class="form-group">
@@ -277,7 +281,11 @@ Create New Brief Sheet
             <!-- Objectives / Measure -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                03 - Objectives / Measure
+                #03 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?">
+                </i> 
+                Objectives / Measure 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -297,7 +305,11 @@ Create New Brief Sheet
             <!-- Context -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                04 - Context
+                #04 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?">
+                </i> 
+                Context 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -317,7 +329,11 @@ Create New Brief Sheet
             <!-- Target Audience and Insight -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                05 - Target Audience and Insight
+                #05 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?">
+                </i> 
+                Target Audience and Insight 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -337,7 +353,7 @@ Create New Brief Sheet
             <!-- What do want the target audience to -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                06 - What do I want the target audience to ...
+                #06 - What do I want the target audience to ...
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -375,7 +391,11 @@ Create New Brief Sheet
             <!-- Key Messages / Propositions -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                07 - Key Messages / Propositions
+                #07 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?">
+                </i> 
+                Key Messages / Propositions 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -395,7 +415,11 @@ Create New Brief Sheet
             <!-- Creative -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                08 - Creative
+                #08 -  
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?">
+                </i> 
+                Creative 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -415,7 +439,11 @@ Create New Brief Sheet
             <!-- Budget, Timings and Outputs Required -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                09 - Budget, Timings and Outputs Required
+                #09 -  
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?">
+                </i> 
+                Budget, Timings and Outputs Required
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -435,7 +463,11 @@ Create New Brief Sheet
             <!-- Attachments -->
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                10 - Attachments
+                #10 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="Attach any supporting material here. Provide multiple files in single zip folder where possible."> 
+                  Attachments 
+                </i>
               </div>
               <div class="panel-body">
                 <div class="row">

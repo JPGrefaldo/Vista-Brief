@@ -1,6 +1,7 @@
 
 
 $(document).ready(function() {
+	$('[data-toggle="tooltip"]').tooltip()
 
 	$('#select-projectstatus').change(function() {
 		var $selected = $(this).find('option:selected')

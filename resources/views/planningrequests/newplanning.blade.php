@@ -71,7 +71,7 @@ Create New Planning Request
                       <label class="col-lg-3 control-label text-left">Taken By</label>
                       <div class="col-lg-9">
                         <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}" readonly>
-                        <input type="text" name="user_name" class="form-control" value="{{ Auth::user()->forename }} {{ Auth::user()->surname }}" readonly>
+                        <input type="text" name="taken_by" class="form-control" value="{{ Auth::user()->forename }} {{ Auth::user()->surname }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -124,7 +124,7 @@ Create New Planning Request
             <!-- Job Details -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                01 - Job Details
+                #01 - Job Details
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -184,7 +184,7 @@ Create New Planning Request
             <!-- Timings -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                02 - Timings
+                #02 - Timings
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -328,7 +328,11 @@ Create New Planning Request
             <!-- Job Spec -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                03 - Job Spec
+                #03 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="Enter a description of the work required."> 
+                </i>
+                Job Spec
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -348,7 +352,11 @@ Create New Planning Request
             <!-- Attachments -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                04 - Attachments
+                #04 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="Attach any supporting material here. Provide multiple files in single zip folder where possible.">
+                </i>
+                Attachments
               </div>
               <div class="panel-body">
                 <div class="row">
@@ -439,7 +447,8 @@ Create New Planning Request
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/planning/init-daterangepicker.js') }}"></script>
-  <script src="{{ URL::asset('js/planning/action-planning-new-client.js') }}"></script>  
+  <script src="{{ URL::asset('js/planning/action-planning-new-client.js') }}"></script> 
+  <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script>  
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

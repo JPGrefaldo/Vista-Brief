@@ -26,7 +26,7 @@ class UpdateBriefRequest extends FormRequest
         return [
             'client'        =>  'required',
             'projectstatus' =>  'required',
-            'jobnumber'     =>  'required|unique:briefs,jobnumber,'.$this->brief_id,
+            'jobnumber'     =>  'required',
             'jobname'       =>  'required|unique:briefs,jobname,'.$this->brief_id,
         ];
     }

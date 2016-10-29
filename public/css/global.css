@@ -180,3 +180,13 @@ fieldset[disabled] .btn-brand1.active {
   background-color: #7266ba;
   border-color: #7266ba;
 }
+
+.ctooltip + .tooltip > .tooltip-inner {
+	padding: 5px;
+	background-color: #1e1e1e;
+	font-size: 14px;
+	white-space: pre-wrap;
+	max-width: none;
+}
+.ctooltip + .tooltip.top > .tooltip-arrow {
+}

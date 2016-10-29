@@ -26,7 +26,7 @@ class StoreBriefRequest extends FormRequest
         return [
             'client'        =>  'required',
             'projectstatus' =>  'required',
-            'jobnumber'     =>  'required|unique:briefs,jobnumber',
+            'jobnumber'     =>  'required',
             'jobname'       =>  'required|unique:briefs,jobname',
         ];
     }

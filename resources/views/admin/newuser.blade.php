@@ -55,12 +55,18 @@ Add New User
             </div>
           @endif
           <div class="panel panel-default">
-            <form class="bs-example form-horizontal" action="{{ route('createnewuser') }}" method="post">
+            <form id="form-newuser" class="bs-example form-horizontal" action="{{ route('createnewuser') }}" method="post">
               <div class="panel-body">
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
-                    <input type="text" name="username" class="form-control" placeholder="Username" value="{{ old('username') }}">
+                    <input 
+                      type="text" 
+                      name="username" 
+                      class="form-control" 
+                      placeholder="Username" 
+                      value="{{ old('username') }}"
+                      readonly>
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -81,7 +87,20 @@ Add New User
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
-                    <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <input 
+                          type="text" 
+                          name="email" 
+                          class="form-control" 
+                          placeholder="Email" 
+                          value="{{ old('email') }}"
+                          readonly>
+                      </div>
+                      <div class="col-xs-4">
+                        <h5 class="text-info m-l-n m-t-xs">@wearevista.co.uk</h5>
+                      </div>
+                    </div>
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -138,6 +157,8 @@ Add New User
   <!-- / footer -->
 
 
+  <!-- load ACTION JS scripts -->
+  <script src="{{ URL::asset('js/admin/action-newuser-form-ui.js') }}"></script>
 
 </div>
 @endsection
