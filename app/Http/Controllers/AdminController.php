@@ -35,6 +35,8 @@ class AdminController extends Controller
     public function createNewUser(Request $request, \Illuminate\Mail\Mailer $mailer)
     {
         $request['username'] = strtolower($request['username']);
+        $orig_email = $request['email'];
+        $request['email'] .= '@wearevista.co.uk';
         //$request['password_admin'] = bcrypt($request['password_admin']);
 
         $messages = [
@@ -53,6 +55,7 @@ class AdminController extends Controller
 
         // if validation failes redirect back with error message
         if ($validator->fails()) {
+            $request['email'] = $orig_email;
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
