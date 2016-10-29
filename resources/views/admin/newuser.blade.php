@@ -67,6 +67,7 @@ Add New User
                       placeholder="Username" 
                       value="{{ old('username') }}"
                       readonly>
+                    <i class="fa fa-edit text-lg pull-right"></i>
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>

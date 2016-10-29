@@ -128,7 +128,12 @@ Create New Brief Sheet
                         <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="The maximum budget allocation to deliver this brief. Detail split between teams in Job Description section below if available."></i>
                       </label>
                       <div class="col-lg-8">
-                        <input type="text" name="budget" class="form-control" placeholder="Your Budget" value="{{ old('budget') }}">
+                        <input 
+                          type="text" 
+                          name="budget" 
+                          class="form-control" 
+                          placeholder="Your Budget" 
+                          value="{{ old('budget') }}">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>

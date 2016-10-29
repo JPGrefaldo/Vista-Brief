@@ -62,7 +62,7 @@ Draft - Brief Sheet
             @endif
 
             <!-- Information -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 Information
               </div>
@@ -97,17 +97,21 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Project Status</label>
                       <div class="col-lg-8">
-                        <select name="projectstatus" class="form-control">
+                        <select id="select-projectstatus" name="projectstatus" class="form-control">
                           <option value="">select</option>
                           @foreach($projectstatus as $pstatus)
                             @if ( old('projectstatus') )
                               <option 
-                                value="{{ $pstatus->id }}" {{ (old('projectstatus') == $pstatus->id) ? "selected":"" }}>
+                                value="{{ $pstatus->id }}" 
+                                data-color="{{ $pstatus->color }}" 
+                                {{ (old('projectstatus') == $pstatus->id) ? "selected":"" }}>
                                   {{ $pstatus->name }}
                               </option>
                             @else
                               <option 
-                                value="{{ $pstatus->id }}" {{ ($brief->projectstatus_id == $pstatus->id) ? "selected":"" }}>
+                                value="{{ $pstatus->id }}" 
+                                data-color="{{ $pstatus->color }}" 
+                                {{ ($brief->projectstatus_id == $pstatus->id) ? "selected":"" }}>
                                   {{ $pstatus->name }}
                               </option>
                             @endif
@@ -151,8 +155,9 @@ Draft - Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Your Budget 
-                        <i class="icon icon-question" data-toggle="tooltip" title="im a budget tooltip"></i>
+                      <label class="col-lg-4 control-label text-left">
+                        Your Budget 
+                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="The maximum budget allocation to deliver this brief. Detail split between teams in Job Description section below if available."></i>
                       </label>
                       <div class="col-lg-8">
                         <input 
@@ -182,7 +187,7 @@ Draft - Brief Sheet
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Job Name 
-                    <i class="icon icon-question" data-toggle="tooltip" title="im a job name tooltip"></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Job name as it appears in Access."></i>
                   </label>
                   <div class="col-lg-10">
                     <input 
@@ -196,7 +201,7 @@ Draft - Brief Sheet
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables 
-                    <i class="icon icon-question" data-toggle="tooltip" title="im a job name tooltip"></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Name this Brief Sheet based on the specific deliverable it refers to i.e 'Opener Video' or 'Pitch Work'. Multiple Brief Sheets can be created against a single Job Number and identified by the name in this section."></i>
                   </label>
                   <div class="col-lg-10">
                     <input 
@@ -214,7 +219,7 @@ Draft - Brief Sheet
                   <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -234,7 +239,7 @@ Draft - Brief Sheet
                   <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -254,7 +259,7 @@ Draft - Brief Sheet
                   <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -274,7 +279,7 @@ Draft - Brief Sheet
                   <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
-                      <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                      <div class="col-lg-7">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -300,9 +305,11 @@ Draft - Brief Sheet
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
             <!-- Brief Summary -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                01 - Brief Summary
+                #01 -  
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter quick overview description of the requirements here."></i> 
+                Brief Summary
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -320,9 +327,11 @@ Draft - Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                02 - Disciplines Required
+                #02 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
+                Disciplines Required 
               </div>
               <div class="panel-body">
                 <div class="form-group">
@@ -356,9 +365,13 @@ Draft - Brief Sheet
             <!-- / Desciplines Required -->
 
             <!-- Objectives / Measure -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                03 - Objectives / Measure
+                #03 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?">
+                </i> 
+                Objectives / Measure 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -376,9 +389,13 @@ Draft - Brief Sheet
             <!-- / Objectives / Measure -->
 
             <!-- Context -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                04 - Context
+                #04 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?">
+                </i> 
+                Context 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -396,9 +413,13 @@ Draft - Brief Sheet
             <!-- / Context -->
 
             <!-- Target Audience and Insight -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                05 - Target Audience and Insight
+                #05 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?">
+                </i> 
+                Target Audience and Insight 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -416,7 +437,7 @@ Draft - Brief Sheet
             <!-- / Target Audience and Insight -->
 
             <!-- What do want the target audience to -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 06 - What do want the target audience to ...
               </div>
@@ -454,9 +475,13 @@ Draft - Brief Sheet
             <!-- / What do want the target audience to -->
 
             <!-- Key Messages / Propositions -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                07 - Key Messages / Propositions
+                #07 - 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?">
+                </i> 
+                Key Messages / Propositions
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -474,9 +499,13 @@ Draft - Brief Sheet
             <!-- / Key Messages / Propositions -->
 
             <!-- Creative -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                08 - Creative
+                #08 -  
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?">
+                </i> 
+                Creative
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -494,9 +523,13 @@ Draft - Brief Sheet
             <!-- / Creative -->
 
             <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
-                09 - Budget, Timings and Outputs Required
+                #09 -  
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                  title="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?">
+                </i> 
+                Budget, Timings and Outputs Required
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -514,7 +547,7 @@ Draft - Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Attachments -->
-            <div class="panel panel-default">
+            <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 10 - Attachments
               </div>
@@ -643,6 +676,7 @@ Draft - Brief Sheet
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>  
+  <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
