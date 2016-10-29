@@ -8,6 +8,8 @@ $(document).ready(function() {
 	var $surname = $form.find('input[name="surname"]')
 	var $email = $form.find('input[name="email"]')
 
+	var $btn_make_editable = $('.make_editable')
+
 	$forename.change(function(){
 		updateUsername($username, $forename, $surname)
 		updateEmail($email, $forename, $surname)
@@ -18,7 +20,9 @@ $(document).ready(function() {
 		updateEmail($email, $forename, $surname)
 	})
 
-	//
+	$btn_make_editable.click(function(){
+		$(this).closest('div.input-group').find('input').removeAttr('readonly')
+	})
 })
 
 

@@ -60,15 +60,20 @@ Add New User
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
-                    <input 
-                      type="text" 
-                      name="username" 
-                      class="form-control" 
-                      placeholder="Username" 
-                      value="{{ old('username') }}"
-                      readonly>
-                    <i class="fa fa-edit text-lg pull-right"></i>
-                    <span class="help-block m-b-none"></span>
+                    <div class="input-group">
+                      <input 
+                        type="text" 
+                        name="username" 
+                        class="form-control" 
+                        placeholder="Username" 
+                        value="{{ old('username') }}"
+                        readonly>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default make_editable">
+                          <i class="fa fa-edit"></i>
+                        </button>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -89,14 +94,21 @@ Add New User
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
                     <div class="row">
-                      <div class="col-xs-8">
-                        <input 
-                          type="text" 
-                          name="email" 
-                          class="form-control" 
-                          placeholder="Email" 
-                          value="{{ old('email') }}"
-                          readonly>
+                      <div class="col-xs-8">                        
+                        <div class="input-group">
+                          <input 
+                            type="text" 
+                            name="email" 
+                            class="form-control" 
+                            placeholder="Email" 
+                            value="{{ old('email') }}"
+                            readonly>
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default make_editable">
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </span> 
+                        </div>
                       </div>
                       <div class="col-xs-4">
                         <h5 class="text-info m-l-n m-t-xs">@wearevista.co.uk</h5>
