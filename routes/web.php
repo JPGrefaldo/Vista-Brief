@@ -65,62 +65,62 @@ Route::group(['middleware' => 'auth'], function() {
 	]);
 
 	/* Brief Routes */
-	Route::get('/briefsheets', [
+	Route::get('/job_sheet', [
 		'uses'	=>	'BriefController@index',
 		'as'	=>	'briefsheets'
 	]);
-	Route::get('/briefsheets/post/create', [
+	Route::get('/job_sheet/post/create', [
 		'uses'	=>	'BriefAddEditController@new',
 		'as'	=>	'newbriefsheet'
 	]);
-	Route::post('/briefsheets/post/save', [
+	Route::post('/job_sheet/post/save', [
 		'uses'	=>	'BriefAddEditController@postNewBrief',
 		'as'	=>	'postnewbrief'
 	]);
-	Route::get('/briefsheets/draft/{id}', [
+	Route::get('/job_sheet/draft/{id}', [
 		'uses'	=>	'BriefAddEditController@formEditBrief',
 		'as'	=>	'formeditbrief'
 	]);
-	Route::post('/briefsheets/draft/save', [
+	Route::post('/job_sheet/draft/save', [
 		'uses'	=>	'BriefAddEditController@postEditBrief',
 		'as'	=>	'posteditbrief'
 	]);
-	Route::get('/briefsheets/{id}', [
+	Route::get('/job_sheet/{id}', [
 		'uses'	=>	'BriefController@submitted',
 		'as'	=>	'submittedbriefsheet'
 	]);
-	Route::post('/briefsheets/amend/save', [
+	Route::post('/job_sheet/amend/save', [
 		'uses'	=>	'BriefController@postNewAmend',
 		'as'	=>	'postnewamend'
 	]);
-	Route::get('/briefsheets/find/criteria', [
+	Route::get('/job_sheet/find/criteria', [
 		'uses'	=>	'SearchController@quickSearchBrief',
 		'as'	=>	'quicksearchbrief'
 	]);
-	Route::get('/briefsheets/advancesearch/criteria', [
+	Route::get('/job_sheet/advancesearch/criteria', [
 		'uses'	=>	'SearchController@advanceSearchBrief',
 		'as'	=>	'advancesearchbrief'
 	]);
 	/* / Brief Routes */
 
 	/* Planning Requests */
-	Route::get('/planningrequests', [
+	Route::get('/planning_request', [
 		'uses'	=>	'PlanningController@index',
 		'as'	=>	'planningrequests'
 	]);
-	Route::get('/planningrequests/post/create', [
+	Route::get('/planning_request/post/create', [
 		'uses'	=>	'PlanningController@new',
 		'as'	=>	'newplanningrequest'
 	]);
-	Route::post('/planningrequests/post/save', [
+	Route::post('/planning_request/post/save', [
 		'uses'	=>	'PlanningController@postNewPlanning',
 		'as'	=>	'postnewplanning'
 	]);
-	Route::get('/planningrequests/{id}', [
+	Route::get('/planning_request/{id}', [
 		'uses'	=>	'PlanningController@submitted',
 		'as'	=>	'submittedplanningrequest'
 	]);
-	Route::get('/planningrequests/find/criteria', [
+	Route::get('/planning_request/find/criteria', [
 		'uses'	=>	'SearchController@quickSearchPlanning',
 		'as'	=>	'quicksearchplanning'
 	]);
@@ -205,9 +205,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'as'	=>	'settings'
 	]);
 
-	Route::get('/profile', function() {
-		return view ('profile');
-	});
+	Route::get('/profile', [
+		'uses'	=>	'UserController@profile',
+		'as'	=>	'profile'
+	]);
 });
 
 

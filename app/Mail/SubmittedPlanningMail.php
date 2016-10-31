@@ -15,6 +15,7 @@ class SubmittedPlanningMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $subject = 'Planning Request - Vista Brief';
     protected $planning_id;
 
     /**
@@ -38,6 +39,7 @@ class SubmittedPlanningMail extends Mailable
     public function build()
     {
         return $this->view('emails.submittedplanningemail')
+                    ->subject($this->subject)
                     ->attach($this->attachment(), ['as'=>'Planning Request.pdf'])
                     ->with([
                         'updated_at' => $this->updated_at,

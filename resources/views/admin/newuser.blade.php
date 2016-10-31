@@ -111,7 +111,7 @@ Add New User
                         </div>
                       </div>
                       <div class="col-xs-4">
-                        <h5 class="text-info m-l-n m-t-xs">@wearevista.co.uk</h5>
+                        <h5 class="text-brand1 m-l-n m-t-xs">@wearevista.co.uk</h5>
                       </div>
                     </div>
                     <span class="help-block m-b-none"></span>

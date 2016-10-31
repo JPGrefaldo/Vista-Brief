@@ -38,6 +38,7 @@ class PlanningController extends Controller
     {
     	$user_id = $request->user()->id;
     	$client_id = $request->input('client');
+        $taken_by = $request->input('taken_by');
     	$contact_name = $request->input('contact_name');
     	$contact_email = $request->input('contact_email');
     	$contact_landline = $request->input('contact_landline');
@@ -52,9 +53,9 @@ class PlanningController extends Controller
     	$project_deadline_date = $this->convertTo_MysqlDate($request->input('project_deadline_date'));
     	$job_specifications = $request->input('job_spec');
 
-
     	// echo '<p>user_id: '.$user_id.'</p>';
     	// echo '<p>client_id: '.$client_id.'</p>';
+        // echo '<p>taken_by: '.$taken_by.'</p>';
     	// echo '<p>contact_name: '.$contact_name.'</p>';
     	// echo '<p>contact_email: '.$contact_email.'</p>';
     	// echo '<p>contact_landline: '.$contact_landline.'</p>';
@@ -71,7 +72,8 @@ class PlanningController extends Controller
 
     	$planning = new Planning();
     	$planning->user_id = $user_id;
-    	$planning->client_id = $client_id;
+        $planning->client_id = $client_id;
+        $planning->taken_by = $taken_by;
     	$planning->contact_name = $contact_name;
     	$planning->contact_email = $contact_email;
     	$planning->contact_landline = $contact_landline;

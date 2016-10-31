@@ -15,6 +15,7 @@ class SubmittedBriefMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    protected $subject = 'Brief Sheet - Vista Brief';
     protected $brief_id;
     protected $updated_at;
     protected $jobnumber;
@@ -45,6 +46,7 @@ class SubmittedBriefMail extends Mailable
     public function build()
     {
         return $this->view('emails.submittedbriefemail')
+                    ->subject($this->subject)
                     ->attach($this->attachment(), ['as'=>'Brief Sheet.pdf'])
                     ->with([
                         'updated_at'        => $this->updated_at,

@@ -47,7 +47,7 @@
                 </a>
               </li>
               <li class="">
-                <a href="{{ url('profile') }}">My Account</a>
+                <a href="{{ route('profile') }}">Profile</a>
               </li>
               <li class="divider"></li>
               <li>

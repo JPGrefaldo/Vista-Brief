@@ -69,7 +69,7 @@ Create New Planning Request
                         type="text" 
                         name="user_name" 
                         class="form-control" 
-                        value="{{ Auth::user()->forename }} {{ Auth::user()->surname }}" 
+                        value="{{ $planning->taken_by }}" 
                         readonly>
                       <span class="help-block m-b-none"></span>
                     </div>

@@ -31,7 +31,7 @@ Planning Request File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Taken By</strong></label>
-        	<p class="bg-light p-l-sm">{{ $planning->user->forename }} {{ $planning->user->surname }}&nbsp;</p>
+        	<p class="bg-light p-l-sm">{{ $planning->taken_by }}&nbsp;</p>
         </div>
 
         <div class="col-xs-6">

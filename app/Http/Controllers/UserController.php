@@ -125,4 +125,9 @@ class UserController extends Controller
         // redirect to signin page with alert message
         return redirect()->route('signin')->with('change_pass_success', 'Your new password have been changed. You can now login with your new password.');
     }
+
+    public function profile() 
+    {
+        return view('users.profile');
+    }
 }

@@ -190,3 +190,20 @@ fieldset[disabled] .btn-brand1.active {
 }
 .ctooltip + .tooltip.top > .tooltip-arrow {
 }
+
+.nav-pills-brand1 > li.active > a {
+	color: #ffffff;
+	background-color: #00385b;
+  border-color: #00385b;
+}
+.nav-pills-brand1 > li.active > a:hover,
+.nav-pills-brand1 > li.active > a:focus,
+.nav-pills-brand1 > li.active > a:active {
+	color: #ffffff;
+  background-color: #05436A;
+  border-color: #05436A;
+}
+
+.text-brand1 {
+	color: #00385b;
+}
