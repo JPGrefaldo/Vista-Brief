@@ -80,7 +80,7 @@ Profile - Vista
       <div class="m-l-lg m-b padder-v">
         <div class="row">
           <div class="col-sm-6">
-            <div class="panel panel-default">
+            <div class="panel {{ (session('success_profile_changed')) ? 'panel-success' : 'panel-default' }}">
               <div class="panel-heading font-bold">
                 Edit Profile
                 @if (session('success_profile_changed'))
@@ -128,11 +128,11 @@ Profile - Vista
                   </div>
 
                   <div class="row">
-                    @if (count($errors) > 0)
+                    @if (count($errors->editProfile) > 0)
                     <div class="col-sm-12 m-t-sm m-b-n">
                       <div class="alert alert-danger text-danger">
                         <ul class="m-b-n">
-                          @foreach ($errors->all() as $error)
+                          @foreach ($errors->editProfile->all() as $error)
                             <li>{{ $error }}</li>
                           @endforeach
                         </ul>
@@ -150,10 +150,17 @@ Profile - Vista
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="panel panel-default">
-              <div class="panel-heading font-bold">Change Password</div>
+            <div class="panel {{ (session('success_password_changed')) ? 'panel-success' : 'panel-default' }}">
+              <div class="panel-heading font-bold">
+                Change Password
+                @if (session('success_password_changed'))
+                  <span class="text-success font-normal pull-right">
+                    {{ session('success_password_changed') }}
+                  </span>
+                @endif
+              </div>
               <div class="panel-body">
-                <form role="form">
+                <form role="form" method="post" action="{{ route('postupdateuserpassword') }}">
                   <div class="form-group">
                     <div class="row">
                       <label class="col-sm-4"><i>New password</i></label>
@@ -191,7 +198,21 @@ Profile - Vista
                       autocomplete="off">                    
                     <p>&nbsp;</p>
                   </div>
+
+                  @if (count($errors->changePassword) > 0)
+                  <div class="col-sm-12 m-t-sm m-b-n">
+                    <div class="alert alert-danger text-danger">
+                      <ul class="m-b-n">
+                        @foreach ($errors->changePassword->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  </div>
+                  @endif
+
                   <div class="col-sm-12 m-t-sm text-center">
+                    {{ csrf_field() }}
                     <input type="submit" class="btn btn-brand1" value="Update Password">
                   </div>
                 </form>

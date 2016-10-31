@@ -4,8 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Contracts\Validation\Validator;
+
 class UpdateUserProfileRequest extends FormRequest
 {
+    protected $errorBag = "editProfile";
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -33,10 +37,15 @@ class UpdateUserProfileRequest extends FormRequest
     public function messages() 
     {
         return [
-            'forename.required' =>  'Your forename must not be empty',
-            'surname.required' =>  'Your surname must not be empty',
+            'forename.required' =>  'Your forename must not be empty.',
+            'surname.required' =>  'Your surname must not be empty.',
             'current_password.required' =>  'You need to enter your current password to make any changes to your profile.',
-            'current_password.currentpassword' =>  'The password you enter is invalid'
+            'current_password.currentpassword' =>  'The current password you entered is incorrect.'
         ];
+    }
+
+    public function formatErrors(validator $validator) 
+    {
+        return $validator->errors()->all();
     }
 }

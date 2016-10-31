@@ -208,6 +208,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'UserController@postUpdateProfile',
 		'as'	=>	'postupdateprofile'
 	]);
+	Route::post('/profile/changepassword', [
+		'uses'	=>	'UserController@postUpdateUserPassword',
+		'as'	=>	'postupdateuserpassword'
+	]);
 	
 	Route::get('/settings', [	/* Settings */
 		'uses'	=>	'SettingController@index',

@@ -14,6 +14,7 @@ use App\User;
 use App\ResetPasswordRequest;
 
 use App\Http\Requests\UpdateUserProfileRequest;
+use App\Http\Requests\UpdateUserProfilePasswordRequest;
 
 
 class UserController extends Controller
@@ -150,5 +151,23 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('profile')->with('success_profile_changed', 'Profile Changed!');
+    }
+
+    public function postUpdateUserPassword(UpdateUserProfilePasswordRequest $request) {
+        $user_id = $request->user()->id;
+        $password = $request->input('password');
+        $re_password = $request->input('password_confirmation');
+        $current_password = $request->input('current_password');
+
+        // echo '<p>-'.$user_id.'-</p>';
+        // echo '<p>-'.$password.'-</p>';
+        // echo '<p>-'.$re_password.'-</p>';
+        // echo '<p>-'.$current_password.'-</p>';
+
+        $user = User::find($user_id);
+        $user->password = bcrypt($password);
+        $user->save();
+
+        return redirect()->route('profile')->with('success_password_changed', 'Password Changed!');
     }
 }
