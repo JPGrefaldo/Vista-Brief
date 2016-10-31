@@ -11,7 +11,7 @@ class NewUserMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $subject = 'Account - Vista Brief';
+    protected $subject = 'New User Account - Vista Brief';
     public $title;
     protected $username;
     protected $password;

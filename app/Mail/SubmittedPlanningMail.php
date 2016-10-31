@@ -15,7 +15,7 @@ class SubmittedPlanningMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $subject = 'Planning Request - Vista Brief';
+    protected $subject = 'New Planning Request - Vista Brief';
     protected $planning_id;
 
     /**

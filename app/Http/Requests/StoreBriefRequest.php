@@ -28,6 +28,10 @@ class StoreBriefRequest extends FormRequest
             'projectstatus' =>  'required',
             'jobnumber'     =>  'required',
             'jobname'       =>  'required|unique:briefs,jobname',
+            'quotereq'      =>  'required_without_all:proposedreq,stagereq,projdelivered',
+            'proposedreq'      =>  'required_without_all:quotereq,stagereq,projdelivered',
+            'stagereq'      =>  'required_without_all:quotereq,proposedreq,projdelivered',
+            'projdelivered'      =>  'required_without_all:quotereq,proposedreq,stagereq',
         ];
     }
 
@@ -39,6 +43,10 @@ class StoreBriefRequest extends FormRequest
             'jobnumber.required'        =>  'Job Number is required.',
             'jobname.required'          =>  'Job Name is required.',
             'jobname.unique'            =>  'That Job Name is already taken.',
+            'quotereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            'proposedreq.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            'stagereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            'projdelivered.required_without_all'  =>  'You need to choose at least one of the required dates.',
         ];
     }
 }

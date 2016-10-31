@@ -128,12 +128,14 @@ class BriefAddEditController extends Controller
         	foreach ($files as $file):
         		$filename = $file->getClientOriginalName();
                 $filetype = $file->getClientMimeType();
+                $file_ext = $file->extension();
 
 		        $attachments = new Attachment();
 		        $attachments->user_id = $user_id;
 		        $attachments->brief_id = $brief->id;
 		        $attachments->filename = $filename;
                 $attachments->filetype = $filetype;
+                $attachments->file_ext = $file_ext;
 		        $attachments->disk = 'local';
 		        $attachments->directory = 'brief-'.$brief->id.'/user-'.$user_id.'/';
 		        $attachments->save();
@@ -231,7 +233,6 @@ class BriefAddEditController extends Controller
         $brief->keymessages_or_propositions = $keymessages_or_propositions;
         $brief->creative = $creative;
         $brief->budget_timings_and_outputs = $budget_timings_and_outputs;
-        //$brief->attachment_ids = $xxxx;
 
         $brief->save();
 
@@ -241,11 +242,15 @@ class BriefAddEditController extends Controller
         if ( !empty($files) ) {
         	foreach ($files as $file):
         		$filename = $file->getClientOriginalName();
+                $filetype = $file->getClientMimeType();
+                $file_ext = $file->extension();
 
 		        $attachments = new Attachment();
 		        $attachments->user_id = $user_id;
 		        $attachments->brief_id = $brief->id;
 		        $attachments->filename = $filename;
+                $attachments->filetype = $filetype;
+                $attachments->file_ext = $file_ext;
 		        $attachments->disk = 'local';
 		        $attachments->directory = 'brief-'.$brief->id.'/user-'.$user_id.'/';
 		        $attachments->save();

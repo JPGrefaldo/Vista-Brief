@@ -75,7 +75,7 @@ Create New Brief Sheet
                                 {{ $client->name }}
                             </option>
                           @endforeach
-                          <option value="newclient">[new client]</option>
+                          <option value="newclient" class="bg-brand-1 text-white">[Add New Client]</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>

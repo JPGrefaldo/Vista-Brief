@@ -15,7 +15,7 @@ class AmendedBriefMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $subject = 'Brief Sheet - Vista Brief';
+    protected $subject = 'Amended Brief Sheet - Vista Brief';
     protected $brief_id;
     protected $updated_at;
     protected $jobnumber;
