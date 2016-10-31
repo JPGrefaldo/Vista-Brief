@@ -21,6 +21,8 @@ class ValidationServiceProvider extends ServiceProvider
 
         Validator::extend('isadmin', 'App\Extensions\Validations\CustomValidation@validate_isadmin');
 
+        Validator::extend('currentpassword', 'App\Extensions\Validations\CustomValidation@validate_currentpassword');
+
     }
 
     /**

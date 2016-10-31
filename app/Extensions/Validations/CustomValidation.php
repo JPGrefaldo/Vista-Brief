@@ -23,4 +23,11 @@ class CustomValidation
         }
         return false;
 	}
+
+    public function validate_currentpassword($attribute, $value, $parameters, $validator) {
+        if (Hash::check($value, Auth::user()->getAuthPassword())) {
+            return true;
+        }
+        return false;
+    }
 }

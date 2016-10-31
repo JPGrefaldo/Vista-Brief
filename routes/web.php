@@ -199,15 +199,19 @@ Route::group(['middleware' => 'auth'], function() {
 			]);
 		});
 	});	/* / Admin Middleware */
-	
-	Route::get('/settings', [	/* Settings */
-		'uses'	=>	'SettingController@index',
-		'as'	=>	'settings'
-	]);
 
 	Route::get('/profile', [
 		'uses'	=>	'UserController@profile',
 		'as'	=>	'profile'
+	]);
+	Route::post('/profile/update', [
+		'uses'	=>	'UserController@postUpdateProfile',
+		'as'	=>	'postupdateprofile'
+	]);
+	
+	Route::get('/settings', [	/* Settings */
+		'uses'	=>	'SettingController@index',
+		'as'	=>	'settings'
 	]);
 });
 

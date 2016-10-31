@@ -81,9 +81,16 @@ Profile - Vista
         <div class="row">
           <div class="col-sm-6">
             <div class="panel panel-default">
-              <div class="panel-heading font-bold">Edit Profile</div>
+              <div class="panel-heading font-bold">
+                Edit Profile
+                @if (session('success_profile_changed'))
+                  <span class="text-success font-normal pull-right">
+                    {{ session('success_profile_changed') }}
+                  </span>
+                @endif
+              </div>
               <div class="panel-body">
-                <form role="form">
+                <form role="form" method="post" action="{{ route('postupdateprofile') }}">
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -93,7 +100,7 @@ Profile - Vista
                           type="text" 
                           name="forename" 
                           placeholder="Forename" 
-                          value="{{ Auth::user()->forename }}" >
+                          value="{{ (old('forename')) ? old('forename') : Auth::user()->forename }}" >
                       </div>
                     </div>
                     <div class="col-sm-6">
@@ -104,7 +111,7 @@ Profile - Vista
                           type="text" 
                           name="surname" 
                           placeholder="surname" 
-                          value="{{ Auth::user()->surname }}" >
+                          value="{{ (old('surname')) ? old('surname') : Auth::user()->surname }}" >
                       </div>
                     </div>
                     <div class="col-sm-12 m-t-lg bg-light">
@@ -118,8 +125,24 @@ Profile - Vista
                         autocomplete="off">
                       <p>&nbsp;</p>
                     </div>
+                  </div>
+
+                  <div class="row">
+                    @if (count($errors) > 0)
+                    <div class="col-sm-12 m-t-sm m-b-n">
+                      <div class="alert alert-danger text-danger">
+                        <ul class="m-b-n">
+                          @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                          @endforeach
+                        </ul>
+                      </div>
+                    </div>
+                    @endif
+
                     <div class="col-sm-12 m-t-sm text-center">
-                      <input type="submit" class="btn btn-brand1" value="Save Changes">
+                      {{ csrf_field() }}
+                      <input type="submit" class="btn btn-brand1" value="Update Profile">
                     </div>
                   </div>
                 </form>

@@ -13,6 +13,8 @@ use App\Mail\ResetPasswordMail;
 use App\User;
 use App\ResetPasswordRequest;
 
+use App\Http\Requests\UpdateUserProfileRequest;
+
 
 class UserController extends Controller
 {
@@ -129,5 +131,24 @@ class UserController extends Controller
     public function profile() 
     {
         return view('users.profile');
+    }
+
+    public function postUpdateProfile(UpdateUserProfileRequest $request) {
+        $user_id = $request->user()->id;
+        $forename = $request->input('forename');
+        $surname = $request->input('surname');
+        $current_password = $request->input('current_password');
+
+        // echo '<p>'.$user_id.'</p>';
+        // echo '<p>'.$forename.'</p>';
+        // echo '<p>'.$surname.'</p>';
+        // echo '<p>'.$current_password.'</p>';
+
+        $user = User::find($user_id);
+        $user->forename = $forename;
+        $user->surname = $surname;
+        $user->save();
+
+        return redirect()->route('profile')->with('success_profile_changed', 'Profile Changed!');
     }
 }
