@@ -73,6 +73,7 @@ Profile - Vista
     <div class="wrapper bg-white b-b">
       <ul class="nav nav-pills nav-sm nav-pills-brand1">
         <li class="active"><a>Profile</a></li>
+        <li class=""><a>Change Photo</a></li>
       </ul>
     </div>
     <div class="padder">      
@@ -106,7 +107,7 @@ Profile - Vista
                           value="{{ Auth::user()->surname }}" >
                       </div>
                     </div>
-                    <div class="col-sm-12 m-t-lg">
+                    <div class="col-sm-12 m-t-lg bg-light">
                       <label><i>Type your current password for security verification</i></label>
                       <input 
                         class="form-control"
@@ -115,9 +116,10 @@ Profile - Vista
                         placeholder="Type your current password" 
                         value="" 
                         autocomplete="off">
+                      <p>&nbsp;</p>
                     </div>
-                    <div class="col-sm-12 m-t-md text-center">
-                      <input type="submit" class="btn btn-brand1" name="Save Changes">
+                    <div class="col-sm-12 m-t-sm text-center">
+                      <input type="submit" class="btn btn-brand1" value="Save Changes">
                     </div>
                   </div>
                 </form>
@@ -128,7 +130,48 @@ Profile - Vista
             <div class="panel panel-default">
               <div class="panel-heading font-bold">Change Password</div>
               <div class="panel-body">
-              ssds
+                <form role="form">
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="col-sm-4"><i>New password</i></label>
+                      <div class="col-sm-8">
+                        <input 
+                          class="form-control"
+                          type="password" 
+                          name="password" 
+                          placeholder="type your new password here" 
+                          value="" >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <label class="col-sm-4"><i>Re-type new password</i></label>
+                      <div class="col-sm-8">
+                        <input 
+                          class="form-control"
+                          type="password" 
+                          name="password_confirmation" 
+                          placeholder="re-type your new password here" 
+                          value="" >
+                        </div>
+                      </div>
+                  </div>
+                  <div class="col-sm-12 m-t-lg bg-light">
+                    <label><i>Type your current password for security verification</i></label>
+                    <input 
+                      class="form-control"
+                      type="password" 
+                      name="current_password"
+                      placeholder="Type your current password" 
+                      value="" 
+                      autocomplete="off">                    
+                    <p>&nbsp;</p>
+                  </div>
+                  <div class="col-sm-12 m-t-sm text-center">
+                    <input type="submit" class="btn btn-brand1" value="Update Password">
+                  </div>
+                </form>
               </div>
             </div>
           </div>
