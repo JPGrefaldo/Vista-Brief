@@ -171,7 +171,15 @@ class BriefAddEditController extends Controller
         $projectstatus = ProjectStatus::all();
         $departments = Department::isactive()->get();
 
-    	return view ('briefsheets.draftedbrief', compact('brief','clients','projectstatus','departments'));
+        // insert the classNames string to the attachment collection data
+        foreach ($brief->attachmentsNotAmend as $attachment) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+            $attachment->classNames = $classNames;
+        }
+
+    	return view (
+                'briefsheets.draftedbrief', 
+                compact('brief','clients','projectstatus','departments'));
     }
 
     public function postEditBrief(UpdateBriefRequest $request, \Illuminate\Mail\Mailer $mailer) 

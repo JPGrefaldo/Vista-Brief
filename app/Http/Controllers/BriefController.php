@@ -35,6 +35,20 @@ class BriefController extends Controller
         $brief = Brief::find($id); // add isactive validation in the future
         $departments = Department::isactive()->get();
 
+        // insert the classNames string to the attachment collection data
+        foreach ($brief->attachmentsNotAmend as $attachment) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+            $attachment->classNames = $classNames;
+        }
+
+        // insert the classNames string to the amends-attachment collection data
+        foreach($brief->amendments as $amendment) {
+            foreach ($amendment->attachments as $attachment) {
+                $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+                $attachment->classNames = $classNames;
+            }
+        }
+
     	return view ('briefsheets.submittedbrief', compact('brief', 'departments'));
     }
 

@@ -382,8 +382,11 @@ Create New Planning Request
                       @foreach ($planning->attachments as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">
-                            <li class="text-info">
-                              <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                            <li>
+                              <i class="{{ $attachment->classNames }} text-md"></i>
+                              <a 
+                                class="text-info" 
+                                href="{{ route('download_attachment', [$attachment->id]) }}">
                                 {{ $attachment->filename }}
                               </a>
                             </li>

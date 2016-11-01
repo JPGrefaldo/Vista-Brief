@@ -42,11 +42,6 @@ class UserController extends Controller
         return redirect()->route('signin');
     }
 
-    public function dashboard()
-    {
-        return view('dashboard');
-    }
-
     public function formresetpassword()
     {
         return view('users.resetpassword');
@@ -127,6 +122,11 @@ class UserController extends Controller
 
         // redirect to signin page with alert message
         return redirect()->route('signin')->with('change_pass_success', 'Your new password have been changed. You can now login with your new password.');
+    }
+
+    public function dashboard()
+    {
+        return view('dashboard');
     }
 
     public function profile() 

@@ -131,6 +131,15 @@ class PlanningController extends Controller
     public function submitted($id) 
     {
     	$planning = Planning::find($id);
+
+        // insert the classNames string to the attachment collection data
+        foreach ($planning->attachments as $attachment) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+            $attachment->classNames = $classNames;
+        }
+
+        // dd($planning->attachments);
+
     	return view ('planningrequests.submittedplanning', compact('planning'));
     }
 

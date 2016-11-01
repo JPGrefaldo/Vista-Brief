@@ -555,12 +555,18 @@ Submitted - Brief Sheet
                       @foreach ($brief->attachmentsNotAmend as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">
-                            <li class="text-info">
-                              <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                            <li>
+                              <i class="{{ $attachment->classNames }} text-md"></i>
+                              <a 
+                                class="text-brand1" 
+                                href="{{ route('download_attachment', [$attachment->id]) }}">
                                 {{ $attachment->filename }}
                               </a>
                             </li>
-                            <li class="text-muted">Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - {{ $attachment->updated_at->format('h:m l d M Y') }}</li>
+                            <li class="text-muted">Uploaded by 
+                              {{ $attachment->user->forename }} 
+                              {{ $attachment->user->surname }} - 
+                              {{ $attachment->updated_at->format('h:m l, d M Y') }}</li>
                           </ul>
                         </li>
                       @endforeach
@@ -674,15 +680,18 @@ Submitted - Brief Sheet
                     <ul class="bg-light">
                       @foreach ($amend->attachments as $attachment)
                         <li>
-                          <p class="text-info">
-                            <a href="{{ route('download_attachment', [$attachment->id]) }}">
+                          <p>
+                            <i class="{{ $attachment->classNames }} text-md"></i>
+                            <a 
+                              class="text-info" 
+                              href="{{ route('download_attachment', [$attachment->id]) }}">
                               {{ $attachment->filename }}
                             </a>
                           </p>
                           <h6 class="text-muted">
                             Uploaded by: 
                             {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
-                            {{ $attachment->updated_at->format('h:m l d M Y') }}
+                            {{ $attachment->updated_at->format('h:m l, d M Y') }}
                           </h6>
                         </li>
                       @endforeach
