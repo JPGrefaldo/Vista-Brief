@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+use Illuminate\Contracts\Validation\Validator;
+
 class StoreBriefRequest extends FormRequest
 {
     /**
@@ -29,9 +31,10 @@ class StoreBriefRequest extends FormRequest
             'jobnumber'     =>  'required',
             'jobname'       =>  'required|unique:briefs,jobname',
             'quotereq'      =>  'required_without_all:proposedreq,stagereq,projdelivered',
-            'proposedreq'      =>  'required_without_all:quotereq,stagereq,projdelivered',
+            'proposedreq'   =>  'required_without_all:quotereq,stagereq,projdelivered',
             'stagereq'      =>  'required_without_all:quotereq,proposedreq,projdelivered',
-            'projdelivered'      =>  'required_without_all:quotereq,proposedreq,stagereq',
+            'projdelivered' =>  'required_without_all:quotereq,proposedreq,stagereq',
+            'department'    =>  'required',
         ];
     }
 
@@ -47,6 +50,12 @@ class StoreBriefRequest extends FormRequest
             'proposedreq.required_without_all'  =>  'You need to choose at least one of the required dates.',
             'stagereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
             'projdelivered.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            'department.required'       =>  'You need to select at least one discipline.'
         ];
+    }
+
+    public function formatErrors(validator $validator) 
+    {
+        return $validator->errors()->unique();
     }
 }
