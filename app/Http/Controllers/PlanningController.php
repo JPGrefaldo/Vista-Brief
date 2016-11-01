@@ -100,12 +100,14 @@ class PlanningController extends Controller
         	foreach ($files as $file):
         		$filename = $file->getClientOriginalName();
                 $filetype = $file->getClientMimeType();
+                $file_ext = $file->extension();
 
 		        $attachments = new Attachment();
 		        $attachments->user_id = $user_id;
 		        $attachments->planning_id = $planning->id;
 		        $attachments->filename = $filename;
                 $attachments->filetype = $filetype;
+                $attachments->file_ext = $file_ext;
 		        $attachments->disk = 'local';
 		        $attachments->directory = 'planning-'.$planning->id.'/user-'.$user_id.'/';
 		        $attachments->save();

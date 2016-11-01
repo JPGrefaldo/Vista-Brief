@@ -17,6 +17,7 @@ class SubmittedPlanningMail extends Mailable
 
     protected $subject = 'New Planning Request - Vista Brief';
     protected $planning_id;
+    protected $pdf_file_name;
 
     /**
      * Create a new message instance.
@@ -29,6 +30,8 @@ class SubmittedPlanningMail extends Mailable
         $this->updated_at = $planning->updated_at->format('M d, Y h:m');
         $this->title      = $planning->title;
         $this->client     = $planning->client->name;
+
+        $this->pdf_file_name = 'Planning Request - '.$planning->client->name.' - '.$planning->title.' - '.$planning->formofresponse->name.'.pdf';
     }
 
     /**
@@ -40,7 +43,7 @@ class SubmittedPlanningMail extends Mailable
     {
         return $this->view('emails.submittedplanningemail')
                     ->subject($this->subject)
-                    ->attach($this->attachment(), ['as'=>'Planning Request.pdf'])
+                    ->attach($this->attachment(), ['as'=>$this->pdf_file_name])
                     ->with([
                         'updated_at' => $this->updated_at,
                         'title'      => $this->title,

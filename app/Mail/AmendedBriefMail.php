@@ -22,6 +22,7 @@ class AmendedBriefMail extends Mailable
     protected $jobname;
     protected $projectmanager;
     protected $department_name;
+    protected $pdf_file_name;
 
     /**
      * Create a new message instance.
@@ -36,6 +37,8 @@ class AmendedBriefMail extends Mailable
         $this->jobname          = $brief->jobname;
         $this->projectmanager   = $brief->projectmanager;
         $this->department_name  = $department_name;
+
+        $this->pdf_file_name    = 'Brief Sheet: '.$brief->jobnumber.' - '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
     }
 
     /**
@@ -47,7 +50,7 @@ class AmendedBriefMail extends Mailable
     {
         return $this->view('emails.amendedbriefemail')
                     ->subject($this->subject)
-                    ->attach($this->attachment(), ['as'=>'Brief Sheet.pdf'])
+                    ->attach($this->attachment(), ['as'=>$this->pdf_file_name])
                     ->with([
                         'updated_at'        => $this->updated_at,
                         'jobnumber'         => $this->jobnumber,
