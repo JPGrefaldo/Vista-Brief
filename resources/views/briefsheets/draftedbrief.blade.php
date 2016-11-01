@@ -570,7 +570,7 @@ Draft - Brief Sheet
                             <li>
                               <i class="{{ $attachment->classNames }} text-md"></i>
                               <a 
-                                class="text-info" 
+                                class="text-brand1" 
                                 href="{{ route('download_attachment', [$attachment->id]) }}">
                                 {{ $attachment->filename }}
                               </a>

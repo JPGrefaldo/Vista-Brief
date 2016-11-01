@@ -23,6 +23,7 @@ class PdfController extends Controller
     	// return;
 
     	$brief = Brief::find($id);
+
         $departments = Department::all();
     	// return view('pdf.submittedbriefpdf-1', compact('brief', 'departments'));
     	$pdf1 = PDF::loadView('pdf.submittedbriefpdf-1', compact('brief', 'departments'))
@@ -34,6 +35,16 @@ class PdfController extends Controller
     public function get_pdfAmendedBriefAttachment($id) 
     {
         $brief = Brief::find($id);
+
+        // insert the classNames string to the amends-attachment collection data
+        // <i class="{{ $attachment->classNames }} text-md"></i>
+        foreach($brief->amendments_desc as $key => $amendment) {
+            foreach ($amendment->attachments as $attachment) {
+                $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+                $attachment->classNames = $classNames;
+            }
+        }
+
         $departments = Department::all();
         // return view('pdf.amendedbriefpdf-1', compact('brief', 'departments'));
         $pdf = PDF::loadView('pdf.amendedbriefpdf-1', compact('brief', 'departments'))->setPaper('a4');
@@ -44,7 +55,7 @@ class PdfController extends Controller
     public function get_pdfSubmittedPlanningAttachment($id) 
     {
         $planning = Planning::find($id);
-        $departments = Department::all();
+        $departments = Department::isactive()->get();
         // return view('pdf.submittedplanningpdf', compact('planning', 'departments'));
         $pdf = PDF::loadView('pdf.submittedplanningpdf', compact('planning', 'departments'))->setPaper('a4');
         // $pdf->save(storage_path().'/app/temp/'.str_random(10).'.pdf');

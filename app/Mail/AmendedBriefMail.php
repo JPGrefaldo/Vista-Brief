@@ -65,6 +65,14 @@ class AmendedBriefMail extends Mailable
         $brief = Brief::find($this->brief_id);
         $departments = Department::isactive()->get();
 
+        // insert the classNames string to the amends-attachment collection data
+        foreach($brief->amendments_desc as $key => $amendment) {
+            foreach ($amendment->attachments as $attachment) {
+                $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+                $attachment->classNames = $classNames;
+            }
+        }
+
         $pdf = PDF::loadView('pdf.amendedbriefpdf-1', compact('brief', 'departments'))->setPaper('a4');
         $save_directory = storage_path().'/app/temp/';
         $random_filename = str_random(10).'.pdf';

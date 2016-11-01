@@ -130,11 +130,16 @@ if ($brief->projectstatus_id == 1) {
 
           @foreach ($amend->attachments as $attachment)
           <div class="col-xs-12">
-            <p class="p-l-md text-info">
-              <a href="{{ route('download_attachment', [$attachment->id]) }}">
-                {{ $attachment->filename }}
-              </a>
-            </p>
+            <ul class="p-l-md l-s-n">
+              <li>
+                <i class="{{ $attachment->classNames }} text-md"></i> 
+                <a 
+                  class="" 
+                  href="{{ route('download_attachment', [$attachment->id]) }}">
+                  <span class="text-brand1">{{ $attachment->filename }}</span>
+                </a>
+              </li>
+            </ul>
             <h6 class="p-l-md text-muted">
               Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
               {{ $attachment->updated_at->format('l, M d, Y') }}</h6>

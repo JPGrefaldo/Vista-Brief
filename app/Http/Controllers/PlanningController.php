@@ -138,8 +138,6 @@ class PlanningController extends Controller
             $attachment->classNames = $classNames;
         }
 
-        // dd($planning->attachments);
-
     	return view ('planningrequests.submittedplanning', compact('planning'));
     }
 
