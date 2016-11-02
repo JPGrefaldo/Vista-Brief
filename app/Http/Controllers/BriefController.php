@@ -114,8 +114,12 @@ class BriefController extends Controller
                 $mailer
                     ->to($department->email)
                     ->send(new \App\Mail\AmendedBriefMail($brief,$department->name));
-
+                $department_to_be_email_to_user[] = $department->name;
             }
+
+            $mailer
+              ->to($request->user()->email)
+              ->send(new \App\Mail\SubmittedBriefMail($brief,implode(', ', $department_to_be_email_to_user)));
         }
 
         return redirect()->route('submittedbriefsheet', [$brief_id])->with('new_amend_success', 'New Amend created.');

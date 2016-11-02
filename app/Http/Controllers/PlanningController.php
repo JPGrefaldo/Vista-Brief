@@ -124,6 +124,9 @@ class PlanningController extends Controller
         $mailer
             ->to('request@wearevista.co.uk')
             ->send(new \App\Mail\SubmittedPlanningMail($planning));
+        $mailer
+            ->to($request->user()->email)
+            ->send(new \App\Mail\SubmittedPlanningMail($planning));
 
     	return redirect()->route('planningrequests')->with('new_planning_success', 'Successfully created new planning request: '.$title.'.');
     }
