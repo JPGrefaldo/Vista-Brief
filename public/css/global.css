@@ -194,7 +194,7 @@ fieldset[disabled] .btn-brand1.active {
 .nav-pills-brand1 > li.active > a {
 	color: #ffffff;
 	background-color: #00385b;
-  border-color: #00385b;
+  	border-color: #00385b;
 }
 .nav-pills-brand1 > li.active > a:hover,
 .nav-pills-brand1 > li.active > a:focus,
@@ -210,4 +210,30 @@ fieldset[disabled] .btn-brand1.active {
 
 .b-brand1 {
 	border-color: #05436A;
+}
+
+.btn-edit-avatar {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+.btn-edit-avatar:hover,.btn-edit-avatar:focus {
+	position: absolute;
+	bottom: 5px;
+	left: 0px;
+	color: #00385b;
+
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+.uploadphoto-box {
+	width: 320px;
+	display: none;
+}
+.uploadphoto-box input[type="file"] {
+	background: none;
+	border: none;
 }

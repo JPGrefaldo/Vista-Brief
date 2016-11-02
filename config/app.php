@@ -183,11 +183,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         Barryvdh\Snappy\ServiceProvider::class,
-
-        /*
-         * Barryvdh DOMPDF - PDF Generator
-        */
-        // Barryvdh\DomPDF\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -239,6 +235,7 @@ return [
         'Html'  => Collective\Html\HtmlFacade::class,
         // 'PDF'   => Barryvdh\DomPDF\Facade::class,
         'PDF'   => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

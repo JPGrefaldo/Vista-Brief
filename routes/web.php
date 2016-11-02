@@ -212,6 +212,10 @@ Route::group(['middleware' => 'auth'], function() {
 		'uses'	=>	'UserController@postUpdateUserPassword',
 		'as'	=>	'postupdateuserpassword'
 	]);
+	Route::post('/profile/photo/upload', [
+		'uses'	=>	'UserController@postAvatarUpload',
+		'as'	=>	'postavatarupload'
+	]);
 	
 	Route::get('/settings', [	/* Settings */
 		'uses'	=>	'SettingController@index',

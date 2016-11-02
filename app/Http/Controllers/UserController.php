@@ -15,6 +15,9 @@ use App\ResetPasswordRequest;
 
 use App\Http\Requests\UpdateUserProfileRequest;
 use App\Http\Requests\UpdateUserProfilePasswordRequest;
+use App\Http\Requests\UpdateUserAvatarRequest;
+
+use Image;
 
 
 class UserController extends Controller
@@ -169,5 +172,28 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->route('profile')->with('success_password_changed', 'Password Changed!');
+    }
+
+    public function postAvatarUpload(UpdateUserAvatarRequest $request) 
+    {
+        if (!$request->hasFile('avatar')) {
+            return redirect()->route('profile');
+        }
+
+        $avatar = $request->file('avatar');
+        $filename = time().'-'.'user-'.$request->user()->id.'.'.$avatar->getClientOriginalExtension();
+
+        Image::make($avatar)->resize(192,192)->save(public_path('/images/avatars/'.$filename));
+
+        $user = Auth::user();
+        $old_avatar = $user->avatar;
+        $user->avatar = $filename;
+        $user->save();
+
+        if ($old_avatar != "" || $old_avatar != 'default.png') {
+            \File::delete(public_path('/images/avatars/'.$old_avatar));
+        }
+        
+        return redirect()->route('profile');
     }
 }

@@ -29,8 +29,11 @@ Profile - Vista
       <div class="wrapper-lg bg-white-opacity">
         <div class="row m-t">
           <div class="col-sm-7">
-            <a href class="thumb-lg pull-left m-r">
-              <img src="{{ URL::asset('images/user_avatar_default.png')}}" class="img-circle">
+            <a class="thumb-lg pull-left m-r">
+              <img 
+                src="{{ URL::asset('images/avatars') }}/{{ Auth::user()->avatar }}" 
+                class="img-circle">
+              <i id="btn-edit-avatar" class="fa fa-edit text-lg btn-edit-avatar" title="click to change photo"></i>
             </a>
             <div class="clear m-b">
               <div class="m-b m-t-sm">
@@ -67,13 +70,47 @@ Profile - Vista
               </a>
             </div>
           </div>
+          <div class="uploadphoto-box" id="uploadphoto-box">
+            <form 
+              role="form" 
+              enctype="multipart/form-data" 
+              method="POST" 
+              action="{{ route('postavatarupload') }}">
+              <div class="form-group m-b-n">
+                <div class="row m-b-n">
+                  <div class="col-sm-12">
+                    <label class="text-xs">Upload Profile Photo</label>
+                  </div>
+                  <div class="col-sm-8 m-r-n">
+                    <input name="avatar" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1 btn-sm input-sm', buttonText:'Browse'}" type="file">
+                  </div>
+                  <div class="col-sm-4 m-l-n">
+                    {{ csrf_field() }}                      
+                    <button class="form-control btn btn-brand1 btn-xs text-center" type="submit">
+                      Upload
+                    </button>
+                  </div>
+                </div>
+                <div>
+                  @if (count($errors) > 0)
+                    <div class="alert alert-danger text-danger m-b-n">
+                      <ul class="m-b-n m-l-n">
+                        @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                        @endforeach
+                      </ul>
+                    </div>
+                  @endif
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
     <div class="wrapper bg-white b-b">
       <ul class="nav nav-pills nav-sm nav-pills-brand1">
         <li class="active"><a>Profile</a></li>
-        <li class=""><a>Change Photo</a></li>
       </ul>
     </div>
     <div class="padder">      
@@ -234,7 +271,8 @@ Profile - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
-
+  <!-- load ACTION JS scripts -->
+  <script src="{{ URL::asset('js/user/action-userprofile-ui.js') }}"></script>
 
 </div>
 @endsection
