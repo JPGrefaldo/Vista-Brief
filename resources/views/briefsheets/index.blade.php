@@ -133,7 +133,7 @@ Brief Sheets - Vista
                     <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
                     <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
                     <td></td>
-                    <td></td>
+                    <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
                     <td>
                       @if ($brief->is_draft == 1)
                         <a href="{{ route('formeditbrief', [$brief->id]) }}" class="active" title="edit">
