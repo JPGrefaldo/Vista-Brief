@@ -132,7 +132,7 @@ Brief Sheets - Vista
                     <td>{{ $brief->jobnumber }}</td>
                     <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
                     <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
-                    <td></td>
+                    <td>{{ $brief->user->surname }}</td>
                     <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
                     <td>
                       @if ($brief->is_draft == 1)
