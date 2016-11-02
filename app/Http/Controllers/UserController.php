@@ -190,7 +190,7 @@ class UserController extends Controller
         $user->avatar = $filename;
         $user->save();
 
-        if ($old_avatar != "" || $old_avatar != 'default.png') {
+        if ($old_avatar != "" && $old_avatar != 'default.png') {
             \File::delete(public_path('/images/avatars/'.$old_avatar));
         }
         
