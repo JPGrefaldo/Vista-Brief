@@ -55,7 +55,11 @@ Create New Planning Request
                     <label class="col-lg-3 control-label text-left">Client</label>
                     <div class="col-lg-9">
                       <select name="client" class="form-control" id="select-client" disabled>
-                        <option value="{{ $planning->client->id }}" selected>{{ $planning->client->name }}</option>
+                        @if (count($planning->client))
+                          <option value="{{ $planning->client->id }}" selected>
+                            {{ $planning->client->name }}
+                          </option>
+                        @endif
                       </select>
                       <span class="help-block m-b-none"></span>
                     </div>
@@ -194,7 +198,11 @@ Create New Planning Request
                     <div class="col-lg-9">
                       <select name="formatofresponse" class="form-control" disabled>
                         @if ($planning->formofresponse_id != 0)
-                          <option value="{{ $planning->formatofresponse_id }}" selected>{{ $planning->formofresponse->name }}</option>
+                          @if (count($planning->formofresponse))
+                            <option value="{{ $planning->formatofresponse_id }}" selected>
+                              {{ $planning->formofresponse->name }}
+                            </option>
+                          @endif
                         @endif
                       </select>
                       <span class="help-block m-b-none"></span>
@@ -360,7 +368,7 @@ Create New Planning Request
                     style="overflow:hidden;min-height:4px;" 
                     placeholder="Type the description of the work required" 
                     readonly
-                  >{{ old('job_spec') }}</textarea>
+                  >{{ $planning->job_specifications }}</textarea>
                 </div>          
               </div>
             </div>
@@ -391,9 +399,11 @@ Create New Planning Request
                               </a>
                             </li>
                             <li class="text-muted">
-                              Uploaded by 
-                              {{ $attachment->user->forename }} 
-                              {{ $attachment->user->surname }} - 
+                              @if (count($attachment->user))
+                                Uploaded by 
+                                {{ $attachment->user->forename }} 
+                                {{ $attachment->user->surname }} - 
+                              @endif
                               {{ $attachment->updated_at->format('h:m l d M Y') }}
                             </li>
                           </ul>

@@ -548,6 +548,7 @@ Submitted - Brief Sheet
             <div class="panel-body bg-light lter">
               <div class="row">
                 <div class="col-sm-12">
+                  <a name="amending"></a> <!-- amending anchor -->
                   <ul>
                     @if (count($brief->attachmentsNotAmend) < 1)
                       <li class="text-muted">no attachments</li>
@@ -564,8 +565,10 @@ Submitted - Brief Sheet
                               </a>
                             </li>
                             <li class="text-muted">Uploaded by 
-                              {{ $attachment->user->forename }} 
-                              {{ $attachment->user->surname }} - 
+                              @if (count($attachment->user))
+                                {{ $attachment->user->forename }} 
+                                {{ $attachment->user->surname }} - 
+                              @endif
                               {{ $attachment->updated_at->format('h:m l, d M Y') }}</li>
                           </ul>
                         </li>
@@ -616,15 +619,14 @@ Submitted - Brief Sheet
                   <label class="col-lg-12 fom-control text-info">Who to notify?</label>
                   @foreach ($departments as $department)
                     <div class="col-lg-3">
-                      <div class="checkbox1">
-                        <label class="checkbox-inline1">
-                          {{ $department->name }} 
+                      <div class="checkbox">
+                        <label class="i-checks">
                           <input 
-                            class="form-control1"
                             type="checkbox" 
                             name="department[{{ $department->id }}]" 
                             value="{{ $department->id }}">
                           <i></i>
+                          {{ $department->name }} 
                         </label>
                       </div>           
                     </div>
@@ -674,7 +676,9 @@ Submitted - Brief Sheet
                     </h4>
                     <h6 class="text-muted">
                       {{ $amend->updated_at->format('h:m l, d M Y') }} - 
-                      {{ $amend->user->forename }} {{ $amend->user->surname }}
+                      @if ($amend->user)
+                        {{ $amend->user->forename }} {{ $amend->user->surname }}
+                      @endif
                     </h6> 
                     <p>{{ $amend->content }}</p>
                     <ul class="bg-light">
@@ -690,7 +694,9 @@ Submitted - Brief Sheet
                           </p>
                           <h6 class="text-muted">
                             Uploaded by: 
-                            {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
+                            @if (count($attachment->user))
+                              {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
+                            @endif
                             {{ $attachment->updated_at->format('h:m l, d M Y') }}
                           </h6>
                         </li>
