@@ -27,16 +27,6 @@ class BriefController extends Controller
         $projectstatus = \App\ProjectStatus::all();
         $departments = Department::all();
 
-        foreach ($briefs as $brief) {
-            $id = "";
-            $name = "";
-
-            if ($brief->id) $id = $brief->id;
-            if ($brief->user->forename) $name = $brief->user->forename;
-            echo '<br>'.$id.' - '.$name;
-        }
-        exit();
-
     	return view ('briefsheets.index', compact('briefs', 'clients', 'projectstatus', 'departments'));
     }
 
