@@ -115,7 +115,9 @@ Brief Sheets - Vista
                       Sorry, no brief sheets found. 
                       @if (!isset($keyword)) 
                         Begin by creating a 
-                       <a href="{{ route('newbriefsheet') }}" class="text-info"><u>new brief sheet here</u></a>.
+                        <a href="{{ route('newbriefsheet') }}" class="text-info">
+                          <u>new brief sheet here</u>
+                        </a>.
                       @endif
                     </p>
                   </td>
@@ -132,7 +134,11 @@ Brief Sheets - Vista
                     <td>{{ $brief->jobnumber }}</td>
                     <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
                     <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
-                    <td>{{ $brief->user->forename }} {{ $brief->user->surname }}</td>
+                    <td>
+                      @if (count($brief->user))
+                        {{ $brief->user->forename }} {{ $brief->user->surname }}
+                      @endif
+                    </td>
                     <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
                     <td>
                       @if ($brief->is_draft == 1)

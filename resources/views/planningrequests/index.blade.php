@@ -129,12 +129,28 @@ Planning Requests - Vista
                         <i></i>
                       </label>
                     </td>
-                    <td>{{ $planning->client->name }}</td>
+                    <td>
+                      @if (count($planning->client))
+                        {{ $planning->client->name }}
+                      @endif
+                    </td>
                     <td><span class="text-ellipsis">{{ $planning->title }}</span></td>
-                    <td><span class="text-ellipsis"><!-- $planning->user->forename --> <!-- $planning->user->surname --></span></td>
-                    <td>{{ (!empty($planning->formofresponse->name)) ? $planning->formofresponse->name : '' }}</td>
+                    <td><span class="text-ellipsis">
+                      @if (count($planning->user))
+                        {{ $planning->user->forename }} {{ $planning->user->surname }}
+                      @endif
+                    </span></td>
+                    <td>
+                      @if (count($planning->formofresponse))
+                        {{ (!empty($planning->formofresponse->name)) ? $planning->formofresponse->name : '' }}
+                      @endif
+                    </td>
                     <td>{{ $planning->created_at->format('M d, Y') }}</td>
-                    <td>{{ $planning->jobstatus->name }}</td>
+                    <td>
+                      @if (count($planning->jobstatus))
+                        {{ $planning->jobstatus->name }}
+                      @endif
+                    </td>
                     <td>
                       <a href="{{ route('submittedplanningrequest', [$planning->id]) }}" class="active" title="view">
                         <i class="fa fa-eye text-primary"></i>
