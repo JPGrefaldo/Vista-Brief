@@ -28,7 +28,12 @@ class BriefController extends Controller
         $departments = Department::all();
 
         foreach ($briefs as $brief) {
-            echo '<br>'.$brief->id.' - '.$brief->user->forename;
+            $id = "";
+            $name = "";
+
+            if ($brief->id) $id = $brief->id;
+            if ($brief->user->forename) $name = $brief->user->forename;
+            echo '<br>'.$id.' - '.$name;
         }
         exit();
 
