@@ -42,7 +42,12 @@ Create New Brief Sheet
     <div class="wrapper-md" id="newbriefwrapper">
       <div class="row">
         <div class="col-sm-12">          
-          <form class="bs-example form-horizontal" action="{{ route('postnewbrief') }}" method="post" enctype="multipart/form-data">
+          <form 
+            id="form-newbrief" 
+            class="bs-example form-horizontal" 
+            action="{{ route('postnewbrief') }}" 
+            method="post" 
+            enctype="multipart/form-data">
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
@@ -162,6 +167,7 @@ Create New Brief Sheet
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
+                <a href="required_dates" name="required_dates" id="required_dates"></a><!-- anchor -->
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables 
                     <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Name this Brief Sheet based on the specific deliverable it refers to i.e 'Opener Video' or 'Pitch Work'. Multiple Brief Sheets can be created against a single Job Number and identified by the name in this section."></i>
@@ -523,9 +529,10 @@ Create New Brief Sheet
                 <div class="row">
                   <div class="col-lg-6">
                     <input type="submit" name="action" class="btn btn-lg btn-block btn-brand1" value="Save as Draft">
+                    <input id="btn-submit" type="submit" name="action" class="btn btn-lg btn-block btn-brand1 hide" value="Submit">
                   </div>
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-block btn-brand1" value="Submit">
+                    <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1">Submit</button>
                   </div>
                 </div>
               </div>
@@ -561,6 +568,27 @@ Create New Brief Sheet
     </div>
     <!-- / Modal -->
 
+    <!-- Modal: Dates not all filled confirmation -->
+    <div id="modal-dates-not-allfiled" class="modal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4 class="font-bold">Not all Dates are filled!</h4>
+            <h4>Are you sure you still want to submit?</h4>
+            <div class="row m-t-md">
+              <div class="col-sm-4 text-center">
+                <button id="confirm_submit_no" class="btn btn-default">No</button>
+              </div>
+              <div class="col-sm-8 text-center">
+                <button id="confirm_submit_yes" class="btn btn-brand1">Yes, please proceed</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
   </div>
   <!-- / main -->
 </div>
@@ -588,6 +616,7 @@ Create New Brief Sheet
   <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/action-brief-form-ui.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
