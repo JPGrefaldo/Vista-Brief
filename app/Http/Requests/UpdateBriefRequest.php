@@ -35,6 +35,7 @@ class UpdateBriefRequest extends FormRequest
             'stagereq'      =>  'required_without_all:quotereq,proposedreq,projdelivered',
             'projdelivered' =>  'required_without_all:quotereq,proposedreq,stagereq',
             'department'    =>  'required',
+            'attachments.*' =>  'max:5120',
         ];
     }
 
@@ -50,7 +51,8 @@ class UpdateBriefRequest extends FormRequest
             'proposedreq.required_without_all'  =>  'You need to choose at least one of the required dates.',
             'stagereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
             'projdelivered.required_without_all'  =>  'You need to choose at least one of the required dates.',
-            'department.required'       =>  'You need to select at least one discipline.'
+            'department.required'       =>  'You need to select at least one discipline.',
+            'attachments.*'               =>  'Each attached file must not exceed 5MB of size.',
         ];
     }
 

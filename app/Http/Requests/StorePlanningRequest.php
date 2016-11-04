@@ -34,6 +34,7 @@ class StorePlanningRequest extends FormRequest
             'ideal_qa_date'      =>  'required_without_all:pitch_quote_date,ideal_review_date,project_deadline_date',
             'ideal_review_date'      =>  'required_without_all:pitch_quote_date,ideal_qa_date,project_deadline_date',
             'project_deadline_date'      =>  'required_without_all:pitch_quote_date,ideal_qa_date,ideal_review_date',
+            'attachments.*' =>  'max:5120',
         ];
     }
 
@@ -49,6 +50,7 @@ class StorePlanningRequest extends FormRequest
             'ideal_qa_date.required_without_all'  =>  'You need to choose at least one of the required Timings.',
             'ideal_review_date.required_without_all'  =>  'You need to choose at least one of the required Timings.',
             'project_deadline_date.required_without_all'  =>  'You need to choose at least one of the required Timings.',
+            'attachments.*'     =>  'Each attached file must not exceed 5MB of size.',
         ];
     }
 

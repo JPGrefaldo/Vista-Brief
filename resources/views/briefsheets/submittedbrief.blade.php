@@ -598,7 +598,7 @@ Submitted - Brief Sheet
                     class="form-control" 
                     style="overflow:hidden;min-height:100px;" 
                     placeholder="Type new amend here.." 
-                  >{{ old('new_amends') }}</textarea>
+                  >{{ old('content') }}</textarea>
                 </div>
               </div>
 
@@ -624,7 +624,9 @@ Submitted - Brief Sheet
                           <input 
                             type="checkbox" 
                             name="department[{{ $department->id }}]" 
-                            value="{{ $department->id }}">
+                            value="{{ $department->id }}" 
+                            @if(array_key_exists($department->id, old('department',[]))) checked @endif
+                              >
                           <i></i>
                           {{ $department->name }} 
                         </label>

@@ -24,14 +24,16 @@ class StoreBriefAmendRequest extends FormRequest
     public function rules()
     {
         return [
-            'content'        =>  'required',
+            'content'       =>  'required',
+            'attachments.*' =>  'max:5120',
         ];
     }
 
     public function messages() 
     {
         return [
-            'content.required'           =>  'Content must not be empty.',
+            'content.required'  =>  'Content must not be empty.',
+            'attachments.*'     =>  'Each attached file must not exceed 5MB of size.',
         ];
     }
 }
