@@ -47,4 +47,29 @@ class UpdateUserRequest extends FormRequest
             'password_admin.adminpass'  =>  'You need to enter the correct Admin password.',
         ];
     }
+
+    protected function validationData()
+    {
+        $input = array_map('trim', $this->all());
+        $input['email'] =  $input['email'].'@wearevista.co.uk';
+        $this->replace($input);
+        // dd($this->all()); exit();
+        return $this->all();
+    }
+
+    public function response(array $errors)
+    {
+        if ($this->expectsJson()) {
+            return new JsonResponse($errors, 422);
+        }
+
+        $input = array_map('trim', $this->all());
+        $email_parts = explode('@', $input['email']);
+        $input['email'] =  $email_parts[0];
+        $this->replace($input);
+
+        return $this->redirector->to($this->getRedirectUrl())
+                                        ->withInput($this->except($this->dontFlash))
+                                        ->withErrors($errors, $this->errorBag);
+    }
 }

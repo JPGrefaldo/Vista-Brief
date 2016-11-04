@@ -79,14 +79,24 @@ Add New User
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Forename</label>
                   <div class="col-lg-9">
-                    <input type="text" name="forename" class="form-control" placeholder="Forename" value="{{ old('forename') }}">
+                    <input 
+                      type="text" 
+                      name="forename" 
+                      class="form-control" 
+                      placeholder="Forename" 
+                      value="{{ old('forename') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Surname</label>
                   <div class="col-lg-9">
-                    <input type="text" name="surname" class="form-control" placeholder="Surname" value="{{ old('surname') }}">
+                    <input 
+                      type="text" 
+                      name="surname" 
+                      class="form-control" 
+                      placeholder="Surname" 
+                      value="{{ old('surname') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -94,7 +104,7 @@ Add New User
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
                     <div class="row">
-                      <div class="col-xs-8">                        
+                      <div class="col-xs-8">
                         <div class="input-group">
                           <input 
                             type="text" 
@@ -168,7 +178,6 @@ Add New User
   <!-- footer -->
   @include('includes.dashboard-footer')
   <!-- / footer -->
-
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/admin/action-newuser-form-ui.js') }}"></script>

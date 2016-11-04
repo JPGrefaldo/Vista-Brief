@@ -55,18 +55,29 @@ Edit User
             </div>
           @endif
           <div class="panel panel-default">
-            <form class="bs-example form-horizontal" action="{{ route('posteditprofile') }}" method="post">
+            <form 
+              id="form-edituser" 
+              class="bs-example form-horizontal" 
+              action="{{ route('posteditprofile') }}" 
+              method="post">
               <div class="panel-body">
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
-                    <input 
-                      type="text" 
-                      name="username" 
-                      class="form-control" 
-                      placeholder="Username" 
-                      value="{{ (old('username')) ? old('username') : $user->username }}">
-                    <span class="help-block m-b-none"></span>
+                    <div class="input-group">
+                      <input 
+                        type="text" 
+                        name="username" 
+                        class="form-control" 
+                        placeholder="Username" 
+                        value="{{ (old('username')) ? old('username') : $user->username }}" 
+                        readonly>
+                      <span class="input-group-btn">
+                        <button type="button" class="btn btn-default make_editable">
+                          <i class="fa fa-edit"></i>
+                        </button>
+                      </span>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group">
@@ -96,12 +107,27 @@ Edit User
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Email</label>
                   <div class="col-lg-9">
-                    <input 
-                      type="text" 
-                      name="email" 
-                      class="form-control" 
-                      placeholder="Email" 
-                      value="{{ (old('email')) ? old('email') : $user->email }}">
+                    <div class="row">
+                      <div class="col-xs-8">
+                        <div class="input-group">
+                          <input 
+                            type="text" 
+                            name="email" 
+                            class="form-control" 
+                            placeholder="Email" 
+                            value="{{ (old('email')) ? old('email') : $user->email_parts[0] }}" 
+                            readonly>
+                          <span class="input-group-btn">
+                            <button type="button" class="btn btn-default make_editable">
+                              <i class="fa fa-edit"></i>
+                            </button>
+                          </span>
+                        </div>
+                      </div>
+                      <div class="col-xs-4">
+                        <h5 class="text-brand1 m-l-n m-t-xs">@wearevista.co.uk</h5>
+                      </div>
+                    </div>                    
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -158,7 +184,8 @@ Edit User
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
-
+  <!-- load ACTION JS scripts -->
+  <script src="{{ URL::asset('js/admin/action-edituser-form-ui.js') }}"></script>
 
 </div>
 @endsection

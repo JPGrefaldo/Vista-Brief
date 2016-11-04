@@ -87,12 +87,14 @@ class AdminController extends Controller
     public function formEditProfile($id) 
     {
         $user = User::find($id);
+        $user->email_parts = explode('@', $user->email);
+
         return view('admin.edituser', compact('user'));
     }
 
     public function postEditProfile(UpdateUserRequest $request) 
     {
-        $username          = $request['username'];
+        $username          = strtolower($request['username']);
         $forename          = $request['forename'];
         $surname           = $request['surname'];
         $email             = $request['email'];
