@@ -42,7 +42,12 @@ Create New Planning Request
     <div class="wrapper-md" id="newplanningwrapper">
       <div class="row">
         <div class="col-sm-12">          
-          <form class="bs-example form-horizontal" action="{{ route('postnewplanning') }}" method="post" enctype="multipart/form-data">
+          <form 
+            id="form-newplanning" 
+            class="bs-example form-horizontal" 
+            action="{{ route('postnewplanning') }}" 
+            method="post" 
+            enctype="multipart/form-data">
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
@@ -164,6 +169,7 @@ Create New Planning Request
                     </div>
                   </div>
                 </div>
+                <a name="required_dates" id="required_dates"></a><!-- anchor -->
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -401,7 +407,8 @@ Create New Planning Request
             <div class="panel panel-default">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
-                <input type="submit" class="btn btn-lg btn-brand1 btn-block" value="Submit">
+                <input id="btn-submit" type="submit" class="btn btn-lg btn-brand1 btn-block hide" value="Submit">
+                <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1">Submit</button>
               </div>
             </div>
           </form>
@@ -435,6 +442,27 @@ Create New Planning Request
     </div>
     <!-- / Modal -->
 
+    <!-- Modal: Dates not all filled confirmation -->
+    <div id="modal-dates-not-allfiled" class="modal" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body">
+            <h4 class="font-bold">Not all Dates are filled!</h4>
+            <h4>Are you sure you still want to submit?</h4>
+            <div class="row m-t-md">
+              <div class="col-sm-4 text-center">
+                <button id="confirm_submit_no" class="btn btn-default">No</button>
+              </div>
+              <div class="col-sm-8 text-center">
+                <button id="confirm_submit_yes" class="btn btn-brand1">Yes, please proceed</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
   </div>
   <!-- / main -->
 </div>
@@ -460,7 +488,8 @@ Create New Planning Request
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/planning/init-daterangepicker.js') }}"></script>
   <script src="{{ URL::asset('js/planning/action-planning-new-client.js') }}"></script> 
-  <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script>  
+  <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script> 
+  <script src="{{ URL::asset('js/planning/action-planning-form-ui.js') }}"></script> 
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
