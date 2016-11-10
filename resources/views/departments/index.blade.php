@@ -38,6 +38,86 @@ Manage Departments - Vista
         </div>
       </div>
     </div>
+
+    <!-- / main header -->
+    <div class="wrapper-md">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div>
+            <table class="table table-borderless table-rowbar">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="div-rowbar">
+                      <div class="row-fluid">
+                        <div class="action-btn pull-right">
+                          <button class="btn btn-brand1 btn-sm">
+                            <i class="fa fa-edit"></i> Edit</button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash-o"></i> Delete</button>
+                        </div>
+                        <h4 class="text-brand-1">Events</h4> 
+                      </div>
+                      <div class="row-fluid">
+                        <attachment>Attached File</attachment> |
+                        <i>events@wearevista.co.uk</i>
+                      </div>
+                    </div>                    
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="div-rowbar">
+                      <div class="row-fluid">
+                        <div class="action-btn pull-right">
+                          <button class="btn btn-brand1 btn-sm">
+                            <i class="fa fa-edit"></i> Edit</button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash-o"></i> Delete</button>
+                        </div>
+                        <h4 class="text-brand-1">Events</h4> 
+                      </div>
+                      <div class="row-fluid">
+                        <attachment>Attached File</attachment> |
+                        <i>events@wearevista.co.uk</i>
+                      </div>
+                    </div>                    
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="div-rowbar">
+                      <div class="row-fluid">
+                        <div class="action-btn pull-right">
+                          <button class="btn btn-brand1 btn-sm">
+                            <i class="fa fa-edit"></i> Edit</button>
+                          <button class="btn btn-danger btn-sm">
+                            <i class="fa fa-trash-o"></i> Delete</button>
+                        </div>
+                        <h4 class="text-brand-1">Events</h4> 
+                      </div>
+                      <div class="row-fluid">
+                        <attachment>Attached File</attachment> |
+                        <i>events@wearevista.co.uk</i>
+                      </div>
+                    </div>                    
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="text-center">
+                    <a href="{{ route('formnewdepartment') }}" class="btn btn-lg btn-brand1">
+                      <i class="glyphicon glyphicon-plus"></i> Add New Department</a>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- / main header -->
     <div class="wrapper-md">
       <div class="panel panel-default col-lg-7">

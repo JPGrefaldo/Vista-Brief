@@ -8,6 +8,11 @@ class Department extends Model
 {
     //
 
+    public function attachment($query) 
+    {
+    	return $this->hasOne('App\Attachment', 'department_ids');
+    }
+
     public function scopeIsactive($query) 
     {
     	return $query->where('is_active', 1);

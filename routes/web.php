@@ -178,7 +178,23 @@ Route::group(['middleware' => 'auth'], function() {
 			Route::get('/departments', [	/* Department Ruoting */
 				'uses'	=>	'DepartmentController@index',
 				'as'	=>	'departments'
-			]);			
+			]);
+			Route::get('/departments/new', [
+				'uses'	=>	'DepartmentController@formNewDepartment',
+				'as'	=>	'formnewdepartment'
+			]);
+			Route::post('/departments/store', [
+				'uses'	=>	'DepartmentController@postNewDepartment',
+				'as'	=>	'postnewdepartment'
+			]);
+			Route::get('/departments/edit/{id}', [
+				'uses'	=>	'DepartmentController@formEditDepartment',
+				'as'	=>	'formeditdepartment'
+			]);
+			Route::post('/departments/update', [
+				'uses'	=>	'DepartmentController@postEditDepartment',
+				'as'	=>	'posteditdepartment'
+			]);
 
 			/* Clients */
 			Route::get('/clients', [	/* Clients */
