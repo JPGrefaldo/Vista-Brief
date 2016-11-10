@@ -14,7 +14,7 @@ var routingEmails = (function(){
 	$addBtn.on('click', addEmailBox)
 	$el.delegate('button.btnRemoveEmail', 'click', removeEmailBox)
 
-	//_render();
+	_render();
 
 	function _render() {
 		//
@@ -27,7 +27,8 @@ var routingEmails = (function(){
 
 	function removeEmailBox(e){
 		e.preventDefault()
-		$(e.target).closest('.emailBlocks').remove()		
+		$(e.target).closest('.emailBlocks').remove()
+		
 	}
 	
 })()

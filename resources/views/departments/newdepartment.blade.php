@@ -45,7 +45,7 @@ Manage Departments - Vista
         <div class="panel-body">
           <!-- template-department-addnew -->
           <div class="template-department-addnew">
-            <form method="post" action="">
+            <form method="post" action="{{ route('postnewdepartment') }}">
             <div class="row m-b-lg">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -57,22 +57,19 @@ Manage Departments - Vista
                   <input class="form-control" type="file" name="attachment" placeholder="attachment">
                 </div>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-6" id="routingEmailModule">
                 <div class="form-group">
                   <label class="col-sm-12">Routing Emails</label>
                 </div>
-                <div class="form-group">
+                <div class="form-group emailBlocks">
                   <div class="col-sm-8 m-b-sm">
                     <input class="form-control" type="text" name="email[]" placeholder="email">
                   </div>
-                  <div class="col-sm-4">
-                    <button class="btn btn-danger btn-sm" title="remove email">
-                    <i class="glyphicon glyphicon-remove"></i></button>
-                  </div>
+                  <div class="col-sm-4"></div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="AddEmailBox">
                   <div class="col-sm-8">                                  
-                    <button class="btn btn-info btn-sm btn-block">
+                    <button class="btn btn-info btn-sm btn-block" id="btnAddEmail">
                       <i class="glyphicon glyphicon-plus"></i> Add Email</button>
                   </div>
                   <div class="col-sm-4">
@@ -81,8 +78,21 @@ Manage Departments - Vista
               </div>
             </div>
 
+            <div id="emailBlockTemplate" class="hide">
+              <div class="form-group emailBlocks">
+                <div class="col-sm-8 m-b-sm">
+                  <input class="form-control" type="text" name="email[]" placeholder="email">
+                </div>
+                <div class="col-sm-4">
+                  <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
+                  <i class="glyphicon glyphicon-remove"></i></button>
+                </div>
+              </div>
+            </div>
+
             <div class="row text-center">
               <button class="btn btn-success btn-lg">
+                {{ csrf_field() }}
                 <i class="fa fa-check"></i> Submit</button>
             </div>
             </form>

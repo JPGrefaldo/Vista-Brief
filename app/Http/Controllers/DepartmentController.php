@@ -29,6 +29,12 @@ class DepartmentController extends Controller
         return view('departments.editdepartment');
     }
 
+    public function postNewDepartment(Request $request) 
+    {
+        echo '<pre>';
+        dd($request);
+    }
+
 
 
     public function postDeleteDepartment(Request $request)
