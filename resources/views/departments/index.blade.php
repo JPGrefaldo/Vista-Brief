@@ -51,8 +51,8 @@ Manage Departments - Vista
                     <div class="div-rowbar">
                       <div class="row-fluid">
                         <div class="action-btn pull-right">
-                          <button class="btn btn-brand1 btn-sm">
-                            <i class="fa fa-edit"></i> Edit</button>
+                          <a href="{{ route('formeditdepartment', 1) }}" class="btn btn-brand1 btn-sm">
+                            <i class="fa fa-edit"></i> Edit</a>
                           <button class="btn btn-danger btn-sm">
                             <i class="fa fa-trash-o"></i> Delete</button>
                         </div>
@@ -70,8 +70,8 @@ Manage Departments - Vista
                     <div class="div-rowbar">
                       <div class="row-fluid">
                         <div class="action-btn pull-right">
-                          <button class="btn btn-brand1 btn-sm">
-                            <i class="fa fa-edit"></i> Edit</button>
+                          <a href="{{ route('formeditdepartment', 1) }}" class="btn btn-brand1 btn-sm">
+                            <i class="fa fa-edit"></i> Edit</a>
                           <button class="btn btn-danger btn-sm">
                             <i class="fa fa-trash-o"></i> Delete</button>
                         </div>

@@ -105,5 +105,7 @@ Manage Departments - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
+  <script src="{{ URL::asset('js/department/action-department-new-ui.js') }}"></script>
+
 </div>
 @endsection

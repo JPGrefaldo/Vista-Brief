@@ -19,9 +19,14 @@ class DepartmentController extends Controller
     	return view ('departments.index', compact('departments'));
     }
 
-    public function formNewDepartment(Request $request)
+    public function formNewDepartment()
     {
         return view('departments.newdepartment');
+    }
+
+    public function formEditDepartment($id) 
+    {
+        return view('departments.editdepartment');
     }
 
 
