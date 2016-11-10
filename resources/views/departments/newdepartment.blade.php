@@ -41,16 +41,34 @@ Manage Departments - Vista
     <!-- / main header -->
 
     <div class="wrapper-md">
+
+      @if (count($errors) > 0)
+      <div class="panel panel-default">
+          <div class="alert alert-danger text-danger m-b-n">
+            <ul class="m-b-n">
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+      </div>
+      @endif
+
       <div class="panel panel-default">
         <div class="panel-body">
           <!-- template-department-addnew -->
           <div class="template-department-addnew">
-            <form method="post" action="{{ route('postnewdepartment') }}">
+            <form method="post" action="{{ route('postnewdepartment') }}" enctype="multipart/form-data">
             <div class="row m-b-lg">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>Name</label>
-                  <input class="form-control" type="text" name="name" placeholder="department name">
+                  <input 
+                    class="form-control" 
+                    type="text" 
+                    name="name" 
+                    placeholder="department name" 
+                    value="{{old('name')}}">
                 </div>
                 <div class="form-group">
                   <label>Attachment</label>
@@ -61,12 +79,33 @@ Manage Departments - Vista
                 <div class="form-group">
                   <label class="col-sm-12">Routing Emails</label>
                 </div>
-                <div class="form-group emailBlocks">
-                  <div class="col-sm-8 m-b-sm">
-                    <input class="form-control" type="text" name="email[]" placeholder="email">
+                @if(!is_array(old('email')))
+                  <div class="form-group emailBlocks">
+                    <div class="col-sm-8 m-b-sm">
+                      <input 
+                        class="form-control" 
+                        type="text" 
+                        name="email[]" 
+                        placeholder="email" 
+                        value="{{old('email[0]')}}">
+                    </div>
+                    <div class="col-sm-4"></div>
                   </div>
-                  <div class="col-sm-4"></div>
-                </div>
+                @else
+                  @foreach(old('email') as $e)
+                    <div class="form-group emailBlocks">
+                      <div class="col-sm-8 m-b-sm">
+                        <input 
+                          class="form-control" 
+                          type="text" 
+                          name="email[]" 
+                          placeholder="email" 
+                          value="{{$e}}">
+                      </div>
+                      <div class="col-sm-4"></div>
+                    </div>
+                  @endforeach
+                @endif
                 <div class="form-group" id="AddEmailBox">
                   <div class="col-sm-8">                                  
                     <button class="btn btn-info btn-sm btn-block" id="btnAddEmail">
@@ -81,7 +120,7 @@ Manage Departments - Vista
             <div id="emailBlockTemplate" class="hide">
               <div class="form-group emailBlocks">
                 <div class="col-sm-8 m-b-sm">
-                  <input class="form-control" type="text" name="email[]" placeholder="email">
+                  <input class="form-control" type="text" name="temp_email[]" placeholder="email">
                 </div>
                 <div class="col-sm-4">
                   <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">

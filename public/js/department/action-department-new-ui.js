@@ -23,11 +23,14 @@ var routingEmails = (function(){
 	function addEmailBox(e){
 		e.preventDefault()
 		$AddBox.before($emailBlockTemplate)
+
+		var $last = $el.find('.emailBlocks').last()
+		$last.find('input').attr('name', 'email[]')
 	}
 
 	function removeEmailBox(e){
 		e.preventDefault()
-		$(e.target).closest('.emailBlocks').remove()		
+		$(e.target).closest('.emailBlocks').remove()
 	}
 	
 })()
