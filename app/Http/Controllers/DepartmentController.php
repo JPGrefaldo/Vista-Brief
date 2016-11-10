@@ -21,6 +21,20 @@ class DepartmentController extends Controller
   public function index() {
   	$departments = Department::all();
 
+    foreach ($departments as $department) {
+      if (empty($department->email)) continue;
+      $arr_emails = explode(',', $department->email);
+
+      $department->emails = $arr_emails;
+
+      if (count($department->attachment)) {
+        if ($department->attachment->file_ext) {
+          $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($department->attachment->file_ext);
+          $department->attachment->classNames = $classNames;
+        }
+      }
+    }
+
   	return view ('departments.index', compact('departments'));
   }
 

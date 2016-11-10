@@ -51,6 +51,7 @@ Manage Departments - Vista
           <div>
             <table class="table table-borderless table-rowbar">
               <tbody>
+                @foreach($departments as $department)
                 <tr>
                   <td>
                     <div class="div-rowbar">
@@ -61,53 +62,32 @@ Manage Departments - Vista
                           <button class="btn btn-danger btn-sm">
                             <i class="fa fa-trash-o"></i> Delete</button>
                         </div>
-                        <h4 class="text-brand-1">Events</h4> 
+                        <h4 class="text-brand-1">{{$department->name}}</h4> 
                       </div>
                       <div class="row-fluid">
-                        <attachment>Attached File</attachment> |
-                        <i>events@wearevista.co.uk</i>
+                        @if (count($department->attachment))
+                          <attachment>
+                            @if ($department->attachment->classNames)
+                              <i class="{{$department->attachment->classNames}}"></i>
+                            @endif
+                            <a href="{{route('download_attachment',[$department->attachment->id])}}">
+                              <u>{{$department->attachment->filename}}</u>
+                            </a>
+                          </attachment> |
+                        @endif
+                        
+                        @if (!empty($department->emails))
+                          @foreach ($department->emails as $email)
+                            <span class="highlight1">
+                              {{$email}}, 
+                            </span>
+                            @endforeach
+                        @endif
                       </div>
                     </div>                    
                   </td>
                 </tr>
-                <tr>
-                  <td>
-                    <div class="div-rowbar">
-                      <div class="row-fluid">
-                        <div class="action-btn pull-right">
-                          <a href="{{ route('formeditdepartment', 1) }}" class="btn btn-brand1 btn-sm">
-                            <i class="fa fa-edit"></i> Edit</a>
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash-o"></i> Delete</button>
-                        </div>
-                        <h4 class="text-brand-1">Events</h4> 
-                      </div>
-                      <div class="row-fluid">
-                        <attachment>Attached File</attachment> |
-                        <i>events@wearevista.co.uk</i>
-                      </div>
-                    </div>                    
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="div-rowbar">
-                      <div class="row-fluid">
-                        <div class="action-btn pull-right">
-                          <button class="btn btn-brand1 btn-sm">
-                            <i class="fa fa-edit"></i> Edit</button>
-                          <button class="btn btn-danger btn-sm">
-                            <i class="fa fa-trash-o"></i> Delete</button>
-                        </div>
-                        <h4 class="text-brand-1">Events</h4> 
-                      </div>
-                      <div class="row-fluid">
-                        <attachment>Attached File</attachment> |
-                        <i>events@wearevista.co.uk</i>
-                      </div>
-                    </div>                    
-                  </td>
-                </tr>
+                @endforeach                
 
                 <tr>
                   <td class="text-center">

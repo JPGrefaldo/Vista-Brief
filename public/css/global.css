@@ -254,3 +254,8 @@ fieldset[disabled] .btn-brand1.active {
 .div-rowbar > strong {
 	padding-right: 10px;
 }
+
+.highlight1:hover {
+	text-decoration: underline;
+	color: #00385b;
+}

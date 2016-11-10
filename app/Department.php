@@ -8,7 +8,7 @@ class Department extends Model
 {
     //
 
-    public function attachment($query) 
+    public function attachment() 
     {
     	return $this->hasOne('App\Attachment', 'department_ids');
     }
