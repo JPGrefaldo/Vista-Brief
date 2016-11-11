@@ -1,13 +1,12 @@
 // $(document).ready(function(){
 // 	alert('ready na')
 // });
-var input_name;
-var input_email;
-var modal_btn;
-var errors = [];
-
+// var input_name;
+// var input_email;
+// var modal_btn;
+// var errors = [];
+/*
 $(document).ready(function() {
-
 	// SHOW ADD Box
 	$('#add-department-btn').click(function(){
 		$btn = $(this)
@@ -93,7 +92,6 @@ $(document).ready(function() {
 		}
 
 		save_new_department($input_name.val(), $input_email.val())
-
 	})
 
 	// SHOW EDIT Box
@@ -181,7 +179,8 @@ $(document).ready(function() {
 
 		save_edited_department($tr, $input_name.val(), $input_email.val(), $input_id.val())
 	})
-
+*/
+/*
 	// SHOW REMOVE Modal
 	$('.action-remove').click(function(){
 		$tbody_list = $(this).closest('tbody#tbody-department-list')
@@ -222,9 +221,9 @@ $(document).ready(function() {
 		$modal.modal('toggle')
 		delete_department(id)
 	})
-
 })
-
+*/
+/*
 function make_other_action_unclickable () {
 	$tbody_list = $('tbody#tbody-department-list')
 
@@ -275,7 +274,6 @@ function show_error_message(value, index, array) {
 }
 
 function save_new_department(name, email) {
-
 	$.ajaxSetup({
 		headers: {
 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -346,29 +344,122 @@ function save_edited_department($tr, name, email, id) {
 		// console.log(data)
 	})
 }
+*/
 
-function delete_department(id) {
-	// return false
-	$.ajaxSetup({
-		headers: {
-			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-		}
-	});
+// SHOW REMOVE Modal
+// $('.action-remove').click(function(){
+// 	$tbody_list = $(this).closest('tbody#tbody-department-list')
+// 	$container = $(this).closest('tr');
 
-	$.ajax({
-		type: 'POST',
-		url: "/ajax/departments/delete",
-		data: { id:id },
-		success: function(data){
-			if (data == 'success') {
-				location.reload()
+// 	$actionbox = $container.find('div.actionbox');
+// 	$editingbox = $container.find('div.editingbox');
+
+// 	// failsafe: in case this button is suppose to be unclickable
+// 	if($actionbox.hasClass('unclickable')) { return false }
+
+// 	$modal_view = $('#modal-remove-department')
+
+// 	modal_btn = $(this)
+// 	$modal_view.modal({backdrop:false})
+// 	// $modal_view.modal('show');
+// })
+// $('#modal-remove-department').on('show.bs.modal', function(event){
+// 	var button = modal_btn
+// 	var name = button.data('dname')
+// 	var email = button.data('demail')
+// 	var id = button.data('did')
+
+// 	var modal = $(this)
+// 	modal.find('#department-name').text(name)
+// 	modal.find('#id-to-be-deleted').val(id)
+// })
+
+// $('#remove-department-save').click(function(){
+// 	$modal = $('#modal-remove-department')
+// 	var id = $modal.find('#id-to-be-deleted').val()
+	
+// 	if (!$.isNumeric(id)) {
+// 		console.log('fatal error: department id is invalid!')
+// 		$modal.modal('toggle')
+// 		return false
+// 	}
+// 	$modal.modal('toggle')
+// 	delete_department(id)
+// })
+
+// function delete_department(id) {
+// 	// return false
+// 	$.ajaxSetup({
+// 		headers: {
+// 			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+// 		}
+// 	});
+
+// 	$.ajax({
+// 		type: 'POST',
+// 		url: "/ajax/departments/delete",
+// 		data: { id:id },
+// 		success: function(data){
+// 			if (data == 'success') {
+// 				location.reload()
+// 			}
+// 		},
+// 		error: function(xhr, status, response) {
+// 			// not expecting error except, internal error
+// 		},
+// 	})
+// 	.done(function(data) {
+// 		console.log(data)
+// 	})
+// }
+
+var departmentListModule = (function(){
+	//cache DOM
+	var $el = $('#departmentListModule')
+	var $modal_view = $('#modal-remove-department')
+	var $btnsDelete = $el.find('.btnsDelete')
+	var $btnConfirmDelete = $modal_view.find('#remove-department-save')
+	var department_id
+	var department_name
+
+	//bind events
+	$btnsDelete.on('click', deleteDepartment_openModal)
+	$btnConfirmDelete.on('click', confirmDelete)
+
+	function deleteDepartment_openModal(e) {
+		department_id = $(e.target).attr('data-did')
+		department_name = $(e.target).attr('data-dname')
+		
+		$modal_view.modal({backdrop:false})
+	}
+
+	$modal_view.on('show.bs.modal', function(e){
+		$modal_view.find('#department-name').text(department_name)
+ 		$modal_view.find('#id-to-be-deleted').val(department_id)
+	})
+
+	function confirmDelete(e){
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
-		},
-		error: function(xhr, status, response) {
-			// not expecting error except, internal error
-		},
-	})
-	.done(function(data) {
-		console.log(data)
-	})
-}
+		});
+
+		$.ajax({
+			type: 'POST',
+			url: "/ajax/departments/delete",
+			data: { id:department_id },
+			success: function(data){
+				if (data == 'success') {
+					location.reload()
+				}
+			},
+			error: function(xhr, status, response) {
+				// not expecting error except, internal error
+			},
+		})
+		.done(function(data) {
+			//console.log(data)
+		})
+	}
+})()

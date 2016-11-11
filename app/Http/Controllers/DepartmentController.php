@@ -154,6 +154,10 @@ class DepartmentController extends Controller
   public function postDeleteDepartment(Request $request)
   {
     if ( $department = Department::find($request->input('id')) ) {
+      if (count($department->attachment)) {
+        $attachment = $department->attachment;
+        $attachment->delete();
+      }
       $department->delete();
     }        
 

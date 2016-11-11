@@ -248,10 +248,10 @@ Route::group(['middleware' => 'auth'], function() {
 // 	'uses'	=>	'DepartmentController@postEditDepartment',
 // 	'as'	=>	'posteditdepartment'
 // ]);
-// Route::post('/ajax/departments/delete', [
-// 	'uses'	=>	'DepartmentController@postDeleteDepartment',
-// 	'as'	=>	'postdeletedepartment'
-// ]);
+Route::post('/ajax/departments/delete', [
+	'uses'	=>	'DepartmentController@postDeleteDepartment',
+	'as'	=>	'postdeletedepartment'
+]);
 Route::post('/ajax/brief/post/create/newclient/save', [
 	'uses'	=>	'BriefAddEditController@postNewClient'
 ]);
