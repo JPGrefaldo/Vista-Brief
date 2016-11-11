@@ -89,7 +89,10 @@ Manage Departments - Vista
                         placeholder="email" 
                         value="{{old('email[0]')}}">
                     </div>
-                    <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
+                          <i class="glyphicon glyphicon-remove"></i></button>
+                      </div>
                   </div>
                 @else
                   @foreach(old('email') as $e)
@@ -102,10 +105,14 @@ Manage Departments - Vista
                           placeholder="email" 
                           value="{{$e}}">
                       </div>
-                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4">
+                        <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
+                          <i class="glyphicon glyphicon-remove"></i></button>
+                      </div>
                     </div>
                   @endforeach
                 @endif
+                
                 <div class="form-group" id="AddEmailBox">
                   <div class="col-sm-8">                                  
                     <button class="btn btn-info btn-sm btn-block" id="btnAddEmail">
@@ -116,6 +123,8 @@ Manage Departments - Vista
                 </div>
               </div>
             </div>
+
+            <div class="m-b-lg">&nbsp;</div>
 
             <div id="emailBlockTemplate" class="hide">
               <div class="form-group emailBlocks">

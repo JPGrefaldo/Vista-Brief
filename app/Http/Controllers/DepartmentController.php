@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 
 use App\Http\Requests\StoreDepartmentRequest;
+use App\Http\Requests\UpdateDepartmentRequest;
 
 
 class DepartmentController extends Controller
@@ -47,6 +48,12 @@ class DepartmentController extends Controller
   {
     $department = Department::findorfail($id);
 
+    if ($department->email) {
+      $arr_emails = explode(',', $department->email);
+
+      $department->emails = $arr_emails;
+    }
+
     if(count($department->attachment)) {
       if ($department->attachment->file_ext) {
         $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($department->attachment->file_ext);
@@ -60,9 +67,13 @@ class DepartmentController extends Controller
   public function postNewDepartment(StoreDepartmentRequest $request) 
   {
     $name = $request->input('name');
-    $arr_emails = array_filter($request->input('email'));
-    $arr_emails = array_unique($arr_emails);
-    $emails = implode(',', $arr_emails);
+    if ( !empty($request->input('email'))) {
+      $arr_emails = array_filter($request->input('email'));
+      $arr_emails = array_unique($arr_emails);
+      $emails = implode(',', $arr_emails);
+    } else {
+      $emails = '';
+    }
 
     $department = new Department();
     $department->name = $name;
@@ -92,15 +103,50 @@ class DepartmentController extends Controller
     return redirect()->route('departments')->with('new_department_success', $name.' had been successfully added.');
   }
 
-  public function postEditDepartment(Request $request) 
-  {
-    $file = $request->file('attachment');
-    if ($file) {
-      echo 'file exists';
+  public function postEditDepartment(UpdateDepartmentRequest $request) 
+  {    
+    $name = $request->input('name');
+    if ( !empty($request->input('email'))) {
+      $arr_emails = array_filter($request->input('email'));
+      $arr_emails = array_unique($arr_emails);
+      $emails = implode(',', $arr_emails);
     } else {
-      echo 'no file';
+      $emails = '';
     }
-    dd($request);
+    $delete_attachment = $request->input('deletecurrentfile');
+
+    $department = Department::find($request->input('department_id'));
+    $department->name = $name;
+    $department->email = $emails;
+    $department->save();
+
+    if ($delete_attachment) {
+      if (count($department->attachment)) {
+        $attachment = \App\Attachment::find($department->attachment->id);
+        $attachment->delete();
+      }
+    } 
+
+    $file = $request->file('attachment');
+    if ( !empty($file) ) {
+      $filetype = $file->getClientMimeType();
+      $file_ext = $file->extension();
+      $filename = "$name file.$file_ext";
+
+      $attachments = (count($department->attachment)) ? $department->attachment : new Attachment();
+      $attachments->user_id = $request->user()->id;
+      $attachments->department_ids = $department->id;
+      $attachments->filename = $filename;
+      $attachments->filetype = $filetype;
+      $attachments->file_ext = $file_ext;
+      $attachments->disk = 'local';
+      $attachments->directory = 'department-'.$department->id.'/';
+      $attachments->save();
+
+      Storage::disk('local')->put($attachments->directory.$filename, file_get_contents($file));
+    }
+
+    return redirect()->route('departments')->with('edit_department_success', $name.' had been successfully edited.');
   }
 
 

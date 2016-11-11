@@ -30,14 +30,11 @@ var routingEmails = (function(){
 
 	function removeEmailBox(e){
 		e.preventDefault()
-		$(e.target).closest('.emailBlocks').remove()
-		
-	}
-	
+		$(e.target).closest('.emailBlocks').remove()		
+	}	
 })()
 
 var attachFile = (function(){
-
 	//cache DOM
 	var $el = $('#attachfileModule')
 	var $currentFileBlock = $el.find('#fileCurrent')
@@ -60,7 +57,7 @@ var attachFile = (function(){
 
 	function showfileUploadBlock(e) {
 		e.preventDefault()
-		deletedFileFlagYes()
+		//deletedFileFlagYes()
 		
 		hideCurrentFileBlock()
 		hideCurrentFileDeletedBlock()		
@@ -125,5 +122,4 @@ var attachFile = (function(){
 		$fileUploadBlock.removeClass('hide')
 		$fileUploadBlock.addClass('hide')
 	}
-
 })()

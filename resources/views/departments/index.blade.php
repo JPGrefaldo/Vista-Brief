@@ -46,6 +46,10 @@ Manage Departments - Vista
         <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_department_success') }}</span>
       @endif
 
+      @if (session('edit_department_success'))
+        <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('edit_department_success') }}</span>
+      @endif
+
       <div class="panel panel-default">
         <div class="panel-body">
           <div>
