@@ -57,7 +57,7 @@ Manage Departments - Vista
                     <div class="div-rowbar">
                       <div class="row-fluid">
                         <div class="action-btn pull-right">
-                          <a href="{{ route('formeditdepartment', 1) }}" class="btn btn-brand1 btn-sm">
+                          <a href="{{ route('formeditdepartment', $department->id) }}" class="btn btn-brand1 btn-sm">
                             <i class="fa fa-edit"></i> Edit</a>
                           <button class="btn btn-danger btn-sm">
                             <i class="fa fa-trash-o"></i> Delete</button>

@@ -45,16 +45,52 @@ Manage Departments - Vista
         <div class="panel-body">
           <!-- template-department-edit -->
           <div class="template-department-edit">
-            <form method="post" action="">
+            <form method="post" action="{{route('posteditdepartment')}}" enctype="multipart/form-data">
             <div class="row m-b-lg">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label>Name</label>
-                  <input class="form-control" type="text" name="name" placeholder="department name">
+                  <input 
+                    class="form-control" 
+                    type="text" 
+                    name="name" 
+                    placeholder="department name" 
+                    value="{{(old('name')) ? old('name') : $department->name}}">
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="attachfileModule">                
                   <label>Attachment</label>
-                  <input class="form-control" type="file" name="attachment" placeholder="attachment">
+                  @if (count($department->attachment))
+                    <div class="form-group" id="fileCurrent">                    
+                      <a href="{{route('download_attachment',[$department->attachment->id])}}" class="text-brand-1 p-r-sm">
+                        <i class="{{$department->attachment->classNames}}"></i> 
+                        <u>{{$department->attachment->filename}}</u></a>                    
+                      <button class="btn btn-info btn-sm" id="btnUploadNew">
+                        <i class="glyphicon glyphicon-upload"></i> Upload New</button>
+                      <button class="btn btn-danger btn-sm" id="btnDeleteCurrent">
+                        <i class="glyphicon glyphicon-trash"></i> Delete</button>
+                    </div>
+                    <div class="form-group hide" id="fileDeletedBlock">
+                      <span>&lt;delete current file&gt;</span>
+                      <input type="hidden" name="deletecurrentfile" value="0">
+                      <button class="btn btn-info btn-sm">Undo</button>
+                    </div>
+                    <div class="form-group hide" id="fileUploadBlock">
+                      <input 
+                        class="form-control m-b-sm" 
+                        type="file" 
+                        name="attachment" 
+                        placeholder="attachment">
+                      <button class="btn btn-brand1 btn-sm">Cancel</button>
+                    </div>                  
+                  @else
+                    <div class="form-group">
+                      <input 
+                        class="form-control m-b-sm" 
+                        type="file" 
+                        name="attachment" 
+                        placeholder="attachment">
+                    </div>
+                  @endif  
                 </div>
               </div>
               <div class="col-sm-6" id="routingEmailModule">
@@ -63,7 +99,11 @@ Manage Departments - Vista
                 </div>
                 <div class="form-group emailBlocks">
                   <div class="col-sm-8 m-b-sm">
-                    <input class="form-control" type="text" name="email[]" placeholder="email">
+                    <input 
+                      class="form-control" 
+                      type="text" 
+                      name="email[]" 
+                      placeholder="email">
                   </div>
                   <div class="col-sm-4"></div>
                 </div>
@@ -81,7 +121,7 @@ Manage Departments - Vista
             <div id="emailBlockTemplate" class="hide">
               <div class="form-group emailBlocks">
                 <div class="col-sm-8 m-b-sm">
-                  <input class="form-control" type="text" name="email[]" placeholder="email">
+                  <input class="form-control" type="text" name="temp_email[]" placeholder="email">
                 </div>
                 <div class="col-sm-4">
                   <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
@@ -92,7 +132,8 @@ Manage Departments - Vista
 
             <div class="row text-center">
               <button class="btn btn-success btn-lg">
-                <i class="fa fa-check"></i> Submit</button>
+                {{ csrf_field() }}
+                <i class="fa fa-check"></i> Save Changes</button>
             </div>
             </form>
           </div>

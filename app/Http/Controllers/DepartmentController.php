@@ -45,7 +45,16 @@ class DepartmentController extends Controller
 
   public function formEditDepartment($id) 
   {
-    return view('departments.editdepartment');
+    $department = Department::findorfail($id);
+
+    if(count($department->attachment)) {
+      if ($department->attachment->file_ext) {
+        $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($department->attachment->file_ext);
+        $department->attachment->classNames = $classNames;
+      }
+    }
+
+    return view('departments.editdepartment', compact('department'));
   }
 
   public function postNewDepartment(StoreDepartmentRequest $request) 
@@ -81,6 +90,17 @@ class DepartmentController extends Controller
     }
 
     return redirect()->route('departments')->with('new_department_success', $name.' had been successfully added.');
+  }
+
+  public function postEditDepartment(Request $request) 
+  {
+    $file = $request->file('attachment');
+    if ($file) {
+      echo 'file exists';
+    } else {
+      echo 'no file';
+    }
+    dd($request);
   }
 
 
