@@ -59,6 +59,8 @@ Create New Planning Request
                           <option value="{{ $planning->client->id }}" selected>
                             {{ $planning->client->name }}
                           </option>
+                        @else
+                          <option>&lt;Client Info Missing&gt;</option>
                         @endif
                       </select>
                       <span class="help-block m-b-none"></span>

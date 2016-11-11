@@ -74,7 +74,11 @@ Submitted - Brief Sheet
                     <label class="col-lg-4 control-label text-left">Client</label>
                     <div class="col-lg-8">
                       <select id="select-client" name="client" class="form-control" disabled>
-                        <option value="{{ $brief->client_id }}">{{ $brief->client->name }}</option>
+                        @if (count($brief->client))
+                          <option value="{{ $brief->client_id }}">{{ $brief->client->name }}</option>
+                        @else
+                          <option>&lt;Client Info Missing&gt;</option>
+                        @endif
                       </select>
                       <span class="help-block m-b-none"></span>
                     </div>
