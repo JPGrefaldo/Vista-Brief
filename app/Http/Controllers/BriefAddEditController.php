@@ -28,9 +28,19 @@ class BriefAddEditController extends Controller
     //
     public function new() 
     {
-        $clients = Client::isactive()->latest()->get();
-        $projectstatus = ProjectStatus::all();
-        $departments = Department::isactive()->get();
+      $clients = Client::isactive()->latest()->get();
+      $projectstatus = ProjectStatus::all();
+      $departments = Department::isactive()->get();
+
+      foreach($departments as $d) {
+        if(count($d->attachment)) {
+          if($d->attachment->file_ext) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($d->attachment->file_ext);
+            $d->attachment->classNames = $classNames;
+          }
+        }
+      }
+      //exit();
 
     	return view ('briefsheets.newbrief', compact('clients', 'projectstatus', 'departments'));
     }
@@ -169,15 +179,15 @@ class BriefAddEditController extends Controller
     public function formEditBrief($id) 
     {
     	$brief = Brief::find($id);
-        $clients = Client::isactive()->latest()->get();
-        $projectstatus = ProjectStatus::all();
-        $departments = Department::isactive()->get();
+      $clients = Client::isactive()->latest()->get();
+      $projectstatus = ProjectStatus::all();
+      $departments = Department::isactive()->get();
 
-        // insert the classNames string to the attachment collection data
-        foreach ($brief->attachmentsNotAmend as $attachment) {
-            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
-            $attachment->classNames = $classNames;
-        }
+      // insert the classNames string to the attachment collection data
+      foreach ($brief->attachmentsNotAmend as $attachment) {
+          $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+          $attachment->classNames = $classNames;
+      }
 
     	return view (
                 'briefsheets.draftedbrief', 
@@ -298,29 +308,29 @@ class BriefAddEditController extends Controller
     public function postNewClient(Request $request) 
     {
     	$messages = [
-            'name.required'     =>  'Client name must not be empty.',
-            'name.unique'		=> 	'Client name is already taken.'
-        ];
+        'name.required'     =>  'Client name must not be empty.',
+        'name.unique'		=> 	'Client name is already taken.'
+      ];
 
-        $validator = Validator::make($request->all(),[
-            'name'      =>  'bail|required|unique:clients,name',
-        ], $messages);
+      $validator = Validator::make($request->all(),[
+        'name'      =>  'bail|required|unique:clients,name',
+      ], $messages);
 
-        if ($validator->fails()) {
-            $errors = $validator->errors();
-            $errors = json_decode($errors);
+      if ($validator->fails()) {
+        $errors = $validator->errors();
+        $errors = json_decode($errors);
 
-            return response()->json([
-                'success'   => false,
-                'message'   => $errors
-            ], 422);
-        }
-        
-        $client = new Client();
-        $client->name = $request->input('name');
-        $client->save();
+        return response()->json([
+          'success'   => false,
+          'message'   => $errors
+        ], 422);
+      }
+      
+      $client = new Client();
+      $client->name = $request->input('name');
+      $client->save();
 
-        return 'success';
+      return 'success';
     }
 
     public function getClients()
