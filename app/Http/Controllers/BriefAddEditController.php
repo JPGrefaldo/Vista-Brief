@@ -189,6 +189,15 @@ class BriefAddEditController extends Controller
           $attachment->classNames = $classNames;
       }
 
+      foreach($departments as $d) {
+        if(count($d->attachment)) {
+          if($d->attachment->file_ext) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($d->attachment->file_ext);
+            $d->attachment->classNames = $classNames;
+          }
+        }
+      }
+
     	return view (
                 'briefsheets.draftedbrief', 
                 compact('brief','clients','projectstatus','departments'));

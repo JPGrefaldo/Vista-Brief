@@ -336,7 +336,7 @@ Draft - Brief Sheet
               </div>
               <div class="panel-body">
                 <div class="form-group">
-                  <div class="row-fluid">
+                  <div class="row-fluid" id="departmentCBModule">
                     @foreach ($departments as $department)
                       <div class="col-lg-3">
                         <div class="checkbox">
@@ -360,6 +360,21 @@ Draft - Brief Sheet
                       </div>
                     @endforeach
                   </div>
+                </div>
+
+                <div class="row">
+                  <ul class="pull-right m-r-md text-brand-1" id="departmentAttachmentListBlock">
+                    @foreach($departments as $department)
+                      @if (count($department->attachment))
+                        <li class="highlight1 hide" id="liDFile-{{$department->id}}">
+                          <a href="{{route('download_attachment',[$department->attachment->id])}}">
+                            download 
+                            <i class="{{$department->attachment->classNames}}"></i> 
+                            {{$department->attachment->filename}}</a>
+                        </li>
+                      @endif
+                    @endforeach
+                  </ul>
                 </div>
               </div>
             </div>
@@ -704,6 +719,7 @@ Draft - Brief Sheet
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>  
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-form-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/action-brief-new-department-checkbox-module.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

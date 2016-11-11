@@ -292,7 +292,10 @@ Create New Brief Sheet
                       @if (count($department->attachment))
                         <li class="highlight1 hide" id="liDFile-{{$department->id}}">
                           <a href="{{route('download_attachment',[$department->attachment->id])}}">
-                            download {{$department->attachment->filename}}</a></li>
+                            download 
+                            <i class="{{$department->attachment->classNames}}"></i> 
+                            {{$department->attachment->filename}}</a>
+                        </li>
                       @endif
                     @endforeach
                   </ul>
@@ -629,6 +632,8 @@ Create New Brief Sheet
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-form-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/action-brief-new-department-checkbox-module.js') }}"></script>
+
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
