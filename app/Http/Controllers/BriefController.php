@@ -58,13 +58,6 @@ class BriefController extends Controller
         $content = trim($request->input('content'));
         $department_ids = $this->convertTo_CommaSeparatedIds($request->input('department'));
 
-        // echo '<p>user_id: '.$user_id.'</p>';
-        // echo '<p>brief_id: '.$brief_id.'</p>';
-        // echo '<p>is_internal: '.$is_internal.'</p>';
-        // echo '<p>content: '.$content.'</p>';
-        // echo '<p>department_ids: '.$department_ids.'</p>';
-        // echo '<p>attachment_ids: '.$attachment_ids.'</p>';
-
         $amend = new Amendment();
         $amend->user_id = $user_id;
         $amend->brief_id = $brief_id;
@@ -109,15 +102,21 @@ class BriefController extends Controller
             $departments_to_be_email = Department::find($request->input('department'));
 
             foreach ($departments_to_be_email as $department) {
-                $mailer
-                    ->to($department->email)
-                    ->send(new \App\Mail\AmendedBriefMail($brief,$department->name));
-                $department_to_be_email_to_user[] = $department->name;
+                foreach (explode(',',$department->email) as $email) {
+                    if (!empty($email)) {
+                        $mailer
+                            ->to($email)
+                            ->send(new \App\Mail\AmendedBriefMail($brief,$department->name));
+                        $department_to_be_email_to_user[] = $department->name;
+                    }
+                }
             }
 
-            $mailer
-              ->to($request->user()->email)
-              ->send(new \App\Mail\SubmittedBriefMail($brief,implode(', ', $department_to_be_email_to_user)));
+            if(!empty($request->user()->email)) {
+                $mailer
+                  ->to($request->user()->email)
+                  ->send(new \App\Mail\SubmittedBriefMail($brief,implode(', ', $department_to_be_email_to_user)));
+            }
         }
 
         return redirect()->route('submittedbriefsheet', [$brief_id])->with('new_amend_success', 'New Amend created.');
