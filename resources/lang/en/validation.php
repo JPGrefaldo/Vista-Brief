@@ -95,6 +95,9 @@ return [
     |
     */
 
+    'adminpass'     => 'Your Admin password is incorrect.',
+    'isadmin'       => 'You need to be an Admin to do this.',
+
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',

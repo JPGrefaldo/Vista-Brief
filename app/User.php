@@ -2,28 +2,38 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
 
-class User extends Authenticatable
+class User extends Model implements Authenticatable
 {
-    use Notifiable;
+	use \Illuminate\Auth\Authenticatable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'firstname', 'surname', 'email', 'password',
-    ];
+	public function briefs()
+	{
+		return $this->hasMany('App\Brief');
+	}
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+	// public function isAdmin() 
+	// {
+	// 	if ($this->type == 1) {
+	// 		return true;
+	// 	}
+	// 	return false;
+	// }
+
+	public function scopeUsername($query, $username) 
+	{
+		return $query->where('username', $username);
+	}
+
+	public function scopeIsactive($request)
+    {
+    	return $request->where('is_active', 1);
+    }
+
+	public function scopeIsadmin($query)
+	{
+		return $query->where('type', 1);
+	}
 }

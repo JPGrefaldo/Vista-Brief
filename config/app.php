@@ -105,7 +105,8 @@ return [
 
     'key' => env('APP_KEY'),
 
-    'cipher' => 'AES-256-CBC',
+    'cipher' => 'AES-128-CBC',
+    //AES-256-CBC AES-128-CBC and AES-256-CBC
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +179,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\ValidationServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+
+        Barryvdh\Snappy\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
     ],
 
     /*
@@ -224,6 +230,12 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Form'  => Collective\Html\FormFacade::class,
+        'Html'  => Collective\Html\HtmlFacade::class,
+        // 'PDF'   => Barryvdh\DomPDF\Facade::class,
+        'PDF'   => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
