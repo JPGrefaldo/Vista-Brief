@@ -201,9 +201,13 @@ Route::group(['middleware' => 'auth'], function() {
 				'uses'	=>	'ClientController@index',
 				'as'	=>	'clients'
 			]);
-			Route::get('/clients/new', [	/* NOT IMPLEMENTED YET */
+			/*Route::get('/clients/new', [	
 				'uses'	=>	'ClientController@formNewClient',
 				'as'	=>	'formnewclient'
+			]);*/
+			Route::post('/clients/edit', [	
+				'uses'	=>	'ClientController@postEditClient',
+				'as'	=>	'posteditclient'
 			]);
 			Route::get('/clients/delete/{id}', [
 				'uses'	=>	'ClientController@deleteClient',

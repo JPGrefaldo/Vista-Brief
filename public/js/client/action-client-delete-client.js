@@ -5,6 +5,9 @@ $(document).ready(function() {
 
 	// SHOW REMOVE Modal
 	$('.action-delete').click(function(){
+		if ($(this).closest('td').hasClass('disabled')) {
+			return false
+		}
 		$modal_view = $('#modal-confirm-delete-client')
 
 		modal_btn = $(this)
