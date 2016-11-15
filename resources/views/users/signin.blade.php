@@ -51,7 +51,7 @@ Signin - Vista
       <p>
         <small class="text-muted hide1">username: admin | password: qwqwqw</small>
       </p><p>
-        <small class="text-muted hide1">username: user1 | password: qwqwqw</small>
+        <small class="text-muted hide1">username: user.one | password: qwqwqw</small>
       </p>
     </div>
   </div>
