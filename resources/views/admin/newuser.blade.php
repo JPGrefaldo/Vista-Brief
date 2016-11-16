@@ -152,10 +152,10 @@ Add New User
               <div class="panel-footer">
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 m-b-sm">
                       <a href="{{ route('users') }}" class="btn btn-sm btn-default btn-block">Cancel</a>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 m-b-sm">
                       <button type="submit" class="btn btn-sm btn-brand1 btn-block">Save</button>
                     </div>
                   </div>

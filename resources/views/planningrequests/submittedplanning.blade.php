@@ -219,7 +219,7 @@ Create New Planning Request
           <!-- Timings -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              03 - Timings
+              02 - Timings
             </div>
             <div class="panel-body">
               <div class="row">

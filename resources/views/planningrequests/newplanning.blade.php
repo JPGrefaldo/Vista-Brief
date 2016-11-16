@@ -429,10 +429,10 @@ Create New Planning Request
           </div>
           <div class="modal-footer">
             <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-4 m-b-sm">
                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
               </div>
-              <div class="col-sm-8">
+              <div class="col-sm-8 m-b-sm">
                 <button type="button" class="btn btn-brand1 btn-block" id="btn-client-create">Create Client</button>
               </div>
             </div>
@@ -450,11 +450,11 @@ Create New Planning Request
             <h4 class="font-bold">Not all Dates are filled!</h4>
             <h4>Are you sure you still want to submit?</h4>
             <div class="row m-t-md">
-              <div class="col-sm-4 text-center">
-                <button id="confirm_submit_no" class="btn btn-default">No</button>
+              <div class="col-sm-4 text-center m-b-sm">
+                <button id="confirm_submit_no" class="btn btn-default btn-block">No</button>
               </div>
-              <div class="col-sm-8 text-center">
-                <button id="confirm_submit_yes" class="btn btn-brand1">Yes, please proceed</button>
+              <div class="col-sm-8 text-center m-b-sm">
+                <button id="confirm_submit_yes" class="btn btn-brand1 btn-block">Yes, please proceed</button>
               </div>
             </div>
           </div>
