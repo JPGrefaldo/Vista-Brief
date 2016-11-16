@@ -39,14 +39,17 @@ Draft - Brief Sheet
       </div>
     </div>
     <!-- / main header -->
+
     <div class="wrapper-md" id="newbriefwrapper">
       <div class="row">
+
         <div class="col-sm-12">    
           <div class="panel panel-info">
             <div class="panel-body bg-ltinfo">
               <strong>Draft.</strong> This brief sheet has not been submitted yet.
             </div>
-          </div>      
+          </div>     
+           
           <form id="form-newbrief" class="bs-example form-horizontal" action="{{ route('posteditbrief') }}" method="post" enctype="multipart/form-data">
 
             @if (count($errors) > 0)
@@ -226,6 +229,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="quotereq" 
+                            placeholder="mm/dd/yy" 
                             value="{{ (old('quotereq') || empty($brief->quoted_required_by_at)) ? old('quotereq') : $brief->quoted_required_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -246,6 +250,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="proposedreq" 
+                            placeholder="mm/dd/yy" 
                             value="{{ (old('proposedreq') || empty($brief->proposal_required_by_at)) ? old('proposedreq') : $brief->proposal_required_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -266,6 +271,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="stagereq" 
+                            placeholder="mm/dd/yy" 
                             value="{{ (old('stagereq') || empty($brief->firststage_required_by_at)) ? old('stagereq') : $brief->firststage_required_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -286,6 +292,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="projdelivered" 
+                            placeholder="mm/dd/yy" 
                             value="{{ (old('projdelivered') || empty($brief->project_delivered_by_at)) ? old('projdelivered') : $brief->project_delivered_by_at->format('m/d/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -317,8 +324,8 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="summary" 
-                      class="form-control" 
-                      style="overflow:auto;min-height:50px" 
+                      class="form-control auto-height" 
+                      style="min-height:50px" 
                       placeholder="Enter short overview description of the requirements here."
                       >{{ (old('summary')) ? old('summary') : $brief->summary }}</textarea>
                   </div>            
@@ -394,8 +401,8 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea
                       name="objmeasure" 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:120px;" 
+                      class="form-control auto-height" 
+                      style="min-height:120px;" 
                       placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
                     >{{ (old('objmeasure')) ? old('objmeasure') : $brief->objectives_or_measures }}</textarea>
                   </div>          
@@ -418,8 +425,8 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea
                       name="context" 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:100px;" 
+                      class="form-control auto-height" 
+                      style="min-height:100px;" 
                       placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?"
                     >{{ (old('context')) ? old('context') : $brief->content }}</textarea>
                   </div>
@@ -442,8 +449,8 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="targetaudience_insight"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control auto-height" 
+                      style="min-height:80px;" 
                       placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?"
                     >{{ (old('targetaudience_insight')) ? old('targetaudience_insight') : $brief->targetaudience_and_insight }}</textarea>
                   </div>         
@@ -463,24 +470,24 @@ Draft - Brief Sheet
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_think"
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control m-l-n m-r-n auto-height" 
+                      style="min-height:60px;" 
                       placeholder="Think?"
                       >{{ (old('targetaudience_think')) ? old('targetaudience_think') : $brief->targetaudience_think }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_feel"
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control m-l-n m-r-n auto-height" 
+                      style="min-height:60px;" 
                       placeholder="Feel?"
                       >{{ (old('targetaudience_feel')) ? old('targetaudience_feel') : $brief->targetaudience_feel }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_do"
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control m-l-n m-r-n auto-height" 
+                      style="min-height:60px;" 
                       placeholder="Do?"
                       >{{ (old('targetaudience_do')) ? old('targetaudience_do') : $brief->targetaudience_do }}</textarea>
                     </div>
@@ -504,8 +511,8 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="keymsg_propositions" 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control auto-height" 
+                      style="min-height:80px;" 
                       placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?"
                     >{{ (old('keymsg_propositions')) ? old('keymsg_propositions') : $brief->keymessages_or_propositions }}</textarea>
                   </div>             
@@ -528,8 +535,8 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="creative"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control auto-height" 
+                      style="min-height:80px;" 
                       placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?"
                     >{{ (old('creative')) ? old('creative') : $brief->creative }}</textarea>
                   </div>            
@@ -552,8 +559,8 @@ Draft - Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="budget_timings_outputs_req"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:100px;" 
+                      class="form-control auto-height" 
+                      style="min-height:100px;" 
                       placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?"
                     >{{ (old('budget_timings_outputs_req')) ? old('budget_timings_outputs_req') : $brief->budget_timings_and_outputs }}</textarea>
                   </div>           
@@ -710,8 +717,8 @@ Draft - Brief Sheet
   <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
   <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
   <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-  <!-- multifile-upload -->
-  <!--<script src="{{ URL::asset('libs/jquery/multifile-master/jQuery.MultiFile.min.js') }}"></script>-->
+  <!-- auto height -->
+  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script> 
 
 
   <!-- load ACTION JS scripts -->
@@ -720,6 +727,7 @@ Draft - Brief Sheet
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-form-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-department-checkbox-module.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

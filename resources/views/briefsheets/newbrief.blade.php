@@ -206,7 +206,7 @@ Create New Brief Sheet
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
-                            lass="form-control" 
+                            class="form-control" 
                             name="proposedreq" 
                             placeholder="mm/dd/yy"                            
                             value="{{ old('proposedreq') }}" 
@@ -246,6 +246,7 @@ Create New Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="projdelivered" 
+                            placeholder="mm/dd/yy"
                             value="{{ old('projdelivered') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -661,7 +662,6 @@ Create New Brief Sheet
   <script src="{{ URL::asset('js/brief/action-brief-form-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-department-checkbox-module.js') }}"></script>
   <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>
-
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

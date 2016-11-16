@@ -51,15 +51,15 @@ Submitted - Brief Sheet
           </div>
 
           @if (count($errors) > 0)
-            <div class="panel panel-default">
-              <div class="alert alert-danger text-danger m-b-n">
-                <ul class="">
-                  @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-              </div>
+          <div class="panel panel-default">
+            <div class="alert alert-danger text-danger m-b-n">
+              <ul class="">
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
             </div>
+          </div>
           @endif 
 
           <!-- Information -->
@@ -212,6 +212,7 @@ Submitted - Brief Sheet
                           type="text" 
                           class="form-control" 
                           name="quotereq" 
+                          placeholder="mm/dd/yy" 
                           value="@if(!empty($brief->quoted_required_by_at)) {{ $brief->quoted_required_by_at->format('m/d/Y') }} @endif" 
                           readonly 
                           disabled />
@@ -233,6 +234,7 @@ Submitted - Brief Sheet
                           type="text" 
                           class="form-control" 
                           name="proposedreq" 
+                          placeholder="mm/dd/yy" 
                           value="@if(!empty($brief->proposal_required_by_at)) {{ $brief->proposal_required_by_at->format('m/d/Y') }} @endif"
                           readonly 
                           disabled />
@@ -254,6 +256,7 @@ Submitted - Brief Sheet
                           type="text" 
                           class="form-control" 
                           name="stagereq" 
+                          placeholder="mm/dd/yy" 
                           value="@if(!empty($brief->firststage_required_by_at)) {{ $brief->firststage_required_by_at->format('m/d/Y') }} @endif" 
                           readonly 
                           disabled />
@@ -275,6 +278,7 @@ Submitted - Brief Sheet
                           type="text" 
                           class="form-control" 
                           name="projdelivered" 
+                          placeholder="mm/dd/yy" 
                           value="@if(!empty($brief->project_delivered_by_at)) {{ $brief->project_delivered_by_at->format('m/d/Y') }} @endif"
                           readonly 
                           disabled />
@@ -304,12 +308,11 @@ Submitted - Brief Sheet
             </div>
             <div class="panel-body bg-light lter">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea 
                     name="summary" 
-                    class="form-control" 
-                    style="overflow:auto;min-height:50px" 
-                    placeholder="Enter short overview description of the requirements here." 
+                    class="form-control auto-height" 
+                    style="min-height:5px" 
                     disabled
                     >{{ $brief->summary }}</textarea>
                 </div>            
@@ -364,12 +367,11 @@ Submitted - Brief Sheet
             </div>
             <div class="panel-body bg-light lter">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea
                     name="objmeasure" 
-                    class="form-control" 
-                    style="overflow:hidden;min-height:120px;" 
-                    placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?" 
+                    class="form-control auto-height" 
+                    style="min-height:5px;" 
                     disabled
                   >{{ $brief->objectives_or_measures }}</textarea>
                 </div>          
@@ -389,12 +391,11 @@ Submitted - Brief Sheet
             </div>
             <div class="panel-body bg-light lter">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea
                     name="context" 
-                    class="form-control" 
-                    style="overflow:hidden;min-height:100px;" 
-                    placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?" 
+                    class="form-control auto-height" 
+                    style="min-height:5px;" 
                     disabled
                   >{{ $brief->content }}</textarea>
                 </div>
@@ -414,12 +415,11 @@ Submitted - Brief Sheet
             </div>
             <div class="panel-body bg-light lter">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea 
                     name="targetaudience_insight"
-                    class="form-control" 
-                    style="overflow:hidden;min-height:80px;" 
-                    placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?" 
+                    class="form-control auto-height" 
+                    style="min-height:5px;" 
                     disabled
                   >{{ $brief->targetaudience_and_insight }}</textarea>
                 </div>         
@@ -439,27 +439,24 @@ Submitted - Brief Sheet
                   <div class="col-lg-4 m-b-n">
                     <textarea 
                     name="targetaudience_think"
-                    class="form-control m-l-n m-r-n" 
-                    style="overflow:hidden;min-height:80px;" 
-                    placeholder="Think?" 
+                    class="form-control auto-height m-l-n m-r-n" 
+                    style="min-height:5px;" 
                     disabled
                     >{{ $brief->targetaudience_think }}</textarea>
                   </div>
                   <div class="col-lg-4 m-b-n">
                     <textarea 
                     name="targetaudience_feel"
-                    class="form-control m-l-n m-r-n" 
-                    style="overflow:hidden;min-height:80px;" 
-                    placeholder="Feel?" 
+                    class="form-control auto-height m-l-n m-r-n" 
+                    style="min-height:5px;" 
                     disabled
                     >{{ $brief->targetaudience_feel }}</textarea>
                   </div>
                   <div class="col-lg-4 m-b-n">
                     <textarea 
                     name="targetaudience_do"
-                    class="form-control m-l-n m-r-n" 
-                    style="overflow:hidden;min-height:80px;" 
-                    placeholder="Do?" 
+                    class="form-control auto-height m-l-n m-r-n" 
+                    style="min-height:5px;" 
                     disabled
                     >{{ $brief->targetaudience_do }}</textarea>
                   </div>
@@ -480,12 +477,11 @@ Submitted - Brief Sheet
             </div>
             <div class="panel-body bg-light lter">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea 
                     name="keymsg_propositions" 
-                    class="form-control" 
-                    style="overflow:hidden;min-height:80px;" 
-                    placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?" 
+                    class="form-control auto-height" 
+                    style="min-height:5px;" 
                     disabled
                   >{{ $brief->keymessages_or_propositions }}</textarea>
                 </div>             
@@ -505,12 +501,11 @@ Submitted - Brief Sheet
             </div>
             <div class="panel-body bg-light lter">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea 
                     name="creative"
-                    class="form-control" 
-                    style="overflow:hidden;min-height:80px;" 
-                    placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?" 
+                    class="form-control auto-height" 
+                    style="min-height:5px;" 
                     disabled
                   >{{ $brief->creative }}</textarea>
                 </div>            
@@ -530,12 +525,11 @@ Submitted - Brief Sheet
             </div>
             <div class="panel-body bg-light lter">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea 
                     name="budget_timings_outputs_req"
-                    class="form-control" 
-                    style="overflow:hidden;min-height:100px;" 
-                    placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?" 
+                    class="form-control auto-height" 
+                    style="min-height:5px;" 
                     disabled
                   >{{ $brief->budget_timings_and_outputs }}</textarea>
                 </div>           
@@ -758,14 +752,15 @@ Submitted - Brief Sheet
   <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
   <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
   <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-  <!-- multifile-upload -->
-  <!--<script src="{{ URL::asset('libs/jquery/multifile-master/jQuery.MultiFile.min.js') }}"></script>-->
+  <!-- auto height -->
+  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script> 
 
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script> 
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
