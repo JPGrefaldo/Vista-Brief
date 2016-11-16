@@ -216,22 +216,12 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="pitch_quote_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('pitch_quote_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
                               <button type="button" class="btn btn-default" id="btn_pitch_quote_date">
                                 <i class="glyphicon glyphicon-calendar"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="pitch_quote_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" id="btn_pitch_quote_time">
-                                <i class="glyphicon glyphicon-time"></i>
                               </button>
                             </span>                      
                           </div>
@@ -249,22 +239,12 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="ideal_qa_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('ideal_qa_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
                               <button type="button" class="btn btn-default" id="btn_ideal_qa_date">
                                 <i class="glyphicon glyphicon-calendar"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="ideal_qa_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default">
-                                <i class="glyphicon glyphicon-time"></i>
                               </button>
                             </span>                      
                           </div>
@@ -282,22 +262,12 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="ideal_review_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('ideal_review_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
                               <button type="button" class="btn btn-default" id="btn_ideal_review_date">
                                 <i class="glyphicon glyphicon-calendar"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="ideal_review_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default">
-                                <i class="glyphicon glyphicon-time"></i>
                               </button>
                             </span>                      
                           </div>
@@ -315,22 +285,12 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="project_deadline_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('project_deadline_date') }}"  
                               readonly/>
                             <span class="input-group-btn">
                               <button type="button" class="btn btn-default" id="btn_project_deadline_date">
                                 <i class="glyphicon glyphicon-calendar"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="project_deadline_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default">
-                                <i class="glyphicon glyphicon-time"></i>
                               </button>
                             </span>                      
                           </div>
@@ -357,8 +317,8 @@ Create New Planning Request
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="job_spec"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:4px;" 
+                      class="form-control auto-height" 
+                      style="min-height:4px;" 
                       placeholder="Type the description of the work required"
                     >{{ old('job_spec') }}</textarea>
                   </div>          
@@ -487,9 +447,11 @@ Create New Planning Request
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/planning/init-daterangepicker.js') }}"></script>
+  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>
   <script src="{{ URL::asset('js/planning/action-planning-new-client.js') }}"></script> 
   <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script> 
-  <script src="{{ URL::asset('js/planning/action-planning-form-ui.js') }}"></script> 
+  <script src="{{ URL::asset('js/planning/action-planning-form-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/planning/init-auto-height.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
