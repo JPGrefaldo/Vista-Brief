@@ -58,10 +58,10 @@ Delete User
                 </div>
               <div class="panel-footer">
                 <div class="row">
-                  <div class="col-lg-2">
-                    <a href="{{ route('users') }}" class="">Cancel</a>
+                  <div class="col-lg-2 m-b-sm">
+                    <a href="{{ route('users') }}" class="btn btn-default btn-block">Cancel</a>
                   </div>
-                  <div class="col-lg-10">
+                  <div class="col-lg-10 m-b-sm">
                     <input type="hidden" name="_token" value="{{ Session::token() }}">
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
                     <button type="submit" class="btn btn-md btn-brand1 btn-block">Confirm</button>

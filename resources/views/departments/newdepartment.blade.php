@@ -89,7 +89,7 @@ Manage Departments - Vista
                         placeholder="email" 
                         value="{{old('email[0]')}}">
                     </div>
-                      <div class="col-sm-4">
+                      <div class="col-sm-4 text-right">
                         <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                           <i class="glyphicon glyphicon-remove"></i></button>
                       </div>
@@ -131,7 +131,7 @@ Manage Departments - Vista
                 <div class="col-sm-8 m-b-sm">
                   <input class="form-control" type="text" name="temp_email[]" placeholder="email">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 text-right">
                   <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                   <i class="glyphicon glyphicon-remove"></i></button>
                 </div>

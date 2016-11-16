@@ -146,9 +146,9 @@ Clients - Vista
                 <input type="hidden" name="id">
                 {{ csrf_field() }}
               </div>
-              <div class="col-sm-3">
-                <button class="btn btn-brand1 btn-sm m-t-xs btn-edit-save">save</button>
+              <div class="col-sm-3 text-right">
                 <button class="btn btn-default btn-sm m-t-xs btn-edit-cancel">cancel</button>
+                <button class="btn btn-brand1 btn-sm m-t-xs btn-edit-save">save</button>
               </div>
             </div>
             </form>
