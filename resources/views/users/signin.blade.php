@@ -54,7 +54,14 @@ Signin - Vista
         <small class="text-muted hide1">username: user.one | password: qwqwqw</small>
       </p>
     </div>
-  </div>
+  </div>  
+
+  @if ($errors->has('token_error'))
+    <div class="alert alert-danger text-center"> 
+      <h3>{{ $errors->first('token_error') }}</h3>
+    </div>
+  @endif
+
 </div>
 @endsection
 

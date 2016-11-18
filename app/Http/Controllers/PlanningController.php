@@ -104,7 +104,7 @@ class PlanningController extends Controller
       $planning->save();
 
       $mailer
-        ->to('request@wearevista.co.uk')
+        ->to('planning@wearevista.co.uk')
         ->send(new \App\Mail\SubmittedPlanningMail($planning));
       $mailer
         ->to($request->user()->email)
