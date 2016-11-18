@@ -107,15 +107,22 @@ class BriefController extends Controller
                         $mailer
                             ->to($email)
                             ->send(new \App\Mail\AmendedBriefMail($brief,$department->name));
-                        $department_to_be_email_to_user[] = $department->name;
                     }
+                    $department_to_be_email_to_user[] = $department->name;
                 }
+            }
+
+            if (isset($department_to_be_email_to_user) && 
+                is_array($department_to_be_email_to_user)) {
+              $department_to_be_email_to_user = implode(', ', $department_to_be_email_to_user);
+            } else {
+              $department_to_be_email_to_user = "";
             }
 
             if(!empty($request->user()->email)) {
                 $mailer
                   ->to($request->user()->email)
-                  ->send(new \App\Mail\SubmittedBriefMail($brief,implode(', ', $department_to_be_email_to_user)));
+                  ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
             }
         }
 
