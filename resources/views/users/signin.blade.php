@@ -49,9 +49,7 @@ Signin - Vista
     </div>
     <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
       <p>
-        <small class="text-muted hide1">username: admin | password: qwqwqw</small>
-      </p><p>
-        <small class="text-muted hide1">username: user.one | password: qwqwqw</small>
+        <small class="text-muted hide1">username: admin | password: admin</small>
       </p>
     </div>
   </div>  
