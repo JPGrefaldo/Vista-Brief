@@ -30,11 +30,11 @@ Submitted - Brief Sheet
   <!-- main -->
   <div class="col">
     <!-- main header -->
-    <div class="bg-light lter b-b wrapper-md hide">
+    <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Edit Drafted Brief Sheet</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Brief Sheet:</small>
+          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$brief->jobname}}</h1>
         </div>
       </div>
     </div>

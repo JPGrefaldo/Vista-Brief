@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         		'username'    =>	'Admin',
         		'forename'    =>	'Ad',
         		'surname'     =>	'Min',
-        		'email'       =>	'request@wearevista.co.uk',
+        		'email'       =>	'admin@wearevista.co.uk',
         		'password'    =>	bcrypt('admin'),
         		'type'        =>	1,
         		'is_active'   =>	1,

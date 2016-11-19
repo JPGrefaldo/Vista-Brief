@@ -20,11 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('surname', 50);
             $table->string('email', 200);
             $table->string('password', 255);
-            $table->string('type')->default('2'); /* 1=admin; 2=regular*/
-            //$table->tinyInteger('department_id')->default(1);
+            $table->string('avatar', 200)->default('default.png');
+            $table->tinyInteger('type')->default('2'); /* 1=admin; 2=regular*/
             $table->tinyInteger('is_active')->default('1');
-            //$table->timestamp('last_login_at');
-            $table->string('activation_key')->default('');
+            $table->string('activation_key', 100)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

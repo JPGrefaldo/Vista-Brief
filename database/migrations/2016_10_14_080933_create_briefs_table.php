@@ -17,19 +17,20 @@ class CreateBriefsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('client_id');
-            $table->string('jobnumber')->nullable();
-            $table->string('old_jobnumber')->nullable();
-            $table->string('jobname');
+            $table->string('jobnumber', 200)->nullable();
+            $table->string('old_jobnumber', 200)->nullable();
+            $table->string('jobname', 500);
             $table->tinyInteger('projectstatus_id');
-            $table->boolean('is_draft');
-            $table->string('projectmanager')->nullable();
-            $table->string('budget')->nullable();
+            $table->boolean('is_draft')->default(0);
+            $table->string('projectmanager', 200)->nullable();
+            $table->text('budget', 2000)->nullable();
             $table->text('keydeliverables', 1000)->nullable();
             $table->date('quoted_required_by_at')->nullable();
             $table->date('proposal_required_by_at')->nullable();
             $table->date('firststage_required_by_at')->nullable();
             $table->date('project_delivered_by_at')->nullable();
-            $table->string('disciplines_required_ids')->nullable();
+            $table->text('summary', 40000)->nullable();
+            $table->string('disciplines_required_ids', 500)->nullable();
             $table->text('objectives_or_measures', 40000)->nullable();
             $table->text('content', 40000)->nullable(); // suppose to be context
             $table->text('targetaudience_and_insight', 40000)->nullable();
@@ -39,8 +40,8 @@ class CreateBriefsTable extends Migration
             $table->text('keymessages_or_propositions', 40000)->nullable();
             $table->text('creative', 40000)->nullable();
             $table->text('budget_timings_and_outputs', 40000)->nullable();
-            $table->string('attachment_ids')->nullable();
-            $table->string('amendment_ids')->nullable();
+            $table->string('attachment_ids', 500)->nullable();
+            $table->string('amendment_ids', 500)->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();
 

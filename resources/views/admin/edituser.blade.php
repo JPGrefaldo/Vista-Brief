@@ -33,8 +33,8 @@ Edit User
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Edit User</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Editing User:</small>
+          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$user->username}}</h1>
         </div>
       </div>
     </div>

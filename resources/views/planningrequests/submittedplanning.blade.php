@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Create New Planning Request
+Planning Request
 @endsection
 
 @section('content')
@@ -33,8 +33,8 @@ Create New Planning Request
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Create New Planning Request</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Planning Request:</small>
+          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$planning->title}}</h1>
         </div>
       </div>
     </div>

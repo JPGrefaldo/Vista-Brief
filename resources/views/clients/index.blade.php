@@ -33,7 +33,7 @@ Clients - Vista
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-12 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Clients</h1>
+          <h1 class="m-n font-thin h3 text-black">Manage Clients</h1>
           <small class="text-muted">welcome</small>
           @if (session('client_delete_success'))
             <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('client_delete_success') }}</span>
