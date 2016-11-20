@@ -45,7 +45,7 @@ Planning Request
 
           <!-- Information -->
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading hide">
               Information
             </div>
             <div class="panel-body">
@@ -223,7 +223,7 @@ Planning Request
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Pitch/Quote</label>
@@ -246,7 +246,7 @@ Planning Request
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Ideal Q&amp;A</label>
@@ -269,7 +269,7 @@ Planning Request
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Ideal Review</label>
@@ -292,7 +292,7 @@ Planning Request
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Project Deadline</label>
@@ -332,7 +332,7 @@ Planning Request
                     name="job_spec"
                     class="form-control auto-height" 
                     style="min-height:4px;" 
-                    placeholder="Type the description of the work required" 
+                    placeholder="" 
                     readonly
                   >{{ $planning->job_specifications }}</textarea>
                 </div>          

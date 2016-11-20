@@ -757,7 +757,7 @@ Submitted - Brief Sheet
 
 
   <!-- load ACTION JS scripts -->
-  <script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>
+  <!--<script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>-->
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script> 
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>

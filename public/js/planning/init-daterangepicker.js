@@ -9,6 +9,9 @@ $(document).ready(function() {
 	$pitch_quote_date.daterangepicker({
 		singleDatePicker: true,
 		'opens': 'center',
+		locale: {
+			firstDay: 1,
+		},
 	})
 	$btn_pitch_quote_date.click(function() {
 		$pitch_quote_date.trigger('click')
@@ -20,6 +23,9 @@ $(document).ready(function() {
 	$ideal_qa_date.daterangepicker({
 		singleDatePicker: true,
 		'opens': 'center',
+		locale: {
+			firstDay: 1,
+		},
 	})
 	$btn_ideal_qa_date.click(function() {
 		$ideal_qa_date.trigger('click')
@@ -31,6 +37,9 @@ $(document).ready(function() {
 	$ideal_review_date.daterangepicker({
 		singleDatePicker: true,
 		'opens': 'center',
+		locale: {
+			firstDay: 1,
+		},
 	})
 	$btn_ideal_review_date.click(function() {
 		$ideal_review_date.trigger('click')
@@ -42,11 +51,12 @@ $(document).ready(function() {
 	$project_deadline_date.daterangepicker({
 		singleDatePicker: true,
 		'opens': 'center',
+		locale: {
+			firstDay: 1,
+		},
 	})
 	$btn_project_deadline_date.click(function() {
 		$project_deadline_date.trigger('click')
 	})
-
-
 
 })
