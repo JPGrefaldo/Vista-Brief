@@ -77,7 +77,7 @@ Add New User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Forename</label>
+                  <label class="col-lg-3 control-label">First Name</label>
                   <div class="col-lg-9">
                     <input 
                       type="text" 
