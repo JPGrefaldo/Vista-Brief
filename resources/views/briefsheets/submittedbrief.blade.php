@@ -64,7 +64,7 @@ Submitted - Brief Sheet
 
           <!-- Information -->
           <div class="panel panel-default brief-panel">
-            <div class="panel-heading">
+            <div class="panel-heading hide">
               Information
             </div>
             <div class="panel-body bg-light lter">
@@ -138,7 +138,7 @@ Submitted - Brief Sheet
                   <div class="form-group">
                     <label class="col-lg-4 control-label text-left">
                       Your Budget 
-                      <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="The maximum budget allocation to deliver this brief. Detail split between teams in Job Description section below if available."></i>
+                      <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="What budget allocation has the client or have you set to complete this work."></i>
                     </label>
                     <div class="col-lg-8">
                       <input 
@@ -203,7 +203,7 @@ Submitted - Brief Sheet
 
               <!-- Required dates -->
               <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
                     <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
                     <div class="col-lg-7">
@@ -225,7 +225,7 @@ Submitted - Brief Sheet
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
                     <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
                     <div class="col-lg-7">
@@ -247,7 +247,7 @@ Submitted - Brief Sheet
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
                     <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
                     <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
@@ -269,7 +269,7 @@ Submitted - Brief Sheet
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
                     <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
                     <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
@@ -303,7 +303,7 @@ Submitted - Brief Sheet
           <div class="panel panel-default brief-panel">
             <div class="panel-heading">
               #01 -  
-              <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter quick overview description of the requirements here."></i> 
+              <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter short overview description of the requirements here."></i> 
               Brief Summary
             </div>
             <div class="panel-body bg-light lter">
