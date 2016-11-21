@@ -37,7 +37,7 @@ function updateUsername($username, $forename, $surname) {
 	if (!nameFilled)
 		return false
 
-	$username.val($forename.val() + '.' + $surname.val())
+	$username.val($forename.val().toLowerCase()+ '.' + $surname.val().toLowerCase())
 }
 
 function updateEmail($email, $forename, $surname) {
@@ -51,5 +51,5 @@ function updateEmail($email, $forename, $surname) {
 	if (!nameFilled)
 		return false
 
-	$email.val($forename.val() + '.' + $surname.val())
+	$email.val($forename.val().toLowerCase() + '.' + $surname.val().toLowerCase())
 }

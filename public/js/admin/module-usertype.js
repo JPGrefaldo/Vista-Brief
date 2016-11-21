@@ -15,6 +15,8 @@ var userTypeModule = (function(){
 	function init() 
 	{
 		var currentSelected = $input.val()
+		currentSelected.trim()
+		$input.val(currentSelected)
 
 		if(currentSelected == 'standard')
 			changeToStandard()
@@ -63,7 +65,7 @@ var userTypeModule = (function(){
 	}
 
 	function getCurrentSelected() {
-		return $input.val()
+		return $input.val().trim()
 	}
 
 })()

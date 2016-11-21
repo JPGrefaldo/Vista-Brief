@@ -61,6 +61,21 @@ Edit User
               action="{{ route('posteditprofile') }}" 
               method="post">
               <div class="panel-body">
+                <div class="form-group" id="userTypeModule">
+                  <label class="col-lg-3 control-label">User Type</label>
+                  <div class="col-lg-9">
+                    <button class="btn btn-info col-lg-6" id="btn_standard">
+                      <span class="">Standard</span>
+                    </button>
+                    <button class="btn btn-default col-lg-6" id="btn_admin">
+                      <span class="text-muted">Admin</span>
+                    </button>
+                    <input 
+                      type="hidden" 
+                      name="type" 
+                      value="{{(old('type')) ? old('type') : $user->typeLabel}}"/>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
@@ -186,6 +201,7 @@ Edit User
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/admin/action-edituser-form-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/admin/module-usertype.js') }}"></script>
 
 </div>
 @endsection

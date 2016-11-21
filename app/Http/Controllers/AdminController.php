@@ -90,6 +90,12 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->email_parts = explode('@', $user->email);
 
+        if ($user->type == 1) {
+            $user->typeLabel = 'admin';
+        } else {
+            $user->typeLabel = 'standard';
+        }
+
         return view('admin.edituser', compact('user'));
     }
 
@@ -101,13 +107,15 @@ class AdminController extends Controller
         $email             = $request['email'];
         if( !empty($request->input('password'))) {
             $password      = bcrypt($request['password']);
-        }
+        }        
+        $type              = ($request->input('type') == 'admin') ? 1 : 2;
 
         $user = User::find($request->input('user_id'));
         $user->username    = $username;
         $user->forename    = $forename;
         $user->surname     = $surname;
         $user->email       = $email;
+        $user->type        = $type;
         if ( !empty($password)) {
             $user->password = $password;
         }
