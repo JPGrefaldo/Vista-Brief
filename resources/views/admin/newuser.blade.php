@@ -83,7 +83,7 @@ Add New User
                       type="text" 
                       name="forename" 
                       class="form-control" 
-                      placeholder="Forename" 
+                      placeholder="First Name" 
                       value="{{ old('forename') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
