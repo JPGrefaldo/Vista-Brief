@@ -1,4 +1,4 @@
-@import url("//hello.myfonts.net/count/2D2FC2");
+/*@import url("//hello.myfonts.net/count/2D2FC2");
 
 @font-face {
     font-family: "Trade Gothic";
@@ -22,6 +22,17 @@
     src: url("../fonts/2D2FC2/2D2FC2_2_0.eot?62272758366181984#iefix") format("embedded-opentype"),url("../fonts/2D2FC2/2D2FC2_2_0.woff?95077102310332992") format("woff"),url("../fonts/2D2FC2/2D2FC2_2_0.ttf?327405319563945728") format("truetype"),url("../fonts/2D2FC2/2D2FC2_2_0.svg?41355469070887616") format("svg");
     font-weight: 300;
     font-style: normal
-}
+*/}
 
 /*! CSS compiled on: Thu Mar 03 2016 14:52:56 GMT+0000 (GMT Standard Time) */
+
+@font-face {
+    font-family: "Trade Gothic";
+    src: url("../fonts/2D2FC2/2D2FC2_1_0.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Trade Gothic";
+    src: url("../fonts/2D2FC2/2D2FC2_0_0.woff") format('woff');
+    font-weight: bold;
+}

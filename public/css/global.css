@@ -1,6 +1,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
+	font-family: "Trade Gothic";
 }
 
 .header-box {
@@ -231,7 +232,6 @@ fieldset[disabled] .btn-brand1.active {
 }
 .uploadphoto-box {
 	width: 320px;
-	display: none;
 }
 .uploadphoto-box input[type="file"] {
 	background: none;
@@ -266,4 +266,8 @@ fieldset[disabled] .btn-brand1.active {
 .auto-height {
 	box-sizing: border-box;
 	overflow: hidden;
+}
+
+.defaultHidden {
+	display: none;
 }

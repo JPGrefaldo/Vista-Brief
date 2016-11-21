@@ -236,11 +236,11 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">
+                        <label class="col-lg-3 control-label text-left">
                           Pitch/Quote 
                           <span class="text-danger">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
@@ -262,11 +262,11 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">
+                        <label class="col-lg-3 control-label text-left">
                           Ideal Q&amp;A 
                           <span class="text-danger">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
@@ -288,11 +288,11 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">
+                        <label class="col-lg-3 control-label text-left">
                           Ideal Review
                           <span class="text-danger">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
@@ -314,11 +314,11 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">
+                        <label class="col-lg-3 control-label text-left">
                           Project Deadline 
                           <span class="text-danger">*</span>
                         </label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-9">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
