@@ -19,11 +19,12 @@ class CreateAttachmentsTable extends Migration
             $table->integer('brief_id')->default(0);
             $table->integer('planning_id')->default(0);
             $table->integer('amendment_id')->default(0);
-            $table->string('department_ids')->nullable();
-            $table->string('filename');
-            $table->string('filetype')->nullable();
-            $table->string('directory'); // laravel directory location
-            $table->string('disk'); // laravel disk location
+            $table->string('department_ids', 500)->nullable();
+            $table->string('filename', 200);
+            $table->string('filetype', 50)->nullable();
+            $table->string('file_ext', 20)->nullable();
+            $table->string('directory', 500)->nullable(); // laravel directory location
+            $table->string('disk', 50)->default('local'); // laravel disk location
             $table->boolean('is_active')->default(1);
             $table->timestamps();
         });

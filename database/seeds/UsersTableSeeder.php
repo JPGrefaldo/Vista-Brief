@@ -13,13 +13,13 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
         	[
-        		'username'	=>	'Admin',
-        		'forename'	=>	'Ad',
-        		'surname'	=>	'Min',
-        		'email'	=>	'ray.romero@objective.agency',
-        		'password'	=>	bcrypt('qwqwqw'),
-        		'type'	=>	1,
-        		'is_active'	=>	1,
+        		'username'    =>	'Admin',
+        		'forename'    =>	'Ad',
+        		'surname'     =>	'Min',
+        		'email'       =>	'admin@wearevista.co.uk',
+        		'password'    =>	bcrypt('admin'),
+        		'type'        =>	1,
+        		'is_active'   =>	1,
         	],
         ]);
     }

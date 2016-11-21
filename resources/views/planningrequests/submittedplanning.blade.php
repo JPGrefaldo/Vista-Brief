@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 
 @section('title')
-Create New Planning Request
+Planning Request
 @endsection
 
 @section('content')
@@ -33,8 +33,8 @@ Create New Planning Request
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Create New Planning Request</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Planning Request:</small>
+          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$planning->title}}</h1>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@ Create New Planning Request
 
           <!-- Information -->
           <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="panel-heading hide">
               Information
             </div>
             <div class="panel-body">
@@ -149,7 +149,7 @@ Create New Planning Request
           <!-- Job Details -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              01 - Job Details
+              #01 - Job Details
             </div>
             <div class="panel-body">
               <div class="row">
@@ -219,11 +219,11 @@ Create New Planning Request
           <!-- Timings -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              03 - Timings
+              #02 - Timings
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Pitch/Quote</label>
@@ -232,7 +232,8 @@ Create New Planning Request
                           <input 
                             type="text" 
                             class="form-control" 
-                            name="pitch_quote_date"                             
+                            name="pitch_quote_date" 
+                            placeholder="mm/dd/yy" 
                             value="@if(!empty($planning->pitch_quote_date)) {{ $planning->pitch_quote_date->format('m/d/Y') }} @endif" 
                             readonly/>
                           <span class="input-group-btn">
@@ -242,20 +243,10 @@ Create New Planning Request
                           </span>                      
                         </div>
                       </div>
-                      <div class="col-lg-4 hide">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="pitch_quote_time" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" id="btn_pitch_quote_time">
-                              <i class="glyphicon glyphicon-time"></i>
-                            </button>
-                          </span>                      
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Ideal Q&amp;A</label>
@@ -265,6 +256,7 @@ Create New Planning Request
                             type="text" 
                             class="form-control" 
                             name="ideal_qa_date" 
+                            placeholder="mm/dd/yy" 
                             value="@if(!empty($planning->ideal_qa_date)) {{ $planning->ideal_qa_date->format('m/d/Y') }} @endif"  
                             readonly/>
                           <span class="input-group-btn">
@@ -274,20 +266,10 @@ Create New Planning Request
                           </span>                      
                         </div>
                       </div>
-                      <div class="col-lg-4 hide">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="ideal_qa_time" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default">
-                              <i class="glyphicon glyphicon-time"></i>
-                            </button>
-                          </span>                      
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Ideal Review</label>
@@ -297,6 +279,7 @@ Create New Planning Request
                             type="text" 
                             class="form-control" 
                             name="ideal_review_date" 
+                            placeholder="mm/dd/yy" 
                             value="@if(!empty($planning->ideal_review_date)) {{ $planning->ideal_review_date->format('m/d/Y') }} @endif"  
                             readonly/>
                           <span class="input-group-btn">
@@ -306,20 +289,10 @@ Create New Planning Request
                           </span>                      
                         </div>
                       </div>
-                      <div class="col-lg-4 hide">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="ideal_review_time" placeholder="hh:mm" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default">
-                              <i class="glyphicon glyphicon-time"></i>
-                            </button>
-                          </span>                      
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-md-6">
+                <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Project Deadline</label>
@@ -329,21 +302,12 @@ Create New Planning Request
                             type="text" 
                             class="form-control" 
                             name="project_deadline_date" 
+                            placeholder="mm/dd/yy" 
                             value="@if(!empty($planning->project_deadline_date)) {{ $planning->project_deadline_date->format('m/d/Y') }} @endif" 
                             readonly/>
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_project_deadline_date" disabled>
                               <i class="glyphicon glyphicon-calendar"></i>
-                            </button>
-                          </span>                      
-                        </div>
-                      </div>
-                      <div class="col-lg-4 hide">
-                        <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="project_deadline_time" placeholder="hh:mm" />
-                          <span class="input-group-btn">
-                            <button type="button" class="btn btn-default">
-                              <i class="glyphicon glyphicon-time"></i>
                             </button>
                           </span>                      
                         </div>
@@ -359,16 +323,16 @@ Create New Planning Request
           <!-- Job Spec -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              03 - Job Spec
+              #03 - Job Spec
             </div>
             <div class="panel-body">
               <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n">
+                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
                   <textarea 
                     name="job_spec"
-                    class="form-control" 
-                    style="overflow:hidden;min-height:4px;" 
-                    placeholder="Type the description of the work required" 
+                    class="form-control auto-height" 
+                    style="min-height:4px;" 
+                    placeholder="" 
                     readonly
                   >{{ $planning->job_specifications }}</textarea>
                 </div>          
@@ -436,6 +400,12 @@ Create New Planning Request
   <!-- footer -->
   @include('includes.dashboard-footer')
   <!-- / footer -->
+
+
+  <!-- load ACTION JS scripts -->
+  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>
+  <script src="{{ URL::asset('js/planning/init-auto-height.js') }}"></script>
+
 
 </div>
 @endsection

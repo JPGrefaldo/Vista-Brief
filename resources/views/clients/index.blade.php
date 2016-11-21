@@ -33,7 +33,7 @@ Clients - Vista
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-12 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Clients</h1>
+          <h1 class="m-n font-thin h3 text-black">Manage Clients</h1>
           <small class="text-muted">welcome</small>
           @if (session('client_delete_success'))
             <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('client_delete_success') }}</span>
@@ -47,7 +47,7 @@ Clients - Vista
         <div class="panel-heading">
           List of Clients
           <div class="text-right hide">
-            <a href="{{ route('formnewclient') }}" class="btn btn-success">
+            <a href="" class="btn btn-success">
               <i class="fa fa-fw fa-plus"></i>
               Add New Client
             </a>
@@ -83,7 +83,7 @@ Clients - Vista
           </div>
         </div>
         <div class="table-responsive">
-          <table class="table table-striped b-t b-light">
+          <table class="table table-striped table-hover table-hover-blue b-t b-light">
             <thead>
               <tr>
                 <th class="hide" style="width:20px;">
@@ -95,7 +95,7 @@ Clients - Vista
                 <th style="width:110px;"><i class="fa fa-cog"></i></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="client-list-module">
               @if ($clients->isEmpty())
                 <tr>
                   <td colspan="5">
@@ -107,10 +107,24 @@ Clients - Vista
               @else
                 @foreach ($clients as $client)
                 <tr>
-                  <td class="hide"><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                  <td>{{ $client->name }}</td>
+                  <td class="hide">
+                    <label class="i-checks m-b-none">
+                      <input type="checkbox" name="post[]"><i></i></label>
+                  </td>
                   <td>
-                    <a class="active action-delete" data-dname="{{ $client->name }}" data-did="{{ $client->id }}">
+                    <div class="client-name-block">
+                      {{ $client->name }}
+                    </div>
+                    <div class="client-edit-block"></div>
+                  </td>
+                  <td>
+                    <a class="m-r-sm active action-trigger-edit">
+                      <i class="fa fa-pencil text-brand-1 text-muted"></i>
+                    </a>
+                    <a
+                      class="active action-delete" 
+                      data-dname="{{ $client->name }}" 
+                      data-did="{{ $client->id }}">
                       <i class="glyphicon glyphicon-remove-sign text-danger"></i>
                     </a>
                   </td>
@@ -119,6 +133,27 @@ Clients - Vista
               @endif
             </tbody>
           </table>
+          <!-- CLIENT EDIT TEMPLATE -->
+          <div id="client-edit-template" class="hide">
+            <form method="POST" action="{{route('posteditclient')}}">
+            <div class="row">
+              <div class="col-sm-9">
+                <input 
+                  class="form-control" 
+                  type="text" 
+                  name="name" 
+                  placeholder="type the new client name here">
+                <input type="hidden" name="id">
+                {{ csrf_field() }}
+              </div>
+              <div class="col-sm-3 text-right">
+                <button class="btn btn-default btn-sm m-t-xs btn-edit-cancel">cancel</button>
+                <button class="btn btn-brand1 btn-sm m-t-xs btn-edit-save">save</button>
+              </div>
+            </div>
+            </form>
+          </div>
+          <!-- / CLIENT EDIT TEMPLATE -->
         </div>
         <footer class="panel-footer">
           <div class="row">
@@ -165,6 +200,23 @@ Clients - Vista
         </footer>
       </div>
     </div>
+    <div class="wrapper-md col-sm-4">
+      @if (count($errors) > 0)
+      <div class="panel panel-default">
+          <div class="alert alert-danger text-danger m-b-n">
+            <ul class="m-b-n">
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+      </div>
+      @endif
+
+      @if (session('edit_client_success'))
+        <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('edit_client_success') }}</span>
+      @endif
+    </div>
 
     <!-- Modal: Confirm Delete -->
     <div id="modal-confirm-delete-client" class="modal" role="dialog">
@@ -206,6 +258,7 @@ Clients - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
+  <script src="{{ URL::asset('js/client/action-client-edit.js') }}"></script>
   <script src="{{ URL::asset('js/client/action-client-delete-client.js') }}"></script>
 
 </div>

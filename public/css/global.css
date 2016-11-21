@@ -259,3 +259,11 @@ fieldset[disabled] .btn-brand1.active {
 	text-decoration: underline;
 	color: #00385b;
 }
+.table-hover-blue tbody tr:hover td, .table-hover-blue tbody tr:hover th {
+  background-color: #E6F5FA;
+}
+
+.auto-height {
+	box-sizing: border-box;
+	overflow: hidden;
+}

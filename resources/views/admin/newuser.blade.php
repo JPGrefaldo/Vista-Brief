@@ -77,13 +77,13 @@ Add New User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Forename</label>
+                  <label class="col-lg-3 control-label">First Name</label>
                   <div class="col-lg-9">
                     <input 
                       type="text" 
                       name="forename" 
                       class="form-control" 
-                      placeholder="Forename" 
+                      placeholder="First Name" 
                       value="{{ old('forename') }}">
                     <span class="help-block m-b-none"></span>
                   </div>
@@ -152,10 +152,10 @@ Add New User
               <div class="panel-footer">
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 m-b-sm">
                       <a href="{{ route('users') }}" class="btn btn-sm btn-default btn-block">Cancel</a>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 m-b-sm">
                       <button type="submit" class="btn btn-sm btn-brand1 btn-block">Save</button>
                     </div>
                   </div>

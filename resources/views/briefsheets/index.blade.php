@@ -34,7 +34,7 @@ Brief Sheets - Vista
       <div class="row">
         <div class="col-sm-12 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Brief Sheets</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Welcome</small>
           @if (session('new_brief_success'))
             <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_brief_success') }}</span>
           @endif
@@ -48,7 +48,7 @@ Brief Sheets - Vista
     <div class="wrapper-md">
       <div class="panel panel-default">
         <div class="panel-heading">
-          List of Active Brief Sheets
+          List of Latest Brief Sheets
           <div class="text-right">
             <a href="{{ route('newbriefsheet') }}" class="btn btn-brand1">
               <i class="fa fa-fw fa-plus"></i>

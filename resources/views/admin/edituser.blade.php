@@ -33,8 +33,8 @@ Edit User
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Edit User</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Editing User:</small>
+          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$user->username}}</h1>
         </div>
       </div>
     </div>
@@ -81,13 +81,13 @@ Edit User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Forename</label>
+                  <label class="col-lg-3 control-label">First Name</label>
                   <div class="col-lg-9">
                     <input 
                       type="text" 
                       name="forename" 
                       class="form-control" 
-                      placeholder="Forename" 
+                      placeholder="First Name" 
                       value="{{ (old('forename')) ? old('forename') : $user->forename }}">
                     <span class="help-block m-b-none"></span>
                   </div>
@@ -156,10 +156,10 @@ Edit User
               <div class="panel-footer">
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <div class="row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 m-b-sm">
                       <a href="{{ route('users') }}" class="btn btn-sm btn-default btn-block">Cancel</a>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-6 m-b-sm">
                       <input type="hidden" name="user_id" value="{{ $user->id }}">
                       <button type="submit" class="btn btn-sm btn-brand1 btn-block">Save</button>
                     </div>

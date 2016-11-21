@@ -26,15 +26,22 @@ class StorePlanningRequest extends FormRequest
     public function rules()
     {
         return [
-            'client'        =>  'required',
-            'title'         =>  'required|unique:plannings,title',
-            'jobstatus'     =>  'required',
+            'client'            =>  'required',
+            'taken_by'          =>  'required|max:50',
+            'contact_name'      =>  'required|max:50',
+            'contact_email'     =>  'required|max:50',
+            'contact_landline'  =>  'required|max:50',
+            'contact_mobile'    =>  'required|max:50',
+            'title'             =>  'required|unique:plannings,title|max:75',
+            'jobstatus'         =>  'required',
+            'budget'            =>  'required|max:200',
             'formatofresponse'  =>  'required',
-            'pitch_quote_date'      =>  'required_without_all:ideal_qa_date,ideal_review_date,project_deadline_date',
-            'ideal_qa_date'      =>  'required_without_all:pitch_quote_date,ideal_review_date,project_deadline_date',
-            'ideal_review_date'      =>  'required_without_all:pitch_quote_date,ideal_qa_date,project_deadline_date',
-            'project_deadline_date'      =>  'required_without_all:pitch_quote_date,ideal_qa_date,ideal_review_date',
-            'attachments.*' =>  'max:5120',
+            'pitch_quote_date'  =>  'required',
+            'ideal_qa_date'     =>  'required',
+            'ideal_review_date' =>  'required',
+            'project_deadline_date' =>  'required',
+            'job_spec'          =>  'required|max:40000',
+            'attachments.*'     =>  'max:5120',
         ];
     }
 
@@ -59,3 +66,9 @@ class StorePlanningRequest extends FormRequest
        return $validator->errors()->unique();
     }
 }
+
+
+            // 'pitch_quote_date'  =>  'required_without_all:ideal_qa_date,ideal_review_date,project_deadline_date',
+            // 'ideal_qa_date'     =>  'required_without_all:pitch_quote_date,ideal_review_date,project_deadline_date',
+            // 'ideal_review_date' =>  'required_without_all:pitch_quote_date,ideal_qa_date,project_deadline_date',
+            // 'project_deadline_date'      =>  'required_without_all:pitch_quote_date,ideal_qa_date,ideal_review_date',

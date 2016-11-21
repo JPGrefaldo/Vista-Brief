@@ -34,7 +34,7 @@ Create New Planning Request
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Create New Planning Request</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Welcome</small>
         </div>
       </div>
     </div>
@@ -63,14 +63,14 @@ Create New Planning Request
 
             <!-- Information -->
             <div class="panel panel-default">
-              <div class="panel-heading">
-                Information
-              </div>
               <div class="panel-body">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Client</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Client 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <select name="client" class="form-control" id="select-client">
                           <option value="">select</option>
@@ -85,7 +85,10 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Taken By</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Taken By 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}" readonly>
                         <input type="text" name="taken_by" class="form-control" value="{{ Auth::user()->forename }} {{ Auth::user()->surname }}">
@@ -97,7 +100,10 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Contact Name/Title</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Contact Name/Title 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <input type="text" name="contact_name" class="form-control" placeholder="Contact Name/Title" value="{{ old('contact_name') }}">
                         <span class="help-block m-b-none"></span>
@@ -106,7 +112,10 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Contact Email</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Contact Email
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <input type="text" name="contact_email" class="form-control" placeholder="Contact Email" value="{{ old('contact_email') }}">
                         <span class="help-block m-b-none"></span>
@@ -117,7 +126,10 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Contact Landline</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Contact Landline 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <input type="text" name="contact_landline" class="form-control" placeholder="Contact Landline" value="{{ old('contact_landline') }}">
                         <span class="help-block m-b-none"></span>
@@ -126,7 +138,10 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Contact Mobile</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Contact Mobile 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <input type="text" name="contact_mobile" class="form-control" placeholder="Contact Mobile" value="{{ old('contact_mobile') }}">
                         <span class="help-block m-b-none"></span>
@@ -147,7 +162,10 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Title</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Title 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <input type="text" name="title" class="form-control" placeholder="Title" value="{{ old('title') }}">
                         <span class="help-block m-b-none"></span>
@@ -156,7 +174,10 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Status</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Status 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <select name="jobstatus" class="form-control">
                           <option value="">select</option>
@@ -173,7 +194,10 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Budget</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Budget 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <input type="text" name="budget" class="form-control" placeholder="Budget" value="{{ old('budget') }}">
                         <span class="help-block m-b-none"></span>
@@ -182,7 +206,10 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Format of Response</label>
+                      <label class="col-lg-3 control-label text-left">
+                        Format of Response 
+                        <span class="text-danger">*</span>
+                      </label>
                       <div class="col-lg-9">
                         <select name="formatofresponse" class="form-control">
                           <option value="">select</option>
@@ -206,17 +233,20 @@ Create New Planning Request
               </div>
               <div class="panel-body">
                 <div class="row">
-                  <div class="col-lg-3 col-md-6">
+                  <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">Pitch/Quote</label>
+                        <label class="col-lg-4 control-label text-left">
+                          Pitch/Quote 
+                          <span class="text-danger">*</span>
+                        </label>
                         <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
                               class="form-control" 
                               name="pitch_quote_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('pitch_quote_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
@@ -226,30 +256,23 @@ Create New Planning Request
                             </span>                      
                           </div>
                         </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="pitch_quote_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" id="btn_pitch_quote_time">
-                                <i class="glyphicon glyphicon-time"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6">
+                  <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">Ideal Q&amp;A</label>
+                        <label class="col-lg-4 control-label text-left">
+                          Ideal Q&amp;A 
+                          <span class="text-danger">*</span>
+                        </label>
                         <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
                               class="form-control" 
                               name="ideal_qa_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('ideal_qa_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
@@ -259,30 +282,23 @@ Create New Planning Request
                             </span>                      
                           </div>
                         </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="ideal_qa_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default">
-                                <i class="glyphicon glyphicon-time"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6">
+                  <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">Ideal Review</label>
+                        <label class="col-lg-4 control-label text-left">
+                          Ideal Review
+                          <span class="text-danger">*</span>
+                        </label>
                         <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
                               class="form-control" 
                               name="ideal_review_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('ideal_review_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
@@ -292,45 +308,28 @@ Create New Planning Request
                             </span>                      
                           </div>
                         </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="ideal_review_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default">
-                                <i class="glyphicon glyphicon-time"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6">
+                  <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-4 control-label text-left">Project Deadline</label>
+                        <label class="col-lg-4 control-label text-left">
+                          Project Deadline 
+                          <span class="text-danger">*</span>
+                        </label>
                         <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
                               class="form-control" 
                               name="project_deadline_date" 
-                              placeholder="dd/mm/yy" 
+                              placeholder="mm/dd/yy" 
                               value="{{ old('project_deadline_date') }}"  
                               readonly/>
                             <span class="input-group-btn">
                               <button type="button" class="btn btn-default" id="btn_project_deadline_date">
                                 <i class="glyphicon glyphicon-calendar"></i>
-                              </button>
-                            </span>                      
-                          </div>
-                        </div>
-                        <div class="col-lg-4 hide">
-                          <div class="input-group w-md1">
-                            <input type="text" class="form-control" name="project_deadline_time" placeholder="hh:mm" />
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default">
-                                <i class="glyphicon glyphicon-time"></i>
                               </button>
                             </span>                      
                           </div>
@@ -350,15 +349,16 @@ Create New Planning Request
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
                   title="Enter a description of the work required."> 
                 </i>
-                Job Spec
+                Job Spec 
+                <span class="text-danger">*</span>
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="job_spec"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:4px;" 
+                      class="form-control auto-height" 
+                      style="min-height:220px;" 
                       placeholder="Type the description of the work required"
                     >{{ old('job_spec') }}</textarea>
                   </div>          
@@ -407,8 +407,8 @@ Create New Planning Request
             <div class="panel panel-default">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
-                <input id="btn-submit" type="submit" class="btn btn-lg btn-brand1 btn-block hide" value="Submit">
-                <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1">Submit</button>
+                <input id="btn-submit" type="submit" class="btn btn-lg btn-brand1 btn-block" value="Submit">
+                <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1 hide">Submit</button>
               </div>
             </div>
           </form>
@@ -429,10 +429,10 @@ Create New Planning Request
           </div>
           <div class="modal-footer">
             <div class="row">
-              <div class="col-sm-4">
+              <div class="col-sm-4 m-b-sm">
                 <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Close</button>
               </div>
-              <div class="col-sm-8">
+              <div class="col-sm-8 m-b-sm">
                 <button type="button" class="btn btn-brand1 btn-block" id="btn-client-create">Create Client</button>
               </div>
             </div>
@@ -450,11 +450,11 @@ Create New Planning Request
             <h4 class="font-bold">Not all Dates are filled!</h4>
             <h4>Are you sure you still want to submit?</h4>
             <div class="row m-t-md">
-              <div class="col-sm-4 text-center">
-                <button id="confirm_submit_no" class="btn btn-default">No</button>
+              <div class="col-sm-4 text-center m-b-sm">
+                <button id="confirm_submit_no" class="btn btn-default btn-block">No</button>
               </div>
-              <div class="col-sm-8 text-center">
-                <button id="confirm_submit_yes" class="btn btn-brand1">Yes, please proceed</button>
+              <div class="col-sm-8 text-center m-b-sm">
+                <button id="confirm_submit_yes" class="btn btn-brand1 btn-block">Yes, please proceed</button>
               </div>
             </div>
           </div>
@@ -487,9 +487,11 @@ Create New Planning Request
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/planning/init-daterangepicker.js') }}"></script>
+  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>
   <script src="{{ URL::asset('js/planning/action-planning-new-client.js') }}"></script> 
   <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script> 
-  <script src="{{ URL::asset('js/planning/action-planning-form-ui.js') }}"></script> 
+  <script src="{{ URL::asset('js/planning/action-planning-form-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/planning/init-auto-height.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

@@ -34,7 +34,7 @@ Create New Brief Sheet
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Create New Brief Sheet</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Welcome</small>
         </div>
       </div>
     </div>
@@ -63,7 +63,7 @@ Create New Brief Sheet
 
             <!-- Information -->
             <div class="panel panel-default brief-panel">
-              <div class="panel-heading">
+              <div class="panel-heading hide">
                 Information
               </div>
               <div class="panel-body">
@@ -130,7 +130,7 @@ Create New Brief Sheet
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Your Budget 
-                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="The maximum budget allocation to deliver this brief. Detail split between teams in Job Description section below if available."></i>
+                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="What budget allocation has the client or have you set to complete this work."></i>
                       </label>
                       <div class="col-lg-8">
                         <input 
@@ -180,12 +180,18 @@ Create New Brief Sheet
 
                 <!-- Required dates -->
                 <div class="row">
-                  <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
                       <div class="col-lg-7">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="quotereq" value="{{ old('quotereq') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="quotereq" 
+                            placeholder="mm/dd/yy"
+                            value="{{ old('quotereq') }}" 
+                            readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_quotereq"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -193,12 +199,18 @@ Create New Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
                       <div class="col-lg-7">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="proposedreq" value="{{ old('proposedreq') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="proposedreq" 
+                            placeholder="mm/dd/yy"                            
+                            value="{{ old('proposedreq') }}" 
+                            readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_proposedreq"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -206,12 +218,18 @@ Create New Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
                       <div class="col-lg-7">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="stagereq" value="{{ old('stagereq') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="stagereq" 
+                            placeholder="mm/dd/yy"
+                            value="{{ old('stagereq') }}" 
+                            readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_stagereq"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -219,12 +237,18 @@ Create New Brief Sheet
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
                       <div class="col-lg-7">
                         <div class="input-group w-md1">
-                          <input type="text" class="form-control" name="projdelivered" value="{{ old('projdelivered') }}" readonly />
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            name="projdelivered" 
+                            placeholder="mm/dd/yy"
+                            value="{{ old('projdelivered') }}" 
+                            readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_projdelivered"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>                      
@@ -244,13 +268,17 @@ Create New Brief Sheet
             <div class="panel panel-default brief-panel">
               <div class="panel-heading">
                 #01 -  
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter quick overview description of the requirements here."></i> 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter short overview description of the requirements here."></i> 
                 Brief Summary
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
                   <div class="form-group m-b-n m-t-n">
-                    <textarea name="summary" class="form-control" style="overflow:auto;min-height:50px" placeholder="Enter short overview description of the requirements here.">{{ old('summary') }}</textarea>
+                    <textarea 
+                      name="summary" 
+                      class="form-control auto-height" 
+                      style="min-height:50px" 
+                      placeholder="Enter short overview description of the requirements here.">{{ old('summary') }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -318,8 +346,8 @@ Create New Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea
                       name="objmeasure" 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:120px;" 
+                      class="form-control auto-height" 
+                      style="min-height:120px;" 
                       placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
                     >{{ old('objmeasure') }}</textarea>
                   </div>          
@@ -342,8 +370,8 @@ Create New Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea
                       name="context" 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:100px;" 
+                      class="form-control auto-height" 
+                      style="min-height:100px;" 
                       placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?"
                     >{{ old('context') }}</textarea>
                   </div>
@@ -366,8 +394,8 @@ Create New Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="targetaudience_insight"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control auto-height" 
+                      style="min-height:80px;" 
                       placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?"
                     >{{ old('targetaudience_insight') }}</textarea>
                   </div>         
@@ -387,24 +415,24 @@ Create New Brief Sheet
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_think"
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control m-l-n m-r-n auto-height" 
+                      style="min-height:60px;" 
                       placeholder="Think?"
                       >{{ old('targetaudience_think') }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_feel"
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control m-l-n m-r-n auto-height" 
+                      style="min-height:60px;" 
                       placeholder="Feel?"
                       >{{ old('targetaudience_feel') }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_do"
-                      class="form-control m-l-n m-r-n" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control m-l-n m-r-n auto-height" 
+                      style="min-height:60px;" 
                       placeholder="Do?"
                       >{{ old('targetaudience_do') }}</textarea>
                     </div>
@@ -428,8 +456,8 @@ Create New Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="keymsg_propositions" 
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control auto-height" 
+                      style="min-height:80px;" 
                       placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?"
                     >{{ old('keymsg_propositions') }}</textarea>
                   </div>             
@@ -452,8 +480,8 @@ Create New Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="creative"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:80px;" 
+                      class="form-control auto-height" 
+                      style="min-height:80px;" 
                       placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?"
                     >{{ old('creative') }}</textarea>
                   </div>            
@@ -476,8 +504,8 @@ Create New Brief Sheet
                   <div class="form-group m-b-n m-t-n">
                     <textarea 
                       name="budget_timings_outputs_req"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:100px;" 
+                      class="form-control auto-height" 
+                      style="min-height:100px;" 
                       placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?"
                     >{{ old('budget_timings_outputs_req') }}</textarea>
                   </div>           
@@ -623,8 +651,8 @@ Create New Brief Sheet
   <script src="{{ URL::asset('libs/jquery/moment/moment.js') }}"></script>
   <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
   <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
-  <!-- multifile-upload -->
-  <!--<script src="{{ URL::asset('libs/jquery/multifile-master/jQuery.MultiFile.min.js') }}"></script>-->
+  <!-- auto height -->
+  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>  
 
 
   <!-- load ACTION JS scripts -->
@@ -633,7 +661,7 @@ Create New Brief Sheet
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-form-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-department-checkbox-module.js') }}"></script>
-
+  <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

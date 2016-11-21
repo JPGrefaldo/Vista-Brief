@@ -98,8 +98,8 @@ Manage Users - Vista
                   </label>
                 </th>
                 <th>Username</th>
-                <th>Forename</th>
-                <th>Surename</th>
+                <th>First Name</th>
+                <th>Surname</th>
                 <th>Email Address</th>
                 <th style="width:110px;"><i class="fa fa-cog"></i></th>
               </tr>

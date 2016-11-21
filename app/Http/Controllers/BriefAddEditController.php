@@ -47,133 +47,124 @@ class BriefAddEditController extends Controller
 
     public function postNewBrief(StoreBriefRequest $request, \Illuminate\Mail\Mailer $mailer)
     {
-        // if ($request->hasFile('attachments')) {
-        //     echo '<p>there is a file</p>';
-        // } else {
-        //     echo '<p>there is no file</p>';
-        // }        
+      $action					= $request->input('action');
+      $is_draft				= ($action == 'Submit') ? 0 : 1;
+      $user_id				= $request->user()->id;
+      $client_id 				= $request->input('client');
+      $projectstatus_id 		= $request->input('projectstatus');
+      $jobnumber 				= $request->input('jobnumber');
+      $old_jobnumber 			= $request->input('oldjobnumber');
+      $budget 				= $request->input('budget');
+      $projectmanager 		= $request->input('pmanager');
+      $jobname 				= $request->input('jobname');
+      $keydeliverables 		= $request->input('keydeliverables');
+      $quoted_required_by_at 	= $this->convertTo_MysqlDate($request->input('quotereq'));
+      $proposal_required_by_at 	= $this->convertTo_MysqlDate($request->input('proposedreq'));
+      $firststage_required_by_at = $this->convertTo_MysqlDate($request->input('stagereq'));
+      $project_delivered_by_at 	= $this->convertTo_MysqlDate($request->input('projdelivered'));
+      $summary 				= $request->input('summary');
+      $disciplines_required_ids 	= $this->convertTo_CommaSeparatedIds($request->input('department'));
+      $objectives_or_measures = $request->input('objmeasure');
+      $content 				= $request->input('context');
+      $targetaudience_and_insight = $request->input('targetaudience_insight');
+      $targetaudience_think 	= $request->input('targetaudience_think');
+      $targetaudience_feel 	= $request->input('targetaudience_feel');
+      $targetaudience_do 		= $request->input('targetaudience_do');
+      $keymessages_or_propositions = $request->input('keymsg_propositions');
+      $creative = $request->input('creative');
+      $budget_timings_and_outputs = $request->input('budget_timings_outputs_req');
 
-        // if ($request->file('attachments')->isValid()) {
-        //     echo '<p>the file is valid</p>';
-        // } else {
-        //     echo '<p>the file is NOT valid</p>';
-        // }
+      $brief = new Brief();
+      $brief->user_id = $user_id;
+      $brief->client_id = $client_id;
+      $brief->jobnumber = $jobnumber;
+      $brief->old_jobnumber = $old_jobnumber;
+      $brief->jobname = $jobname;
+      $brief->projectstatus_id = $projectstatus_id;
+      $brief->is_draft = $is_draft;
+      $brief->projectmanager = $projectmanager;
+      $brief->budget = $budget;
+      $brief->keydeliverables = $keydeliverables;
+      if ( !empty($quoted_required_by_at) )
+      	$brief->quoted_required_by_at = $quoted_required_by_at;
+      if ( !empty($proposal_required_by_at) )
+      	$brief->proposal_required_by_at = $proposal_required_by_at;
+      if ( !empty($firststage_required_by_at) )
+      	$brief->firststage_required_by_at = $firststage_required_by_at;
+      if ( !empty($project_delivered_by_at) )
+      	$brief->project_delivered_by_at = $project_delivered_by_at;
+      $brief->summary = $summary;
+      $brief->disciplines_required_ids = $disciplines_required_ids;
+      $brief->objectives_or_measures = $objectives_or_measures;
+      $brief->content = $content;
+      $brief->targetaudience_and_insight = $targetaudience_and_insight;
+      $brief->targetaudience_think = $targetaudience_think;
+      $brief->targetaudience_feel = $targetaudience_feel;
+      $brief->targetaudience_do = $targetaudience_do;
+      $brief->keymessages_or_propositions = $keymessages_or_propositions;
+      $brief->creative = $creative;
+      $brief->budget_timings_and_outputs = $budget_timings_and_outputs;
 
-        // echo '<p>count: '.count($request->file('attachments')).'</p>';
-        // echo '<pre>';
-        // print_r($request->file('attachments'));
+      $brief->save();
 
-        // return;
+      $arr_attachment_ids = array();
 
-        // $path = $request->attachments->store('default', 'test.php', 'local');
-        // $file = $request->file('attachments');
-        // Storage::disk('local')->put('temp/'.$file->getClientOriginalName(), file_get_contents($file));
+      $files = $request->file('attachments');
+      if ( !empty($files) ) {
+      	foreach ($files as $file):
+      		$filename = $file->getClientOriginalName();
+          $filetype = $file->getClientMimeType();
+          $file_ext = $file->extension();
 
-        $action					= $request->input('action');
-        $is_draft				= ($action == 'Submit') ? 0 : 1;
-        $user_id				= $request->user()->id;
-        $client_id 				= $request->input('client');
-        $projectstatus_id 		= $request->input('projectstatus');
-        $jobnumber 				= $request->input('jobnumber');
-        $old_jobnumber 			= $request->input('oldjobnumber');
-        $budget 				= $request->input('budget');
-        $projectmanager 		= $request->input('pmanager');
-        $jobname 				= $request->input('jobname');
-        $keydeliverables 		= $request->input('keydeliverables');
-        $quoted_required_by_at 	= $this->convertTo_MysqlDate($request->input('quotereq'));
-        $proposal_required_by_at 	= $this->convertTo_MysqlDate($request->input('proposedreq'));
-        $firststage_required_by_at = $this->convertTo_MysqlDate($request->input('stagereq'));
-        $project_delivered_by_at 	= $this->convertTo_MysqlDate($request->input('projdelivered'));
-        $summary 				= $request->input('summary');
-        $disciplines_required_ids 	= $this->convertTo_CommaSeparatedIds($request->input('department'));
-        $objectives_or_measures = $request->input('objmeasure');
-        $content 				= $request->input('context');
-        $targetaudience_and_insight = $request->input('targetaudience_insight');
-        $targetaudience_think 	= $request->input('targetaudience_think');
-        $targetaudience_feel 	= $request->input('targetaudience_feel');
-        $targetaudience_do 		= $request->input('targetaudience_do');
-        $keymessages_or_propositions = $request->input('keymsg_propositions');
-        $creative = $request->input('creative');
-        $budget_timings_and_outputs = $request->input('budget_timings_outputs_req');
+	        $attachments = new Attachment();
+	        $attachments->user_id = $user_id;
+	        $attachments->brief_id = $brief->id;
+	        $attachments->filename = $filename;
+          $attachments->filetype = $filetype;
+          $attachments->file_ext = $file_ext;
+	        $attachments->disk = 'local';
+	        $attachments->directory = 'brief-'.$brief->id.'/user-'.$user_id.'/';
+	        $attachments->save();
 
-        $brief = new Brief();
-        $brief->user_id = $user_id;
-        $brief->client_id = $client_id;
-        $brief->jobnumber = $jobnumber;
-        $brief->old_jobnumber = $old_jobnumber;
-        $brief->jobname = $jobname;
-        $brief->projectstatus_id = $projectstatus_id;
-        $brief->is_draft = $is_draft;
-        $brief->projectmanager = $projectmanager;
-        $brief->budget = $budget;
-        $brief->keydeliverables = $keydeliverables;
-        if ( !empty($quoted_required_by_at) )
-        	$brief->quoted_required_by_at = $quoted_required_by_at;
-        if ( !empty($proposal_required_by_at) )
-        	$brief->proposal_required_by_at = $proposal_required_by_at;
-        if ( !empty($firststage_required_by_at) )
-        	$brief->firststage_required_by_at = $firststage_required_by_at;
-        if ( !empty($project_delivered_by_at) )
-        	$brief->project_delivered_by_at = $project_delivered_by_at;
-        $brief->summary = $summary;
-        $brief->disciplines_required_ids = $disciplines_required_ids;
-        $brief->objectives_or_measures = $objectives_or_measures;
-        $brief->content = $content;
-        $brief->targetaudience_and_insight = $targetaudience_and_insight;
-        $brief->targetaudience_think = $targetaudience_think;
-        $brief->targetaudience_feel = $targetaudience_feel;
-        $brief->targetaudience_do = $targetaudience_do;
-        $brief->keymessages_or_propositions = $keymessages_or_propositions;
-        $brief->creative = $creative;
-        $brief->budget_timings_and_outputs = $budget_timings_and_outputs;
+	        $arr_attachment_ids[] = $attachments->id;
 
-        $brief->save();
+      		Storage::disk('local')->put($attachments->directory.$filename, file_get_contents($file));
+      	endforeach;
+      }
 
-        $arr_attachment_ids = array();
+      $brief->attachment_ids = implode($arr_attachment_ids,',');
+      $brief->save();
 
-        $files = $request->file('attachments');
-        if ( !empty($files) ) {
-        	foreach ($files as $file):
-        		$filename = $file->getClientOriginalName();
-            $filetype = $file->getClientMimeType();
-            $file_ext = $file->extension();
+      // Send email to selected departments
+      if ( $is_draft == 0 && !empty($request->input('department')) ) {
+        $departments_to_be_email = Department::find($request->input('department'));
 
-		        $attachments = new Attachment();
-		        $attachments->user_id = $user_id;
-		        $attachments->brief_id = $brief->id;
-		        $attachments->filename = $filename;
-            $attachments->filetype = $filetype;
-            $attachments->file_ext = $file_ext;
-		        $attachments->disk = 'local';
-		        $attachments->directory = 'brief-'.$brief->id.'/user-'.$user_id.'/';
-		        $attachments->save();
-
-		        $arr_attachment_ids[] = $attachments->id;
-
-        		Storage::disk('local')->put($attachments->directory.$filename, file_get_contents($file));
-        	endforeach;
+        foreach ($departments_to_be_email as $department) {
+          foreach(explode(',',$department->email) as $email) {
+            if(!empty($email)) {
+              $mailer
+                ->to($email)
+                ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
+            }
+            $department_to_be_email_to_user[] = $department->name;
+          }
         }
 
-        $brief->attachment_ids = implode($arr_attachment_ids,',');
-        $brief->save();
+        if (isset($department_to_be_email_to_user) && 
+            is_array($department_to_be_email_to_user)) {
+          $department_to_be_email_to_user = implode(', ', $department_to_be_email_to_user);
+        } else {
+          $department_to_be_email_to_user = "";
+        }
 
-        // Send email to selected departments
-        if ( $is_draft == 0 && !empty($request->input('department')) ) {
-          $departments_to_be_email = Department::find($request->input('department'));
-
-          foreach ($departments_to_be_email as $department) {
-              $mailer
-                  ->to($department->email)
-                  ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
-              $department_to_be_email_to_user[] = $department->name;
-          }
-
+        if(!empty($request->user()->email)) {
           $mailer
             ->to($request->user()->email)
-            ->send(new \App\Mail\SubmittedBriefMail($brief,implode(', ', $department_to_be_email_to_user)));
-        }        
+            ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
+        }
+      }        
 
-        return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
+      return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
     }
 
     public function formEditBrief($id) 
@@ -185,8 +176,8 @@ class BriefAddEditController extends Controller
 
       // insert the classNames string to the attachment collection data
       foreach ($brief->attachmentsNotAmend as $attachment) {
-          $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
-          $attachment->classNames = $classNames;
+        $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+        $attachment->classNames = $classNames;
       }
 
       foreach($departments as $d) {
@@ -198,9 +189,8 @@ class BriefAddEditController extends Controller
         }
       }
 
-    	return view (
-                'briefsheets.draftedbrief', 
-                compact('brief','clients','projectstatus','departments'));
+    	return view ('briefsheets.draftedbrief', 
+              compact('brief','clients','projectstatus','departments'));
     }
 
     public function postEditBrief(UpdateBriefRequest $request, \Illuminate\Mail\Mailer $mailer) 
@@ -299,15 +289,29 @@ class BriefAddEditController extends Controller
         $departments_to_be_email = Department::find($request->input('department'));
 
         foreach ($departments_to_be_email as $department) {
-          $mailer
-              ->to($department->email)
-              ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
-          $department_to_be_email_to_user[] = $department->name;
+          foreach(explode(',',$department->email) as $email) {
+            if(!empty($email)) {
+              $mailer
+                ->to($email)
+                ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));              
+            }
+            $department_to_be_email_to_user[] = $department->name;
+          }
         }
 
-        $mailer
-          ->to($request->user()->email)
-          ->send(new \App\Mail\SubmittedBriefMail($brief,implode(', ', $department_to_be_email_to_user)));
+        if (isset($department_to_be_email_to_user) && 
+            is_array($department_to_be_email_to_user)) {
+          $department_to_be_email_to_user = implode(', ', $department_to_be_email_to_user);
+        } else {
+          $department_to_be_email_to_user = "";
+        }
+
+        if(!empty($request->user()->email)) {
+          $department_to_be_email_to_user = 
+          $mailer
+            ->to($request->user()->email)
+            ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
+        }
 
       }
 

@@ -13,16 +13,16 @@
                   <span class="text-white">Dashboard</span>
                 </a>
               </li>
-              <li> 
-                <a href="{{ route('briefsheets') }}">
-                  <i class="icon icon-briefcase icon text-white"></i>
-                  <span class="text-white">Brief Sheets</span>
-                </a>
-              </li>
               <li>
                 <a href="{{ route('planningrequests') }}">
                   <i class="icon icon-doc icon text-white"></i>
                   <span class="text-white">Planning Requests</span>
+                </a>
+              </li>
+              <li> 
+                <a href="{{ route('briefsheets') }}">
+                  <i class="icon icon-briefcase icon text-white"></i>
+                  <span class="text-white">Brief Sheets</span>
                 </a>
               </li>
               @if (Auth::user()->type == 1)

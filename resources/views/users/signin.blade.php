@@ -49,12 +49,17 @@ Signin - Vista
     </div>
     <div class="text-center" ng-include="'tpl/blocks/page_footer.html'">
       <p>
-        <small class="text-muted hide1">username: admin | password: qwqwqw</small>
-      </p><p>
-        <small class="text-muted hide1">username: user1 | password: qwqwqw</small>
+        <small class="text-muted hide1">username: admin | password: admin</small>
       </p>
     </div>
-  </div>
+  </div>  
+
+  @if ($errors->has('token_error'))
+    <div class="alert alert-danger text-center"> 
+      <h3>{{ $errors->first('token_error') }}</h3>
+    </div>
+  @endif
+
 </div>
 @endsection
 

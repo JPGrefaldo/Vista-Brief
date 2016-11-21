@@ -33,8 +33,8 @@ Manage Departments - Vista
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
         <div class="col-sm-6 col-xs-12">
-          <h1 class="m-n font-thin h3 text-black">Edit Department</h1>
-          <small class="text-muted hide">welcome</small>
+          <small class="text-muted">Editing Department:</small>
+          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$department->name}}</h1>
         </div>
       </div>
     </div>
@@ -87,7 +87,7 @@ Manage Departments - Vista
                       <input type="hidden" name="deletecurrentfile" value="0">
                       <button class="btn btn-info btn-sm">Undo</button>
                     </div>
-                    <div class="form-group hide" id="fileUploadBlock">
+                    <div class="form-group text-center hide" id="fileUploadBlock">
                       <input 
                         class="form-control m-b-sm" 
                         type="file" 
@@ -122,7 +122,7 @@ Manage Departments - Vista
                             placeholder="email" 
                             value="{{$email}}">
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-4 text-right">
                           <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                           <i class="glyphicon glyphicon-remove"></i></button>
                         </div>
@@ -181,7 +181,7 @@ Manage Departments - Vista
                 <div class="col-sm-8 m-b-sm">
                   <input class="form-control" type="text" name="temp_email[]" placeholder="email">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 text-right">
                   <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                   <i class="glyphicon glyphicon-remove"></i></button>
                 </div>
@@ -189,11 +189,11 @@ Manage Departments - Vista
             </div>
 
             <div class="row text-center">
-              <a href="{{route('departments')}}" class="btn btn-default btn-lg">
+              <a href="{{route('departments')}}" class="btn btn-default btn-lg m-b-sm">
                 <i class="fa fa-backward"></i> Back</a> &nbsp; 
-              <a href="" class="btn btn-default btn-lg">
+              <a href="" class="btn btn-default btn-lg m-b-sm">
                 <i class="fa fa-refresh"></i> Reset</a> &nbsp; 
-              <button class="btn btn-brand1 btn-lg">
+              <button class="btn btn-brand1 btn-lg m-b-sm">
                 {{ csrf_field() }}
                 <input type="hidden" name="department_id" value="{{$department->id}}">
                 <i class="fa fa-check"></i> Save Changes</button>

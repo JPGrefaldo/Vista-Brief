@@ -34,7 +34,7 @@ Dashboard - Vista
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Dashboard</h1>
-          <small class="text-muted">Welcome to Vista Brief System</small>
+          <small class="text-muted">Welcome to the Vista Brief System</small>
         </div>
       </div>
     </div>
@@ -55,7 +55,7 @@ Dashboard - Vista
   	        </div>
   	        <ul class="list-group">
   	          <li class="list-group-item text-center">
-  	            <i class="icon-check text-success m-r-xs hide"></i> Notify Planning of a new equity and to request a Project Manager
+  	            <i class="icon-check text-success m-r-xs hide"></i> Notify Planning of a new enquiry and to request a Project Manager
   	          </li>
   	        </ul>
   	        <div class="panel-footer text-center">
@@ -75,11 +75,11 @@ Dashboard - Vista
   	        </div>
   	        <ul class="list-group">
   	          <li class="list-group-item text-center">
-  	            <i class="icon-check text-success m-r-xs hide"></i> Use this to brief Studio, Exhibitions, Venue and Events/strategy teams on new Projects
+  	            <i class="icon-check text-success m-r-xs hide"></i> Brief specialist teams on new projects
   	          </li>
   	        </ul>
   	        <div class="panel-footer text-center">
-  	          <a href="{{ route('newbriefsheet') }}" class="btn btn-brand1 block font-bold m">Create New Brief Sheets</a>
+  	          <a href="{{ route('newbriefsheet') }}" class="btn btn-brand1 block font-bold m">Create New Brief Sheet</a>
   	        </div>
   	      </div>
   	    </div>

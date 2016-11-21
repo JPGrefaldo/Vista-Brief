@@ -17,7 +17,9 @@ class CreateDepartmentsTable extends Migration
             $table->increments('id');
             $table->string('name', 300);
             $table->Integer('parent_id')->default(0);
-            $table->string('email');
+            $table->string('email', 200)->nullable();
+            $table->Integer('attachment_id')->default(0);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }

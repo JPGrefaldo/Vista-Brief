@@ -110,7 +110,7 @@ Profile - Vista
     </div>
     <div class="wrapper bg-white b-b">
       <ul class="nav nav-pills nav-sm nav-pills-brand1">
-        <li class="active"><a>Profile</a></li>
+        <li class="active"><a href="">Profile</a></li>
       </ul>
     </div>
     <div class="padder">      

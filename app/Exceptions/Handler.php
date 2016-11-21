@@ -44,6 +44,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof \Illuminate\Session\TokenMismatchException) {            
+            return redirect('/')->withErrors(['token_error' => 'Sorry, you had been gone for far too long. For security reasons please login again.']);
+        }
+
         return parent::render($request, $exception);
     }
 

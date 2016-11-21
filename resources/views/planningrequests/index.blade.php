@@ -34,7 +34,7 @@ Planning Requests - Vista
       <div class="row">
         <div class="col-sm-12 col-xs-12 col-lg-12">
           <h1 class="m-n font-thin h3 text-black">Planning Requests</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Welcome</small>
           @if (session('new_planning_success'))
             <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_planning_success') }}</span>
           @endif
@@ -45,7 +45,7 @@ Planning Requests - Vista
     <div class="wrapper-md">
       <div class="panel panel-default">
         <div class="panel-heading">
-          List of Active Planning Request
+          List of Latest Planning Requests
           <div class="text-right">
             <a href="{{ route('newplanningrequest') }}" class="btn btn-brand1">
               <i class="fa fa-fw fa-plus"></i>
@@ -98,7 +98,7 @@ Planning Requests - Vista
                 <th>Job Title</th>
                 <th>Taken By</th>
                 <th>Format of Response</th>
-                <th>Date of Request Made</th>
+                <th>Date Request Made</th>
                 <th>Status</th>
                 <th style="width:30px;">
                   <i class="fa fa-cog"></i>
