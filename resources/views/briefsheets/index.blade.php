@@ -98,6 +98,7 @@ Brief Sheets - Vista
                   </label>
                 </th>
                 <th>Job Number</th>
+                <th>Client</th>
                 <th>Job Name</th>
                 <th>Key Deliverables</th>
                 <th>Last Update by</th>
@@ -132,6 +133,11 @@ Brief Sheets - Vista
                       </label>
                     </td>
                     <td>{{ $brief->jobnumber }}</td>
+                    <td>
+                      @if (count($brief->client))
+                        {{ $brief->client->name }}
+                      @endif
+                    </td>
                     <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
                     <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
                     <td>

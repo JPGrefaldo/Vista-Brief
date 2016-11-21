@@ -205,8 +205,8 @@ Submitted - Brief Sheet
               <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
-                    <label class="col-lg-5 control-label text-left text-sm">Quote Required by</label>
-                    <div class="col-lg-7">
+                    <label class="col-lg-4 control-label text-left text-sm">Quote Required by</label>
+                    <div class="col-lg-8">
                       <div class="input-group w-md1">
                         <input 
                           type="text" 
@@ -227,8 +227,8 @@ Submitted - Brief Sheet
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
-                    <label class="col-lg-5 control-label text-left text-sm">Proposed Required by</label>
-                    <div class="col-lg-7">
+                    <label class="col-lg-4 control-label text-left text-sm">Proposed Required by</label>
+                    <div class="col-lg-8">
                       <div class="input-group w-md1">
                         <input 
                           type="text" 
@@ -249,8 +249,8 @@ Submitted - Brief Sheet
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
-                    <label class="col-lg-5 control-label text-left text-sm">1st Stage Required by</label>
-                    <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                    <label class="col-lg-4 control-label text-left text-sm">1st Stage Required by</label>
+                    <div class="col-lg-8" ng-controller="DatepickerDemoCtrl">
                       <div class="input-group w-md1">
                         <input 
                           type="text" 
@@ -271,8 +271,8 @@ Submitted - Brief Sheet
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
                   <div class="form-group">
-                    <label class="col-lg-5 control-label text-left text-sm">Projects Delivered by</label>
-                    <div class="col-lg-7" ng-controller="DatepickerDemoCtrl">
+                    <label class="col-lg-4 control-label text-left text-sm">Projects Delivered by</label>
+                    <div class="col-lg-8" ng-controller="DatepickerDemoCtrl">
                       <div class="input-group w-md1">
                         <input 
                           type="text" 
