@@ -26,10 +26,6 @@ class StoreBriefRequest extends FormRequest
     public function rules()
     {
         return [
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9db1cd5eec40ff2184f35ebc129bbc22a5d8c08c
             'client'            =>  'required',
             'projectstatus'     =>  'required',
             'jobnumber'         =>  'required|max:6',
@@ -47,22 +43,6 @@ class StoreBriefRequest extends FormRequest
             'objmeasure'        =>  'required',
             'budget_timings_outputs_req'    =>  'required',
             'attachments.*'     =>  'max:5120',
-<<<<<<< HEAD
-=======
-            'client'        =>  'required',
-            'projectstatus' =>  'required',
-            'jobnumber'     =>  'required:max:6',
-            'oldjobnumber'  =>  'max:6',
-            'jobname'       =>  'required|unique:briefs,jobname',
-            'quotereq'      =>  'required',
-            'proposedreq'   =>  'required',
-            'stagereq'      =>  'required',
-            'projdelivered' =>  'required',
-            'department'    =>  'required',
-            'attachments.*' =>  'max:5120',
->>>>>>> 563a89409c1c675e3b886a5d709842d213b1618c
-=======
->>>>>>> 9db1cd5eec40ff2184f35ebc129bbc22a5d8c08c
         ];
 
         // $count_attachments = count($this->input('attachments')) - 1;
@@ -83,39 +63,19 @@ class StoreBriefRequest extends FormRequest
             'budget.max'                =>  'Budget may not be greater than 50 characters.',
             'pmanager.required'         =>  'Project Manager is required.',
             'jobname.required'          =>  'Job Name is required.',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9db1cd5eec40ff2184f35ebc129bbc22a5d8c08c
             'jobname.max'               =>  'Job Name may not be greater than 75 characters.',
             'jobname.unique'            =>  'Job Name is already taken.',
             'keydeliverables.required'  =>  'Key Deliverables is required.',
             'keydeliverables.max'       =>  'Key Deliverables may not be greater than 75 characters.',
-<<<<<<< HEAD
-=======
-            'jobname.unique'            =>  'That Job Name is already taken.',
->>>>>>> 563a89409c1c675e3b886a5d709842d213b1618c
-=======
->>>>>>> 9db1cd5eec40ff2184f35ebc129bbc22a5d8c08c
             'quotereq.required'         =>  'Quote Required by is required.',
             'proposedreq.required'      =>  'Proposed Required by is required.',
             'stagereq.required'         =>  '1st Stage Required by is required.',
             'projdelivered.required'    =>  'Projects Delivered by is required.',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 9db1cd5eec40ff2184f35ebc129bbc22a5d8c08c
             'summary.required'          =>  'Summary is required.',
             'summary.max'               =>  'Summary may not be greater than 200 characters.',
             'department.required'       =>  'You need to select at least one discipline.',
             'objmeasure.required'       =>  'Objectives / Measure is required.',
             'budget_timings_outputs_req.required'   =>  'Budget, Timings and Outputs Required is required.',
-<<<<<<< HEAD
-=======
-            'department.required'       =>  'You need to select at least one discipline.',
->>>>>>> 563a89409c1c675e3b886a5d709842d213b1618c
-=======
->>>>>>> 9db1cd5eec40ff2184f35ebc129bbc22a5d8c08c
             'attachments.*'             =>  'Each attached file must not exceed 5MB of size.',
         ];
     }
