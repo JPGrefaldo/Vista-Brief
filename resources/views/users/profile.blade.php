@@ -25,7 +25,8 @@ Profile - Vista
 
 <div class="hbox hbox-auto-xs hbox-auto-sm">
   <div class="col">
-    <div style="background:url({{ URL::asset('images/c4.jpg')}}) center center; background-size:cover">
+    <!--<div style="background:url({{ URL::asset('images/c4.jpg')}}) center center; background-size:cover">-->
+    <div style="background-color:#ececec">
       <div class="wrapper-lg bg-white-opacity">
         <div class="row m-t">
           <div class="col-sm-7">
@@ -70,7 +71,9 @@ Profile - Vista
               </a>
             </div>
           </div>
-          <div class="uploadphoto-box" id="uploadphoto-box">
+          <div 
+            id="uploadphoto-box" 
+            class="uploadphoto-box {{(count($errors->editAvatar)>0)?'':'defaultHidden'}}">
             <form 
               role="form" 
               enctype="multipart/form-data" 
@@ -86,16 +89,19 @@ Profile - Vista
                   </div>
                   <div class="col-sm-4 m-l-n">
                     {{ csrf_field() }}                      
-                    <button class="form-control btn btn-brand1 btn-xs text-center" type="submit">
+                    <button 
+                      class="form-control btn btn-brand1 btn-sm input-sm" 
+                      style="margin-top:2px;"
+                      type="submit">
                       Upload
                     </button>
                   </div>
                 </div>
-                <div>
-                  @if (count($errors) > 0)
+                <div class="m-t-md">
+                  @if (count($errors->editAvatar) > 0)
                     <div class="alert alert-danger text-danger m-b-n">
                       <ul class="m-b-n m-l-n">
-                        @foreach ($errors->all() as $error)
+                        @foreach ($errors->editAvatar->all() as $error)
                           <li>{{ $error }}</li>
                         @endforeach
                       </ul>

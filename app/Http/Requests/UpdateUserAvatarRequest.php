@@ -6,6 +6,8 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateUserAvatarRequest extends FormRequest
 {
+    protected $errorBag = "editAvatar";
+
     /**
      * Determine if the user is authorized to make this request.
      *
