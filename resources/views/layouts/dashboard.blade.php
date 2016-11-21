@@ -13,6 +13,7 @@
 
 	<link rel="stylesheet" href="{{ URL::asset('css/app2.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ URL::asset('css/font.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ URL::asset('css/font2.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ URL::asset('css/global.css') }}" type="text/css" />
 
 	<script src="{{ URL::asset('libs/jquery/jquery/dist/jquery.js') }}"></script>
