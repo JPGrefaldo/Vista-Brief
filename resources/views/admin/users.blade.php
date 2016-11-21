@@ -126,7 +126,8 @@ Manage Users - Vista
                         <i></i>
                       </label>
                     </td>
-                    <td>{{ $user->username }}</td>
+                    <td>{{ $user->username }} @if($user->type == 1)<span class="label label-info">admin</span>@endif
+                    </td>
                     <td><span class="text-ellipsis">{{ $user->forename }}</span></td>
                     <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
                     <td>{{ $user->email }}</td>

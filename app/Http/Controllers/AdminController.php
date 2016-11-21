@@ -20,7 +20,7 @@ class AdminController extends Controller
     {
     	$users = User::paginate(20);
         foreach ($users as $key => $val) { /* exclude user:admin from the list */
-            if (strtolower($users[$key]['username']) == 'admin') {
+            if (strtolower($users[$key]['id']) == '1') {
                 unset($users[$key]);
             }
         }
@@ -65,6 +65,7 @@ class AdminController extends Controller
     	$surname           = $request['surname'];
     	$email             = $request['email'];
     	$password          = bcrypt($request['password']);
+        $type              = ($request->input('type') == 'admin') ? 1 : 2;
 
         // create new user model and save new data
     	$user = new User();
@@ -73,7 +74,7 @@ class AdminController extends Controller
     	$user->surname     = $surname;
     	$user->email       = $email;
     	$user->password    = $password;
-        $user->type        = 2;
+        $user->type        = $type;
         $user->save();
 
         // send email to new user's email

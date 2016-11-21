@@ -45,7 +45,6 @@ Add New User
           @if (count($errors) > 0)
             <div class="panel panel-danger">
               <div class="panel-body bg-ltdanger text-danger">
-                <h4>Oh Snap!</h4>
                 <ul>
                   @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -57,6 +56,21 @@ Add New User
           <div class="panel panel-default">
             <form id="form-newuser" class="bs-example form-horizontal" action="{{ route('createnewuser') }}" method="post">
               <div class="panel-body">
+                <div class="form-group" id="userTypeModule">
+                  <label class="col-lg-3 control-label">User Type</label>
+                  <div class="col-lg-9">
+                    <button class="btn btn-info col-lg-6" id="btn_standard">
+                      <span class="">Standard</span>
+                    </button>
+                    <button class="btn btn-default col-lg-6" id="btn_admin">
+                      <span class="text-muted">Admin</span>
+                    </button>
+                    <input 
+                      type="hidden" 
+                      name="type" 
+                      value="{{(old('type'))?old('type'):'standard'}}"/>
+                  </div>
+                </div>
                 <div class="form-group">
                   <label class="col-lg-3 control-label">Username</label>
                   <div class="col-lg-9">
@@ -181,6 +195,7 @@ Add New User
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('js/admin/action-newuser-form-ui.js') }}"></script>
+  <script src="{{ URL::asset('js/admin/module-usertype.js') }}"></script>
 
 </div>
 @endsection
