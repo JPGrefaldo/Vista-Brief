@@ -226,8 +226,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Pitch/Quote</label>
-                      <div class="col-lg-8">
+                      <label class="col-lg-3 control-label text-left">Pitch/Quote</label>
+                      <div class="col-lg-9">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -249,8 +249,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Ideal Q&amp;A</label>
-                      <div class="col-lg-8">
+                      <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
+                      <div class="col-lg-9">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -272,8 +272,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Ideal Review</label>
-                      <div class="col-lg-8">
+                      <label class="col-lg-3 control-label text-left">Ideal Review</label>
+                      <div class="col-lg-9">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -295,8 +295,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Project Deadline</label>
-                      <div class="col-lg-8">
+                      <label class="col-lg-3 control-label text-left">Project Deadline</label>
+                      <div class="col-lg-9">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -344,7 +344,7 @@ Planning Request
           <!-- Attachments -->
           <div class="panel panel-default">
             <div class="panel-heading">
-              10 - Attached Files
+              #04 - Attached Files
             </div>
             <div class="panel-body bg-light lter">
               <div class="row">

@@ -102,6 +102,7 @@ Brief Sheets - Vista
                 <th>Job Name</th>
                 <th>Key Deliverables</th>
                 <th>Last Update by</th>
+                <th>Last Updated</th>
                 <th>Status</th>
                 <th style="width:30px;">
                   <i class="fa fa-cog"></i>
@@ -145,6 +146,7 @@ Brief Sheets - Vista
                         {{ $brief->user->forename }} {{ $brief->user->surname }}
                       @endif
                     </td>
+                    <td>{{$brief->updated_at->format('m/d/Y')}}</td>
                     <td>
                       @if ($brief->is_draft == 1)
                         Draft
