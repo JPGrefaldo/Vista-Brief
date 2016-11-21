@@ -145,7 +145,17 @@ Brief Sheets - Vista
                         {{ $brief->user->forename }} {{ $brief->user->surname }}
                       @endif
                     </td>
-                    <td>{{ ($brief->is_draft == 0) ? 'Submitted' : 'Draft' }}</td>
+                    <td>
+                      @if ($brief->is_draft == 1)
+                        Draft
+                      @else
+                        @if (count($brief->amendments) > 0)
+                          Amended
+                        @else
+                          Submitted
+                        @endif
+                      @endif
+                    </td>
                     <td>
                       @if ($brief->is_draft == 1)
                         <a href="{{ route('formeditbrief', [$brief->id]) }}" class="active" title="edit">
