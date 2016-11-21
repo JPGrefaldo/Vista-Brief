@@ -28,12 +28,13 @@ class StoreBriefRequest extends FormRequest
         return [
             'client'        =>  'required',
             'projectstatus' =>  'required',
-            'jobnumber'     =>  'required',
+            'jobnumber'     =>  'required:max:6',
+            'oldjobnumber'  =>  'max:6',
             'jobname'       =>  'required|unique:briefs,jobname',
-            'quotereq'      =>  'required_without_all:proposedreq,stagereq,projdelivered',
-            'proposedreq'   =>  'required_without_all:quotereq,stagereq,projdelivered',
-            'stagereq'      =>  'required_without_all:quotereq,proposedreq,projdelivered',
-            'projdelivered' =>  'required_without_all:quotereq,proposedreq,stagereq',
+            'quotereq'      =>  'required',
+            'proposedreq'   =>  'required',
+            'stagereq'      =>  'required',
+            'projdelivered' =>  'required',
             'department'    =>  'required',
             'attachments.*' =>  'max:5120',
         ];
@@ -53,12 +54,12 @@ class StoreBriefRequest extends FormRequest
             'jobnumber.required'        =>  'Job Number is required.',
             'jobname.required'          =>  'Job Name is required.',
             'jobname.unique'            =>  'That Job Name is already taken.',
-            'quotereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
-            'proposedreq.required_without_all'  =>  'You need to choose at least one of the required dates.',
-            'stagereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
-            'projdelivered.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            'quotereq.required'         =>  'Quote Required by is required.',
+            'proposedreq.required'      =>  'Proposed Required by is required.',
+            'stagereq.required'         =>  '1st Stage Required by is required.',
+            'projdelivered.required'    =>  'Projects Delivered by is required.',
             'department.required'       =>  'You need to select at least one discipline.',
-            'attachments.*'               =>  'Each attached file must not exceed 5MB of size.',
+            'attachments.*'             =>  'Each attached file must not exceed 5MB of size.',
         ];
     }
 
@@ -67,3 +68,16 @@ class StoreBriefRequest extends FormRequest
         return $validator->errors()->unique();
     }
 }
+
+
+
+
+            // 'quotereq'      =>  'required_without_all:proposedreq,stagereq,projdelivered',
+            // 'proposedreq'   =>  'required_without_all:quotereq,stagereq,projdelivered',
+            // 'stagereq'      =>  'required_without_all:quotereq,proposedreq,projdelivered',
+            // 'projdelivered' =>  'required_without_all:quotereq,proposedreq,stagereq',
+
+            // 'quotereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            // 'proposedreq.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            // 'stagereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            // 'projdelivered.required_without_all'  =>  'You need to choose at least one of the required dates.',

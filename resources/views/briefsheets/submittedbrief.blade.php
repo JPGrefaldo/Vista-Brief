@@ -541,6 +541,10 @@ Submitted - Brief Sheet
           <!-- Brief Attachments -->
           <div class="panel panel-default brief-panel">
             <div class="panel-heading">
+              #10 - 
+              <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                title="Attach any supporting material here. Provide multiple files in single zip folder where possible."> 
+              </i>
               Brief Sheet Attached Files
             </div>
             <div class="panel-body bg-light lter">

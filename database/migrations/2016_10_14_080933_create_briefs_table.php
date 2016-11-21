@@ -17,19 +17,19 @@ class CreateBriefsTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('client_id');
-            $table->string('jobnumber', 200)->nullable();
-            $table->string('old_jobnumber', 200)->nullable();
-            $table->string('jobname', 500);
+            $table->string('jobnumber', 8)->nullable();
+            $table->string('old_jobnumber', 8)->nullable();
+            $table->string('jobname', 85);
             $table->tinyInteger('projectstatus_id');
             $table->boolean('is_draft')->default(0);
             $table->string('projectmanager', 200)->nullable();
-            $table->text('budget', 2000)->nullable();
-            $table->text('keydeliverables', 1000)->nullable();
+            $table->string('budget', 60)->nullable();
+            $table->string('keydeliverables', 85)->nullable();
             $table->date('quoted_required_by_at')->nullable();
             $table->date('proposal_required_by_at')->nullable();
             $table->date('firststage_required_by_at')->nullable();
             $table->date('project_delivered_by_at')->nullable();
-            $table->text('summary', 40000)->nullable();
+            $table->string('summary', 210)->nullable();
             $table->string('disciplines_required_ids', 500)->nullable();
             $table->text('objectives_or_measures', 40000)->nullable();
             $table->text('content', 40000)->nullable(); // suppose to be context
