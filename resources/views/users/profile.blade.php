@@ -137,12 +137,12 @@ Profile - Vista
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label><i>Forename</i></label>
+                        <label><i>First Name</i></label>
                         <input 
                           class="form-control"
                           type="text" 
                           name="forename" 
-                          placeholder="Forename" 
+                          placeholder="First Name" 
                           value="{{ (old('forename')) ? old('forename') : Auth::user()->forename }}" >
                       </div>
                     </div>
@@ -157,7 +157,7 @@ Profile - Vista
                           value="{{ (old('surname')) ? old('surname') : Auth::user()->surname }}" >
                       </div>
                     </div>
-                    <div class="col-sm-12 m-t-lg bg-light">
+                    <div class="col-sm-12 m-t-lg">
                       <label><i>Type your current password for security verification</i></label>
                       <input 
                         class="form-control"
@@ -230,7 +230,7 @@ Profile - Vista
                         </div>
                       </div>
                   </div>
-                  <div class="col-sm-12 m-t-lg bg-light">
+                  <div class="col-sm-12 m-t-lg">
                     <label><i>Type your current password for security verification</i></label>
                     <input 
                       class="form-control"
