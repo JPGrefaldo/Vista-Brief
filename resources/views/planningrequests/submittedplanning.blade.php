@@ -330,18 +330,8 @@ Planning Request
               Job Spec
             </div>
             <div class="panel-body">
-              <div class="row-fluid">
-                <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                  <textarea 
-                    name="job_spec"
-                    class="form-control auto-height" 
-                    style="min-height:4px;" 
-                    placeholder="" 
-                    readonly
-                  >{{ $planning->job_specifications }} 
-
-                  </textarea>
-                </div>          
+              <div>
+                {!! nl2br(e($planning->job_specifications)) !!}          
               </div>
             </div>
           </div>
@@ -415,7 +405,6 @@ Planning Request
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>
   <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script>
-  <script src="{{ URL::asset('js/planning/init-auto-height.js') }}"></script>
 
 
 </div>

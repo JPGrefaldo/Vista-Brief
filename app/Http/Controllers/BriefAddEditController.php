@@ -170,6 +170,11 @@ class BriefAddEditController extends Controller
     public function formEditBrief($id) 
     {
     	$brief = Brief::find($id);
+      if ($brief) { // if brief is not draft redirect to submitted page
+            if ($brief->is_draft == 0) {
+                return redirect()->route('submittedbriefsheet', $id);
+            }
+        }
       $clients = Client::isactive()->latest()->get();
       $projectstatus = ProjectStatus::all();
       $departments = Department::isactive()->get();

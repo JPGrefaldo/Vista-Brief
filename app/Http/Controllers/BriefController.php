@@ -31,6 +31,11 @@ class BriefController extends Controller
     public function submitted($id) 
     {
         $brief = Brief::find($id); // add isactive validation in the future
+        if ($brief) { // if brief is draft redirect to draft page
+            if ($brief->is_draft == 1) {
+                return redirect()->route('formeditbrief', $id);
+            }
+        }
         $departments = Department::isactive()->get();
 
         // insert the classNames string to the attachment collection data

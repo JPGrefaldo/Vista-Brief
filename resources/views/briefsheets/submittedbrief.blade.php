@@ -405,15 +405,8 @@ Submitted - Brief Sheet
                 Brief Summary
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                    <textarea 
-                      name="summary" 
-                      class="form-control auto-height" 
-                      style="min-height:5px" 
-                      disabled
-                      >{{ $brief->summary }}</textarea>
-                  </div>            
+                <div>
+                  {!! nl2br(e($brief->summary)) !!}
                 </div>
               </div>
             </div>
@@ -464,15 +457,8 @@ Submitted - Brief Sheet
                 Objectives / Measure 
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                    <textarea
-                      name="objmeasure" 
-                      class="form-control auto-height" 
-                      style="min-height:5px;" 
-                      disabled
-                    >{{ $brief->objectives_or_measures }}</textarea>
-                  </div>          
+                <div>
+                  {!! nl2br(e($brief->objectives_or_measures)) !!}     
                 </div>
               </div>
             </div>
@@ -488,15 +474,8 @@ Submitted - Brief Sheet
                 Context 
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                    <textarea
-                      name="context" 
-                      class="form-control auto-height" 
-                      style="min-height:5px;" 
-                      disabled
-                    >{{ $brief->content }}</textarea>
-                  </div>
+                <div>
+                  {!! nl2br(e($brief->content)) !!}
                 </div>
               </div>
             </div>
@@ -512,15 +491,8 @@ Submitted - Brief Sheet
                 Target Audience and Insight 
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                    <textarea 
-                      name="targetaudience_insight"
-                      class="form-control auto-height" 
-                      style="min-height:5px;" 
-                      disabled
-                    >{{ $brief->targetaudience_and_insight }}</textarea>
-                  </div>         
+                <div>
+                  {!! nl2br(e($brief->targetaudience_and_insight)) !!}
                 </div>
               </div>
             </div>
@@ -532,33 +504,19 @@ Submitted - Brief Sheet
                 06 - What do want the target audience to ...
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n">
-                    <div class="col-lg-4 m-b-n">
-                      <textarea 
-                      name="targetaudience_think"
-                      class="form-control auto-height m-l-n m-r-n" 
-                      style="min-height:5px;" 
-                      disabled
-                      >{{ $brief->targetaudience_think }}</textarea>
-                    </div>
-                    <div class="col-lg-4 m-b-n">
-                      <textarea 
-                      name="targetaudience_feel"
-                      class="form-control auto-height m-l-n m-r-n" 
-                      style="min-height:5px;" 
-                      disabled
-                      >{{ $brief->targetaudience_feel }}</textarea>
-                    </div>
-                    <div class="col-lg-4 m-b-n">
-                      <textarea 
-                      name="targetaudience_do"
-                      class="form-control auto-height m-l-n m-r-n" 
-                      style="min-height:5px;" 
-                      disabled
-                      >{{ $brief->targetaudience_do }}</textarea>
-                    </div>
-                  </div>            
+                <div class="row">
+                  <div class="col-lg-4">
+                    <h4>Think</h4>
+                    {!! nl2br(e($brief->targetaudience_think)) !!}
+                  </div>
+                  <div class="col-lg-4 b-l b-r">
+                    <h4>Feel</h4>
+                    {!! nl2br(e($brief->targetaudience_feel)) !!}
+                  </div>
+                  <div class="col-lg-4">
+                    <h4>Do</h4>
+                    {!! nl2br(e($brief->targetaudience_do)) !!}
+                  </div>           
                 </div>
               </div>
             </div>
@@ -574,15 +532,8 @@ Submitted - Brief Sheet
                 Key Messages / Propositions
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                    <textarea 
-                      name="keymsg_propositions" 
-                      class="form-control auto-height" 
-                      style="min-height:5px;" 
-                      disabled
-                    >{{ $brief->keymessages_or_propositions }}</textarea>
-                  </div>             
+                <div>
+                  {!! nl2br(e($brief->keymessages_or_propositions)) !!}        
                 </div>
               </div>
             </div>
@@ -598,15 +549,8 @@ Submitted - Brief Sheet
                 Creative
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                    <textarea 
-                      name="creative"
-                      class="form-control auto-height" 
-                      style="min-height:5px;" 
-                      disabled
-                    >{{ $brief->creative }}</textarea>
-                  </div>            
+                <div>
+                  {!! nl2br(e($brief->creative)) !!}           
                 </div>
               </div>
             </div>
@@ -622,15 +566,8 @@ Submitted - Brief Sheet
                 Budget, Timings and Outputs Required
               </div>
               <div class="panel-body bg-light lter">
-                <div class="row-fluid">
-                  <div class="form-group m-b-n m-t-n m-l-n m-r-n">
-                    <textarea 
-                      name="budget_timings_outputs_req"
-                      class="form-control auto-height" 
-                      style="min-height:5px;" 
-                      disabled
-                    >{{ $brief->budget_timings_and_outputs }}</textarea>
-                  </div>           
+                <div>
+                  {!! nl2br(e($brief->budget_timings_and_outputs)) !!}          
                 </div>
               </div>
             </div>
@@ -786,7 +723,6 @@ Submitted - Brief Sheet
   <!--<script src="{{ URL::asset('js/brief/init-daterangepicker.js') }}"></script>-->
   <script src="{{ URL::asset('js/brief/action-brief-new-client.js') }}"></script> 
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
-  <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>
