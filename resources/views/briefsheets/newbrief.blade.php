@@ -137,7 +137,7 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
                         Your Budget 
-                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="What budget allocation has the client or have you set to complete this work."></i>
+                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="What budget allocation has the client or have you set to complete this work."></i>
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-8">
