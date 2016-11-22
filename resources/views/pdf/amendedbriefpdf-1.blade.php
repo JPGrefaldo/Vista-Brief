@@ -70,25 +70,29 @@ if ($brief->projectstatus_id == 1) {
 
 
         <div class="col-xs-3">
-          <label class="control-label text-left"><strong>Quote Required By</strong></label>
+          <label class="control-label text-left text-sm">
+            <strong>Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left"><strong>Proposal Required By</strong></label>
+          <label class="control-label text-left text-sm">
+            <strong>Proposal Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->proposal_required_by_at)) ? $brief->proposal_required_by_at->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left"><strong>1st Stage Required By</strong></label>
+          <label class="control-label text-left text-sm">
+            <strong>1st Stage Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->firststage_required_by_at)) ? $brief->firststage_required_by_at->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left"><strong>Project Delivered By</strong></label>
+          <label class="control-label text-left text-sm">
+            <strong>Project Delivered By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->project_delivered_by_at)) ? $brief->project_delivered_by_at->format('M d, Y') : '&nbsp;' }}
           </p>
