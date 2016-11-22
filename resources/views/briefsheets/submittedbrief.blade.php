@@ -56,6 +56,7 @@ Submitted - Brief Sheet
             @if (count($errors) > 0)
             <div class="panel panel-default">
               <div class="alert alert-danger text-danger m-b-n">
+                <h5>Amends Brief</h5>
                 <ul class="">
                   @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -63,7 +64,15 @@ Submitted - Brief Sheet
                 </ul>
               </div>
             </div>
-            @endif 
+            @endif
+
+            @if (session('new_amend_success'))            
+            <div class="panel panel-default">
+              <div class="alert alert-success text-success m-b-n">
+                <p>{{ session('new_amend_success') }}</p>
+              </div>
+            </div>
+            @endif
 
             <!-- Information -->
             <div class="panel panel-default brief-panel">
@@ -301,6 +310,93 @@ Submitted - Brief Sheet
             <!-- / Information -->
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
+
+            <div class="panel panel-brand1">
+              <div class="panel-heading">
+                Post New Amend
+              </div>
+              <div class="panel-body">
+                <form class="bs-example form-horizontal" action="{{ route('postnewamend') }}" method="post" enctype="multipart/form-data">
+                <div class="row-fluid">
+                  <div class="form-group">
+                    <div class="checkbox m-l-sm">
+                      <label class="i-checks">
+                        <input type="checkbox" name="internal">
+                        <i></i>
+                        Internal Amend 
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <textarea 
+                      name="content"
+                      class="form-control auto-height" 
+                      style="overflow:hidden;min-height:100px;" 
+                      placeholder="Type new amend here.." 
+                    >{{ old('content') }}</textarea>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
+                    <div class="form-group">
+                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
+                    </div>  
+                  </div>
+                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
+                    <button class="btn btn-primary btn-block">Add File(s)</button>
+                  </div>
+
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <label class="col-lg-12 text-info">Who to notify?</label>
+                      @foreach ($departments as $department)
+                      <div class="col-lg-3">
+                        <div class="checkbox">
+                          <label class="i-checks">
+                            <input 
+                              type="checkbox" 
+                              name="department[{{ $department->id }}]" 
+                              value="{{ $department->id }}" 
+                              @if(array_key_exists($department->id, old('department',[]))) checked @endif>
+                            <i></i>
+                            {{ $department->name }} 
+                          </label>
+                        </div>           
+                      </div>
+                      @endforeach
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  @if (count($errors) > 0)
+                    <div class="col-sm-12">
+                      <div class="alert alert-danger text-danger">
+                        <h5>Amends Brief</h5>
+                        <ul class="">
+                          @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                          @endforeach
+                        </ul>
+                      </div>
+                    </div>
+                  @endif
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12 text-right">
+                    <input type="hidden" name="_token" value="{{ Session::token() }}">
+                    <input type="hidden" name="brief_id" value="{{ $brief->id }}">
+                    <input type="submit" name="action" class="btn btn-md btn-brand1" value="Submit New Amend">
+                  </div>
+                </div>                
+                </form>
+              </div>
+            </div>
 
             <!-- Brief Summary -->
             <div class="panel panel-default brief-panel">
@@ -586,93 +682,15 @@ Submitted - Brief Sheet
             </div>
             <!-- / Brief Attachments -->
 
-            <!-- Ammendments -->
-            <div class="panel panel-default col-sm-10 col-sm-offset-1">
+            <!-- List of Ammendments -->
+            <div class="panel panel-default">
               <div class="panel-heading">
                 Amends
               </div>
-              <div class="panel-body">                
-                <form class="bs-example form-horizontal" action="{{ route('postnewamend') }}" method="post" enctype="multipart/form-data">
-                <div class="row-fluid">
-                  <div class="form-group">
-                    Internal Amend <input type="checkbox" name="internal">
-                  </div>
-                  <div class="form-group">
-                    <textarea 
-                      name="content"
-                      class="form-control" 
-                      style="overflow:hidden;min-height:100px;" 
-                      placeholder="Type new amend here.." 
-                    >{{ old('content') }}</textarea>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
-                    <div class="form-group">
-                      <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
-                    </div>  
-                  </div>
-                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
-                    <button class="btn btn-primary btn-block">Add File(s)</button>
-                  </div>
-
-                </div>
-
-                <div class="row">
-                  <div class="form-group">
-                    <label class="col-lg-12 fom-control text-info">Who to notify?</label>
-                    @foreach ($departments as $department)
-                      <div class="col-lg-3">
-                        <div class="checkbox">
-                          <label class="i-checks">
-                            <input 
-                              type="checkbox" 
-                              name="department[{{ $department->id }}]" 
-                              value="{{ $department->id }}" 
-                              @if(array_key_exists($department->id, old('department',[]))) checked @endif
-                                >
-                            <i></i>
-                            {{ $department->name }} 
-                          </label>
-                        </div>           
-                      </div>
-                    @endforeach
-                  </div>
-                </div>
-
-                <div class="row">
-                  @if (count($errors) > 0)
-                    <div class="col-sm-12">
-                      <div class="alert alert-danger text-danger">
-                        <ul class="">
-                          @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                          @endforeach
-                        </ul>
-                      </div>
-                    </div>
-                  @endif
-                </div>
-
-                <div class="row">
-                  <div class="col-sm-12 text-center">
-                    <input type="hidden" name="_token" value="{{ Session::token() }}">
-                    <input type="hidden" name="brief_id" value="{{ $brief->id }}">
-                    <input type="submit" name="action" class="btn btn-md btn-brand1" value="Submit New Amend">
-                  </div>
-                </div>                
-                </form>
-
-                <div class="row">
-                  @if (session('new_amend_success'))
-                    <span class="alert-success p-r-sm p-l-sm">{{ session('new_amend_success') }}</span>
-                  @endif
-                </div>
-
+              <div class="panel-body">
                 <div class="line line-dashed b-b line-lg"></div>
 
-                @foreach ($brief->amendments as $key => $amend)
+                @foreach ($brief->amendments->reverse() as $key => $amend)
                   <div class="row">
                     <div class="col-sm-12">
                       <h4>
@@ -682,7 +700,7 @@ Submitted - Brief Sheet
                         @endif
                       </h4>
                       <h6 class="text-muted">
-                        {{ $amend->updated_at->format('h:m l, d M Y') }} - 
+                        {{ $amend->updated_at->format('h:m:s l, d M Y') }} - 
                         @if ($amend->user)
                           {{ $amend->user->forename }} {{ $amend->user->surname }}
                         @endif
@@ -704,7 +722,7 @@ Submitted - Brief Sheet
                               @if (count($attachment->user))
                                 {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
                               @endif
-                              {{ $attachment->updated_at->format('h:m l, d M Y') }}
+                              {{ $attachment->updated_at->format('h:m:s l, d M Y') }}
                             </h6>
                           </li>
                         @endforeach
@@ -735,7 +753,7 @@ Submitted - Brief Sheet
 
               </div>
             </div>
-            <!-- / Ammendments -->
+            <!-- / List of Ammendments -->
           </div>
         <!-- new Brief form class divider -->
           </div>

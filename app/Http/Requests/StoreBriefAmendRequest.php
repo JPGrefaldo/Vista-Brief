@@ -25,6 +25,7 @@ class StoreBriefAmendRequest extends FormRequest
     {
         return [
             'content'       =>  'required',
+            'department'    =>  'required',
             'attachments.*' =>  'max:5120',
         ];
     }
@@ -33,6 +34,7 @@ class StoreBriefAmendRequest extends FormRequest
     {
         return [
             'content.required'  =>  'Content must not be empty.',
+            'department.required'   =>  'You need to select at least one Team.',
             'attachments.*'     =>  'Each attached file must not exceed 5MB of size.',
         ];
     }

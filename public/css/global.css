@@ -271,3 +271,8 @@ fieldset[disabled] .btn-brand1.active {
 .defaultHidden {
 	display: none;
 }
+
+.panel-brand1 .panel-heading {
+  background-color: #05436A;
+  color: #ffffff;
+}

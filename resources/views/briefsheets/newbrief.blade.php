@@ -578,7 +578,7 @@ Create New Brief Sheet
             <!-- / Attachments -->
 
             <!-- Notes -->
-            <div class="panel panel-default">
+            <div class="panel panel-default hide">
               <div class="panel-body">
                 Need help writing the brief? Click here and request Specialist Support. Remember to save your brief as draft before closing.
               </div>
