@@ -333,8 +333,7 @@ Submitted - Brief Sheet
                       class="form-control auto-height" 
                       style="overflow:hidden;min-height:100px;" 
                       placeholder="Type new amend here.." 
-                    >{{ old('content') }}
-                    </textarea>
+                    >{{ old('content') }}</textarea>
                   </div>
                 </div>
 
