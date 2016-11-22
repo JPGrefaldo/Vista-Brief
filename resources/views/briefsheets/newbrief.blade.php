@@ -172,7 +172,7 @@ Create New Brief Sheet
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">
                     Job Name 
-                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Job name as it appears in Access."></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Job name as it appears in Access."></i>
                     <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-10">
@@ -184,7 +184,7 @@ Create New Brief Sheet
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">
                     Key Deliverables 
-                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Name this Brief Sheet based on the specific deliverable it refers to i.e 'Opener Video' or 'Pitch Work'. Multiple Brief Sheets can be created against a single Job Number and identified by the name in this section."></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Name this Brief Sheet based on the specific deliverable it refers to i.e 'Opener Video' or 'Pitch Work'. Multiple Brief Sheets can be created against a single Job Number and identified by the name in this section."></i>
                     <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-10">

@@ -169,7 +169,7 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
                         Your Budget 
-                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="What budget allocation has the client or have you set to complete this work."></i>
+                        <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="What budget allocation has the client or have you set to complete this work."></i>
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-8">
@@ -203,7 +203,7 @@ Draft - Brief Sheet
                 </div>
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Job Name 
-                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Job name as it appears in Access."></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Job name as it appears in Access."></i>
                     <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-10">
@@ -219,7 +219,7 @@ Draft - Brief Sheet
                 <a href="required_dates" name="required_dates" id="required_dates"></a><!-- anchor -->
                 <div class="form-group">
                   <label class="col-lg-2 control-label text-left">Key Deliverables 
-                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Name this Brief Sheet based on the specific deliverable it refers to i.e 'Opener Video' or 'Pitch Work'. Multiple Brief Sheets can be created against a single Job Number and identified by the name in this section."></i>
+                    <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Name this Brief Sheet based on the specific deliverable it refers to i.e 'Opener Video' or 'Pitch Work'. Multiple Brief Sheets can be created against a single Job Number and identified by the name in this section."></i>
                     <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-10">
@@ -343,7 +343,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #01 -  
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter short overview description of the requirements here."></i> 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Enter short overview description of the requirements here."></i> 
                 Brief Summary 
                 <span class="text-danger">*</span>
               </div>
@@ -366,7 +366,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #02 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
                 Disciplines Required 
                 <span class="text-danger">*</span>
               </div>
@@ -420,7 +420,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #03 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?">
                 </i> 
                 Objectives / Measure 
@@ -445,7 +445,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #04 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?">
                 </i> 
                 Context 
@@ -469,7 +469,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #05 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?">
                 </i> 
                 Target Audience and Insight 
@@ -531,7 +531,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #07 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?">
                 </i> 
                 Key Messages / Propositions
@@ -555,7 +555,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #08 -  
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?">
                 </i> 
                 Creative
@@ -579,7 +579,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #09 -  
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?">
                 </i> 
                 Budget, Timings and Outputs Required 
@@ -604,7 +604,7 @@ Draft - Brief Sheet
             <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #10 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="Attach any supporting material here. Provide multiple files in single zip folder where possible."> 
                 </i>
                 Attachments

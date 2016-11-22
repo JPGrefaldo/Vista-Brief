@@ -346,7 +346,7 @@ Create New Planning Request
             <div class="panel panel-brand1">
               <div class="panel-heading">
                 #03 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="Enter a description of the work required."> 
                 </i>
                 Job Spec 
@@ -371,7 +371,7 @@ Create New Planning Request
             <div class="panel panel-brand1">
               <div class="panel-heading">
                 #04 - 
-                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
+                <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="Attach any supporting material here. Provide multiple files in single zip folder where possible.">
                 </i>
                 Attachments
@@ -489,7 +489,7 @@ Create New Planning Request
   <script src="{{ URL::asset('js/planning/init-daterangepicker.js') }}"></script>
   <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>
   <script src="{{ URL::asset('js/planning/action-planning-new-client.js') }}"></script> 
-  <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script> 
+  <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script>
   <script src="{{ URL::asset('js/planning/action-planning-form-ui.js') }}"></script>
   <script src="{{ URL::asset('js/planning/init-auto-height.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->

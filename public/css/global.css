@@ -188,6 +188,7 @@ fieldset[disabled] .btn-brand1.active {
 	font-size: 14px;
 	white-space: pre-wrap;
 	max-width: none;
+	min-width: 400px;
 	text-align: left;
 }
 .ctooltip + .tooltip.top > .tooltip-arrow {

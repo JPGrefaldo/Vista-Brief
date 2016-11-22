@@ -323,7 +323,11 @@ Planning Request
           <!-- Job Spec -->
           <div class="panel panel-brand1">
             <div class="panel-heading">
-              #03 - Job Spec
+              #03 - 
+              <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
+                title="Enter a description of the work required."> 
+              </i>
+              Job Spec
             </div>
             <div class="panel-body">
               <div class="row-fluid">
@@ -346,7 +350,11 @@ Planning Request
           <!-- Attachments -->
           <div class="panel panel-brand1">
             <div class="panel-heading">
-              #04 - Attached Files
+              #04 - 
+              <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
+                title="Attach any supporting material here. Provide multiple files in single zip folder where possible.">
+              </i>
+              Attached Files
             </div>
             <div class="panel-body bg-light lter">
               <div class="row">
@@ -406,6 +414,7 @@ Planning Request
 
   <!-- load ACTION JS scripts -->
   <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>
+  <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script>
   <script src="{{ URL::asset('js/planning/init-auto-height.js') }}"></script>
 
 
