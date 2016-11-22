@@ -23,8 +23,13 @@ class PdfController extends Controller
     	// return;
 
     	$brief = Brief::find($id);
-
         $departments = Department::all();
+
+        foreach($brief->attachmentsNotAmend as $attachment) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+            $attachment->classNames = $classNames;
+        }
+
     	// return view('pdf.submittedbriefpdf-1', compact('brief', 'departments'));
     	$pdf1 = PDF::loadView('pdf.submittedbriefpdf-1', compact('brief', 'departments'))
             ->setPaper('a4')
@@ -38,11 +43,16 @@ class PdfController extends Controller
 
         // insert the classNames string to the amends-attachment collection data
         // <i class="{{ $attachment->classNames }} text-md"></i>
-        foreach($brief->amendments_desc as $key => $amendment) {
+        foreach($brief->amendments as $key => $amendment) {
             foreach ($amendment->attachments as $attachment) {
                 $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
                 $attachment->classNames = $classNames;
             }
+        }
+
+        foreach($brief->attachmentsNotAmend as $attachment) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+            $attachment->classNames = $classNames;
         }
 
         $departments = Department::all();

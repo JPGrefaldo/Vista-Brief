@@ -22,10 +22,10 @@ if ($brief->projectstatus_id == 1) {
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
+      	  <p class="pull-right text-muted">{{ date('m/d/Y') }}</p>
         </div>
         <div class="col-xs-12 m-t-n">
-      	  <h2 class="text-primary">Brief Sheet</h2>
+      	  <h2 class="text-brand1">Brief Sheet</h2>
         </div>
       </div>
       <!-- / Title -->
@@ -204,6 +204,35 @@ if ($brief->projectstatus_id == 1) {
           <p class="bg-light p-l-sm">{{ $brief->budget_timings_and_outputs }}&nbsp;</p>
         </div>
         @endif
+
+        @if (count($brief->attachmentsNotAmend))
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-brand-1 p-l-sm text-white" style="{{$ps_color}}"><strong>#10 Attachments</strong></p>
+          @foreach ($brief->attachmentsNotAmend as $attachment)
+          <div class="col-xs-12">
+            <ul class="p-l-md l-s-n">
+              <li>
+                <i class="{{ $attachment->classNames }} text-md"></i> 
+                <a 
+                  class="" 
+                  href="{{ route('download_attachment', [$attachment->id]) }}">
+                  <span class="text-brand1">{{ $attachment->filename }}</span>
+                </a>
+              </li>
+            </ul>
+            <h6 class="p-l-md text-muted">
+              @if (count($attachment->user))
+              Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
+              @else
+              Upload by &lt;missing info&gt;
+              @endif
+               - {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
+            </h6>
+          </div>
+          @endforeach
+        </div>
+        @endif
+        
       </div>
     </div>
 

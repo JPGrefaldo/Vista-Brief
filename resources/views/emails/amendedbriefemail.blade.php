@@ -12,7 +12,7 @@
 
 <p>To <span class="text-muted">{{ $projectmanager }}; {{ $department_name }}</span></p>
 
-<p>Brief sheet attached</p>
+<p>Amended Brief Sheet attached</p>
 
 </body>
 </html>

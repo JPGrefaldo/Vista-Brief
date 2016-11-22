@@ -122,7 +122,7 @@ class BriefController extends Controller
             if(!empty($request->user()->email)) {
                 $mailer
                   ->to($request->user()->email)
-                  ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
+                  ->send(new \App\Mail\AmendedBriefMail($brief,$department_to_be_email_to_user));
             }
         }
 

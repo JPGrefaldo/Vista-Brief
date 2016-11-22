@@ -276,3 +276,7 @@ fieldset[disabled] .btn-brand1.active {
   background-color: #05436A;
   color: #ffffff;
 }
+
+.font-normal-force {
+	font-weight: normal !important;
+}

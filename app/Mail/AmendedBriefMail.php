@@ -15,7 +15,7 @@ class AmendedBriefMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $subject = 'Amended Brief Sheet - Vista Brief';
+    protected $subject = 'Amended Brief Sheet: Vista Brief';
     protected $brief_id;
     protected $updated_at;
     protected $jobnumber;
@@ -37,6 +37,8 @@ class AmendedBriefMail extends Mailable
         $this->jobname          = $brief->jobname;
         $this->projectmanager   = $brief->projectmanager;
         $this->department_name  = $department_name;
+
+        $this->subject          = 'Amended Brief Sheet: '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables;
 
         $this->pdf_file_name    = 'Brief Sheet: '.$brief->jobnumber.' - '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
     }
@@ -66,11 +68,16 @@ class AmendedBriefMail extends Mailable
         $departments = Department::isactive()->get();
 
         // insert the classNames string to the amends-attachment collection data
-        foreach($brief->amendments_desc as $key => $amendment) {
+        foreach($brief->amendments as $key => $amendment) {
             foreach ($amendment->attachments as $attachment) {
                 $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
                 $attachment->classNames = $classNames;
             }
+        }
+
+        foreach($brief->attachmentsNotAmend as $attachment) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+            $attachment->classNames = $classNames;
         }
 
         $pdf = PDF::loadView('pdf.amendedbriefpdf-1', compact('brief', 'departments'))->setPaper('a4');

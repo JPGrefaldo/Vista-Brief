@@ -22,10 +22,10 @@ if ($brief->projectstatus_id == 1) {
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
+      	  <p class="pull-right text-muted">{{ date('m/d/Y') }}</p>
         </div>
         <div class="col-xs-12 m-t-n">
-      	  <h2 class="text-primary">Brief Sheet</h2>
+      	  <h2 class="text-brand1">Brief Sheet</h2>
         </div>
       </div>
       <!-- / Title -->
@@ -112,12 +112,20 @@ if ($brief->projectstatus_id == 1) {
           <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>Amends</strong></p>
         </div>
 
-        @foreach ($brief->amendments_desc as $key => $amend)
+        @foreach ($brief->amendments->reverse() as $key => $amend)
           <div class="col-xs-12">
-            <p class=" m-b-xs"><strong>Amend {{ $key+1 }}</strong></p>
+            <p class=" m-b-xs">
+              <strong>Amend {{ $key+1 }}</strong>
+              @if ($amend->is_internal)<span> - Internal Amend</span>@endif
+            </p>
             <p class="text-muted m-b-xs">
-              Amended by {{ $amend->user->forename }} {{ $amend->user->surname }} - 
-              {{ $amend->updated_at->format('l, M d, Y - h:m') }}</p>
+              Amended by 
+              @if (count($amend->user))
+              {{ $amend->user->forename }} {{ $amend->user->surname }}
+              @else
+              &lt;missing info&gt;
+              @endif
+               - {{ $amend->updated_at->format('l, M d, Y - h:m') }}</p>
             <p class="text-muted">
               Amend for 
               @foreach ($departments as $department)
@@ -141,13 +149,18 @@ if ($brief->projectstatus_id == 1) {
               </li>
             </ul>
             <h6 class="p-l-md text-muted">
-              Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
-              {{ $attachment->updated_at->format('l, M d, Y') }}</h6>
+              Uploaded by 
+              @if (count($amend->user))
+              {{ $attachment->user->forename }} {{ $attachment->user->surname }}
+              @else
+              &lt;missing info&gt;
+              @endif
+               - {{ $attachment->updated_at->format('l, M d, Y') }}</h6>
           </div>
           @endforeach
 
           <div class="col-xs-12">
-            <p class="bg-light">
+            <p class="bg-light p-sm p-l-sm p-r-sm">
               {{ $amend->content }}&nbsp;
             </p>
           </div>
@@ -261,6 +274,35 @@ if ($brief->projectstatus_id == 1) {
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#09 Budgets, Timings and Outputs Required</strong></p>
           <p class="bg-light p-l-sm">{{ $brief->budget_timings_and_outputs }}&nbsp;</p>
+        </div>
+        @endif
+
+        @if (count($brief->attachmentsNotAmend))
+        <div class="col-xs-12 m-b-lg">
+          <p class="bg-brand-1 p-l-sm text-white" style="{{$ps_color}}">
+            <strong>#10 Attachments</strong></p>
+          @foreach ($brief->attachmentsNotAmend as $attachment)
+          <div class="col-xs-12">
+            <ul class="p-l-md l-s-n">
+              <li>
+                <i class="{{ $attachment->classNames }} text-md"></i> 
+                <a 
+                  class="" 
+                  href="{{ route('download_attachment', [$attachment->id]) }}">
+                  <span class="text-brand1">{{ $attachment->filename }}</span>
+                </a>
+              </li>
+            </ul>
+            <h6 class="p-l-md text-muted">
+              @if (count($attachment->user))
+              Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
+              @else
+              Upload by &lt;missing info&gt;
+              @endif
+               - {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
+            </h6>
+          </div>
+          @endforeach
         </div>
         @endif
 

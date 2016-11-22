@@ -683,22 +683,16 @@ Submitted - Brief Sheet
             <!-- / Brief Attachments -->
 
             <!-- List of Ammendments -->
-            <div class="panel panel-default">
+            <div class="panel panel-brand1">
               <div class="panel-heading">
                 Amends
               </div>
               <div class="panel-body">
-                <div class="line line-dashed b-b line-lg"></div>
-
+                <div class="line line-dashed b-b line-lg hide"></div>
                 @foreach ($brief->amendments->reverse() as $key => $amend)
                   <div class="row">
                     <div class="col-sm-12">
-                      <h4>
-                        Amend {{ $key+1 }} 
-                        @if ($amend->is_internal)
-                          - Internal
-                        @endif
-                      </h4>
+                      <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>
                       <h6 class="text-muted">
                         {{ $amend->updated_at->format('h:m:s l, d M Y') }} - 
                         @if ($amend->user)

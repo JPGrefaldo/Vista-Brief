@@ -15,7 +15,7 @@ Planning Request File
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
+      	  <p class="pull-right text-muted">{{ date('m/d/Y') }}</p>
         </div>
         <div class="col-xs-12 m-t-n">
       	  <h2 class="text-brand1">Planning Request</h2>
@@ -139,6 +139,7 @@ Planning Request File
       <!-- / Job Spec -->
 
       <!-- Attachments -->
+      @if (count($planning->attachments))
       <div class="row">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Attachments</strong></p>
@@ -156,11 +157,17 @@ Planning Request File
             </li>
           </ul>
           <h6 class="p-l-md text-muted">
+            @if (count($attachment->user))
             Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
-            {{ $attachment->updated_at->format('l, M d, Y') }}</h6>
+            {{ $attachment->updated_at->format('l, M d, Y') }}
+            @else
+            Upload by &lt;missing info&gt;
+            @endif
+          </h6>
         </div>
         @endforeach
       </div>
+      @endif
       <!-- / Attachments -->
 
     </div>
