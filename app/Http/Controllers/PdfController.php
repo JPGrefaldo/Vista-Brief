@@ -56,6 +56,12 @@ class PdfController extends Controller
     {
         $planning = Planning::find($id);
         $departments = Department::isactive()->get();
+
+        foreach($planning->attachments as $attachment) {
+            $classNames = app('App\Http\Controllers\FileTypeIconController')->getIconClassNames($attachment->file_ext);
+            $attachment->classNames = $classNames;
+        }
+
         // return view('pdf.submittedplanningpdf', compact('planning', 'departments'));
         $pdf = PDF::loadView('pdf.submittedplanningpdf', compact('planning', 'departments'))->setPaper('a4');
         // $pdf->save(storage_path().'/app/temp/'.str_random(10).'.pdf');

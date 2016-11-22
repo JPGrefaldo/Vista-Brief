@@ -334,7 +334,9 @@ Planning Request
                     style="min-height:4px;" 
                     placeholder="" 
                     readonly
-                  >{{ $planning->job_specifications }}</textarea>
+                  >{{ $planning->job_specifications }} 
+
+                  </textarea>
                 </div>          
               </div>
             </div>

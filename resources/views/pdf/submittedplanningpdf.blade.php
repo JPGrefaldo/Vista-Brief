@@ -18,7 +18,7 @@ Planning Request File
       	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
         </div>
         <div class="col-xs-12 m-t-n">
-      	  <h2 class="text-primary">Planning Request</h2>
+      	  <h2 class="text-brand1">Planning Request</h2>
         </div>
       </div>
       <!-- / Title -->
@@ -57,7 +57,7 @@ Planning Request File
       <!-- Job Details -->
       <div class="row">
         <div class="col-xs-12">
-          <p class="bg-primary p-l-sm"><strong>Job Details</strong></p>
+          <p class="bg-brand-1 p-l-sm text-white"><strong>Job Details</strong></p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Title</strong></label>
@@ -82,7 +82,7 @@ Planning Request File
       <!-- / Timings -->
       <div class="row">
         <div class="col-xs-12">
-          <p class="bg-primary p-l-sm"><strong>Timings</strong></p>
+          <p class="bg-brand-1 p-l-sm text-white"><strong>Timings</strong></p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Pitch/Quote Required By</strong></label>
@@ -130,13 +130,38 @@ Planning Request File
       <!-- Job Spec -->
       <div class="row">
         <div class="col-xs-12">
-          <p class="bg-primary p-l-sm"><strong>Job Spec</strong></p>
+          <p class="bg-brand-1 p-l-sm text-white"><strong>Job Spec</strong></p>
         </div>
         <div class="col-xs-12">
           <p class="bg-light p-l-sm">{{ $planning->job_specifications }}&nbsp;</p>
         </div>
       </div>
       <!-- / Job Spec -->
+
+      <!-- Attachments -->
+      <div class="row">
+        <div class="col-xs-12">
+          <p class="bg-brand-1 p-l-sm text-white"><strong>Attachments</strong></p>
+        </div>
+        @foreach ($planning->attachments as $attachment)
+        <div class="col-xs-12">
+          <ul class="p-l-md l-s-n">
+            <li>
+              <i class="{{ $attachment->classNames }} text-md"></i> 
+              <a 
+                class="" 
+                href="{{ route('download_attachment', [$attachment->id]) }}">
+                <span class="text-brand1">{{ $attachment->filename }}</span>
+              </a>
+            </li>
+          </ul>
+          <h6 class="p-l-md text-muted">
+            Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
+            {{ $attachment->updated_at->format('l, M d, Y') }}</h6>
+        </div>
+        @endforeach
+      </div>
+      <!-- / Attachments -->
 
     </div>
   </div>
