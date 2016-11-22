@@ -57,7 +57,7 @@ return [
     */
 
     'from' => [
-        'address' => 'ray.romero@objective.agency',
+        'address' => 'vbs@wearevista.co.uk',
         'name' => 'Admin',
     ],
 

@@ -40,7 +40,7 @@ class AmendedBriefMail extends Mailable
 
         $this->subject          = 'Amended Brief Sheet: '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables;
 
-        $this->pdf_file_name    = 'Brief Sheet: '.$brief->jobnumber.' - '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
+        $this->pdf_file_name    = 'Amended Brief Sheet: '.$brief->jobnumber.' - '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
     }
 
     /**

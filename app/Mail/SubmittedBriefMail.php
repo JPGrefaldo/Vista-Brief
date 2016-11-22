@@ -38,7 +38,9 @@ class SubmittedBriefMail extends Mailable
         $this->projectmanager   = $brief->projectmanager;
         $this->department_name  = $department_name;
 
-        $this->pdf_file_name    = 'Brief Sheet: '.$brief->jobnumber.' - '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
+        $this->subject          = 'New Brief Sheet: '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables;
+
+        $this->pdf_file_name    = 'New Brief Sheet: '.$brief->jobnumber.' - '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
     }
 
     /**
