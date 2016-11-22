@@ -133,7 +133,7 @@ Planning Request File
           <p class="bg-brand-1 p-l-sm text-white"><strong>Job Spec</strong></p>
         </div>
         <div class="col-xs-12">
-          <p class="bg-light p-l-sm">{{ $planning->job_specifications }}&nbsp;</p>
+          <p class="bg-light p-l-sm">{!! nl2br(e($planning->job_specifications)) !!}&nbsp;</p>
         </div>
       </div>
       <!-- / Job Spec -->
@@ -159,7 +159,7 @@ Planning Request File
           <h6 class="p-l-md text-muted">
             @if (count($attachment->user))
             Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
-            {{ $attachment->updated_at->format('l, M d, Y') }}
+            {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
             @else
             Upload by &lt;missing info&gt;
             @endif
