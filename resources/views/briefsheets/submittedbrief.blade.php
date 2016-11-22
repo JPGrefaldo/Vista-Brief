@@ -346,7 +346,6 @@ Submitted - Brief Sheet
                   <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
                     <button class="btn btn-primary btn-block">Add File(s)</button>
                   </div>
-
                 </div>
 
                 <div class="row">
@@ -399,7 +398,7 @@ Submitted - Brief Sheet
             </div>
 
             <!-- Brief Summary -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #01 -  
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Enter short overview description of the requirements here."></i> 
@@ -421,7 +420,7 @@ Submitted - Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #02 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
@@ -456,7 +455,7 @@ Submitted - Brief Sheet
             <!-- / Desciplines Required -->
 
             <!-- Objectives / Measure -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #03 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -480,7 +479,7 @@ Submitted - Brief Sheet
             <!-- / Objectives / Measure -->
 
             <!-- Context -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #04 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -504,7 +503,7 @@ Submitted - Brief Sheet
             <!-- / Context -->
 
             <!-- Target Audience and Insight -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #05 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -528,7 +527,7 @@ Submitted - Brief Sheet
             <!-- / Target Audience and Insight -->
 
             <!-- What do want the target audience to -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 06 - What do want the target audience to ...
               </div>
@@ -566,7 +565,7 @@ Submitted - Brief Sheet
             <!-- / What do want the target audience to -->
 
             <!-- Key Messages / Propositions -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #07 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -590,7 +589,7 @@ Submitted - Brief Sheet
             <!-- / Key Messages / Propositions -->
 
             <!-- Creative -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #08 -  
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -614,7 +613,7 @@ Submitted - Brief Sheet
             <!-- / Creative -->
 
             <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #09 -  
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -638,7 +637,7 @@ Submitted - Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Brief Attachments -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #10 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -650,10 +649,10 @@ Submitted - Brief Sheet
                 <div class="row">
                   <div class="col-sm-12">
                     <a name="amending"></a> <!-- amending anchor -->
-                    <ul>
                       @if (count($brief->attachmentsNotAmend) < 1)
-                        <li class="text-muted">no attachments</li>
+                        <p class="text-muted">No attachments.</p>
                       @else
+                        <ul>
                         @foreach ($brief->attachmentsNotAmend as $attachment)
                           <li>
                             <ul class="p-l-n l-s-n">
@@ -674,8 +673,8 @@ Submitted - Brief Sheet
                             </ul>
                           </li>
                         @endforeach
+                        </ul>
                       @endif
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -687,6 +686,11 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 Amends
               </div>
+              @if (count($brief->amendments) < 1)
+              <div class="panel-body">
+                <p class="text-muted">No amends yet.</p>
+              </div>
+              @else
               <div class="panel-body">
                 <div class="line line-dashed b-b line-lg hide"></div>
                 @foreach ($brief->amendments->reverse() as $key => $amend)
@@ -699,7 +703,7 @@ Submitted - Brief Sheet
                           {{ $amend->user->forename }} {{ $amend->user->surname }}
                         @endif
                       </h6> 
-                      <p>{{ $amend->content }}</p>
+                      <p>{!! nl2br(e($amend->content)) !!}</p>
                       <ul class="bg-light">
                         @foreach ($amend->attachments as $attachment)
                           <li>
@@ -746,6 +750,7 @@ Submitted - Brief Sheet
                 @endforeach
 
               </div>
+              @endif <!-- / if(count($brief->amendments) < 1) -->
             </div>
             <!-- / List of Ammendments -->
           </div>

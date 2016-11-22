@@ -147,7 +147,7 @@ Planning Request
           <!-- / Information -->
 
           <!-- Job Details -->
-          <div class="panel panel-default">
+          <div class="panel panel-brand1">
             <div class="panel-heading">
               #01 - Job Details
             </div>
@@ -217,7 +217,7 @@ Planning Request
           <!-- / Job Details -->
 
           <!-- Timings -->
-          <div class="panel panel-default">
+          <div class="panel panel-brand1">
             <div class="panel-heading">
               #02 - Timings
             </div>
@@ -321,7 +321,7 @@ Planning Request
           <!-- / Desciplines Required -->
 
           <!-- Job Spec -->
-          <div class="panel panel-default">
+          <div class="panel panel-brand1">
             <div class="panel-heading">
               #03 - Job Spec
             </div>
@@ -344,7 +344,7 @@ Planning Request
           <!-- / Job Spec -->
           
           <!-- Attachments -->
-          <div class="panel panel-default">
+          <div class="panel panel-brand1">
             <div class="panel-heading">
               #04 - Attached Files
             </div>
@@ -372,7 +372,7 @@ Planning Request
                                 {{ $attachment->user->forename }} 
                                 {{ $attachment->user->surname }} - 
                               @endif
-                              {{ $attachment->updated_at->format('h:m l d M Y') }}
+                              {{ $attachment->updated_at->format('h:m:s l, d M Y') }}
                             </li>
                           </ul>
                         </li>

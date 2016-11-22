@@ -292,7 +292,7 @@ Create New Brief Sheet
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
             <!-- Brief Summary -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #01 -  
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Enter short overview description of the requirements here."></i> 
@@ -314,7 +314,7 @@ Create New Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #02 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
@@ -362,7 +362,7 @@ Create New Brief Sheet
             <!-- / Desciplines Required -->
 
             <!-- Objectives / Measure -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #03 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -387,7 +387,7 @@ Create New Brief Sheet
             <!-- / Objectives / Measure -->
 
             <!-- Context -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #04 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -411,7 +411,7 @@ Create New Brief Sheet
             <!-- / Context -->
 
             <!-- Target Audience and Insight -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #05 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -435,7 +435,7 @@ Create New Brief Sheet
             <!-- / Target Audience and Insight -->
 
             <!-- What do want the target audience to -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #06 - What do I want the target audience to ...
               </div>
@@ -473,7 +473,7 @@ Create New Brief Sheet
             <!-- / What do want the target audience to -->
 
             <!-- Key Messages / Propositions -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #07 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -497,7 +497,7 @@ Create New Brief Sheet
             <!-- / Key Messages / Propositions -->
 
             <!-- Creative -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #08 -  
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -521,7 +521,7 @@ Create New Brief Sheet
             <!-- / Creative -->
 
             <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #09 -  
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -546,7 +546,7 @@ Create New Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Attachments -->
-            <div class="panel panel-default brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #10 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 

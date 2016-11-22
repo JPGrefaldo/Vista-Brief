@@ -154,7 +154,7 @@ Create New Planning Request
             <!-- / Information -->
 
             <!-- Job Details -->
-            <div class="panel panel-default">
+            <div class="panel panel-brand1">
               <div class="panel-heading">
                 #01 - Job Details
               </div>
@@ -227,7 +227,7 @@ Create New Planning Request
             <!-- / Job Details -->
 
             <!-- Timings -->
-            <div class="panel panel-default">
+            <div class="panel panel-brand1">
               <div class="panel-heading">
                 #02 - Timings
               </div>
@@ -343,7 +343,7 @@ Create New Planning Request
             <!-- / Desciplines Required -->
 
             <!-- Job Spec -->
-            <div class="panel panel-default">
+            <div class="panel panel-brand1">
               <div class="panel-heading">
                 #03 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
@@ -368,7 +368,7 @@ Create New Planning Request
             <!-- / Job Spec -->
             
             <!-- Attachments -->
-            <div class="panel panel-default">
+            <div class="panel panel-brand1">
               <div class="panel-heading">
                 #04 - 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="top" 
