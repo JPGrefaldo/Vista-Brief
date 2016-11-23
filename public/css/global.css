@@ -267,7 +267,7 @@ fieldset[disabled] .btn-brand1.active {
 
 .auto-height {
 	box-sizing: border-box;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 .defaultHidden {

@@ -355,7 +355,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:50px" 
                       placeholder="Enter short overview description of the requirements here."
-                      >{{ (old('summary')) ? old('summary') : $brief->summary }} </textarea>
+                      >{{ (old('summary')) ? old('summary') : $brief->summary }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -434,7 +434,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:120px;" 
                       placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
-                    >{{ (old('objmeasure')) ? old('objmeasure') : $brief->objectives_or_measures }} </textarea>
+                    >{{ (old('objmeasure')) ? old('objmeasure') : $brief->objectives_or_measures }}</textarea>
                   </div>          
                 </div>
               </div>
@@ -458,7 +458,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:100px;" 
                       placeholder="*What is the background on the client?&#10;*What is the background on the issue?&#10;*Are there any other influencing issues?&#10;*Anything else we need to do?"
-                    >{{ (old('context')) ? old('context') : $brief->content }} </textarea>
+                    >{{ (old('context')) ? old('context') : $brief->content }}</textarea>
                   </div>
                 </div>
               </div>
@@ -482,7 +482,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:80px;" 
                       placeholder="*Who?&#10;*What do we know about them that's relevant to this brief?&#10;*What do we need to find out?"
-                    >{{ (old('targetaudience_insight')) ? old('targetaudience_insight') : $brief->targetaudience_and_insight }} </textarea>
+                    >{{ (old('targetaudience_insight')) ? old('targetaudience_insight') : $brief->targetaudience_and_insight }}</textarea>
                   </div>         
                 </div>
               </div>
@@ -495,31 +495,31 @@ Draft - Brief Sheet
                 06 - What do want the target audience to ...
               </div>
               <div class="panel-body">
-                <div class="row-fluid">
+                <div class="row">
                   <div class="form-group m-b-n m-t-n">
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_think"
-                      class="form-control m-l-n m-r-n auto-height" 
+                      class="form-control auto-height" 
                       style="min-height:60px;" 
                       placeholder="Think?"
-                      >{{ (old('targetaudience_think')) ? old('targetaudience_think') : $brief->targetaudience_think }} </textarea>
+                      >{{ (old('targetaudience_think')) ? old('targetaudience_think') : $brief->targetaudience_think }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_feel"
-                      class="form-control m-l-n m-r-n auto-height" 
+                      class="form-control auto-height" 
                       style="min-height:60px;" 
                       placeholder="Feel?"
-                      >{{ (old('targetaudience_feel')) ? old('targetaudience_feel') : $brief->targetaudience_feel }} </textarea>
+                      >{{ (old('targetaudience_feel')) ? old('targetaudience_feel') : $brief->targetaudience_feel }}</textarea>
                     </div>
                     <div class="col-lg-4 m-b-n">
                       <textarea 
                       name="targetaudience_do"
-                      class="form-control m-l-n m-r-n auto-height" 
+                      class="form-control auto-height" 
                       style="min-height:60px;" 
                       placeholder="Do?"
-                      >{{ (old('targetaudience_do')) ? old('targetaudience_do') : $brief->targetaudience_do }} </textarea>
+                      >{{ (old('targetaudience_do')) ? old('targetaudience_do') : $brief->targetaudience_do }}</textarea>
                     </div>
                   </div>            
                 </div>
@@ -544,7 +544,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:80px;" 
                       placeholder="*What's the key message(s) that we want to convey?&#10;*What action or mindset do we want to provoke?&#10;*What's the key benefit(s) for the audience?"
-                    >{{ (old('keymsg_propositions')) ? old('keymsg_propositions') : $brief->keymessages_or_propositions }} </textarea>
+                    >{{ (old('keymsg_propositions')) ? old('keymsg_propositions') : $brief->keymessages_or_propositions }}</textarea>
                   </div>             
                 </div>
               </div>
@@ -568,7 +568,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:80px;" 
                       placeholder="*Any creative steer from the client, likes and preferences?&#10;*Creative context / routes to avoid / recent campaigns to be aware of?&#10;*Any existing logos, brand guidelines or TOV?"
-                    >{{ (old('creative')) ? old('creative') : $brief->creative }} </textarea>
+                    >{{ (old('creative')) ? old('creative') : $brief->creative }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -593,7 +593,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:100px;" 
                       placeholder="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?"
-                    >{{ (old('budget_timings_outputs_req')) ? old('budget_timings_outputs_req') : $brief->budget_timings_and_outputs }} </textarea>
+                    >{{ (old('budget_timings_outputs_req')) ? old('budget_timings_outputs_req') : $brief->budget_timings_and_outputs }}</textarea>
                   </div>           
                 </div>
               </div>
