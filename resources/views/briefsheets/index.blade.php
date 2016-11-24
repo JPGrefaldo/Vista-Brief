@@ -309,14 +309,15 @@ Brief Sheets - Vista
                 <div class="row">
                   @foreach ($departments as $department)
                     <div class="col-xs-6 col-sm-3">
-                      <label class="checkbox-inline">
-                        <input 
-                          type="checkbox" 
-                          name="departments[{{ $department->id }}]" 
-                          value="{{ $department->id }}" 
-                          @if(array_key_exists($department->id, old('departments',[]))) checked @endif> 
-                        {{ $department->name }}
-                      </label>
+                      <div class="checkbox">
+                        <label class="i-checks">
+                          <input 
+                            type="checkbox" 
+                            name="departments[{{ $department->id }}]" 
+                            value="{{ $department->id }}" 
+                            @if(array_key_exists($department->id, old('departments',[]))) checked @endif><i></i> {{ $department->name }}
+                        </label>
+                      </div>
                     </div>
                   @endforeach
                 </div>
