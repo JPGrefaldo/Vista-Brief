@@ -131,12 +131,11 @@ class AdminController extends Controller
         return view('admin.confirmdeleteuser', compact('user'));
     }
 
-    public function deleteUser(Request $request) 
+    public function deleteUser($id) 
     {
-        $user = User::find($request->input('user_id'));
+        $user = User::find($id);
         $forename = $user->forename;
         $surname = $user->surname;
-
         $user->delete();
 
         return redirect()

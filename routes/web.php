@@ -166,7 +166,7 @@ Route::group(['middleware' => 'auth'], function() {
 				'uses'	=>	'AdminController@confirmDeleteUser',
 				'as'	=>	'confirmdeleteuser'
 			]);
-			Route::post('/user/delete/', [
+			Route::get('/user/delete/{id}', [
 				'uses'	=>	'AdminController@deleteUser',
 				'as'	=>	'deleteuser'
 			]);

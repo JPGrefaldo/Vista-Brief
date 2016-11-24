@@ -104,7 +104,7 @@ Manage Users - Vista
                 <th style="width:110px;"><i class="fa fa-cog"></i></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="usersModule">
               @if ($users->isEmpty())
                 <tr>
                   <td colspan="5">
@@ -135,8 +135,11 @@ Manage Users - Vista
                       <a href="{{ route('formeditprofile', [$user->id]) }}">
                         <i class="fa fa-pencil text-brand-1 a-hover-ltblue"></i>
                       </a> &nbsp;
-                      <a href="{{ route('confirmdeleteuser', [$user->id]) }}">
-                        <i class="glyphicon glyphicon-remove-sign text-danger"></i>
+                      <!--href="{{ route('confirmdeleteuser', [$user->id]) }}"-->
+                        <i 
+                          class="glyphicon glyphicon-remove-sign text-danger cpointer action-delete"
+                          data-uname="{{ $user->forename }} {{ $user->surname }}"
+                          data-uid="{{ $user->id }}"></i>
                       </a>
                     </td>
                   </tr>
@@ -194,6 +197,33 @@ Manage Users - Vista
   <!-- / main -->
 </div>
 
+    <!-- Modal: Delete User -->
+    <div id="modal-confirm-delete-user" class="modal" role="dialog">
+      <div class="modal-dialog modal-md">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Confirm Delete</h4>
+          </div>
+          <div class="modal-body text-center">
+            <h5 class="alert alert-danger" style="font-size:15px">Are you sure you want to delete the user: '<span id="user-name"></span>'</h5>
+            <input type="hidden" id="id-to-be-deleted" name="id-to-be-deleted">      
+          </div>
+          <div class="modal-footer">
+            <div class="row">
+              <div class="col-sm-4 m-b-sm">
+                <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+              </div>
+              <div class="col-sm-8 m-b-sm">
+                <button type="button" class="btn btn-danger btn-block" id="btn-user-delete">Confirm Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / Modal -->
+
 
     </div>
   </div>
@@ -203,6 +233,7 @@ Manage Users - Vista
   @include('includes.dashboard-footer')
   <!-- / footer -->
 
+<script src="{{ URL::asset('js/admin/module-user-delete.js') }}"></script>
 
 
 </div>
