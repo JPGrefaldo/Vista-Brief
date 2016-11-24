@@ -140,11 +140,9 @@ Manage Departments - Vista
             </div>
 
             <div class="row text-center">
-              <a href="{{route('departments')}}" class="btn btn-default btn-lg">
-                <i class="fa fa-backward"></i> Back</a> &nbsp; 
-              <button class="btn btn-brand1 btn-lg">
-                {{ csrf_field() }}
-                <i class="fa fa-check"></i> Submit</button>
+              <a href="{{route('departments')}}" class="btn btn-default btn-lg">Back</a> &nbsp; 
+              {{ csrf_field() }}
+              <button class="btn btn-brand1 btn-lg">Submit</button>
             </div>
             </form>
           </div>
