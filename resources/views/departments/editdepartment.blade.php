@@ -88,20 +88,22 @@ Manage Departments - Vista
                       <button class="btn btn-brand1 btn-sm">Undo</button>
                     </div>
                     <div class="form-group text-center hide" id="fileUploadBlock">
-                      <input 
+                      <input name="attachment" ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach File'}" type="file">
+                      <!--<input 
                         class="form-control m-b-sm" 
                         type="file" 
                         name="attachment" 
-                        placeholder="attachment">
-                      <button class="btn btn-brand1 btn-sm">Cancel</button>
+                        placeholder="attachment">-->
+                      <button class="btn btn-brand1 btn-sm m-t-sm">Cancel</button>
                     </div>                  
                   @else
                     <div class="form-group">
-                      <input 
+                      <input name="attachment" ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach File'}" type="file">
+                      <!--<input 
                         class="form-control m-b-sm" 
                         type="file" 
                         name="attachment" 
-                        placeholder="attachment">
+                        placeholder="attachment">-->
                     </div>
                   @endif  
                 </div>

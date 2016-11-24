@@ -72,7 +72,8 @@ Manage Departments - Vista
                 </div>
                 <div class="form-group">
                   <label>Attachment</label>
-                  <input class="form-control" type="file" name="attachment" placeholder="attachment">
+                  <!--<input class="form-control" type="file" name="attachment" placeholder="attachment">-->
+                  <input name="attachment" ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach File'}" type="file">
                 </div>
               </div>
               <div class="col-sm-6" id="routingEmailModule">

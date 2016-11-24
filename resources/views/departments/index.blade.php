@@ -43,11 +43,11 @@ Manage Departments - Vista
     <div class="wrapper-md">
 
       @if (session('new_department_success'))
-        <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_department_success') }}</span>
+        <span class="alert-success p-r-sm p-l-sm">{{ session('new_department_success') }}</span>
       @endif
 
       @if (session('edit_department_success'))
-        <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('edit_department_success') }}</span>
+        <span class="alert-success p-r-sm p-l-sm">{{ session('edit_department_success') }}</span>
       @endif
 
       <div class="panel panel-default">
@@ -86,7 +86,9 @@ Manage Departments - Vista
                             @if ($department->attachment->classNames)
                               <i class="{{$department->attachment->classNames}}"></i>
                             @endif
-                            <a href="{{route('download_attachment',[$department->attachment->id])}}">
+                            <a 
+                              href="{{route('download_attachment',[$department->attachment->id])}}"
+                              class="text-brand-1 a-hover-ltblue">
                               <u>{{$department->attachment->filename}}</u>
                             </a>
                           </attachment> |
