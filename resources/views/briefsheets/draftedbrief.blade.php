@@ -610,7 +610,7 @@ Draft - Brief Sheet
                 Attachments
               </div>
               <div class="panel-body">
-                <div class="row">
+                <div class="row" style="padding-left:15px;padding-right:15px">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
                       <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
