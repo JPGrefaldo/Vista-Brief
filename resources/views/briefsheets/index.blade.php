@@ -161,11 +161,11 @@ Brief Sheets - Vista
                     <td>
                       @if ($brief->is_draft == 1)
                         <a href="{{ route('formeditbrief', [$brief->id]) }}" class="active" title="edit">
-                          <i class="fa fa-edit text-primary"></i>
+                          <i class="fa fa-pencil text-brand-1 a-hover-ltblue"></i>
                         </a>
                       @else
                         <a href="{{ route('submittedbriefsheet', [$brief->id]) }}" class="active" title="edit">
-                          <i class="fa fa-eye text-primary"></i>
+                          <i class="fa fa-eye text-brand-1 a-hover-ltblue"></i>
                         </a>
                       @endif
                     </td> 

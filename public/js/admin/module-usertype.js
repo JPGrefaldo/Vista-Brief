@@ -47,20 +47,20 @@ var userTypeModule = (function(){
 	function changeToStandard() {
 		$input.val('standard')
 
-		$btn_standard.removeClass('btn-default').addClass('btn-info')
+		$btn_standard.removeClass('btn-default').addClass('btn-brand1')
 		$btn_standard.find('span').removeClass('text-muted')
 
-		$btn_admin.removeClass('btn-info').addClass('btn-default')
+		$btn_admin.removeClass('btn-brand1').addClass('btn-default')
 		$btn_admin.find('span').addClass('text-muted')
 	}
 
 	function changeToAdmin() {
 		$input.val('admin')
 
-		$btn_admin.removeClass('btn-default').addClass('btn-info')
+		$btn_admin.removeClass('btn-default').addClass('btn-brand1')
 		$btn_admin.find('span').removeClass('text-muted')
 
-		$btn_standard.removeClass('btn-info').addClass('btn-default')
+		$btn_standard.removeClass('btn-brand1').addClass('btn-default')
 		$btn_standard.find('span').addClass('text-muted')
 	}
 

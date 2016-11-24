@@ -153,7 +153,7 @@ Planning Requests - Vista
                     </td>
                     <td>
                       <a href="{{ route('submittedplanningrequest', [$planning->id]) }}" class="active" title="view">
-                        <i class="fa fa-eye text-primary"></i>
+                        <i class="fa fa-eye text-brand-1 a-hover-ltblue"></i>
                       </a>
                     </td>
                   </tr>

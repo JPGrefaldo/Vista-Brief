@@ -89,7 +89,7 @@ Manage Departments - Vista
                         placeholder="email" 
                         value="{{old('email[0]')}}">
                     </div>
-                      <div class="col-sm-4 text-right">
+                      <div class="col-sm-4 text-left">
                         <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                           <i class="glyphicon glyphicon-remove"></i></button>
                       </div>
@@ -105,7 +105,7 @@ Manage Departments - Vista
                           placeholder="email" 
                           value="{{$e}}">
                       </div>
-                      <div class="col-sm-4">
+                      <div class="col-sm-4 text-left">
                         <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                           <i class="glyphicon glyphicon-remove"></i></button>
                       </div>
@@ -115,7 +115,7 @@ Manage Departments - Vista
                 
                 <div class="form-group" id="AddEmailBox">
                   <div class="col-sm-8">                                  
-                    <button class="btn btn-info btn-sm btn-block" id="btnAddEmail">
+                    <button class="btn btn-brand1 btn-sm btn-block" id="btnAddEmail">
                       <i class="glyphicon glyphicon-plus"></i> Add Email</button>
                   </div>
                   <div class="col-sm-4">
@@ -131,7 +131,7 @@ Manage Departments - Vista
                 <div class="col-sm-8 m-b-sm">
                   <input class="form-control" type="text" name="temp_email[]" placeholder="email">
                 </div>
-                <div class="col-sm-4 text-right">
+                <div class="col-sm-4 text-left">
                   <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                   <i class="glyphicon glyphicon-remove"></i></button>
                 </div>

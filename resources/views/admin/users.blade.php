@@ -126,15 +126,15 @@ Manage Users - Vista
                         <i></i>
                       </label>
                     </td>
-                    <td>{{ $user->username }} @if($user->type == 1)<span class="label label-info">admin</span>@endif
+                    <td>{{ $user->username }} @if($user->type == 1)<span class="label label-brand1">admin</span>@endif
                     </td>
                     <td><span class="text-ellipsis">{{ $user->forename }}</span></td>
                     <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
                     <td>{{ $user->email }}</td>
                     <td>
                       <a href="{{ route('formeditprofile', [$user->id]) }}">
-                        <i class="glyphicon glyphicon-edit text-info"></i>
-                      </a> 
+                        <i class="fa fa-pencil text-brand-1 a-hover-ltblue"></i>
+                      </a> &nbsp;
                       <a href="{{ route('confirmdeleteuser', [$user->id]) }}">
                         <i class="glyphicon glyphicon-remove-sign text-danger"></i>
                       </a>

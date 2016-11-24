@@ -77,7 +77,7 @@ Manage Departments - Vista
                       <a href="{{route('download_attachment',[$department->attachment->id])}}" class="text-brand-1 p-r-sm">
                         <i class="{{$department->attachment->classNames}}"></i> 
                         <u>{{$department->attachment->filename}}</u></a>                    
-                      <button class="btn btn-info btn-sm" id="btnUploadNew">
+                      <button class="btn btn-brand1 btn-sm" id="btnUploadNew">
                         <i class="glyphicon glyphicon-upload"></i> Replace</button>
                       <button class="btn btn-danger btn-sm" id="btnDeleteCurrent">
                         <i class="glyphicon glyphicon-trash"></i> Delete</button>
@@ -85,7 +85,7 @@ Manage Departments - Vista
                     <div class="form-group hide" id="fileDeletedBlock">
                       <span>&lt;delete current file&gt;</span>
                       <input type="hidden" name="deletecurrentfile" value="0">
-                      <button class="btn btn-info btn-sm">Undo</button>
+                      <button class="btn btn-brand1 btn-sm">Undo</button>
                     </div>
                     <div class="form-group text-center hide" id="fileUploadBlock">
                       <input 
@@ -93,7 +93,7 @@ Manage Departments - Vista
                         type="file" 
                         name="attachment" 
                         placeholder="attachment">
-                      <button class="btn btn-info btn-sm">Cancel</button>
+                      <button class="btn btn-brand1 btn-sm">Cancel</button>
                     </div>                  
                   @else
                     <div class="form-group">
@@ -122,7 +122,7 @@ Manage Departments - Vista
                             placeholder="email" 
                             value="{{$email}}">
                         </div>
-                        <div class="col-sm-4 text-right">
+                        <div class="col-sm-4 text-left">
                           <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                           <i class="glyphicon glyphicon-remove"></i></button>
                         </div>
@@ -138,7 +138,7 @@ Manage Departments - Vista
                           placeholder="email" 
                           value="">
                       </div>
-                      <div class="col-sm-4">
+                      <div class="col-sm-4 text-left">
                         <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                         <i class="glyphicon glyphicon-remove"></i></button>
                       </div>
@@ -155,7 +155,7 @@ Manage Departments - Vista
                           placeholder="email" 
                           value="{{$e}}">
                       </div>
-                      <div class="col-sm-4">
+                      <div class="col-sm-4 text-left">
                         <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                         <i class="glyphicon glyphicon-remove"></i></button>
                       </div>
@@ -165,7 +165,7 @@ Manage Departments - Vista
 
                 <div class="form-group" id="AddEmailBox">
                   <div class="col-sm-8">                                  
-                    <button class="btn btn-info btn-sm btn-block" id="btnAddEmail">
+                    <button class="btn btn-brand1 btn-sm btn-block" id="btnAddEmail">
                       <i class="glyphicon glyphicon-plus"></i> Add Email</button>
                   </div>
                   <div class="col-sm-4">
@@ -181,7 +181,7 @@ Manage Departments - Vista
                 <div class="col-sm-8 m-b-sm">
                   <input class="form-control" type="text" name="temp_email[]" placeholder="email">
                 </div>
-                <div class="col-sm-4 text-right">
+                <div class="col-sm-4 text-left">
                   <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
                   <i class="glyphicon glyphicon-remove"></i></button>
                 </div>

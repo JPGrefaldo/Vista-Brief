@@ -333,3 +333,7 @@
 .daterangepicker th.month {
   width: auto;
 }
+
+.daterangepicker td.today.active, .daterangepicker td.active, .daterangepicker td.active:hover {
+  background-color: #00385b;
+}

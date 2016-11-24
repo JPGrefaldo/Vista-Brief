@@ -282,3 +282,36 @@ fieldset[disabled] .btn-brand1.active {
 .font-normal-force {
 	font-weight: normal !important;
 }
+
+.a-hover-ltblue:hover {
+	color: #0D79BC;
+}
+
+.hover-vltblue1:hover {
+	background-color: #F0F9FF;
+}
+
+.label.label-brand1 {
+	background-color: #00385b;
+	color: #ffffff;
+}
+
+.i-checks input:checked + i {
+	border-color: #00385b;
+}
+.i-checks input:checked + i:before {
+	background-color: #00385b;
+}
+
+.text-brandred1 {
+	color: #a13535;
+}
+
+.bg-brandred1 {
+	background-color: #a13535;
+}
+
+.panel-brandred1 .panel-heading {
+  background-color: #a13535;
+  color: #ffffff;
+}

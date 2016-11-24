@@ -6,7 +6,7 @@ Brief Submitted File
 
 <?php
 if ($brief->projectstatus_id == 1) {
-  $ps_color = "background-color:#f2dede;color:#a94442";
+  $ps_color = "background-color:#a13535;color:#ffffff";
 } else {
   $ps_color = "background-color:#d9edf7;color:#31708f";
 }

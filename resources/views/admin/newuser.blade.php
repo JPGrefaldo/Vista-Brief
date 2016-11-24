@@ -59,7 +59,7 @@ Add New User
                 <div class="form-group" id="userTypeModule">
                   <label class="col-lg-3 control-label">User Type</label>
                   <div class="col-lg-9">
-                    <button class="btn btn-info col-lg-6" id="btn_standard">
+                    <button class="btn btn-brand1 col-lg-6" id="btn_standard">
                       <span class="">Standard</span>
                     </button>
                     <button class="btn btn-default col-lg-6" id="btn_admin">

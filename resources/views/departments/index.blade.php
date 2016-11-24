@@ -53,8 +53,17 @@ Manage Departments - Vista
       <div class="panel panel-default">
         <div class="panel-body">
           <div>
+            
             <table class="table table-borderless table-rowbar">
               <tbody id="departmentListModule">
+                <tr>
+                  <td>
+                    <div class="text-right">
+                      <a href="{{route('formnewdepartment')}}" class="btn btn-md btn-brand1">
+                        <i class="glyphicon glyphicon-plus"></i> Add New Department</a>
+                    </div>
+                  </td>
+                </tr>
                 @foreach($departments as $department)
                 <tr>
                   <td>
@@ -94,14 +103,7 @@ Manage Departments - Vista
                     </div>                    
                   </td>
                 </tr>
-                @endforeach                
-
-                <tr>
-                  <td class="text-center">
-                    <a href="{{ route('formnewdepartment') }}" class="btn btn-lg btn-brand1">
-                      <i class="glyphicon glyphicon-plus"></i> Add New Department</a>
-                  </td>
-                </tr>
+                @endforeach
 
               </tbody>
             </table>

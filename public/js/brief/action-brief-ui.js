@@ -13,18 +13,18 @@ $(document).ready(function() {
 
 			if (color == 'Red') {
 				$panel.removeClass('panel-brand1 panel-info')
-				$panel.addClass('panel-danger')
+				$panel.addClass('panel-brandred1')
 				return
 			}
 			else if (color =='Blue') {
-				$panel.removeClass('panel-brand1 panel-danger')
+				$panel.removeClass('panel-brand1 panel-brandred1')
 				$panel.addClass('panel-info')
 				return
 			}
 		}
 
 		// back to brand1
-		$panel.removeClass('panel-info panel-danger')
+		$panel.removeClass('panel-info panel-brandred1')
 		$panel.addClass('panel-brand1')
 		return
 	})
@@ -40,18 +40,18 @@ function updatePanelColor() {
 
 		if (color == 'Red') {
 			$panel.removeClass('panel-brand1 panel-info')
-			$panel.addClass('panel-danger')
+			$panel.addClass('panel-brandred1')
 			return
 		}
 		else if (color =='Blue') {
-			$panel.removeClass('panel-brand1 panel-danger')
+			$panel.removeClass('panel-brand1 panel-brandred1')
 			$panel.addClass('panel-info')
 			return
 		}
 	}
 
 	// back to brand1
-	$panel.removeClass('panel-info panel-danger')
+	$panel.removeClass('panel-info panel-brandred1')
 	$panel.addClass('panel-brand1')
 	return
 }

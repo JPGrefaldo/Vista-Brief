@@ -596,7 +596,7 @@ Submitted - Brief Sheet
                               <li>
                                 <i class="{{ $attachment->classNames }} text-md"></i>
                                 <a 
-                                  class="text-brand1" 
+                                  class="text-brand1 a-hover-ltblue" 
                                   href="{{ route('download_attachment', [$attachment->id]) }}">
                                   {{ $attachment->filename }}
                                 </a>
@@ -631,7 +631,7 @@ Submitted - Brief Sheet
               <div class="panel-body">
                 <div class="line line-dashed b-b line-lg hide"></div>
                 @foreach ($brief->amendments->reverse() as $key => $amend)
-                  <div class="row">
+                  <div class="row hover-vltblue1">
                     <div class="col-sm-12">
                       <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>
                       <h6 class="text-muted">
@@ -647,7 +647,7 @@ Submitted - Brief Sheet
                             <p>
                               <i class="{{ $attachment->classNames }} text-md"></i>
                               <a 
-                                class="text-info" 
+                                class="text-brand-1 a-hover-ltblue" 
                                 href="{{ route('download_attachment', [$attachment->id]) }}">
                                 {{ $attachment->filename }}
                               </a>
