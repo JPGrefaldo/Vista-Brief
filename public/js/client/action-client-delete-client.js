@@ -11,7 +11,7 @@ $(document).ready(function() {
 		$modal_view = $('#modal-confirm-delete-client')
 
 		modal_btn = $(this)
-		$modal_view.modal({backdrop:false})
+		// $modal_view.modal({backdrop:false})
 		$modal_view.modal('show');
 	})
 	$('#modal-confirm-delete-client').on('show.bs.modal', function(event){

@@ -189,14 +189,11 @@ Manage Departments - Vista
             </div>
 
             <div class="row text-center">
-              <a href="{{route('departments')}}" class="btn btn-default btn-lg m-b-sm">
-                <i class="fa fa-backward"></i> Back</a> &nbsp; 
-              <a href="" class="btn btn-default btn-lg m-b-sm">
-                <i class="fa fa-refresh"></i> Reset</a> &nbsp; 
+              <a href="{{route('departments')}}" class="btn btn-default btn-lg m-b-sm">Back</a> &nbsp; 
+              <a href="" class="btn btn-default btn-lg m-b-sm">Reset</a> &nbsp; 
               <button class="btn btn-brand1 btn-lg m-b-sm">
                 {{ csrf_field() }}
-                <input type="hidden" name="department_id" value="{{$department->id}}">
-                <i class="fa fa-check"></i> Save Changes</button>
+                <input type="hidden" name="department_id" value="{{$department->id}}">Save Changes</button>
             </div>
             </form>
           </div>

@@ -317,9 +317,9 @@ Submitted - Brief Sheet
               </div>
               <div class="panel-body">
                 <form class="bs-example form-horizontal" action="{{ route('postnewamend') }}" method="post" enctype="multipart/form-data">
-                <div class="row-fluid">
+                <div class="row" style="padding-left:30px;padding-right:30px">
                   <div class="form-group">
-                    <div class="checkbox m-l-sm">
+                    <div class="checkbox">
                       <label class="i-checks">
                         <input type="checkbox" name="internal">
                         <i></i>
@@ -351,7 +351,7 @@ Submitted - Brief Sheet
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <label class="col-lg-12 text-info">Who to notify?</label>
+                      <label class="col-lg-12 text-brand-1">Who to notify?</label>
                       @foreach ($departments as $department)
                       <div class="col-lg-3">
                         <div class="checkbox">
@@ -632,6 +632,7 @@ Submitted - Brief Sheet
                 <div class="line line-dashed b-b line-lg hide"></div>
                 @foreach ($brief->amendments->reverse() as $key => $amend)
                   <div class="row hover-vltblue1">
+                    <p>&nbsp;</p>
                     <div class="col-sm-12">
                       <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>
                       <h6 class="text-muted">
@@ -682,6 +683,7 @@ Submitted - Brief Sheet
                         ?>
                       </h6>
                     </div>
+                    <p>&nbsp;</p>
                   </div>
                   <div class="line line-dashed b-b line-lg"></div>
                 @endforeach
