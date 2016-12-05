@@ -15,7 +15,7 @@ Planning Request File
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('m/d/Y') }}</p>
+      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
         </div>
         <div class="col-xs-12 m-t-n">
       	  <h2 class="text-brand1">Planning Request</h2>
@@ -27,7 +27,14 @@ Planning Request File
       <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Client</strong></label>
-        	<p class="bg-light p-l-sm">{{ $planning->client->name }}&nbsp;</p>
+        	<p class="bg-light p-l-sm">
+            @if (count($planning->client))
+              {{ $planning->client->name }}
+            @else
+              &lt;client info missing&gt;
+            @endif
+            &nbsp;
+          </p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Taken By</strong></label>
@@ -65,7 +72,14 @@ Planning Request File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Status</strong></label>
-          <p class="bg-light p-l-sm">{{ $planning->jobstatus->name }}&nbsp;</p>
+          <p class="bg-light p-l-sm">            
+            @if (count($planning->jobstatus))
+              {{ $planning->jobstatus->name }}
+            @else
+              &lt;status info missing&gt;
+            @endif
+            &nbsp;
+          </p>
         </div>
 
         <div class="col-xs-6">
@@ -74,7 +88,14 @@ Planning Request File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Format of Response</strong></label>
-          <p class="bg-light p-l-sm">{{ $planning->formofresponse->name }}&nbsp;</p>
+          <p class="bg-light p-l-sm">
+            @if (count($planning->formofresponse))
+              {{ $planning->formofresponse->name }}
+            @else
+              &lt;format info missing&gt;
+            @endif
+            &nbsp;
+          </p>
         </div>
       </div>
       <!-- / Job Details -->
@@ -130,44 +151,46 @@ Planning Request File
       <!-- Job Spec -->
       <div class="row">
         <div class="col-xs-12">
-          <p class="bg-brand-1 p-l-sm text-white"><strong>Job Spec</strong></p>
-        </div>
-        <div class="col-xs-12">
-          <p class="bg-light p-l-sm">{!! nl2br(e($planning->job_specifications)) !!}&nbsp;</p>
+          <p class="bg-brand-1 p-l-sm text-white" style="margin-bottom:0px;"><strong>Job Spec</strong></p>
+          <p class="bg-light p-l-sm" style="margin-top:0px;">{!! nl2br(e($planning->job_specifications)) !!}&nbsp;</p>
         </div>
       </div>
       <!-- / Job Spec -->
 
       <!-- Attachments -->
-      @if (count($planning->attachments))
       <div class="row">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Attachments</strong></p>
-        </div>
-        @foreach ($planning->attachments as $attachment)
-        <div class="col-xs-12">
-          <ul class="p-l-md l-s-n">
-            <li>
-              <i class="{{ $attachment->classNames }} text-md"></i> 
-              <a 
-                class="" 
-                href="{{ route('download_attachment', [$attachment->id]) }}">
-                <span class="text-brand1">{{ $attachment->filename }}</span>
-              </a>
-            </li>
-          </ul>
-          <h6 class="p-l-md text-muted">
-            @if (count($attachment->user))
-            Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
-            {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
-            @else
-            Upload by &lt;missing info&gt;
-            @endif
-          </h6>
-        </div>
-        @endforeach
+        </div>        
+        @if (count($planning->attachments))
+          @foreach ($planning->attachments as $attachment)
+          <div class="col-xs-12">
+            <ul class="p-l-md l-s-n">
+              <li>
+                <i class="{{ $attachment->classNames }} text-md"></i> 
+                <a 
+                  class="" 
+                  href="{{ route('download_attachment', [$attachment->id]) }}">
+                  <span class="text-brand1">{{ $attachment->filename }}</span>
+                </a>
+              </li>
+            </ul>
+            <h6 class="p-l-md text-muted">
+              @if (count($attachment->user))
+                Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
+              @else
+                Upload by &lt;missing info&gt;
+              @endif
+               - {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
+            </h6>
+          </div>
+          @endforeach
+        @else
+          <div class="col-xs-12">
+            <p class="bg-light p-l-sm">No Attachment</p>
+          </div>
+        @endif
       </div>
-      @endif
       <!-- / Attachments -->
 
     </div>

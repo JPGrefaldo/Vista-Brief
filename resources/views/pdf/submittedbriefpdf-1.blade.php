@@ -22,7 +22,7 @@ if ($brief->projectstatus_id == 1) {
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('m/d/Y') }}</p>
+      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
         </div>
         <div class="col-xs-12 m-t-n">
       	  <h2 class="text-brand1">Brief Sheet</h2>
@@ -34,11 +34,25 @@ if ($brief->projectstatus_id == 1) {
       <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Client</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->client->name }}</p>
+        	<p class="bg-light p-l-sm">
+            @if (count($brief->client))
+              {{ $brief->client->name }}
+            @else
+              &lt;client info missing&gt;
+            @endif
+            &nbsp;
+          </p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Project Status</strong></label>
-        	<p class="bg-light p-l-sm" style="{{$ps_color}}">{{ $brief->projectstatus->name }}</p>
+        	<p class="bg-light p-l-sm" style="{{$ps_color}}">
+            @if (count($brief->projectstatus))
+              {{ $brief->projectstatus->name }}
+            @else
+              &lt;status info missing&gt;
+            @endif
+            &nbsp;
+          </p>
         </div>
 
         <div class="col-xs-6">
@@ -226,9 +240,9 @@ if ($brief->projectstatus_id == 1) {
             </ul>
             <h6 class="p-l-md text-muted">
               @if (count($attachment->user))
-              Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
+                Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
               @else
-              Upload by &lt;missing info&gt;
+                Upload by &lt;missing info&gt;
               @endif
                - {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
             </h6>
