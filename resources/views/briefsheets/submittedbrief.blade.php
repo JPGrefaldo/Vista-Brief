@@ -55,7 +55,7 @@ Submitted - Brief Sheet
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
-              <div class="alert alert-danger text-danger m-b-n">
+              <div class="alert alert-danger custom-text-danger-1 m-b-n">
                 <h5>Amends Brief</h5>
                 <ul class="">
                   @foreach ($errors->all() as $error)
@@ -374,7 +374,7 @@ Submitted - Brief Sheet
                 <div class="row">
                   @if (count($errors) > 0)
                     <div class="col-sm-12">
-                      <div class="alert alert-danger text-danger">
+                      <div class="alert alert-danger custom-text-danger-1">
                         <h5>Amends Brief</h5>
                         <ul class="">
                           @foreach ($errors->all() as $error)

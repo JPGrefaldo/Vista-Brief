@@ -51,7 +51,7 @@ Create New Brief Sheet
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
-                <div class="alert alert-danger text-danger m-b-n">
+                <div class="alert alert-danger custom-text-danger-1 m-b-n">
                   <ul class="m-b-n">
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
@@ -587,7 +587,7 @@ Create New Brief Sheet
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
-                <div class="alert alert-danger text-danger m-b-n">
+                <div class="alert alert-danger custom-text-danger-1 m-b-n">
                   <ul class="m-b-n">
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>

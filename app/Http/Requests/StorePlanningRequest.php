@@ -32,14 +32,11 @@ class StorePlanningRequest extends FormRequest
             'contact_email'     =>  'required|max:50',
             'contact_landline'  =>  'required|max:50',
             'contact_mobile'    =>  'required|max:50',
-            'title'             =>  'required|unique:plannings,title|max:75',
+            'title'             =>  'required|max:75',
             'jobstatus'         =>  'required',
             'budget'            =>  'required|max:200',
             'formatofresponse'  =>  'required',
-            'pitch_quote_date'  =>  'required',
             'ideal_qa_date'     =>  'required',
-            'ideal_review_date' =>  'required',
-            'project_deadline_date' =>  'required',
             'job_spec'          =>  'required|max:40000',
             'attachments.*'     =>  'max:5120',
         ];
@@ -50,13 +47,9 @@ class StorePlanningRequest extends FormRequest
         return [
             'client.required'       =>  'You need to select a Client',
             'title.required'        =>  'The Job Title is required.',
-            'title.unique'          =>  'The Job Title is already taken.',
             'jobstatus.required'    =>  'You need to select the Job Status.',
-            'formatofresponse.required'    =>  'You need to select the Format of Response.',
-            'pitch_quote_date.required_without_all'  =>  'You need to choose at least one of the required Timings.',
-            'ideal_qa_date.required_without_all'  =>  'You need to choose at least one of the required Timings.',
-            'ideal_review_date.required_without_all'  =>  'You need to choose at least one of the required Timings.',
-            'project_deadline_date.required_without_all'  =>  'You need to choose at least one of the required Timings.',
+            'formatofresponse.required'  =>  'You need to select the Format of Response.',
+            'ideal_qa_date.required'     =>  'The ideal Q&amp;A date field is required.',
             'attachments.*'     =>  'Each attached file must not exceed 5MB of size.',
         ];
     }

@@ -51,7 +51,7 @@ Create New Planning Request
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
-                <div class="alert alert-danger text-danger m-b-n">
+                <div class="alert alert-danger custom-text-danger-1 m-b-n">
                   <ul class="m-b-n">
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
@@ -237,8 +237,7 @@ Create New Planning Request
                     <div class="row-fluid">
                       <div class="form-group">
                         <label class="col-lg-3 control-label text-left">
-                          Pitch/Quote 
-                          <span class="text-danger">*</span>
+                          Pitch/Quote
                         </label>
                         <div class="col-lg-9">
                           <div class="input-group w-md1">
@@ -290,7 +289,6 @@ Create New Planning Request
                       <div class="form-group">
                         <label class="col-lg-3 control-label text-left">
                           Ideal Review
-                          <span class="text-danger">*</span>
                         </label>
                         <div class="col-lg-9">
                           <div class="input-group w-md1">
@@ -315,8 +313,7 @@ Create New Planning Request
                     <div class="row-fluid">
                       <div class="form-group">
                         <label class="col-lg-3 control-label text-left">
-                          Project Deadline 
-                          <span class="text-danger">*</span>
+                          Project Deadline
                         </label>
                         <div class="col-lg-9">
                           <div class="input-group w-md1">
@@ -394,7 +391,7 @@ Create New Planning Request
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
-                <div class="alert alert-danger text-danger m-b-n">
+                <div class="alert alert-danger custom-text-danger-1 m-b-n">
                   <ul class="m-b-n">
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>

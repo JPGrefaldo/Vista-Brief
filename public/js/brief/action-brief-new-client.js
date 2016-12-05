@@ -60,7 +60,7 @@ function show_newclient_error() {
 	errors.forEach(function(val){
 		li_error += '<li>'+val+'</li>'
 	})
-	$modal_body.append('<div id="errorbox" class="m-sm p-sm alert-danger"><ul class="m-n">'+li_error+'</ul></div>')
+	$modal_body.append('<div id="errorbox" class="m-sm p-sm alert-danger custom-text-danger-1"><ul class="m-n">'+li_error+'</ul></div>')
 	return
 }
 
@@ -76,7 +76,7 @@ function show_newclient_response_error(errors) {
 			})
 		}
 	}
-	$modal_body.append('<div id="errorbox" class="m-sm p-sm alert-danger"><ul class="m-n">'+li_error+'</ul></div>')
+	$modal_body.append('<div id="errorbox" class="m-sm p-sm alert-danger custom-text-danger-1"><ul class="m-n">'+li_error+'</ul></div>')
 }
 
 function submit_newclient(clientname) {

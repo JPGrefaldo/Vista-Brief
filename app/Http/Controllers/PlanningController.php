@@ -26,7 +26,7 @@ class PlanningController extends Controller
 
     public function new() 
     {
-    	$clients = Client::isactive()->latest()->get();
+    	$clients = Client::isactive()->orderby('name','ASC')->get();
     	$jobstatus = JobStatus::all();
     	$formatofresponses = FormOfResponse::all();
 

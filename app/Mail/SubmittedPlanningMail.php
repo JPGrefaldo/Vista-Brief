@@ -31,9 +31,9 @@ class SubmittedPlanningMail extends Mailable
         $this->title      = $planning->title;
         $this->client     = $planning->client->name;
 
-        $this->subject    = 'Planning Request: '.$planning->client->name.' - '.$planning->title.' - '.$planning->formofresponse->name;
+        $this->subject    = 'New Planning Request: '.$planning->client->name.' - '.$planning->title.' - '.$planning->formofresponse->name;
 
-        $this->pdf_file_name = 'Planning Request - '.$planning->client->name.' - '.$planning->title.' - '.$planning->formofresponse->name.'.pdf';
+        $this->pdf_file_name = 'New Planning Request - '.$planning->client->name.' - '.$planning->title.' - '.$planning->formofresponse->name.'.pdf';
     }
 
     /**

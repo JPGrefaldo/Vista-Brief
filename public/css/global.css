@@ -319,3 +319,7 @@ fieldset[disabled] .btn-brand1.active {
 .cpointer {
 	cursor: pointer;
 }
+
+.custom-text-danger-1 {
+	color: #00525a;
+}

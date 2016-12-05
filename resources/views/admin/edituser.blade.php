@@ -44,8 +44,7 @@ Edit User
         <div class="col-sm-7">
           @if (count($errors) > 0)
             <div class="panel panel-danger">
-              <div class="panel-body bg-ltdanger text-danger">
-                <h4>Oh Snap!</h4>
+              <div class="panel-body bg-ltdanger custom-text-danger-1">
                 <ul>
                   @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>

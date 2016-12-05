@@ -28,7 +28,7 @@ class BriefAddEditController extends Controller
     //
     public function new() 
     {
-      $clients = Client::isactive()->latest()->get();
+      $clients = Client::isactive()->orderby('name','ASC')->get();
       $projectstatus = ProjectStatus::all();
       $departments = Department::isactive()->get();
 
@@ -175,7 +175,7 @@ class BriefAddEditController extends Controller
                 return redirect()->route('submittedbriefsheet', $id);
             }
         }
-      $clients = Client::isactive()->latest()->get();
+      $clients = Client::isactive()->orderby('name','ASC')->get();
       $projectstatus = ProjectStatus::all();
       $departments = Department::isactive()->get();
 
@@ -326,12 +326,13 @@ class BriefAddEditController extends Controller
     public function postNewClient(Request $request) 
     {
     	$messages = [
-        'name.required'     =>  'Client name must not be empty.',
+        'name.required' =>  'Client name must not be empty.',
+        'name.max'      =>  'Client name may not be greater than 100 characters.',
         'name.unique'		=> 	'Client name is already taken.'
       ];
 
       $validator = Validator::make($request->all(),[
-        'name'      =>  'bail|required|unique:clients,name',
+        'name'      =>  'bail|required|max:100|unique:clients,name',
       ], $messages);
 
       if ($validator->fails()) {
@@ -353,7 +354,7 @@ class BriefAddEditController extends Controller
 
     public function getClients()
     {
-    	return response()->json(Client::isactive()->latest()->get());
+    	return response()->json(Client::isactive()->orderby('name','ASC')->get());
     }
 
     private function convertTo_MysqlDate($str_input)

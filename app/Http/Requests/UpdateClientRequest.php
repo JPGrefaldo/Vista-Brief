@@ -24,7 +24,7 @@ class UpdateClientRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'required',
+            'name'  =>  'required|max:100|unique:clients,name,'.$this->id,
         ];
     }
 
@@ -32,6 +32,8 @@ class UpdateClientRequest extends FormRequest
     {
         return [
             'name.required' =>  'Client name cannot be empty.',
+            'name.max'      =>  'Client name may not be greater than 100 characters.',
+            'name.unique'   =>  'Client name is already taken..',
         ];
     }
 }

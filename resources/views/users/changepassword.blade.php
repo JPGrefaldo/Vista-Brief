@@ -28,7 +28,7 @@ Change Password - Vista
           </div>
         </div>
         @if (count($errors) > 0)
-          <div class="alert text-danger wrapper">
+          <div class="alert-danger custom-text-danger-1 wrapper">
             <ul>
               @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>

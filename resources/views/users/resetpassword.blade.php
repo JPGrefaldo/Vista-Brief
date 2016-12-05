@@ -25,7 +25,7 @@ Reset Password - Vista
           </div>
         </div>
         @if ($error = $errors->first('invalid_username'))
-          <div class="alert-danger text-danger wrapper text-center"> 
+          <div class="alert-danger custom-text-danger-1 wrapper text-center"> 
             {{ $error }}
           </div>
         @endif

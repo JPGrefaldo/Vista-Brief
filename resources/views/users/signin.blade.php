@@ -25,7 +25,7 @@ Signin - Vista
           </div>
         </div>
         @if ($error = $errors->first('invalid_login'))
-          <div class="alert alert-danger text-center"> 
+          <div class="alert alert-danger text-center custom-text-danger-1"> 
             {{ $error }}
           </div>
         @endif

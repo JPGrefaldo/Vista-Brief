@@ -21,7 +21,7 @@ class CreateAttachmentsTable extends Migration
             $table->integer('amendment_id')->default(0);
             $table->string('department_ids', 500)->nullable();
             $table->string('filename', 200);
-            $table->string('filetype', 50)->nullable();
+            $table->string('filetype', 300)->nullable();
             $table->string('file_ext', 20)->nullable();
             $table->string('directory', 500)->nullable(); // laravel directory location
             $table->string('disk', 50)->default('local'); // laravel disk location
