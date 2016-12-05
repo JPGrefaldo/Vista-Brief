@@ -188,7 +188,7 @@ Brief Sheets - Vista
             </div>
             <div class="col-sm-5 text-center">
               <small class="text-muted inline m-t-sm m-b-sm">
-                showing {{ $briefs->firstItem() }}-{{ $briefs->lastItem() }} of {{ $briefs->total() }} items
+                Showing {{ $briefs->firstItem() }}-{{ $briefs->lastItem() }} of {{ $briefs->total() }} items
               </small>
             </div>            
             <div class="col-sm-7 text-right text-center-xs">
@@ -227,7 +227,7 @@ Brief Sheets - Vista
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Search Brief Sheet</h4>
+            <h4 class="modal-title">Search Brief Sheets</h4>
           </div>
           <form role="form" method="GET" action="{{ route('advancesearchbrief') }}">
           <div class="modal-body">

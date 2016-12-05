@@ -168,7 +168,7 @@ Clients - Vista
             </div>
             <div class="col-sm-5 text-center">
               <small class="text-muted inline m-t-sm m-b-sm">
-                showing {{ $clients->firstItem() }}-{{ $clients->lastItem() }} of {{ $clients->total() }} items
+                Showing {{ $clients->firstItem() }}-{{ $clients->lastItem() }} of {{ $clients->total() }} items
               </small>
             </div>
             <div class="col-sm-7 text-right text-center-xs">                

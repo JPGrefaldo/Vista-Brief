@@ -6,9 +6,9 @@ Planning Request File
 
 
 @section('content')
-<div class="page-break">
+<div class="page-break bg-white">
   <div class="row bg-white">
-    <div class="col-xs-12">
+    <div class="col-xs-12 bg-white">
       <!-- Title -->
       <div class="row m-b-md">
         <div class="col-xs-6 m-b-n m-t-n">
@@ -157,42 +157,37 @@ Planning Request File
       </div>
       <!-- / Job Spec -->
 
-      <!-- Attachments -->
+      <!-- Attachments -->      
+      @if (count($planning->attachments))
       <div class="row">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Attachments</strong></p>
-        </div>        
-        @if (count($planning->attachments))
-          @foreach ($planning->attachments as $attachment)
-          <div class="col-xs-12">
-            <ul class="p-l-md l-s-n">
-              <li>
-                <i class="{{ $attachment->classNames }} text-md"></i> 
-                <a 
-                  class="" 
-                  href="{{ route('download_attachment', [$attachment->id]) }}">
-                  <span class="text-brand1">{{ $attachment->filename }}</span>
-                </a>
-              </li>
-            </ul>
-            <h6 class="p-l-md text-muted">
-              @if (count($attachment->user))
-                Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
-              @else
-                Upload by &lt;missing info&gt;
-              @endif
-               - {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
-            </h6>
-          </div>
-          @endforeach
-        @else
-          <div class="col-xs-12">
-            <p class="bg-light p-l-sm">No Attachment</p>
-          </div>
-        @endif
-      </div>
+        </div>
+        @foreach ($planning->attachments as $attachment)
+        <div class="col-xs-12">
+          <ul class="p-l-md l-s-n">
+            <li>
+              <i class="{{ $attachment->classNames }} text-md"></i> 
+              <a 
+                class="" 
+                href="{{ route('download_attachment', [$attachment->id]) }}">
+                <span class="text-brand1">{{ $attachment->filename }}</span>
+              </a>
+            </li>
+          </ul>
+          <h6 class="p-l-md text-muted">
+            @if (count($attachment->user))
+              Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
+            @else
+              Upload by &lt;missing info&gt;
+            @endif
+             - {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
+          </h6>
+        </div>
+        @endforeach
+      </div>      
+      @endif
       <!-- / Attachments -->
-
     </div>
   </div>
 </div>

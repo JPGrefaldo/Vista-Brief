@@ -18,7 +18,7 @@ class AdminController extends Controller
 
     public function manageUsers()
     {
-    	$users = User::paginate(20);
+    	$users = User::where('id', '!=', '1')->paginate(20);
         foreach ($users as $key => $val) { /* exclude user:admin from the list */
             if (strtolower($users[$key]['id']) == '1') {
                 unset($users[$key]);

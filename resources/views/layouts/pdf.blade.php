@@ -5567,7 +5567,7 @@ fieldset[disabled] .btn-brand1.active {
 	}
 	</style>
 </head>
-<body>
+<body style="background-color:#ffffff">
 
 @yield('content')
 

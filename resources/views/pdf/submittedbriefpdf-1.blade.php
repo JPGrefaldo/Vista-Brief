@@ -8,7 +8,7 @@ Brief Submitted File
 if ($brief->projectstatus_id == 1) {
   $ps_color = "background-color:#a13535;color:#ffffff";
 } else {
-  $ps_color = "background-color:#d9edf7;color:#31708f";
+  $ps_color = "background-color:#00385b;color:#ffffff";
 }
 ?>
 
@@ -227,8 +227,8 @@ if ($brief->projectstatus_id == 1) {
         <div class="col-xs-12 m-b-lg">
           <p class="bg-brand-1 p-l-sm text-white" style="{{$ps_color}}"><strong>#10 Attachments</strong></p>
           @foreach ($brief->attachmentsNotAmend as $attachment)
-          <div class="col-xs-12">
-            <ul class="p-l-md l-s-n">
+          <div>
+            <ul class="p-l-n l-s-n">
               <li>
                 <i class="{{ $attachment->classNames }} text-md"></i> 
                 <a 
@@ -238,7 +238,7 @@ if ($brief->projectstatus_id == 1) {
                 </a>
               </li>
             </ul>
-            <h6 class="p-l-md text-muted">
+            <h6 class="p-l-n text-muted">
               @if (count($attachment->user))
                 Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
               @else

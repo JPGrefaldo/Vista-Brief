@@ -34,7 +34,7 @@ Manage Users - Vista
       <div class="row">
         <div class="col-sm-12 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Manage Users</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Welcome</small>
           @if (session('user_edit_success'))
             <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('user_edit_success') }}</span>
           @endif
@@ -161,7 +161,7 @@ Manage Users - Vista
             </div>
             <div class="col-sm-5 text-center">
               <small class="text-muted inline m-t-sm m-b-sm">
-                showing {{ $users->firstItem() }}-{{ $users->lastItem() }} of {{ $users->total() }} items
+                Showing {{ $users->firstItem() }}-{{ $users->lastItem() }} of {{ $users->total() }} items
               </small>
             </div>
             <div class="col-sm-7 text-right text-center-xs">                

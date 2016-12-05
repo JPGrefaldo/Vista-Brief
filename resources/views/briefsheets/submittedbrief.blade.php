@@ -649,27 +649,18 @@ Submitted - Brief Sheet
                         @endif
                       </h6> 
                       <p>{!! nl2br(e($amend->content)) !!}</p>
-                      <ul class="bg-light">
-                        @foreach ($amend->attachments as $attachment)
-                          <li>
-                            <p>
-                              <i class="{{ $attachment->classNames }} text-md"></i>
-                              <a 
-                                class="text-brand-1 a-hover-ltblue" 
-                                href="{{ route('download_attachment', [$attachment->id]) }}">
-                                {{ $attachment->filename }}
-                              </a>
-                            </p>
-                            <h6 class="text-muted">
-                              Uploaded by: 
-                              @if (count($attachment->user))
-                                {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
-                              @endif
-                              {{ $attachment->updated_at->format('h:m:s l, d M Y') }}
-                            </h6>
-                          </li>
-                        @endforeach
-                      </ul>
+                      
+                      @foreach ($amend->attachments as $attachment)
+                        <p class="">
+                          <i class="{{ $attachment->classNames }} text-md"></i>
+                          <a 
+                            class="text-brand-1 a-hover-ltblue" 
+                            href="{{ route('download_attachment', [$attachment->id]) }}">
+                            {{ $attachment->filename }}
+                          </a>
+                        </p>
+                      @endforeach
+                      
                       <h6 class="text-muted">
                         Sent to: 
                         <?php
