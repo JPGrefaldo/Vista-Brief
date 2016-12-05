@@ -1,4 +1,8 @@
 
+var panel_default = "panel-brand1"
+var panel_blue = "panel-brand1"
+var panel_red = "panel-brandred1"
+
 $(document).ready(function() {
 	$('[data-toggle="tooltip"]').tooltip()
 
@@ -12,20 +16,29 @@ $(document).ready(function() {
 			var color = $selected.attr('data-color')
 
 			if (color == 'Red') {
-				$panel.removeClass('panel-brand1 panel-info')
-				$panel.addClass('panel-brandred1')
+				// $panel.removeClass('panel-brand1 panel-info')
+				$panel.removeClass(panel_default)
+				$panel.removeClass(panel_blue)
+				// $panel.addClass('panel-brandred1')
+				$panel.addClass(panel_red)
 				return
 			}
 			else if (color =='Blue') {
-				$panel.removeClass('panel-brand1 panel-brandred1')
-				$panel.addClass('panel-info')
+				// $panel.removeClass('panel-brand1 panel-brandred1')
+				$panel.removeClass(panel_default)
+				$panel.removeClass(panel_red)
+				// $panel.addClass('panel-info')
+				$panel.addClass(panel_blue)
 				return
 			}
 		}
 
 		// back to brand1
-		$panel.removeClass('panel-info panel-brandred1')
-		$panel.addClass('panel-brand1')
+		// $panel.removeClass('panel-info panel-brandred1')
+		$panel.removeClass(panel_blue)
+		$panel.removeClass(panel_red)
+		// $panel.addClass('panel-brand1')
+		$panel.addClass(panel_default)
 		return
 	})
 })
@@ -39,19 +52,28 @@ function updatePanelColor() {
 		var color = $selected.attr('data-color')
 
 		if (color == 'Red') {
-			$panel.removeClass('panel-brand1 panel-info')
-			$panel.addClass('panel-brandred1')
+			// $panel.removeClass('panel-brand1 panel-info')
+			$panel.removeClass(panel_default)
+			$panel.removeClass(panel_blue)
+			// $panel.addClass('panel-brandred1')
+			$panel.addClass(panel_red)
 			return
 		}
 		else if (color =='Blue') {
-			$panel.removeClass('panel-brand1 panel-brandred1')
-			$panel.addClass('panel-info')
+			// $panel.removeClass('panel-brand1 panel-brandred1')
+			$panel.removeClass(panel_default)
+			$panel.removeClass(panel_red)
+			// $panel.addClass('panel-info')
+			$panel.addClass(panel_blue)
 			return
 		}
 	}
 
 	// back to brand1
-	$panel.removeClass('panel-info panel-brandred1')
-	$panel.addClass('panel-brand1')
+	// $panel.removeClass('panel-info panel-brandred1')
+	$panel.removeClass(panel_blue)
+	$panel.removeClass(panel_red)
+	// $panel.addClass('panel-brand1')
+	$panel.addClass(panel_default)
 	return
 }

@@ -144,7 +144,8 @@ Draft - Brief Sheet
                           name="jobnumber" 
                           class="form-control" 
                           placeholder="Job Number" 
-                          value="{{ (old('jobnumber')) ? old('jobnumber') : $brief->jobnumber }}">
+                          value="{{ (old('jobnumber')) ? old('jobnumber') : $brief->jobnumber }}"
+                          maxlength="6">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -158,7 +159,8 @@ Draft - Brief Sheet
                           name="oldjobnumber" 
                           class="form-control" 
                           placeholder="Old Job Number" 
-                          value="{{ (old('oldjobnumber')) ? old('oldjobnumber') : $brief->old_jobnumber }}">
+                          value="{{ (old('oldjobnumber')) ? old('oldjobnumber') : $brief->old_jobnumber }}"
+                          maxlength="6">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -178,7 +180,8 @@ Draft - Brief Sheet
                           name="budget" 
                           class="form-control" 
                           placeholder="Your Budget" 
-                          value="{{ (old('budget')) ? old('budget') : $brief->budget }}">
+                          value="{{ (old('budget')) ? old('budget') : $brief->budget }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -195,7 +198,8 @@ Draft - Brief Sheet
                           name="pmanager" 
                           class="form-control" 
                           placeholder="Project Manager" 
-                          value="{{ (old('pmanager')) ? old('pmanager') : $brief->projectmanager }}">
+                          value="{{ (old('pmanager')) ? old('pmanager') : $brief->projectmanager }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -212,7 +216,8 @@ Draft - Brief Sheet
                       name="jobname" 
                       class="form-control" 
                       placeholder="Job Name" 
-                      value="{{ (old('jobname')) ? old('jobname') : $brief->jobname }}">
+                      value="{{ (old('jobname')) ? old('jobname') : $brief->jobname }}"
+                      maxlength="75">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -228,7 +233,8 @@ Draft - Brief Sheet
                       name="keydeliverables" 
                       class="form-control" 
                       placeholder="Key Deliverables" 
-                      value="{{ (old('keydeliverables')) ? old('keydeliverables') : $brief->keydeliverables }}">
+                      value="{{ (old('keydeliverables')) ? old('keydeliverables') : $brief->keydeliverables }}"
+                      maxlength="75">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -238,8 +244,7 @@ Draft - Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        Quote Required by 
-                        <span class="text-danger">*</span>
+                        Quote Required by
                       </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
@@ -262,7 +267,7 @@ Draft - Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        Proposed Required by 
+                        Proposal Required by 
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-8">
@@ -286,8 +291,7 @@ Draft - Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        1st Stage Required by 
-                        <span class="text-danger">*</span>
+                        1st Stage Required by
                       </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
@@ -310,8 +314,7 @@ Draft - Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        Projects Delivered by 
-                        <span class="text-danger">*</span>
+                        Project Delivered by
                       </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
@@ -355,7 +358,7 @@ Draft - Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:50px" 
                       placeholder="Enter short overview description of the requirements here."
-                      >{{ (old('summary')) ? old('summary') : $brief->summary }}</textarea>
+                      maxlength="200">{{ (old('summary')) ? old('summary') : $brief->summary }}</textarea>
                   </div>            
                 </div>
               </div>
@@ -620,26 +623,35 @@ Draft - Brief Sheet
                   <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
                     <button class="btn btn-primary btn-block">Add File(s)</button>
                   </div>
-                  <div class="col-sm-12 hide1"> <!-- hide for now -->
-                    <ul>
-                      @foreach ($brief->attachmentsNotAmend as $attachment)
-                        <li>
-                          <ul class="p-l-n l-s-n">
-                            <li>
-                              <i class="{{ $attachment->classNames }} text-md"></i>
-                              <a 
-                                class="text-brand1 a-hover-ltblue" 
-                                href="{{ route('download_attachment', [$attachment->id]) }}">
-                                {{ $attachment->filename }}
-                              </a>
-                            </li>
-                            <li class="text-muted">
-                              Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }} - 
-                              {{ $attachment->updated_at->format('h:m:s l, d M Y') }}</li>
-                          </ul>
-                        </li>
-                      @endforeach
-                    </ul>
+                  <div class="col-sm-12">
+                    @if (!count($brief->attachmentsNotAmend))
+                        <p class="text-muted">No existing attachment.</p>
+                    @else
+                      <ul>
+                        @foreach ($brief->attachmentsNotAmend as $attachment)
+                          <li>
+                            <ul class="p-l-n l-s-n">
+                              <li>
+                                <i class="{{ $attachment->classNames }} text-md"></i>
+                                <a 
+                                  class="text-brand1 a-hover-ltblue" 
+                                  href="{{ route('download_attachment', [$attachment->id]) }}">
+                                  {{ $attachment->filename }}
+                                </a>
+                              </li>
+                              <li class="text-muted">
+                                @if (count($attachment->user))
+                                  Uploaded by {{ $attachment->user->forename }} 
+                                  {{ $attachment->user->surname }}
+                                @else
+                                  &lt;missing user info&gt;
+                                @endif
+                                 - {{ $attachment->updated_at->format('h:m:s l, d M Y') }}</li>
+                            </ul>
+                          </li>
+                        @endforeach
+                      </ul>
+                    @endif
                   </div>
                 </div>
               </div>

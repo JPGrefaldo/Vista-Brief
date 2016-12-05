@@ -217,7 +217,8 @@ Submitted - Brief Sheet
                 <div class="row">
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Quote Required by</label>
+                      <label class="col-lg-4 control-label text-left">
+                        Quote Required by</label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
                           <input 
@@ -239,7 +240,9 @@ Submitted - Brief Sheet
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Proposed Required by</label>
+                      <label class="col-lg-4 control-label text-left">
+                        Proposal Required by
+                      </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
                           <input 
@@ -261,7 +264,8 @@ Submitted - Brief Sheet
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">1st Stage Required by</label>
+                      <label class="col-lg-4 control-label text-left">
+                        1st Stage Required by</label>
                       <div class="col-lg-8" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
                           <input 
@@ -283,7 +287,8 @@ Submitted - Brief Sheet
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
-                      <label class="col-lg-4 control-label text-left">Projects Delivered by</label>
+                      <label class="col-lg-4 control-label text-left">
+                        Project Delivered by</label>
                       <div class="col-lg-8" ng-controller="DatepickerDemoCtrl">
                         <div class="input-group w-md1">
                           <input 
@@ -311,7 +316,7 @@ Submitted - Brief Sheet
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
-            <div class="panel panel-brand1">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 Post New Amend
               </div>
@@ -587,7 +592,7 @@ Submitted - Brief Sheet
                   <div class="col-sm-12">
                     <a name="amending"></a> <!-- amending anchor -->
                       @if (count($brief->attachmentsNotAmend) < 1)
-                        <p class="text-muted">No attachments.</p>
+                        <p class="text-muted">No attachment.</p>
                       @else
                         <ul>
                         @foreach ($brief->attachmentsNotAmend as $attachment)
@@ -604,9 +609,11 @@ Submitted - Brief Sheet
                               <li class="text-muted">Uploaded by 
                                 @if (count($attachment->user))
                                   {{ $attachment->user->forename }} 
-                                  {{ $attachment->user->surname }} - 
+                                  {{ $attachment->user->surname }} 
+                                @else
+                                  &lt;missing user info&gt;
                                 @endif
-                                {{ $attachment->updated_at->format('h:m l, d M Y') }}</li>
+                                 - {{ $attachment->updated_at->format('h:m l, d M Y') }}</li>
                             </ul>
                           </li>
                         @endforeach
@@ -619,7 +626,7 @@ Submitted - Brief Sheet
             <!-- / Brief Attachments -->
 
             <!-- List of Ammendments -->
-            <div class="panel panel-brand1">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 Amends
               </div>

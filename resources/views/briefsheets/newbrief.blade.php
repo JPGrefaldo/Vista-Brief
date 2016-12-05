@@ -117,7 +117,13 @@ Create New Brief Sheet
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-8">
-                        <input type="text" name="jobnumber" class="form-control" placeholder="Job Number" value="{{ old('jobnumber') }}">
+                        <input 
+                          type="text" 
+                          name="jobnumber" 
+                          class="form-control" 
+                          placeholder="Job Number" 
+                          value="{{ old('jobnumber') }}"
+                          maxlength="6">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -126,7 +132,13 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">Old Job Number</label>
                       <div class="col-lg-8">
-                        <input type="text" name="oldjobnumber" class="form-control" placeholder="Old Job Number" value="{{ old('oldjobnumber') }}">
+                        <input 
+                          type="text" 
+                          name="oldjobnumber" 
+                          class="form-control" 
+                          placeholder="Old Job Number" 
+                          value="{{ old('oldjobnumber') }}"
+                          maxlength="6">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -146,7 +158,8 @@ Create New Brief Sheet
                           name="budget" 
                           class="form-control" 
                           placeholder="Your Budget" 
-                          value="{{ old('budget') }}">
+                          value="{{ old('budget') }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -163,7 +176,8 @@ Create New Brief Sheet
                           name="pmanager" 
                           class="form-control" 
                           placeholder="Project Manager" 
-                          value="{{ (old('pmanager')) ? old('pmanager') : Auth::user()->forename.' '.Auth::user()->surname }}">
+                          value="{{ (old('pmanager')) ? old('pmanager') : Auth::user()->forename.' '.Auth::user()->surname }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -176,7 +190,13 @@ Create New Brief Sheet
                     <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-10">
-                    <input type="text" name="jobname" class="form-control" placeholder="Job Name" value="{{ old('jobname') }}">
+                    <input 
+                      type="text" 
+                      name="jobname" 
+                      class="form-control" 
+                      placeholder="Job Name" 
+                      value="{{ old('jobname') }}"
+                      maxlength="75">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -188,7 +208,13 @@ Create New Brief Sheet
                     <span class="text-danger">*</span>
                   </label>
                   <div class="col-lg-10">
-                    <input type="text" name="keydeliverables" class="form-control" placeholder="Key Deliverables" value="{{ old('keydeliverables') }}">
+                    <input 
+                      type="text" 
+                      name="keydeliverables" 
+                      class="form-control" 
+                      placeholder="Key Deliverables" 
+                      value="{{ old('keydeliverables') }}"
+                      maxlength="75">
                     <span class="help-block m-b-none"></span>
                   </div>
                 </div>
@@ -198,8 +224,7 @@ Create New Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        Quote Required by 
-                        <span class="text-danger">*</span>
+                        Quote Required by
                       </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
@@ -220,7 +245,7 @@ Create New Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        Proposed Required by 
+                        Proposal Required by 
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-8">
@@ -242,8 +267,7 @@ Create New Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        1st Stage Required by 
-                        <span class="text-danger">*</span>
+                        1st Stage Required by
                       </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
@@ -264,8 +288,7 @@ Create New Brief Sheet
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
-                        Projects Delivered by 
-                        <span class="text-danger">*</span>
+                        Project Delivered by
                       </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
@@ -306,7 +329,8 @@ Create New Brief Sheet
                       name="summary" 
                       class="form-control auto-height" 
                       style="min-height:50px" 
-                      placeholder="Enter short overview description of the requirements here.">{{ old('summary') }}</textarea>
+                      placeholder="Enter short overview description of the requirements here."
+                      maxlength="200">{{ old('summary') }}</textarea>
                   </div>            
                 </div>
               </div>

@@ -10,7 +10,7 @@
 
 <p><strong>Brief Sheet: {{ $jobnumber }} - {{ $jobname }}</strong></p>
 
-<p>To <span class="text-muted">{{ $projectmanager }}; {{ $department_name }}</span></p>
+<p>To <span class="text-muted">{{ $projectmanager }}, {{ $department_name }}</span></p>
 
 <p>Brief sheet attached</p>
 

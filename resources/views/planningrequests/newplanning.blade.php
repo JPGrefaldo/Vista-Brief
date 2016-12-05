@@ -90,8 +90,18 @@ Create New Planning Request
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-9">
-                        <input type="hidden" name="user_id" class="form-control" value="{{ Auth::user()->id }}" readonly>
-                        <input type="text" name="taken_by" class="form-control" value="{{ Auth::user()->forename }} {{ Auth::user()->surname }}">
+                        <input 
+                          type="hidden" 
+                          name="user_id" 
+                          class="form-control" 
+                          value="{{ Auth::user()->id }}" 
+                          readonly>
+                        <input 
+                          type="text" 
+                          name="taken_by" 
+                          class="form-control" 
+                          value="{{ Auth::user()->forename }} {{ Auth::user()->surname }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -105,7 +115,12 @@ Create New Planning Request
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-9">
-                        <input type="text" name="contact_name" class="form-control" placeholder="Contact Name/Title" value="{{ old('contact_name') }}">
+                        <input 
+                          type="text" 
+                          name="contact_name" 
+                          class="form-control" 
+                          placeholder="Contact Name/Title" value="{{ old('contact_name') }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -117,7 +132,13 @@ Create New Planning Request
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-9">
-                        <input type="text" name="contact_email" class="form-control" placeholder="Contact Email" value="{{ old('contact_email') }}">
+                        <input 
+                          type="text" 
+                          name="contact_email" 
+                          class="form-control" 
+                          placeholder="Contact Email" 
+                          value="{{ old('contact_email') }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -131,7 +152,13 @@ Create New Planning Request
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-9">
-                        <input type="text" name="contact_landline" class="form-control" placeholder="Contact Landline" value="{{ old('contact_landline') }}">
+                        <input 
+                          type="text" 
+                          name="contact_landline" 
+                          class="form-control" 
+                          placeholder="Contact Landline" 
+                          value="{{ old('contact_landline') }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -143,7 +170,13 @@ Create New Planning Request
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-9">
-                        <input type="text" name="contact_mobile" class="form-control" placeholder="Contact Mobile" value="{{ old('contact_mobile') }}">
+                        <input 
+                          type="text" 
+                          name="contact_mobile" 
+                          class="form-control" 
+                          placeholder="Contact Mobile" 
+                          value="{{ old('contact_mobile') }}"
+                          maxlength="50">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -167,7 +200,13 @@ Create New Planning Request
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-9">
-                        <input type="text" name="title" class="form-control" placeholder="Title" value="{{ old('title') }}">
+                        <input 
+                          type="text" 
+                          name="title" 
+                          class="form-control" 
+                          placeholder="Title" 
+                          value="{{ old('title') }}"
+                          maxlength="75">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>
@@ -199,7 +238,13 @@ Create New Planning Request
                         <span class="text-danger">*</span>
                       </label>
                       <div class="col-lg-9">
-                        <input type="text" name="budget" class="form-control" placeholder="Budget" value="{{ old('budget') }}">
+                        <input 
+                          type="text" 
+                          name="budget" 
+                          class="form-control" 
+                          placeholder="Budget" 
+                          value="{{ old('budget') }}"
+                          maxlength="200">
                         <span class="help-block m-b-none"></span>
                       </div>
                     </div>

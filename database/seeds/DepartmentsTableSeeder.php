@@ -37,11 +37,11 @@ class DepartmentsTableSeeder extends Seeder
         		'email'	=>	'exhibitions@wearevista.com'
         	],
         	[
-        		'name'	=>	'Designs',
+        		'name'	=>	'Design',
         		'email'	=>	'designs@wearevista.com'
         	],
         	[
-        		'name'	=>	'Venue Hub',
+        		'name'	=>	'Venuehub',
         		'email'	=>	'venuehub@wearevista.com'
         	],	
         ]);
