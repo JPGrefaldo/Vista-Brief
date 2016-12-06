@@ -99,7 +99,7 @@ Profile - Vista
                 </div>
                 <div class="m-t-md">
                   @if (count($errors->editAvatar) > 0)
-                    <div class="alert alert-danger text-danger m-b-n">
+                    <div class="alert alert-danger custom-text-danger-1 m-b-n">
                       <ul class="m-b-n m-l-n">
                         @foreach ($errors->editAvatar->all() as $error)
                           <li>{{ $error }}</li>
@@ -173,8 +173,8 @@ Profile - Vista
                   <div class="row">
                     @if (count($errors->editProfile) > 0)
                     <div class="col-sm-12 m-t-sm m-b-n">
-                      <div class="alert alert-danger text-danger">
-                        <ul class="m-b-n">
+                      <div class="alert alert-danger custom-text-danger-1">
+                        <ul class="m-b-n m-l-n">
                           @foreach ($errors->editProfile->all() as $error)
                             <li>{{ $error }}</li>
                           @endforeach
@@ -244,8 +244,8 @@ Profile - Vista
 
                   @if (count($errors->changePassword) > 0)
                   <div class="col-sm-12 m-t-sm m-b-n">
-                    <div class="alert alert-danger text-danger">
-                      <ul class="m-b-n">
+                    <div class="alert alert-danger custom-text-danger-1">
+                      <ul class="m-b-n m-l-n">
                         @foreach ($errors->changePassword->all() as $error)
                           <li>{{ $error }}</li>
                         @endforeach

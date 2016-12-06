@@ -1,32 +1,15 @@
-/*@import url("//hello.myfonts.net/count/2D2FC2");
+@import url("//hello.myfonts.net/count/2cc60a");
 
-@font-face {
-    font-family: "Trade Gothic";
-    src: url("../fonts/2D2FC2/2D2FC2_0_0.eot?299766753601067456");
-    src: url("../fonts/2D2FC2/2D2FC2_0_0.eot?173651719799137888#iefix") format("embedded-opentype"),url("../fonts/2D2FC2/2D2FC2_0_0.woff?655636938010961024") format("woff"),url("../fonts/2D2FC2/2D2FC2_0_0.ttf?11657970238339174") format("truetype"),url("../fonts/2D2FC2/2D2FC2_0_0.svg?325796705035361344") format("svg");
-    font-weight: 700;
-    font-style: normal
-}
+  
+@font-face {font-family: 'TradeGothicNextLTPro-Bd';src: url('../fonts/webfonts/2CC60A_0_0.eot');src: url('../fonts/webfonts/2CC60A_0_0.eot?#iefix') format('embedded-opentype'),url('../fonts/webfonts/2CC60A_0_0.woff2') format('woff2'),url('../fonts/webfonts/2CC60A_0_0.woff') format('woff'),url('../fonts/webfonts/2CC60A_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'TradeGothicNextLTPro-Rg';src: url('../fonts/webfonts/2CC60A_1_0.eot');src: url('../fonts/webfonts/2CC60A_1_0.eot?#iefix') format('embedded-opentype'),url('../fonts/webfonts/2CC60A_1_0.woff2') format('woff2'),url('../fonts/webfonts/2CC60A_1_0.woff') format('woff'),url('../fonts/webfonts/2CC60A_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'TradeGothicNextLTPro-Lt';src: url('../fonts/webfonts/2CC60A_2_0.eot');src: url('../fonts/webfonts/2CC60A_2_0.eot?#iefix') format('embedded-opentype'),url('../fonts/webfonts/2CC60A_2_0.woff2') format('woff2'),url('../fonts/webfonts/2CC60A_2_0.woff') format('woff'),url('../fonts/webfonts/2CC60A_2_0.ttf') format('truetype');}
 
-@font-face {
-    font-family: "Trade Gothic";
-    src: url("../fonts/2D2FC2/2D2FC2_1_0.eot?176830756736237248");
-    src: url("../fonts/2D2FC2/2D2FC2_1_0.eot?73326591415812912#iefix") format("embedded-opentype"),url("../fonts/2D2FC2/2D2FC2_1_0.woff?56666501048058080") format("woff"),url("../fonts/2D2FC2/2D2FC2_1_0.ttf?137927048783128912") format("truetype"),url("../fonts/2D2FC2/2D2FC2_1_0.svg?34467868909207968") format("svg");
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: "Trade Gothic";
-    src: url("../fonts/2D2FC2/2D2FC2_2_0.eot?485786852323350");
-    src: url("../fonts/2D2FC2/2D2FC2_2_0.eot?62272758366181984#iefix") format("embedded-opentype"),url("../fonts/2D2FC2/2D2FC2_2_0.woff?95077102310332992") format("woff"),url("../fonts/2D2FC2/2D2FC2_2_0.ttf?327405319563945728") format("truetype"),url("../fonts/2D2FC2/2D2FC2_2_0.svg?41355469070887616") format("svg");
-    font-weight: 300;
-    font-style: normal
-*/}
-
-/*! CSS compiled on: Thu Mar 03 2016 14:52:56 GMT+0000 (GMT Standard Time) */
-
-@font-face {
+/*@font-face {
     font-family: "Trade Gothic";
     src: url("../fonts/2D2FC2/2D2FC2_1_0.woff") format('woff');
 }
@@ -35,4 +18,4 @@
     font-family: "Trade Gothic";
     src: url("../fonts/2D2FC2/2D2FC2_0_0.woff") format('woff');
     font-weight: bold;
-}
+}*/

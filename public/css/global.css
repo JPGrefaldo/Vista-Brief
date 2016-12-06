@@ -1,7 +1,7 @@
 body {
 	margin: 0px;
 	padding: 0px;
-	font-family: Trade Gothic;
+	font-family: TradeGothicNextLTPro-Lt;
 }
 
 .header-box {
@@ -33,6 +33,12 @@ body {
 }
 .f-s-18 {
 	font-size: 18px;
+}
+.f-s-16 {
+	font-size: 16px;
+}
+.f-s-14 {
+	font-size: 14px;
 }
 
 .unblock {

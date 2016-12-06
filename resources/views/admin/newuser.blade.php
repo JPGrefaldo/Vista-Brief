@@ -42,17 +42,17 @@ Add New User
     <div class="wrapper-md">
       <div class="row">
         <div class="col-sm-7">
+
           @if (count($errors) > 0)
-            <div class="panel panel-danger">
-              <div class="panel-body bg-ltdanger custom-text-danger-1">
-                <ul>
-                  @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                  @endforeach
-                </ul>
-              </div>
+            <div class="alert alert-danger custom-text-danger-1">
+              <ul class="m-l-n">
+                @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+                @endforeach
+              </ul>
             </div>
           @endif
+
           <div class="panel panel-default">
             <form id="form-newuser" class="bs-example form-horizontal" action="{{ route('createnewuser') }}" method="post">
               <div class="panel-body">

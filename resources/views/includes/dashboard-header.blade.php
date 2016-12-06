@@ -1,4 +1,4 @@
-  <header id="header" class="app-header navbar" role="menu">
+  <header id="header" class="app-header navbar bg-brand-1" role="menu">
       <!-- navbar header -->
       <div class="navbar-header bg-brand-1">
         <button class="pull-right visible-xs dk" ui-toggle-class="show" target=".navbar-collapse">
