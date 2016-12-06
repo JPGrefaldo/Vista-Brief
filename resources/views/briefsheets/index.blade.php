@@ -258,7 +258,7 @@ Brief Sheets - Vista
                 <div class="form-group">
                   <label>Client</label>
                   <select name="client" class="form-control">
-                    <option value="">select</option>
+                    <option value="">Select</option>
                     @foreach($clients as $client)
                       <option 
                         value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>
@@ -272,7 +272,7 @@ Brief Sheets - Vista
                 <div class="form-group">
                   <label>Project Status</label>
                   <select name="projectstatus" class="form-control">
-                    <option value="">select</option>
+                    <option value="">Select</option>
                     @foreach($projectstatus as $pstatus)
                       <option 
                         value="{{ $pstatus->id }}" 

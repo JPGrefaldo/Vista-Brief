@@ -132,7 +132,6 @@ class BriefController extends Controller
         }
 
         return redirect()->route('submittedbriefsheet', [$brief_id])->with('new_amend_success', 'New Amend created.');
-
     }
 
     private function convertTo_CommaSeparatedIds($id_input) 

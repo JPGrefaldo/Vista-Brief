@@ -323,11 +323,10 @@ Planning Request
           <!-- Job Spec -->
           <div class="panel panel-brand1">
             <div class="panel-heading">
-              #03 - 
+              #03 - Job Spec               
               <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                 title="Enter a description of the work required."> 
               </i>
-              Job Spec
             </div>
             <div class="panel-body">
               <div>
@@ -340,11 +339,10 @@ Planning Request
           <!-- Attachments -->
           <div class="panel panel-brand1">
             <div class="panel-heading">
-              #04 - 
+              #04 - Attached Files 
               <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                 title="Attach any supporting material here. Provide multiple files in single zip folder where possible.">
               </i>
-              Attached Files
             </div>
             <div class="panel-body bg-light lter">
               <div class="row">

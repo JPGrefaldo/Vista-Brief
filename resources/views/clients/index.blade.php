@@ -34,7 +34,7 @@ Clients - Vista
       <div class="row">
         <div class="col-sm-12 col-xs-12">
           <h1 class="m-n font-thin h3 text-black">Manage Clients</h1>
-          <small class="text-muted">welcome</small>
+          <small class="text-muted">Welcome</small>
           @if (session('client_delete_success'))
             <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('client_delete_success') }}</span>
           @endif
@@ -42,7 +42,28 @@ Clients - Vista
       </div>
     </div>
     <!-- / main header -->
-    <div class="wrapper-md col-sm-8">
+
+    @if (count($errors) > 0)
+      <div class="wrapper-md m-b-n" style="padding-bottom:0px;">
+        <div class="panel panel-default m-b-n">
+          <div class="alert alert-danger custom-text-danger-1 m-b-n">
+            <ul class="m-b-n">
+              @foreach ($errors->all() as $error)
+                <li class="m-l-n p-l-n">{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+        </div>
+      </div>
+    @endif
+
+    @if (session('edit_client_success'))
+      <div class="wrapper-md">
+        <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('edit_client_success') }}</span>
+      </div>
+    @endif    
+
+    <div class="wrapper-md">
       <div class="panel panel-default">
         <div class="panel-heading">
           List of Clients
@@ -199,23 +220,6 @@ Clients - Vista
           </div>
         </footer>
       </div>
-    </div>
-    <div class="wrapper-md col-sm-4">
-      @if (count($errors) > 0)
-      <div class="panel panel-default">
-          <div class="alert alert-danger custom-text-danger-1 m-b-n">
-            <ul class="m-b-n">
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
-            </ul>
-          </div>
-      </div>
-      @endif
-
-      @if (session('edit_client_success'))
-        <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('edit_client_success') }}</span>
-      @endif
     </div>
 
     <!-- Modal: Confirm Delete -->

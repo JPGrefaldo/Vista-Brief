@@ -73,7 +73,7 @@ Create New Planning Request
                       </label>
                       <div class="col-lg-9">
                         <select name="client" class="form-control" id="select-client">
-                          <option value="">select</option>
+                          <option value="">Select</option>
                           @foreach ($clients as $client)
                             <option value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>{{ $client->name }}</option>
                           @endforeach
@@ -219,7 +219,7 @@ Create New Planning Request
                       </label>
                       <div class="col-lg-9">
                         <select name="jobstatus" class="form-control">
-                          <option value="">select</option>
+                          <option value="">Select</option>
                           @foreach ($jobstatus as $jstatus)
                             <option value="{{ $jstatus->id }}" {{ (old('jobstatus') == $jstatus->id) ? "selected":"" }}>{{ $jstatus->name }}</option>
                           @endforeach
@@ -257,7 +257,7 @@ Create New Planning Request
                       </label>
                       <div class="col-lg-9">
                         <select name="formatofresponse" class="form-control">
-                          <option value="">select</option>
+                          <option value="">Select</option>
                           @foreach ($formatofresponses as $for)
                             <option value="{{ $for->id }}" {{ (old('formatofresponse') == $for->id) ? "selected":"" }}>{{ $for->name }}</option>
                           @endforeach
@@ -387,11 +387,10 @@ Create New Planning Request
             <!-- Job Spec -->
             <div class="panel panel-brand1">
               <div class="panel-heading">
-                #03 - 
+                #03 - Job Spec                 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="Enter a description of the work required."> 
-                </i>
-                Job Spec 
+                </i> 
                 <span class="text-danger">*</span>
               </div>
               <div class="panel-body">
@@ -412,11 +411,10 @@ Create New Planning Request
             <!-- Attachments -->
             <div class="panel panel-brand1">
               <div class="panel-heading">
-                #04 - 
+                #04 - Attachments 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="Attach any supporting material here. Provide multiple files in single zip folder where possible.">
                 </i>
-                Attachments
               </div>
               <div class="panel-body">
                 <div class="row" style="padding-left:15px;padding-right:15px">
