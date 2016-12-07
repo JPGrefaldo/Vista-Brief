@@ -69,7 +69,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Client 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <select name="client" class="form-control" id="select-client">
@@ -77,7 +77,7 @@ Create New Planning Request
                           @foreach ($clients as $client)
                             <option value="{{ $client->id }}" {{ (old('client') == $client->id) ? "selected":"" }}>{{ $client->name }}</option>
                           @endforeach
-                          <option value="newclient">[new client]</option>
+                          <option value="newclient" class="opt-newclient">[Add New Client</option>
                         </select>
                         <span class="help-block m-b-none"></span>
                       </div>
@@ -87,7 +87,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Taken By 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <input 
@@ -112,7 +112,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Contact Name/Title 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <input 
@@ -129,7 +129,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Contact Email
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <input 
@@ -149,7 +149,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Contact Landline 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <input 
@@ -167,7 +167,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Contact Mobile 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <input 
@@ -187,7 +187,7 @@ Create New Planning Request
             <!-- / Information -->
 
             <!-- Job Details -->
-            <div class="panel panel-brand1">
+            <div class="panel panel-bluegreen1">
               <div class="panel-heading">
                 #01 - Job Details
               </div>
@@ -197,7 +197,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Title 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <input 
@@ -215,7 +215,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Status 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <select name="jobstatus" class="form-control">
@@ -235,7 +235,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Budget 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <input 
@@ -253,7 +253,7 @@ Create New Planning Request
                     <div class="form-group">
                       <label class="col-lg-3 control-label text-left">
                         Format of Response 
-                        <span class="text-danger">*</span>
+                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-9">
                         <select name="formatofresponse" class="form-control">
@@ -272,7 +272,7 @@ Create New Planning Request
             <!-- / Job Details -->
 
             <!-- Timings -->
-            <div class="panel panel-brand1">
+            <div class="panel panel-bluegreen1">
               <div class="panel-heading">
                 #02 - Timings
               </div>
@@ -308,7 +308,7 @@ Create New Planning Request
                       <div class="form-group">
                         <label class="col-lg-3 control-label text-left">
                           Ideal Q&amp;A 
-                          <span class="text-danger">*</span>
+                          <span class="custom-text-danger-1">*</span>
                         </label>
                         <div class="col-lg-9">
                           <div class="input-group w-md1">
@@ -385,13 +385,13 @@ Create New Planning Request
             <!-- / Desciplines Required -->
 
             <!-- Job Spec -->
-            <div class="panel panel-brand1">
+            <div class="panel panel-bluegreen1">
               <div class="panel-heading">
                 #03 - Job Spec                 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="Enter a description of the work required."> 
                 </i> 
-                <span class="text-danger">*</span>
+                <span class="custom-text-danger-1">*</span>
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -409,7 +409,7 @@ Create New Planning Request
             <!-- / Job Spec -->
             
             <!-- Attachments -->
-            <div class="panel panel-brand1">
+            <div class="panel panel-bluegreen1">
               <div class="panel-heading">
                 #04 - Attachments 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 

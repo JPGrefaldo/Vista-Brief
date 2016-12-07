@@ -48,15 +48,15 @@ Submitted - Brief Sheet
         <!-- new Brief form class divider -->
           <div class="bs-example form-horizontal">    
             <div class="panel panel-info">
-              <div class="panel-body bg-danger">
-                <strong>Submitted.</strong> You can't edit this brief sheet as this had been submitted. You can add amends.
+              <div class="panel-body bg-danger2">
+                You can't edit this brief sheet as this had been submitted. You can add amends.
               </div>
             </div>
 
             @if (count($errors) > 0)
             <div class="panel panel-default">
               <div class="alert alert-danger custom-text-danger-1 m-b-n">
-                <h5>Amends Brief</h5>
+                <h5 class="m-t-xs">Amends Brief</h5>
                 <ul class="">
                   @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -316,7 +316,7 @@ Submitted - Brief Sheet
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 Post New Amend
               </div>
@@ -380,7 +380,7 @@ Submitted - Brief Sheet
                   @if (count($errors) > 0)
                     <div class="col-sm-12">
                       <div class="alert alert-danger custom-text-danger-1">
-                        <h5>Amends Brief</h5>
+                        <h5 class="m-t-xs">Amends Brief</h5>
                         <ul class="">
                           @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -403,7 +403,7 @@ Submitted - Brief Sheet
             </div>
 
             <!-- Brief Summary -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #01 - Brief Summary 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Enter short overview description of the requirements here."></i> 
@@ -417,7 +417,7 @@ Submitted - Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #02 - Disciplines Required 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
@@ -451,7 +451,7 @@ Submitted - Brief Sheet
             <!-- / Desciplines Required -->
 
             <!-- Objectives / Measure -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #03 - Objectives / Measure 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -467,7 +467,7 @@ Submitted - Brief Sheet
             <!-- / Objectives / Measure -->
 
             <!-- Context -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #04 - Context 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -483,7 +483,7 @@ Submitted - Brief Sheet
             <!-- / Context -->
 
             <!-- Target Audience and Insight -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #05 - Target Audience and Insight 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -499,7 +499,7 @@ Submitted - Brief Sheet
             <!-- / Target Audience and Insight -->
 
             <!-- What do want the target audience to -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 06 - What do want the target audience to ...
               </div>
@@ -523,7 +523,7 @@ Submitted - Brief Sheet
             <!-- / What do want the target audience to -->
 
             <!-- Key Messages / Propositions -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #07 - Key Messages / Propositions 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -539,7 +539,7 @@ Submitted - Brief Sheet
             <!-- / Key Messages / Propositions -->
 
             <!-- Creative -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #08 - Creative 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -555,7 +555,7 @@ Submitted - Brief Sheet
             <!-- / Creative -->
 
             <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #09 - Budget, Timings and Outputs Required 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -571,7 +571,7 @@ Submitted - Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Brief Attachments -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 #10 - Brief Sheet Attached Files 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -617,7 +617,7 @@ Submitted - Brief Sheet
             <!-- / Brief Attachments -->
 
             <!-- List of Ammendments -->
-            <div class="panel panel-brand1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 Amends
               </div>
@@ -629,7 +629,7 @@ Submitted - Brief Sheet
               <div class="panel-body">
                 <div class="line line-dashed b-b line-lg hide"></div>
                 @foreach ($brief->amendments->reverse() as $key => $amend)
-                  <div class="row hover-vltblue1">
+                  <div class="row">
                     <p>&nbsp;</p>
                     <div class="col-sm-12">
                       <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>

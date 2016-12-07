@@ -177,16 +177,7 @@ Brief Sheets - Vista
         </div>
         <footer class="panel-footer">
           <div class="row">
-            <div class="col-sm-4 hidden-xs hide">
-              <select class="input-sm form-control w-sm inline v-middle">
-                <option value="0">Bulk action</option>
-                <option value="1">Delete selected</option>
-                <option value="2">Bulk edit</option>
-                <option value="3">Export</option>
-              </select>
-              <button class="btn btn-sm btn-default">Apply</button>                  
-            </div>
-            <div class="col-sm-5 text-center">
+            <div class="col-sm-5">
               <small class="text-muted inline m-t-sm m-b-sm">
                 Showing {{ $briefs->firstItem() }}-{{ $briefs->lastItem() }} of {{ $briefs->total() }} items
               </small>

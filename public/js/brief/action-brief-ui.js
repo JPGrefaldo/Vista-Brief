@@ -1,5 +1,5 @@
 
-var panel_default = "panel-brand1"
+var panel_default = "panel-bluegreen1"
 var panel_blue = "panel-brand1"
 var panel_red = "panel-brandltblue1"
 

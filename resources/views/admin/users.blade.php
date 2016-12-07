@@ -82,7 +82,7 @@ Manage Users - Vista
                   placeholder="Quick Search" 
                   value="{{ (isset($keyword)) ? $keyword : '' }}">
                 <span class="input-group-btn">
-                  <button class="btn btn-sm btn-default" type="submit">Find!</button>
+                  <button class="btn btn-sm btn-brand1" type="submit">Find!</button>
                 </span>
               </div>
             </form>
@@ -97,11 +97,11 @@ Manage Users - Vista
                     <input type="checkbox"><i></i>
                   </label>
                 </th>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Surname</th>
-                <th>Email Address</th>
-                <th style="width:110px;"><i class="fa fa-cog"></i></th>
+                <th class="bg-bluegreen1">Username</th>
+                <th class="bg-bluegreen1">First Name</th>
+                <th class="bg-bluegreen1">Surname</th>
+                <th class="bg-bluegreen1">Email Address</th>
+                <th class="bg-bluegreen1" style="width:110px;"><i class="fa fa-cog"></i></th>
               </tr>
             </thead>
             <tbody id="usersModule">
@@ -126,7 +126,7 @@ Manage Users - Vista
                         <i></i>
                       </label>
                     </td>
-                    <td>{{ $user->username }} @if($user->type == 1)<span class="label label-brand1">admin</span>@endif
+                    <td>{{ $user->username }} @if($user->type == 1)<span class="label label-brand2">admin</span>@endif
                     </td>
                     <td><span class="text-ellipsis">{{ $user->forename }}</span></td>
                     <td><span class="text-ellipsis">{{ $user->surname }}</span></td>
@@ -150,16 +150,7 @@ Manage Users - Vista
         </div>
         <footer class="panel-footer">
           <div class="row">
-            <div class="col-sm-4 hidden-xs hide">
-              <select class="input-sm form-control w-sm inline v-middle">
-                <option value="0">Bulk action</option>
-                <option value="1">Delete selected</option>
-                <option value="2">Bulk edit</option>
-                <option value="3">Export</option>
-              </select>
-              <button class="btn btn-sm btn-default">Apply</button>                  
-            </div>
-            <div class="col-sm-5 text-center">
+            <div class="col-sm-5">
               <small class="text-muted inline m-t-sm m-b-sm">
                 Showing {{ $users->firstItem() }}-{{ $users->lastItem() }} of {{ $users->total() }} items
               </small>

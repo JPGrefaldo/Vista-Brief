@@ -2,6 +2,9 @@
 <html>
 <head>
 	<title>Brief Sheet Email - Vista Brief</title>
+	<link rel="stylesheet" href="{{ URL::asset('css/font.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ URL::asset('css/font2.css') }}" type="text/css" />
+	<link rel="stylesheet" href="{{ URL::asset('css/global.css') }}" type="text/css" />
 </head>
 <body>
 
