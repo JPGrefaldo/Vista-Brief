@@ -22,6 +22,7 @@ class SubmittedBriefMail extends Mailable
     protected $jobname;
     protected $projectmanager;
     protected $department_name;
+    protected $brief_summary;
     protected $pdf_file_name;
 
     /**
@@ -37,10 +38,13 @@ class SubmittedBriefMail extends Mailable
         $this->jobname          = $brief->jobname;
         $this->projectmanager   = $brief->projectmanager;
         $this->department_name  = $department_name;
+        $this->brief_summary    = $brief->summary;
 
-        $this->subject          = 'New Brief Sheet: '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables;
+        $clientname = (count($brief->client)) ? $brief->client->name : "";
 
-        $this->pdf_file_name    = 'New Brief Sheet: '.$brief->jobnumber.' - '.$brief->client->name.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
+        $this->subject          = 'New Brief Sheet: '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables;
+
+        $this->pdf_file_name    = 'New Brief Sheet: '.$brief->jobnumber.' - '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
     }
 
     /**
@@ -59,6 +63,7 @@ class SubmittedBriefMail extends Mailable
                         'jobname'           => $this->jobname,
                         'projectmanager'    => $this->projectmanager,
                         'department_name'   => $this->department_name,
+                        'brief_summary'     => $this->brief_summary,
                     ]);
     }
 

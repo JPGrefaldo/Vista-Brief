@@ -325,10 +325,17 @@ fieldset[disabled] .btn-brand1.active {
 .bg-brandred1 {
 	background-color: #a13535;
 }
-
 .panel-brandred1 .panel-heading {
   background-color: #a13535;
   color: #ffffff;
+}
+
+.bg-brandltblue1 {
+	background-color: #5ec8d6;
+}
+.panel-brandltblue1 .panel-heading {
+  background-color: #5ec8d6;
+  color: #164247;
 }
 
 .cpointer {
@@ -337,4 +344,56 @@ fieldset[disabled] .btn-brand1.active {
 
 .custom-text-danger-1 {
 	color: #00525a;
+}
+
+.hover-blue2:hover {
+	background-color: #3681ab;
+}
+.active-blue2 {
+	background-color: #3681ab;
+}
+
+.btn-submitting:disabled {
+	background-color: #3A627A;
+	color: #00385b;
+}
+.btn-submitting:disabled:hover {
+	background-color: #3A627A;
+	color: #00385b;
+}
+.btn-submitting .spinner1 {
+	display: inline-block;
+}
+
+.spinner1 {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+
+  margin: 1px auto;
+  -moz-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(20px) }
+  50% { -webkit-transform: perspective(20px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(10px) rotateY(180deg)  rotateX(180deg) }
+}
+@-moz-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(20px) }
+  50% { -webkit-transform: perspective(20px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(20px) rotateY(180deg)  rotateX(180deg) }
+}
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(20px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(20px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(20px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(20px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(20px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(20px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }

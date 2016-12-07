@@ -5,10 +5,11 @@ Brief Submitted File
 @endsection
 
 <?php
+// dark red #a13535
 if ($brief->projectstatus_id == 1) {
-  $ps_color = "background-color:#a13535;color:#ffffff";
+  $ps_color = "background-color:#5ec8d6;color:#ffffff"; //light blue #5ec8d6 
 } else {
-  $ps_color = "background-color:#00385b;color:#fffff";
+  $ps_color = "background-color:#00385b;color:#ffffff"; //dark blue #00385b
 }
 ?>
 

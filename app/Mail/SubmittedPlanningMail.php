@@ -29,11 +29,13 @@ class SubmittedPlanningMail extends Mailable
         $this->planning_id= $planning->id;
         $this->updated_at = $planning->updated_at->format('M d, Y h:m');
         $this->title      = $planning->title;
-        $this->client     = $planning->client->name;
 
-        $this->subject    = 'New Planning Request: '.$planning->client->name.' - '.$planning->title.' - '.$planning->formofresponse->name;
+        $this->clientname = (count($planning->client)) ? $planning->client->name : "";
+        $formofresponse = (count($planning->formofresponse)) ? $planning->formofresponse->name : "";
 
-        $this->pdf_file_name = 'New Planning Request - '.$planning->client->name.' - '.$planning->title.' - '.$planning->formofresponse->name.'.pdf';
+        $this->subject    = 'New Planning Request: '.$this->clientname.' - '.$planning->title.' - '.$formofresponse;
+
+        $this->pdf_file_name = 'New Planning Request - '.$this->clientname.' - '.$planning->title.' - '.$formofresponse.'.pdf';
     }
 
     /**

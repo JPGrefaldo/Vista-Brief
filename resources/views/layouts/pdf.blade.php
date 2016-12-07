@@ -11,27 +11,9 @@
   	<link rel="stylesheet" href="../../css/app2-for-pdf.css" type="text/css" crossorigin="anonymous">
   	<link rel="stylesheet" href="../../css/font2.css" type="text/css" crossorigin="anonymous">
   	<link rel="stylesheet" href="../../css/global.css" type="text/css" crossorigin="anonymous">-->
-
+    <link rel="stylesheet" href="/css/font2.css" type="text/css" >
 <style>
-/* font.css */
-/*@font-face {  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url('../fonts/sourcesanspro/sourcesanspro-light.woff') format('woff');
-}
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('../fonts/sourcesanspro/sourcesanspro.woff') format('woff');
-}
-@font-face {
-  font-family: 'Source Sans Pro';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url('../fonts/sourcesanspro/sourcesanspro-bold.woff') format('woff');
-}*/
-/* / font.css */
+
 </style>
 
 <style>
@@ -41,7 +23,7 @@ html {
 }
 
 body {
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: TradeGothicNextLTPro-Lt, "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   line-height: 1.42857143;
@@ -5282,7 +5264,7 @@ a.text-#000000:hover {
 body {
 	margin: 0px;
 	padding: 0px;
-	font-family: Trade Gothic;
+	font-family: TradeGothicNextLTPro-Lt;
 }
 
 .header-box {

@@ -448,6 +448,9 @@ Create New Planning Request
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <input id="btn-submit" type="submit" class="btn btn-lg btn-brand1 btn-block" value="Submit">
+                <button id="btn-submitting" class="btn btn-lg btn-block btn-brand1 btn-submitting hide" disabled>
+                  <div class="spinner1"></div> Submitting..
+                </button>
                 <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1 hide">Submit</button>
               </div>
             </div>
@@ -532,6 +535,7 @@ Create New Planning Request
   <script src="{{ URL::asset('js/planning/action-planning-ui.js') }}"></script>
   <script src="{{ URL::asset('js/planning/action-planning-form-ui.js') }}"></script>
   <script src="{{ URL::asset('js/planning/init-auto-height.js') }}"></script>
+  <script src="{{ URL::asset('js/planning/module-btnsubmit-loading.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

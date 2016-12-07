@@ -617,11 +617,16 @@ Create New Brief Sheet
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <div class="row">
                   <div class="col-lg-6">
-                    <input type="submit" name="action" class="btn btn-lg btn-block btn-brand1" value="Save as Draft">
+                    <input id="btn-draft" type="submit" name="action" class="btn btn-lg btn-block btn-brand1" value="Save as Draft">
                     <input id="btn-submit" type="submit" name="action" class="btn btn-lg btn-block btn-brand1 hide" value="Submit">
                   </div>
                   <div class="col-lg-6">
                     <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1">Submit</button>
+                  </div>                  
+                  <div class="col-lg-12">
+                    <button id="btn-submitting" class="btn btn-lg btn-block btn-brand1 btn-submitting hide" disabled>
+                      <div class="spinner1"></div> <span>Submitting..</span>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -707,7 +712,8 @@ Create New Brief Sheet
   <script src="{{ URL::asset('js/brief/action-brief-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-form-ui.js') }}"></script>
   <script src="{{ URL::asset('js/brief/action-brief-new-department-checkbox-module.js') }}"></script>
-  <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>
+  <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>  
+  <script src="{{ URL::asset('js/brief/module-btnsubmit-loading.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
 </div>

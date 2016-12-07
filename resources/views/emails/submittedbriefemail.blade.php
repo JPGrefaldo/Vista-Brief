@@ -12,6 +12,11 @@
 
 <p>To <span class="text-muted">{{ $projectmanager }}, {{ $department_name }}</span></p>
 
+<p>&nbsp;</p>
+<p>Brief Summary:</p>
+<p>{{ $brief_summary }}</p>
+
+<p>&nbsp;</p>
 <p>Brief sheet attached</p>
 
 </body>

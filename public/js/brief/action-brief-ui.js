@@ -1,7 +1,7 @@
 
 var panel_default = "panel-brand1"
 var panel_blue = "panel-brand1"
-var panel_red = "panel-brandred1"
+var panel_red = "panel-brandltblue1"
 
 $(document).ready(function() {
 	$('[data-toggle="tooltip"]').tooltip()
