@@ -43,11 +43,11 @@ Manage Departments - Vista
     <div class="wrapper-md">
 
       @if (session('new_department_success'))
-        <span class="alert-success p-r-sm p-l-sm">{{ session('new_department_success') }}</span>
+        <span class="alert-success2 p-r-sm p-l-sm">{{ session('new_department_success') }}</span>
       @endif
 
       @if (session('edit_department_success'))
-        <span class="alert-success p-r-sm p-l-sm">{{ session('edit_department_success') }}</span>
+        <span class="alert-success2 p-r-sm p-l-sm">{{ session('edit_department_success') }}</span>
       @endif
 
       <div class="panel panel-default">
@@ -73,12 +73,12 @@ Manage Departments - Vista
                           <a href="{{ route('formeditdepartment', $department->id) }}" class="btn btn-brand1 btn-sm">
                             <i class="fa fa-edit"></i> Edit</a>
                           <button 
-                            class="btn btn-danger btn-sm btnsDelete" 
+                            class="btn btn-danger btn-danger2 btn-sm btnsDelete" 
                             data-did="{{$department->id}}" 
                             data-dname="{{$department->name}}">
                             <i class="fa fa-trash-o"></i> Delete</button>
                         </div>
-                        <h4 class="text-brand-1">{{$department->name}}</h4> 
+                        <h4 class="text-brand-1 m-t-xxs">{{$department->name}}</h4> 
                       </div>
                       <div class="row-fluid">
                         @if (count($department->attachment))

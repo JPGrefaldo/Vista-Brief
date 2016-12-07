@@ -31,7 +31,7 @@ Signin - Vista
         @endif
 
         @if (session('change_pass_success'))
-          <div class="alert alert-success text-center">
+          <div class="alert alert-success2 text-center">
             {{ session('change_pass_success') }}
           </div>
         @endif

@@ -34,14 +34,14 @@ Edit User
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <small class="text-muted">Editing User:</small>
-          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$user->username}}</h1>
+          <h1 class="m-n font-thin h3 text-black">{{$user->username}}</h1>
         </div>
       </div>
     </div>
     <!-- / main header -->
     <div class="wrapper-md">
       <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-12">
 
           @if (count($errors) > 0)
             <div class="alert alert-danger custom-text-danger-1">
@@ -61,8 +61,8 @@ Edit User
               method="post">
               <div class="panel-body">
                 <div class="form-group" id="userTypeModule">
-                  <label class="col-lg-3 control-label">User Type</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">User Type</label>
+                  <div class="col-lg-10">
                     <button class="btn btn-brand1 col-lg-6" id="btn_standard">
                       <span class="">Standard</span>
                     </button>
@@ -76,8 +76,8 @@ Edit User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Username</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Username</label>
+                  <div class="col-lg-10">
                     <div class="input-group">
                       <input 
                         type="text" 
@@ -95,8 +95,8 @@ Edit User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">First Name</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">First Name</label>
+                  <div class="col-lg-10">
                     <input 
                       type="text" 
                       name="forename" 
@@ -107,8 +107,8 @@ Edit User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Surname</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Surname</label>
+                  <div class="col-lg-10">
                     <input 
                       type="text" 
                       name="surname" 
@@ -119,8 +119,8 @@ Edit User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Email</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Email</label>
+                  <div class="col-lg-10">
                     <div class="row">
                       <div class="col-xs-8">
                         <div class="input-group">
@@ -146,14 +146,14 @@ Edit User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Password</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Password</label>
+                  <div class="col-lg-10">
                     <input type="password" name="password" class="form-control" placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Confirm Password</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Confirm Password</label>
+                  <div class="col-lg-10">
                     <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
                   </div>
                 </div>
@@ -161,9 +161,9 @@ Edit User
                 <div class="line line-dashed b-b line-lg pull-in"></div>
 
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Your Password</label>
-                  <div class="col-lg-9">
-                    <input type="password" name="password_admin" class="form-control" placeholder="Verify by entering you Admin password">
+                  <label class="col-lg-2 control-label">Your Password</label>
+                  <div class="col-lg-10">
+                    <input type="password" name="password_admin" class="form-control" placeholder="Verify by entering your Admin password">
                   </div>
                 </div>              
               </div>
@@ -171,11 +171,11 @@ Edit User
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <div class="row">
                     <div class="col-lg-6 m-b-sm">
-                      <a href="{{ route('users') }}" class="btn btn-sm btn-default btn-block">Cancel</a>
+                      <a href="{{ route('users') }}" class="btn btn-lg btn-block btn-default">Cancel</a>
                     </div>
                     <div class="col-lg-6 m-b-sm">
                       <input type="hidden" name="user_id" value="{{ $user->id }}">
-                      <button type="submit" class="btn btn-sm btn-brand1 btn-block">Save</button>
+                      <button type="submit" class="btn btn-lg btn-block btn-brand1">Save</button>
                     </div>
                   </div>
               </div>

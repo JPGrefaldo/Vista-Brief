@@ -34,7 +34,7 @@ Manage Departments - Vista
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <small class="text-muted">Editing Department:</small>
-          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$department->name}}</h1>
+          <h1 class="m-n font-thin h3 text-black">{{$department->name}}</h1>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@ Manage Departments - Vista
           <div class="template-department-edit">
             <form method="post" action="{{route('posteditdepartment')}}" enctype="multipart/form-data">
             <div class="row m-b-lg">
-              <div class="col-sm-6">
+              <div class="col-sm-6 p-l-lg">
                 <div class="form-group">
                   <label>Name</label>
                   <input 
@@ -116,7 +116,7 @@ Manage Departments - Vista
                   @if ($department->emails)
                     @foreach($department->emails as $email)
                       <div class="form-group emailBlocks">
-                        <div class="col-sm-8 m-b-sm">
+                        <div class="col-sm-10 m-b-sm">
                           <input 
                             class="form-control" 
                             type="text" 
@@ -124,15 +124,15 @@ Manage Departments - Vista
                             placeholder="email" 
                             value="{{$email}}">
                         </div>
-                        <div class="col-sm-4 text-left">
-                          <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
+                        <div class="col-sm-2 text-left">
+                          <button class="btn btn-danger btn-danger2 btn-sm btnRemoveEmail" title="remove email">
                           <i class="glyphicon glyphicon-remove"></i></button>
                         </div>
                       </div>
                     @endforeach
                   @else
                     <div class="form-group emailBlocks">
-                      <div class="col-sm-8 m-b-sm">
+                      <div class="col-sm-10 m-b-sm">
                         <input 
                           class="form-control" 
                           type="text" 
@@ -140,8 +140,8 @@ Manage Departments - Vista
                           placeholder="email" 
                           value="">
                       </div>
-                      <div class="col-sm-4 text-left">
-                        <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
+                      <div class="col-sm-2 text-left">
+                        <button class="btn btn-danger btn-danger2 btn-sm btnRemoveEmail" title="remove email">
                         <i class="glyphicon glyphicon-remove"></i></button>
                       </div>
                     </div>
@@ -149,7 +149,7 @@ Manage Departments - Vista
                 @else
                   @foreach(old('email') as $e)
                     <div class="form-group emailBlocks">
-                      <div class="col-sm-8 m-b-sm">
+                      <div class="col-sm-10 m-b-sm">
                         <input 
                           class="form-control" 
                           type="text" 
@@ -157,8 +157,8 @@ Manage Departments - Vista
                           placeholder="email" 
                           value="{{$e}}">
                       </div>
-                      <div class="col-sm-4 text-left">
-                        <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
+                      <div class="col-sm-2 text-left">
+                        <button class="btn btn-danger btn-danger2 btn-sm btnRemoveEmail" title="remove email">
                         <i class="glyphicon glyphicon-remove"></i></button>
                       </div>
                     </div>
@@ -166,11 +166,11 @@ Manage Departments - Vista
                 @endif
 
                 <div class="form-group" id="AddEmailBox">
-                  <div class="col-sm-8">                                  
+                  <div class="col-sm-10">                                  
                     <button class="btn btn-brand1 btn-sm btn-block" id="btnAddEmail">
                       <i class="glyphicon glyphicon-plus"></i> Add Email</button>
                   </div>
-                  <div class="col-sm-4">
+                  <div class="col-sm-2">
                   </div>
                 </div>
               </div>
@@ -180,11 +180,11 @@ Manage Departments - Vista
 
             <div id="emailBlockTemplate" class="hide">
               <div class="form-group emailBlocks">
-                <div class="col-sm-8 m-b-sm">
+                <div class="col-sm-10 m-b-sm">
                   <input class="form-control" type="text" name="temp_email[]" placeholder="email">
                 </div>
-                <div class="col-sm-4 text-left">
-                  <button class="btn btn-danger btn-sm btnRemoveEmail" title="remove email">
+                <div class="col-sm-2 text-left">
+                  <button class="btn btn-danger btn-danger2 btn-sm btnRemoveEmail" title="remove email">
                   <i class="glyphicon glyphicon-remove"></i></button>
                 </div>
               </div>

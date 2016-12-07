@@ -36,7 +36,7 @@ Clients - Vista
           <h1 class="m-n font-thin h3 text-black">Manage Clients</h1>
           <small class="text-muted">Welcome</small>
           @if (session('client_delete_success'))
-            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('client_delete_success') }}</span>
+            <span class="pull-right alert-success2 p-r-sm p-l-sm">{{ session('client_delete_success') }}</span>
           @endif
         </div>
       </div>
@@ -59,7 +59,7 @@ Clients - Vista
 
     @if (session('edit_client_success'))
       <div class="wrapper-md">
-        <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('edit_client_success') }}</span>
+        <span class="pull-right alert-success2 p-r-sm p-l-sm">{{ session('edit_client_success') }}</span>
       </div>
     @endif    
 

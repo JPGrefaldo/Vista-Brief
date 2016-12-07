@@ -34,7 +34,7 @@ Submitted - Brief Sheet
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <small class="text-muted">Brief Sheet:</small>
-          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$brief->jobname}}</h1>
+          <h1 class="m-n font-thin h3 text-black">{{$brief->jobname}}</h1>
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ Submitted - Brief Sheet
 
             @if (session('new_amend_success'))            
             <div class="panel panel-default">
-              <div class="alert alert-success text-success m-b-n">
+              <div class="alert alert-success2 text-success2 m-b-n">
                 <p>{{ session('new_amend_success') }}</p>
               </div>
             </div>

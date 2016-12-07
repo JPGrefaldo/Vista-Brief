@@ -36,7 +36,7 @@ Planning Requests - Vista
           <h1 class="m-n font-thin h3 text-black">Planning Requests</h1>
           <small class="text-muted">Welcome</small>
           @if (session('new_planning_success'))
-            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('new_planning_success') }}</span>
+            <span class="pull-right alert-success2 p-r-sm p-l-sm">{{ session('new_planning_success') }}</span>
           @endif
         </div>
       </div>

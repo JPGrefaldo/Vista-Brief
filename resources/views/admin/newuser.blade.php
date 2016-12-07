@@ -41,7 +41,7 @@ Add New User
     <!-- / main header -->
     <div class="wrapper-md">
       <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-12">
 
           @if (count($errors) > 0)
             <div class="alert alert-danger custom-text-danger-1">
@@ -57,8 +57,8 @@ Add New User
             <form id="form-newuser" class="bs-example form-horizontal" action="{{ route('createnewuser') }}" method="post">
               <div class="panel-body">
                 <div class="form-group" id="userTypeModule">
-                  <label class="col-lg-3 control-label">User Type</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">User Type</label>
+                  <div class="col-lg-10">
                     <button class="btn btn-brand1 col-lg-6" id="btn_standard">
                       <span class="">Standard</span>
                     </button>
@@ -72,8 +72,8 @@ Add New User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Username</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Username</label>
+                  <div class="col-lg-10">
                     <div class="input-group">
                       <input 
                         type="text" 
@@ -91,8 +91,8 @@ Add New User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">First Name</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">First Name</label>
+                  <div class="col-lg-10">
                     <input 
                       type="text" 
                       name="forename" 
@@ -103,8 +103,8 @@ Add New User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Surname</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Surname</label>
+                  <div class="col-lg-10">
                     <input 
                       type="text" 
                       name="surname" 
@@ -115,8 +115,8 @@ Add New User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Email</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Email</label>
+                  <div class="col-lg-10">
                     <div class="row">
                       <div class="col-xs-8">
                         <div class="input-group">
@@ -142,14 +142,14 @@ Add New User
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Password</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Password</label>
+                  <div class="col-lg-10">
                     <input type="password" name="password" class="form-control" placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Confirm Password</label>
-                  <div class="col-lg-9">
+                  <label class="col-lg-2 control-label">Confirm Password</label>
+                  <div class="col-lg-10">
                     <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password">
                   </div>
                 </div>
@@ -157,9 +157,9 @@ Add New User
                 <div class="line line-dashed b-b line-lg pull-in"></div>
 
                 <div class="form-group">
-                  <label class="col-lg-3 control-label">Your Password</label>
-                  <div class="col-lg-9">
-                    <input type="password" name="password_admin" class="form-control" placeholder="Verify by entering you Admin password">
+                  <label class="col-lg-2 control-label">Your Password</label>
+                  <div class="col-lg-10">
+                    <input type="password" name="password_admin" class="form-control" placeholder="Verify by entering your Admin password">
                   </div>
                 </div>              
               </div>
@@ -167,10 +167,10 @@ Add New User
                   <input type="hidden" name="_token" value="{{ Session::token() }}">
                   <div class="row">
                     <div class="col-lg-6 m-b-sm">
-                      <a href="{{ route('users') }}" class="btn btn-sm btn-default btn-block">Cancel</a>
+                      <a href="{{ route('users') }}" class="btn btn-lg btn-block btn-default">Cancel</a>
                     </div>
                     <div class="col-lg-6 m-b-sm">
-                      <button type="submit" class="btn btn-sm btn-brand1 btn-block">Save</button>
+                      <button type="submit" class="btn btn-lg btn-block btn-brand1">Save</button>
                     </div>
                   </div>
               </div>

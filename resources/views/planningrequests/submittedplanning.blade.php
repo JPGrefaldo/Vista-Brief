@@ -34,7 +34,7 @@ Planning Request
       <div class="row">
         <div class="col-sm-6 col-xs-12">
           <small class="text-muted">Planning Request:</small>
-          <h1 class="m-n font-thin h3 text-black text-brand-1">{{$planning->title}}</h1>
+          <h1 class="m-n font-thin h3 text-black">{{$planning->title}}</h1>
         </div>
       </div>
     </div>
@@ -42,17 +42,17 @@ Planning Request
     <div class="wrapper-md" id="newplanningwrapper">
       <div class="row">
         <div class="col-sm-12">
+          <form class="bs-example form-horizontal">
 
           <!-- Information -->
           <div class="panel panel-default">
-            <div class="panel-heading hide">
-              Information
-            </div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Client</label>
+                    <label class="col-lg-3 control-label text-left">
+                      Client
+                    </label>
                     <div class="col-lg-9">
                       <select name="client" class="form-control" id="select-client" disabled>
                         @if (count($planning->client))
@@ -69,7 +69,9 @@ Planning Request
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Taken By</label>
+                    <label class="col-lg-3 control-label text-left">
+                      Taken By
+                    </label>
                     <div class="col-lg-9">
                       <input 
                         type="text" 
@@ -85,7 +87,9 @@ Planning Request
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Contact Name/Title</label>
+                    <label class="col-lg-3 control-label text-left">
+                      Contact Name/Title
+                    </label>
                     <div class="col-lg-9">
                       <input 
                         type="text" 
@@ -99,7 +103,9 @@ Planning Request
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Contact Email</label>
+                    <label class="col-lg-3 control-label text-left">
+                      Contact Email
+                    </label>
                     <div class="col-lg-9">
                       <input 
                         type="text" 
@@ -347,10 +353,10 @@ Planning Request
             <div class="panel-body bg-light lter">
               <div class="row">
                 <div class="col-sm-12">
-                  <ul>
-                    @if (count($planning->attachments) < 1)
-                      <li class="text-muted">no attachments</li>
-                    @else
+                  @if (count($planning->attachments) < 1)
+                    <p class="text-muted">No attachment.</p>
+                  @else
+                    <ul class="p-l-sm">                    
                       @foreach ($planning->attachments as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">
@@ -381,6 +387,7 @@ Planning Request
           </div>
           <!-- / Attachments -->
 
+          </form>
         </div>
       </div>
     </div>

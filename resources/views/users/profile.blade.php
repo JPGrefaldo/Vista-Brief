@@ -127,7 +127,7 @@ Profile - Vista
               <div class="panel-heading font-bold">
                 Edit Profile
                 @if (session('success_profile_changed'))
-                  <span class="text-success font-normal pull-right">
+                  <span class="text-success2 font-normal pull-right">
                     {{ session('success_profile_changed') }}
                   </span>
                 @endif
@@ -197,7 +197,7 @@ Profile - Vista
               <div class="panel-heading font-bold">
                 Change Password
                 @if (session('success_password_changed'))
-                  <span class="text-success font-normal pull-right">
+                  <span class="text-success2 font-normal pull-right">
                     {{ session('success_password_changed') }}
                   </span>
                 @endif

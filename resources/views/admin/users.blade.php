@@ -36,10 +36,10 @@ Manage Users - Vista
           <h1 class="m-n font-thin h3 text-black">Manage Users</h1>
           <small class="text-muted">Welcome</small>
           @if (session('user_edit_success'))
-            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('user_edit_success') }}</span>
+            <span class="pull-right alert-success2 p-r-sm p-l-sm">{{ session('user_edit_success') }}</span>
           @endif
           @if (session('user_delete_success'))
-            <span class="pull-right alert-success p-r-sm p-l-sm">{{ session('user_delete_success') }}</span>
+            <span class="pull-right alert-success2 p-r-sm p-l-sm">{{ session('user_delete_success') }}</span>
           @endif
         </div>
       </div>

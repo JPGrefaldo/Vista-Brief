@@ -31,7 +31,7 @@ Reset Password - Vista
         @endif
 
         @if (session('status'))
-          <div class="alert-success text-success wrapper text-center"> 
+          <div class="alert-success2 text-success2 wrapper text-center"> 
             {{ session('status') }}
           </div>
         @endif
