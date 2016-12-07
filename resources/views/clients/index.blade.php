@@ -79,15 +79,15 @@ Clients - Vista
           </div>
         </div>
         <div class="row wrapper">
-          <div class="col-sm-5 m-b-xs hide">
-            <select class="input-sm form-control w-sm inline v-middle">
+          <div class="col-sm-5 m-b-xs">
+            <!--<select class="input-sm form-control w-sm inline v-middle">
               <option value="0">Bulk action</option>
               <option value="1">Delete selected</option>
             </select>
-            <button class="btn btn-sm btn-default">Apply</button>                
+            <button class="btn btn-sm btn-default">Apply</button> -->               
           </div>
-          <div class="col-sm-7"></div>
-          <div class="col-sm-5">
+          <div class="col-sm-1 col-md-4"></div>
+          <div class="col-sm-6 col-md-3">
             <form method="GET" action="{{ route('quicksearchclient') }}">
               <div class="input-group">
                 <input 
@@ -97,7 +97,7 @@ Clients - Vista
                   placeholder="Quick Search"
                   value="{{ (isset($keyword)) ? $keyword : '' }}">
                 <span class="input-group-btn">
-                  <button class="btn btn-sm btn-default" type="submit">Find!</button>
+                  <button class="btn btn-sm btn-brand1" type="submit">Find!</button>
                 </span>
               </div>
             </form>
@@ -112,8 +112,8 @@ Clients - Vista
                     <input type="checkbox"><i></i>
                   </label>
                 </th>
-                <th>Name</th>
-                <th style="width:110px;"><i class="fa fa-cog"></i></th>
+                <th class="bg-bluegreen1">Name</th>
+                <th class="bg-bluegreen1" style="width:110px;"><i class="fa fa-cog"></i></th>
               </tr>
             </thead>
             <tbody id="client-list-module">

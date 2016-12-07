@@ -45,7 +45,7 @@ Dashboard - Vista
       <div class="row">
   	    <div class="col-lg-6 col-md-6 col-sm-6">
   	      <div class="panel b-a">
-  	        <div class="panel-heading text-center bg-brand-1 no-border">
+  	        <div class="panel-heading text-center bg-bluegreen1 no-border">
   	          <h4 class="text-u-c m-b-none hide">Planning Requests</h4>
   	          <h2 class="m-t-none">
   	            <sup class="pos-rlt hide" style="top:-22px">$</sup>
@@ -65,7 +65,7 @@ Dashboard - Vista
   	    </div>
   	    <div class="col-lg-6 col-md-6 col-sm-6">
   	      <div class="panel b-a">
-  	        <div class="panel-heading text-center bg-brand-1 no-border">
+  	        <div class="panel-heading text-center bg-bluegreen1 no-border">
   	          <h4 class="text-u-c m-b-none hide">Brief Sheets</h4>
   	          <h2 class="m-t-none">
   	            <sup class="pos-rlt hide" style="top:-22px">$</sup>

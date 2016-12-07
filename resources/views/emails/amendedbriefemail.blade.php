@@ -2,6 +2,8 @@
 <html>
 <head>
 	<title>Brief Sheet Email - Vista Brief</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{ URL::asset('css/app2.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ URL::asset('css/font.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ URL::asset('css/font2.css') }}" type="text/css" />
 	<link rel="stylesheet" href="{{ URL::asset('css/global.css') }}" type="text/css" />

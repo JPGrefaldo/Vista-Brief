@@ -67,8 +67,7 @@ Planning Requests - Vista
             </select>-->
             <button class="btn btn-sm btn-default hide">Apply</button>                
           </div>
-          <div class="col-sm-1 col-md-4">
-          </div>
+          <div class="col-sm-1 col-md-4"></div>
           <div class="col-sm-6 col-md-3">
             <form method="GET" action="{{ route('quicksearchplanning') }}">
               <div class="input-group">
@@ -79,7 +78,7 @@ Planning Requests - Vista
                   placeholder="Quick Search" 
                   value="{{ (isset($keyword)) ? $keyword : '' }}">
                 <span class="input-group-btn">
-                  <button class="btn btn-sm btn-default" type="submit">Find!</button>
+                  <button class="btn btn-sm btn-brand1" type="submit">Find!</button>
                 </span>
               </div>
             </form>
@@ -94,13 +93,13 @@ Planning Requests - Vista
                     <input type="checkbox"><i></i>
                   </label>
                 </th>
-                <th>Client</th>
-                <th>Job Title</th>
-                <th>Taken By</th>
-                <th>Format of Response</th>
-                <th>Date Request Made</th>
-                <th>Status</th>
-                <th style="width:30px;">
+                <th class="bg-bluegreen1">Client</th>
+                <th class="bg-bluegreen1">Job Title</th>
+                <th class="bg-bluegreen1">Taken By</th>
+                <th class="bg-bluegreen1">Format of Response</th>
+                <th class="bg-bluegreen1">Date Request Made</th>
+                <th class="bg-bluegreen1">Status</th>
+                <th class="bg-bluegreen1" style="width:30px;">
                   <i class="fa fa-cog"></i>
                 </th>
               </tr>

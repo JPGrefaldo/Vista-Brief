@@ -70,8 +70,7 @@ Brief Sheets - Vista
             </select>-->
             <button class="btn btn-sm btn-default hide">Apply</button>                
           </div>
-          <div class="col-sm-1 col-md-4">
-          </div>
+          <div class="col-sm-1 col-md-4"></div>
           <div class="col-sm-6 col-md-3">
             <form method="GET" action="{{ route('quicksearchbrief') }}">
               <div class="input-group">
@@ -82,7 +81,7 @@ Brief Sheets - Vista
                   placeholder="Quick Search" 
                   value="{{ (isset($keyword)) ? $keyword : '' }}">
                 <span class="input-group-btn">
-                  <button class="btn btn-sm btn-default" type="submit">Find!</button>
+                  <button class="btn btn-sm btn-brand1" type="submit">Find!</button>
                 </span>
               </div>
             </form>
@@ -97,14 +96,14 @@ Brief Sheets - Vista
                     <input type="checkbox"><i></i>
                   </label>
                 </th>
-                <th>Job Number</th>
-                <th>Client</th>
-                <th>Job Name</th>
-                <th>Key Deliverables</th>
-                <th>Last Update by</th>
-                <th>Last Updated</th>
-                <th>Status</th>
-                <th style="width:30px;">
+                <th class="bg-bluegreen1">Job Number</th>
+                <th class="bg-bluegreen1">Client</th>
+                <th class="bg-bluegreen1">Job Name</th>
+                <th class="bg-bluegreen1">Key Deliverables</th>
+                <th class="bg-bluegreen1">Last Update by</th>
+                <th class="bg-bluegreen1">Last Updated</th>
+                <th class="bg-bluegreen1">Status</th>
+                <th class="bg-bluegreen1" style="width:30px;">
                   <i class="fa fa-cog"></i>
                 </th>
               </tr>
