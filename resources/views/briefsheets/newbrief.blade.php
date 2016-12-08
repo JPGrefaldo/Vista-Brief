@@ -348,7 +348,7 @@ Create New Brief Sheet
                   <div class="row-fluid" id="departmentCBModule">
                     @foreach ($departments as $department)
                       <div class="col-lg-3">
-                        <div class="checkbox">
+                        <div class="checkbox1">
                           <label class="i-checks">
                             <input 
                               type="checkbox" 
