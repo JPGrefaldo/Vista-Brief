@@ -324,13 +324,13 @@ Submitted - Brief Sheet
                 <form class="bs-example form-horizontal" action="{{ route('postnewamend') }}" method="post" enctype="multipart/form-data">
                 <div class="row" style="padding-left:30px;padding-right:30px">
                   <div class="form-group">
-                    <div class="checkbox">
-                      <label class="i-checks">
-                        <input type="checkbox" name="internal">
+                    <!--<div class="checkbox">
+                      <label class="i-checks">-->
+                        <input class="i-check1" type="checkbox" name="internal">
                         <i></i>
                         Internal Amend 
-                      </label>
-                    </div>
+                      <!--</label>
+                    </div>-->
                   </div>
                   <div class="form-group">
                     <textarea 
@@ -359,17 +359,18 @@ Submitted - Brief Sheet
                       <label class="col-lg-12 text-brand-1">Who to notify?</label>
                       @foreach ($departments as $department)
                       <div class="col-lg-3">
-                        <div class="checkbox">
-                          <label class="i-checks">
+                        <!--<div class="checkbox">
+                          <label class="i-checks">-->
                             <input 
+                              class="i-check1"
                               type="checkbox" 
                               name="department[{{ $department->id }}]" 
                               value="{{ $department->id }}" 
                               @if(array_key_exists($department->id, old('department',[]))) checked @endif>
                             <i></i>
                             {{ $department->name }} 
-                          </label>
-                        </div>           
+                          <!--</label>
+                        </div>-->        
                       </div>
                       @endforeach
                     </div>
@@ -442,9 +443,10 @@ Submitted - Brief Sheet
                   <div class="row-fluid">
                     @foreach ($departments as $department)
                       <div class="col-lg-3">
-                        <div class="checkbox">
-                          <label class="i-checks">
+                        <!--<div class="checkbox">
+                          <label class="i-checks">-->
                             <input 
+                              class="i-check1"
                               disabled
                               type="checkbox" 
                               name="department[{{ $department->id }}]" 
@@ -455,8 +457,8 @@ Submitted - Brief Sheet
                               >
                             <i></i>
                             {{ $department->name }}
-                          </label>
-                        </div>           
+                          <!--</label>
+                        </div>-->         
                       </div>
                     @endforeach
                   </div>

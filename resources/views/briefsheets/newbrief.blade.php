@@ -348,9 +348,10 @@ Create New Brief Sheet
                   <div class="row-fluid" id="departmentCBModule">
                     @foreach ($departments as $department)
                       <div class="col-lg-3">
-                        <div class="checkbox1">
-                          <label class="i-checks">
+                        <!--<div class="checkbox1">
+                          <label class="i-checks">-->
                             <input 
+                              class="i-check1"
                               type="checkbox" 
                               name="department[{{ $department->id }}]" 
                               value="{{ $department->id }}"
@@ -358,8 +359,8 @@ Create New Brief Sheet
                               >
                             <i></i>                            
                             {{ $department->name }} 
-                          </label>
-                        </div>           
+                          <!--</label>
+                        </div>-->        
                       </div>
                     @endforeach
                   </div>
