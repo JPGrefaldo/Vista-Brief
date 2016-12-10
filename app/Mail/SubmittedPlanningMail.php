@@ -51,7 +51,7 @@ class SubmittedPlanningMail extends Mailable
                     ->with([
                         'updated_at' => $this->updated_at,
                         'title'      => $this->title,
-                        'client'     => $this->client,
+                        'client'     => $this->clientname,
                     ]);
     }
 

@@ -67,11 +67,11 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Client 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <select name="client" class="form-control" id="select-client">
                           <option value="">Select</option>
                           @foreach ($clients as $client)
@@ -85,11 +85,11 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Taken By 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <input 
                           type="hidden" 
                           name="user_id" 
@@ -110,11 +110,11 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Contact Name/Title 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="contact_name" 
@@ -127,11 +127,11 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Contact Email
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="contact_email" 
@@ -147,11 +147,11 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Contact Landline 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="contact_landline" 
@@ -165,11 +165,11 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Contact Mobile 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="contact_mobile" 
@@ -195,11 +195,11 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Title 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="title" 
@@ -213,11 +213,11 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Status 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <select name="jobstatus" class="form-control">
                           <option value="">Select</option>
                           @foreach ($jobstatus as $jstatus)
@@ -233,11 +233,11 @@ Create New Planning Request
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Budget 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <input 
                           type="text" 
                           name="budget" 
@@ -251,11 +251,11 @@ Create New Planning Request
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">
+                      <label class="col-lg-4 control-label text-left">
                         Format of Response 
                         <span class="custom-text-danger-1">*</span>
                       </label>
-                      <div class="col-lg-9">
+                      <div class="col-lg-8">
                         <select name="formatofresponse" class="form-control">
                           <option value="">Select</option>
                           @foreach ($formatofresponses as $for)
@@ -281,10 +281,10 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">
+                        <label class="col-lg-4 control-label text-left">
                           Pitch/Quote
                         </label>
-                        <div class="col-lg-9">
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
@@ -306,11 +306,11 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">
+                        <label class="col-lg-4 control-label text-left">
                           Ideal Q&amp;A 
                           <span class="custom-text-danger-1">*</span>
                         </label>
-                        <div class="col-lg-9">
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
@@ -332,10 +332,10 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">
+                        <label class="col-lg-4 control-label text-left">
                           Ideal Review
                         </label>
-                        <div class="col-lg-9">
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 
@@ -357,10 +357,10 @@ Create New Planning Request
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
                       <div class="form-group">
-                        <label class="col-lg-3 control-label text-left">
+                        <label class="col-lg-4 control-label text-left">
                           Project Deadline
                         </label>
-                        <div class="col-lg-9">
+                        <div class="col-lg-8">
                           <div class="input-group w-md1">
                             <input 
                               type="text" 

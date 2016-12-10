@@ -50,10 +50,10 @@ Planning Request
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">
+                    <label class="col-lg-4 control-label text-left">
                       Client
                     </label>
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
                       <select name="client" class="form-control" id="select-client" disabled>
                         @if (count($planning->client))
                           <option value="{{ $planning->client->id }}" selected>
@@ -69,10 +69,10 @@ Planning Request
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">
+                    <label class="col-lg-4 control-label text-left">
                       Taken By
                     </label>
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
                       <input 
                         type="text" 
                         name="user_name" 
@@ -87,10 +87,10 @@ Planning Request
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">
+                    <label class="col-lg-4 control-label text-left">
                       Contact Name/Title
                     </label>
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
                       <input 
                         type="text" 
                         name="contact_name" 
@@ -103,10 +103,10 @@ Planning Request
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">
+                    <label class="col-lg-4 control-label text-left">
                       Contact Email
                     </label>
-                    <div class="col-lg-9">
+                    <div class="col-lg-8">
                       <input 
                         type="text" 
                         name="contact_email" 
@@ -121,8 +121,8 @@ Planning Request
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Contact Landline</label>
-                    <div class="col-lg-9">
+                    <label class="col-lg-4 control-label text-left">Contact Landline</label>
+                    <div class="col-lg-8">
                       <input 
                         type="text" 
                         name="contact_landline" 
@@ -135,8 +135,8 @@ Planning Request
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Contact Mobile</label>
-                    <div class="col-lg-9">
+                    <label class="col-lg-4 control-label text-left">Contact Mobile</label>
+                    <div class="col-lg-8">
                       <input 
                         type="text" 
                         name="contact_mobile" 
@@ -161,8 +161,8 @@ Planning Request
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Title</label>
-                    <div class="col-lg-9">
+                    <label class="col-lg-4 control-label text-left">Title</label>
+                    <div class="col-lg-8">
                       <input 
                         type="text" 
                         name="title" 
@@ -175,8 +175,8 @@ Planning Request
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Status</label>
-                    <div class="col-lg-9">
+                    <label class="col-lg-4 control-label text-left">Status</label>
+                    <div class="col-lg-8">
                       <select name="jobstatus" class="form-control" disabled>
                         <option value="{{ $planning->jobstatus_id }}">{{ $planning->jobstatus->name }}</option>
                       </select>
@@ -188,8 +188,8 @@ Planning Request
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Budget</label>
-                    <div class="col-lg-9">
+                    <label class="col-lg-4 control-label text-left">Budget</label>
+                    <div class="col-lg-8">
                       <input 
                         type="text" 
                         name="budget" 
@@ -202,10 +202,10 @@ Planning Request
                 </div>
                 <div class="col-lg-6">
                   <div class="form-group">
-                    <label class="col-lg-3 control-label text-left">Format of Response</label>
-                    <div class="col-lg-9">
+                    <label class="col-lg-4 control-label text-left">Format of Response</label>
+                    <div class="col-lg-8">
                       <select name="formatofresponse" class="form-control" disabled>
-                        @if ($planning->formofresponse_id != 0)
+                        @if ($planning->formatofresponse_id != 0)
                           @if (count($planning->formofresponse))
                             <option value="{{ $planning->formatofresponse_id }}" selected>
                               {{ $planning->formofresponse->name }}
@@ -232,8 +232,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Pitch/Quote</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Pitch/Quote</label>
+                      <div class="col-lg-8">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -255,8 +255,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Ideal Q&amp;A</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Ideal Q&amp;A</label>
+                      <div class="col-lg-8">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -278,8 +278,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Ideal Review</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Ideal Review</label>
+                      <div class="col-lg-8">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
@@ -301,8 +301,8 @@ Planning Request
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">
                     <div class="form-group">
-                      <label class="col-lg-3 control-label text-left">Project Deadline</label>
-                      <div class="col-lg-9">
+                      <label class="col-lg-4 control-label text-left">Project Deadline</label>
+                      <div class="col-lg-8">
                         <div class="input-group w-md1">
                           <input 
                             type="text" 
