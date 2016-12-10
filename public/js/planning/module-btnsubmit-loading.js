@@ -8,13 +8,15 @@
 var btnLoadingModule = (function(){
 	//cache DOM
 	var $btn_submit = $('#btn-submit')
+	var $btn_fakesubmit = $('#btn-fakesubmit')
 	var $btn_submitting = $('#btn-submitting')
 
 	//bind events
 	$btn_submit.on('click', onSubmit)
 
 	function onSubmit(e) {
-		$btn_submit.hide()
+		$btn_submit.addClass('hide')
+		$btn_fakesubmit.addClass('hide')
 		$btn_submitting.removeClass('hide')
 	}
 })()

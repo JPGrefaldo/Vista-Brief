@@ -149,7 +149,7 @@ Create New Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
                         Your Budget 
-                        <i class="icon icon-question ctooltip tooltip-budget" data-toggle="tooltip" data-placement="right" title="What budget allocation has the client or have you set to complete this work."></i>
+                        <i class="icon icon-question ctooltip tooltip-budget" data-toggle="tooltip" data-placement="right" title="The budget allocation the client has given or you have set to complete this work."></i>
                         <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-8">
@@ -329,7 +329,7 @@ Create New Brief Sheet
                       class="form-control auto-height" 
                       style="min-height:50px" 
                       placeholder="Enter short overview description of the requirements here."
-                      maxlength="200">{{ old('summary') }}</textarea>
+                      maxlength="500">{{ old('summary') }}</textarea>
                   </div>            
                 </div>
               </div>

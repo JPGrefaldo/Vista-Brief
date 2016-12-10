@@ -447,11 +447,11 @@ Create New Planning Request
             <div class="panel panel-default">
               <div class="panel-footer">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
-                <input id="btn-submit" type="submit" class="btn btn-lg btn-brand1 btn-block" value="Submit">
+                <input id="btn-submit" type="submit" class="btn btn-lg btn-brand1 btn-block hide" value="Submit">
                 <button id="btn-submitting" class="btn btn-lg btn-block btn-brand1 btn-submitting hide" disabled>
                   <div class="spinner1"></div> Submitting..
                 </button>
-                <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1 hide">Submit</button>
+                <button id="btn-fakesubmit" class="btn btn-lg btn-block btn-brand1 hide1">Submit</button>
               </div>
             </div>
           </form>

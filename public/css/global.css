@@ -209,7 +209,7 @@ fieldset[disabled] .btn-brand1.active {
 .ctooltip + .tooltip.top > .tooltip-arrow {
 }
 .tooltip-budget + .tooltip > .tooltip-inner {
-	min-width: 485px;
+	min-width: 515px;
 }
 .tooltip-jobname + .tooltip > .tooltip-inner {
 	min-width: 230px;

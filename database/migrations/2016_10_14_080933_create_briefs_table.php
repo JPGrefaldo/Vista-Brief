@@ -29,7 +29,7 @@ class CreateBriefsTable extends Migration
             $table->date('proposal_required_by_at')->nullable();
             $table->date('firststage_required_by_at')->nullable();
             $table->date('project_delivered_by_at')->nullable();
-            $table->string('summary', 210)->nullable();
+            $table->string('summary', 510)->nullable();
             $table->string('disciplines_required_ids', 500)->nullable();
             $table->text('objectives_or_measures', 40000)->nullable();
             $table->text('content', 40000)->nullable(); // suppose to be context

@@ -32,13 +32,15 @@ class StoreBriefRequest extends FormRequest
             'oldjobnumber'      =>  'max:6',
             'budget'            =>  'required|max:50',
             'pmanager'          =>  'required',
-            'jobname'           =>  'required|max:75|unique:briefs,jobname',
+            'jobname'           =>  'required|max:75',
             'keydeliverables'   =>  'required|max:75',
-            // 'quotereq'          =>  'required',
-            'proposedreq'       =>  'required',
-            // 'stagereq'          =>  'required',
-            // 'projdelivered'     =>  'required',
-            'summary'           =>  'required|max:200',
+
+            'quotereq'      =>  'required_without_all:proposedreq,stagereq,projdelivered',
+            'proposedreq'   =>  'required_without_all:quotereq,stagereq,projdelivered',
+            'stagereq'      =>  'required_without_all:quotereq,proposedreq,projdelivered',
+            'projdelivered' =>  'required_without_all:quotereq,proposedreq,stagereq',
+
+            'summary'           =>  'required|max:500',
             'department'        =>  'required',
             'objmeasure'        =>  'required',
             'budget_timings_outputs_req'    =>  'required',
@@ -64,13 +66,14 @@ class StoreBriefRequest extends FormRequest
             'pmanager.required'         =>  'Project Manager is required.',
             'jobname.required'          =>  'Job Name is required.',
             'jobname.max'               =>  'Job Name may not be greater than 75 characters.',
-            'jobname.unique'            =>  'Job Name is already taken.',
             'keydeliverables.required'  =>  'Key Deliverables is required.',
             'keydeliverables.max'       =>  'Key Deliverables may not be greater than 75 characters.',
-            // 'quotereq.required'         =>  'Quote Required by is required.',
-            'proposedreq.required'      =>  'Proposal Required by is required.',
-            // 'stagereq.required'         =>  '1st Stage Required by is required.',
-            // 'projdelivered.required'    =>  'Project Delivered by is required.',
+
+            'quotereq.required_without_all'  =>  'You need to select at least one of the Required Dates.',
+            'proposedreq.required_without_all'  =>  'You need to select at least one of the Required Dates.',
+            'stagereq.required_without_all'  =>  'You need to select at least one of the Required Dates.',
+            'projdelivered.required_without_all'  =>  'You need to select at least one of the Required Dates.',
+
             'summary.required'          =>  'Summary is required.',
             'summary.max'               =>  'Summary may not be greater than 200 characters.',
             'department.required'       =>  'You need to select at least one discipline.',
@@ -88,13 +91,16 @@ class StoreBriefRequest extends FormRequest
 
 
 
+            // 'jobname'           =>  'required|max:75|unique:briefs,jobname',
 
             // 'quotereq'      =>  'required_without_all:proposedreq,stagereq,projdelivered',
             // 'proposedreq'   =>  'required_without_all:quotereq,stagereq,projdelivered',
             // 'stagereq'      =>  'required_without_all:quotereq,proposedreq,projdelivered',
             // 'projdelivered' =>  'required_without_all:quotereq,proposedreq,stagereq',
 
-            // 'quotereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
-            // 'proposedreq.required_without_all'  =>  'You need to choose at least one of the required dates.',
-            // 'stagereq.required_without_all'  =>  'You need to choose at least one of the required dates.',
-            // 'projdelivered.required_without_all'  =>  'You need to choose at least one of the required dates.',
+            // 'jobname.unique'            =>  'Job Name is already taken.',
+
+            // 'quotereq.required_without_all'  =>  'You need to select at least one of the required dates.',
+            // 'proposedreq.required_without_all'  =>  'You need to select at least one of the required dates.',
+            // 'stagereq.required_without_all'  =>  'You need to select at least one of the required dates.',
+            // 'projdelivered.required_without_all'  =>  'You need to select at least one of the required dates.',

@@ -36,7 +36,12 @@ class StorePlanningRequest extends FormRequest
             'jobstatus'         =>  'required',
             'budget'            =>  'required|max:200',
             'formatofresponse'  =>  'required',
-            'ideal_qa_date'     =>  'required',
+
+            'pitch_quote_date'  =>  'required_without_all:ideal_qa_date,ideal_review_date,project_deadline_date',
+            'ideal_qa_date'     =>  'required_without_all:pitch_quote_date,ideal_review_date,project_deadline_date',
+            'ideal_review_date' =>  'required_without_all:pitch_quote_date,ideal_qa_date,project_deadline_date',
+            'project_deadline_date'  =>  'required_without_all:pitch_quote_date,ideal_qa_date,ideal_review_date',
+
             'job_spec'          =>  'required|max:40000',
             'attachments.*'     =>  'max:5120',
         ];
@@ -49,7 +54,10 @@ class StorePlanningRequest extends FormRequest
             'title.required'        =>  'The Job Title is required.',
             'jobstatus.required'    =>  'You need to select the Job Status.',
             'formatofresponse.required'  =>  'You need to select the Format of Response.',
-            'ideal_qa_date.required'     =>  'The ideal Q&amp;A date field is required.',
+            'pitch_quote_date.required_without_all' =>  'You need to select at least one Required Dates.',
+            'ideal_qa_date.required_without_all' =>  'You need to select at least one Required Dates.',
+            'ideal_review_date.required_without_all' =>  'You need to select at least one Required Dates.',
+            'project_deadline_date.required_without_all' =>  'You need to select at least one Required Dates.',
             'attachments.*'     =>  'Each attached file must not exceed 5MB of size.',
         ];
     }
