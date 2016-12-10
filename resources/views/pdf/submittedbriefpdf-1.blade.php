@@ -55,7 +55,9 @@ if ($brief->projectstatus_id == 1) {
             &nbsp;
           </p>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Job Number</strong></label>
         	<p class="bg-light p-l-sm">{{ $brief->jobnumber }}</p>
@@ -64,7 +66,9 @@ if ($brief->projectstatus_id == 1) {
           <label class="control-label text-left"><strong>Old Job Number</strong></label>
         	<p class="bg-light p-l-sm">{{ $brief->old_jobnumber }}&nbsp;</p>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Job Name</strong></label>
         	<p class="bg-light p-l-sm">{{ $brief->jobname }}</p>
@@ -73,7 +77,9 @@ if ($brief->projectstatus_id == 1) {
           <label class="control-label text-left"><strong>Your Budget</strong></label>
         	<p class="bg-light p-l-sm">{{ $brief->budget }}&nbsp;</p>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Key Deliverables</strong></label>
         	<p class="bg-light p-l-sm">{{ $brief->keydeliverables }}&nbsp;</p>
@@ -82,8 +88,9 @@ if ($brief->projectstatus_id == 1) {
             <label class="control-label text-left"><strong>Project Manager</strong></label>
         	<p class="bg-light p-l-sm">{{ $brief->projectmanager }}&nbsp;</p>
         </div>
+      </div>
 
-
+      <div class="row">
         <div class="col-xs-3">
           <label class="control-label text-left text-xs">
             <strong>Quote Required By</strong></label>

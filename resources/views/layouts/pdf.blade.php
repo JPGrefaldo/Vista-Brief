@@ -7,11 +7,11 @@
   	<meta http-equiv="Content-Type" content="application/pdf; charset=utf-8" />
   	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
- <!-- 	<link rel="stylesheet" href="../../css/font.css" type="text/css" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="../../css/font.css" type="text/css" crossorigin="anonymous">
   	<link rel="stylesheet" href="../../css/app2-for-pdf.css" type="text/css" crossorigin="anonymous">
   	<link rel="stylesheet" href="../../css/font2.css" type="text/css" crossorigin="anonymous">
   	<link rel="stylesheet" href="../../css/global.css" type="text/css" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="/css/font2.css" type="text/css" >
+    <link rel="stylesheet" href="/css/font2-for-pdf.css" type="text/css" >
 <style>
 
 </style>
@@ -5533,6 +5533,10 @@ fieldset[disabled] .btn-brand1.active {
 
 .defaultHidden {
 	display: none;
+}
+
+body {
+  font-family: TradeGothicNextLTPro-Lt;
 }
 /* / global.css */
 </style>

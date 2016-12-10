@@ -128,7 +128,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 	/* PDF Generator: Test Controller */
 	Route::get('/pdf/file/{id}', [
-		'uses'	=> 'PdfController@get_pdfSubmittedBriefAttachment',
+		'uses'	=> 'PdfController@get_pdfSubmittedPlanningAttachment',
 		'as'	=>	'pdfbriefsubmit'
 	]);
 	/* / PDF Generator */
