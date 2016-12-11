@@ -32,7 +32,7 @@ Submitted - Brief Sheet
     <!-- main header -->
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-12 col-xs-12">
           <small class="text-muted">Brief Sheet:</small>
           <h1 class="m-n font-thin h3 text-black">{{$brief->jobname}}</h1>
         </div>

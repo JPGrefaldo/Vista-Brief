@@ -32,7 +32,7 @@ Planning Request
     <!-- main header -->
     <div class="bg-light lter b-b wrapper-md">
       <div class="row">
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-12 col-xs-12">
           <small class="text-muted">Planning Request:</small>
           <h1 class="m-n font-thin h3 text-black">{{$planning->title}}</h1>
         </div>
