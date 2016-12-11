@@ -85,7 +85,7 @@ class DepartmentController extends Controller
       //$filename = $file->getClientOriginalName();
       $filetype = $file->getClientMimeType();
       $file_ext = $file->extension();
-      $filename = "$name file.$file_ext";
+      $filename = "$name Brief Form.$file_ext";
 
       $attachments = new Attachment();
       $attachments->user_id = $request->user()->id;
