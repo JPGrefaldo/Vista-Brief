@@ -46,7 +46,7 @@ Planning Request
 
           <!-- Information -->
           <div class="panel panel-default">
-            <div class="panel-body">
+            <div class="panel-body m-b-n m-t-xs">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -157,7 +157,7 @@ Planning Request
             <div class="panel-heading">
               #01 - Job Details
             </div>
-            <div class="panel-body">
+            <div class="panel-body m-b-n m-t-xs">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
@@ -168,6 +168,7 @@ Planning Request
                         name="title" 
                         class="form-control" 
                         value="{{ $planning->title }}" 
+                        title="{{ $planning->title }}" 
                         readonly>
                       <span class="help-block m-b-none"></span>
                     </div>
@@ -227,7 +228,7 @@ Planning Request
             <div class="panel-heading">
               #02 - Timings
             </div>
-            <div class="panel-body">
+            <div class="panel-body m-b-n m-t-xs" style="margin-bottom:-11px">
               <div class="row">
                 <div class="col-lg-6 col-md-6">
                   <div class="row-fluid">

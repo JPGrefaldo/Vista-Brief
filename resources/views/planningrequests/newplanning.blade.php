@@ -63,7 +63,7 @@ Create New Planning Request
 
             <!-- Information -->
             <div class="panel panel-default">
-              <div class="panel-body">
+              <div class="panel-body m-b-n m-t-xs">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -191,7 +191,7 @@ Create New Planning Request
               <div class="panel-heading">
                 #01 - Job Details
               </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n m-t-xs">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -276,7 +276,7 @@ Create New Planning Request
               <div class="panel-heading">
                 #02 - Timings
               </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n m-t-xs" style="margin-bottom:-11px">
                 <div class="row">
                   <div class="col-lg-6 col-md-6">
                     <div class="row-fluid">
