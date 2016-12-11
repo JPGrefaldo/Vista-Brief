@@ -41,12 +41,11 @@ Submitted - Brief Sheet
     <!-- / main header -->
 
     <div class="wrapper-md" id="briefwrapper">
-      <div class="row">       
-      
-        
+      <div class="row">
         <div class="col-sm-12">
-        <!-- new Brief form class divider -->
-          <div class="bs-example form-horizontal">    
+          <!-- new Brief form class divider -->
+          <div class="bs-example form-horizontal">
+
             <div class="panel panel-info">
               <div class="panel-body bg-danger2">
                 You can't edit this brief sheet as this had been submitted. You can add amends.
@@ -57,7 +56,7 @@ Submitted - Brief Sheet
             <div class="panel panel-default">
               <div class="alert alert-danger custom-text-danger-1 m-b-n">
                 <h5 class="m-t-xs">Amends Brief</h5>
-                <ul class="">
+                <ul class="m-l-n">
                   @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                   @endforeach
@@ -76,10 +75,7 @@ Submitted - Brief Sheet
 
             <!-- Information -->
             <div class="panel panel-default brief-panel">
-              <div class="panel-heading hide">
-                Information
-              </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n m-t-xs">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -192,6 +188,7 @@ Submitted - Brief Sheet
                       class="form-control" 
                       placeholder="Job Name" 
                       value="{{ $brief->jobname }}" 
+                      title="{{ $brief->jobname }}" 
                       disabled>
                     <span class="help-block m-b-none"></span>
                   </div>
@@ -208,6 +205,7 @@ Submitted - Brief Sheet
                       class="form-control" 
                       placeholder="Key Deliverables" 
                       value="{{ $brief->keydeliverables }}" 
+                      title="{{ $brief->keydeliverables }}" 
                       disabled>
                     <span class="help-block m-b-none"></span>
                   </div>
@@ -262,6 +260,8 @@ Submitted - Brief Sheet
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="row m-b-xs">
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
@@ -309,29 +309,32 @@ Submitted - Brief Sheet
                     </div>
                   </div>
                 </div>
+                <!-- / Required dates -->
               </div>
-              <!-- / Required dates -->
             </div>
             <!-- / Information -->
             
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
+            <!-- Post New Amend -->
             <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
                 Post New Amend
               </div>
               <div class="panel-body">
                 <form class="bs-example form-horizontal" action="{{ route('postnewamend') }}" method="post" enctype="multipart/form-data">
-                <div class="row" style="padding-left:30px;padding-right:30px">
+                <div class="row" style="padding-left:33px;padding-right:30px">
                   <div class="form-group">
                     <!--<div class="checkbox">
                       <label class="i-checks">-->
                         <input class="i-check1" type="checkbox" name="internal">
-                        <i></i>
+                        <i></i> &nbsp;
                         Internal Amend 
                       <!--</label>
                     </div>-->
                   </div>
+                </div>
+                <div class="row" style="padding-left:30px;padding-right:30px">
                   <div class="form-group">
                     <textarea 
                       name="content"
@@ -343,22 +346,18 @@ Submitted - Brief Sheet
                 </div>
 
                 <div class="row" style="padding-left:15px;padding-right:15px">
-                  <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
+                  <div class="col-lg-12 col-sm-12">
                     <div class="form-group">
                       <input name="attachments[]" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
                     </div>  
                   </div>
-                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
-                    <button class="btn btn-primary btn-block">Add File(s)</button>
-                  </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-sm-12">
-                    <div class="form-group" id="departmentCBModule">
-                      <label class="col-lg-12 text-brand-1">Who to notify?</label>
-                      @foreach ($departments as $department)
-                      <div class="col-lg-3">
+                  <div class="col-sm-12" id="departmentCBModule">
+                    <p class="text-brand-1">Who to notify?</p>
+                    @foreach ($departments as $department)
+                      <div class="col-lg-3 m-b-xs" style="padding-left:4px">
                         <!--<div class="checkbox">
                           <label class="i-checks">-->
                             <input 
@@ -367,13 +366,12 @@ Submitted - Brief Sheet
                               name="department[{{ $department->id }}]" 
                               value="{{ $department->id }}" 
                               @if(array_key_exists($department->id, old('department',[]))) checked @endif>
-                            <i></i>
-                            {{ $department->name }} 
+                            <i></i> &nbsp;
+                            {{$department->name}} 
                           <!--</label>
                         </div>-->        
                       </div>
-                      @endforeach
-                    </div>
+                    @endforeach
                   </div>
                 </div>
 
@@ -397,7 +395,7 @@ Submitted - Brief Sheet
                     <div class="col-sm-12">
                       <div class="alert alert-danger custom-text-danger-1">
                         <h5 class="m-t-xs">Amends Brief</h5>
-                        <ul class="">
+                        <ul class="m-l-n">
                           @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                           @endforeach
@@ -417,6 +415,70 @@ Submitted - Brief Sheet
                 </form>
               </div>
             </div>
+            <!-- / Post New Amend -->
+
+            <!-- List of Ammendments -->
+            <div class="panel panel-bluegreen1 brief-panel">
+              <div class="panel-heading">
+                Amends
+              </div>
+              @if (count($brief->amendments) < 1)
+              <div class="panel-body">
+                <p class="text-muted">No amends yet.</p>
+              </div>
+              @else
+              <div class="panel-body">
+                <div class="line line-dashed b-b line-lg hide"></div>
+                @foreach ($brief->amendments->reverse() as $key => $amend)
+                  <div class="row p-sm">
+                    <div class="col-sm-12">
+                      <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>
+                      <h6 class="text-muted">
+                        {{ $amend->updated_at->format('h:m:s l, d M Y') }} - 
+                        @if ($amend->user)
+                          {{ $amend->user->forename }} {{ $amend->user->surname }}
+                        @endif
+                      </h6> 
+                      <p>{!! nl2br(e($amend->content)) !!}</p>
+                      
+                      @foreach ($amend->attachments as $attachment)
+                        <p class="">
+                          <i class="{{ $attachment->classNames }} text-md"></i>
+                          <a 
+                            class="text-brand-1 a-hover-ltblue" 
+                            href="{{ route('download_attachment', [$attachment->id]) }}">
+                            {{ $attachment->filename }}
+                          </a>
+                        </p>
+                      @endforeach
+                      
+                      <h6 class="text-muted">
+                        Sent to: 
+                        <?php
+                          if (empty(trim($amend->department_ids))) {
+                            echo 'none';
+                          }
+                          else {
+                            $arr_department_ids = explode(',', $amend->department_ids);
+                            $arr_department_name;
+                            foreach ($departments as $department) {
+                              if (in_array($department->id, $arr_department_ids)) {
+                                $arr_department_name[] = $department->name;
+                              }
+                            }
+                            echo implode($arr_department_name, ', ');
+                            $arr_department_name = [];
+                          }
+                        ?>
+                      </h6>
+                    </div>
+                  </div>
+                  <div class="line line-dashed b-b line-lg"></div>
+                @endforeach
+              </div>
+              @endif <!-- / if(count($brief->amendments) < 1) -->
+            </div>
+            <!-- / List of Ammendments -->
 
             <!-- Brief Summary -->
             <div class="panel panel-bluegreen1 brief-panel">
@@ -433,35 +495,33 @@ Submitted - Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel bg-light lter">
               <div class="panel-heading">
                 #02 - Disciplines Required 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
               </div>
-              <div class="panel-body bg-light lter">
-                <div class="form-group">
-                  <div class="row-fluid">
-                    @foreach ($departments as $department)
-                      <div class="col-lg-3">
-                        <!--<div class="checkbox">
-                          <label class="i-checks">-->
-                            <input 
-                              class="i-check1"
-                              disabled
-                              type="checkbox" 
-                              name="department[{{ $department->id }}]" 
-                              value="{{ $department->id }}"                              
-                              @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
-                                checked
-                              @endif
-                              >
-                            <i></i>
-                            {{ $department->name }}
-                          <!--</label>
-                        </div>-->         
-                      </div>
-                    @endforeach
-                  </div>
+              <div class="panel-body m-t-xs">
+                <div class="row">
+                  @foreach ($departments as $department)
+                    <div class="col-lg-3 m-b-xs">
+                      <!--<div class="checkbox">
+                        <label class="i-checks">-->
+                          <input 
+                            class="i-check1"
+                            disabled
+                            type="checkbox" 
+                            name="department[{{ $department->id }}]" 
+                            value="{{ $department->id }}"                              
+                            @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
+                              checked
+                            @endif
+                            > &nbsp;
+                          <i></i>
+                          {{$department->name}}
+                        <!--</label>
+                      </div>-->         
+                    </div>
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -588,14 +648,14 @@ Submitted - Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Brief Attachments -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-bluegreen1 brief-panel bg-light lter">
               <div class="panel-heading">
                 #10 - Brief Sheet Attached Files 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="Attach any supporting material here. Provide multiple files in single zip folder where possible."> 
                 </i> 
               </div>
-              <div class="panel-body bg-light lter">
+              <div class="panel-body m-b-n">
                 <div class="row">
                   <div class="col-sm-12">
                     <a name="amending"></a> <!-- amending anchor -->
@@ -633,74 +693,9 @@ Submitted - Brief Sheet
             </div>
             <!-- / Brief Attachments -->
 
-            <!-- List of Ammendments -->
-            <div class="panel panel-bluegreen1 brief-panel">
-              <div class="panel-heading">
-                Amends
-              </div>
-              @if (count($brief->amendments) < 1)
-              <div class="panel-body">
-                <p class="text-muted">No amends yet.</p>
-              </div>
-              @else
-              <div class="panel-body">
-                <div class="line line-dashed b-b line-lg hide"></div>
-                @foreach ($brief->amendments->reverse() as $key => $amend)
-                  <div class="row">
-                    <p>&nbsp;</p>
-                    <div class="col-sm-12">
-                      <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>
-                      <h6 class="text-muted">
-                        {{ $amend->updated_at->format('h:m:s l, d M Y') }} - 
-                        @if ($amend->user)
-                          {{ $amend->user->forename }} {{ $amend->user->surname }}
-                        @endif
-                      </h6> 
-                      <p>{!! nl2br(e($amend->content)) !!}</p>
-                      
-                      @foreach ($amend->attachments as $attachment)
-                        <p class="">
-                          <i class="{{ $attachment->classNames }} text-md"></i>
-                          <a 
-                            class="text-brand-1 a-hover-ltblue" 
-                            href="{{ route('download_attachment', [$attachment->id]) }}">
-                            {{ $attachment->filename }}
-                          </a>
-                        </p>
-                      @endforeach
-                      
-                      <h6 class="text-muted">
-                        Sent to: 
-                        <?php
-                          if (empty(trim($amend->department_ids))) {
-                            echo 'none';
-                          }
-                          else {
-                            $arr_department_ids = explode(',', $amend->department_ids);
-                            $arr_department_name;
-                            foreach ($departments as $department) {
-                              if (in_array($department->id, $arr_department_ids)) {
-                                $arr_department_name[] = $department->name;
-                              }
-                            }
-                            echo implode($arr_department_name, ', ');
-                            $arr_department_name = [];
-                          }
-                        ?>
-                      </h6>
-                    </div>
-                    <p>&nbsp;</p>
-                  </div>
-                  <div class="line line-dashed b-b line-lg"></div>
-                @endforeach
-
-              </div>
-              @endif <!-- / if(count($brief->amendments) < 1) -->
-            </div>
-            <!-- / List of Ammendments -->
           </div>
-        <!-- new Brief form class divider -->
-          </div>
+          <!-- new Brief form class divider -->
+        </div>
         
       </div>
     </div>

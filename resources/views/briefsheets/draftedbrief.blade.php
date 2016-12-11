@@ -55,7 +55,7 @@ Draft - Brief Sheet
             @if (count($errors) > 0)
             <div class="panel panel-default">
                 <div class="alert alert-danger custom-text-danger-1 m-b-n">
-                  <ul class="m-b-n">
+                  <ul class="m-b-n m-l-n">
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
                     @endforeach
@@ -66,10 +66,7 @@ Draft - Brief Sheet
 
             <!-- Information -->
             <div class="panel panel-default brief-panel">
-              <div class="panel-heading hide">
-                Information
-              </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n m-t-xs">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -289,6 +286,8 @@ Draft - Brief Sheet
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="row m-b-xs">
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
@@ -336,8 +335,8 @@ Draft - Brief Sheet
                     </div>
                   </div>
                 </div>
+                <!-- / Required dates -->
               </div>
-              <!-- / Required dates -->
             </div>
             <!-- / Information -->
             
@@ -372,33 +371,31 @@ Draft - Brief Sheet
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
                 <span class="custom-text-danger-1">*</span>
               </div>
-              <div class="panel-body">
-                <div class="form-group">
-                  <div class="row-fluid" id="departmentCBModule">
-                    @foreach ($departments as $department)
-                      <div class="col-lg-3">
-                        <!--<div class="checkbox">
-                          <label class="i-checks">-->
-                            <input 
-                              class="i-check1"
-                              type="checkbox" 
-                              name="department[{{ $department->id }}]" 
-                              value="{{ $department->id }}"
-                              @if ( old('department') )
-                                @if(array_key_exists($department->id, old('department',[]))) checked @endif
-                              @else                                
-                                @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
-                                  checked
-                                @endif
+              <div class="panel-body m-b-n m-t-xs">
+                <div class="row" id="departmentCBModule">
+                  @foreach ($departments as $department)
+                    <div class="col-lg-3 m-b-xs">
+                      <!--<div class="checkbox">
+                        <label class="i-checks">-->
+                          <input 
+                            class="i-check1"
+                            type="checkbox" 
+                            name="department[{{ $department->id }}]" 
+                            value="{{ $department->id }}"
+                            @if ( old('department') )
+                              @if(array_key_exists($department->id, old('department',[]))) checked @endif
+                            @else                                
+                              @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
+                                checked
                               @endif
-                              >
-                            <i></i>
-                            {{ $department->name }}
-                          <!--</label>
-                        </div>-->          
-                      </div>
-                    @endforeach
-                  </div>
+                            @endif
+                            > &nbsp;
+                          <i></i> 
+                          {{$department->name}}
+                        <!--</label>
+                      </div>-->          
+                    </div>
+                  @endforeach
                 </div>
 
                 <div class="row">
@@ -605,7 +602,7 @@ Draft - Brief Sheet
                   title="Attach any supporting material here. Provide multiple files in single zip folder where possible."> 
                 </i> 
               </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n">
                 <div class="row" style="padding-left:15px;padding-right:15px">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
@@ -618,7 +615,7 @@ Draft - Brief Sheet
                   </div>
                   <div class="col-sm-12">
                     @if (!count($brief->attachmentsNotAmend))
-                        <p class="text-muted">No existing attachment.</p>
+                      <p class="m-l-n text-muted">No existing attachment.</p>
                     @else
                       <ul class="p-l-n">
                         @foreach ($brief->attachmentsNotAmend as $attachment)

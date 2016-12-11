@@ -353,11 +353,11 @@ Planning Request
             </div>
             <div class="panel-body bg-light lter">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 m-b-sm">
                   @if (count($planning->attachments) < 1)
                     <p class="text-muted">No attachment.</p>
                   @else
-                    <ul class="p-l-sm">                    
+                    <ul class="p-l-sm m-b-n">                    
                       @foreach ($planning->attachments as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">

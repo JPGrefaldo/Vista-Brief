@@ -52,7 +52,7 @@ Create New Planning Request
             @if (count($errors) > 0)
             <div class="panel panel-default">
                 <div class="alert alert-danger custom-text-danger-1 m-b-n">
-                  <ul class="m-b-n">
+                  <ul class="m-b-n m-l-n">
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
                     @endforeach
@@ -415,7 +415,7 @@ Create New Planning Request
                   title="Attach any supporting material here. Provide multiple files in single zip folder where possible.">
                 </i>
               </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n">
                 <div class="row" style="padding-left:15px;padding-right:15px">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
@@ -444,7 +444,7 @@ Create New Planning Request
             @endif
 
             <div class="panel panel-default">
-              <div class="panel-footer">
+              <div class="panel-footer m-b-xs">
                 <input type="hidden" name="_token" value="{{ Session::token() }}">
                 <input id="btn-submit" type="submit" class="btn btn-lg btn-brand1 btn-block hide" value="Submit">
                 <button id="btn-submitting" class="btn btn-lg btn-block btn-brand1 btn-submitting hide" disabled>

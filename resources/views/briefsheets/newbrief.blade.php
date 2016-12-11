@@ -52,7 +52,7 @@ Create New Brief Sheet
             @if (count($errors) > 0)
             <div class="panel panel-default">
                 <div class="alert alert-danger custom-text-danger-1 m-b-n">
-                  <ul class="m-b-n">
+                  <ul class="m-b-n m-l-n">
                     @foreach ($errors->all() as $error)
                       <li>{{ $error }}</li>
                     @endforeach
@@ -63,7 +63,7 @@ Create New Brief Sheet
 
             <!-- Information -->
             <div class="panel panel-default brief-panel">
-              <div class="panel-body">
+              <div class="panel-body m-b-n m-t-xs">
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
@@ -263,6 +263,8 @@ Create New Brief Sheet
                       </div>
                     </div>
                   </div>
+                </div>
+                <div class="row m-b-xs">
                   <div class="col-lg-6 col-md-6 col-sm-6">
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
@@ -306,8 +308,8 @@ Create New Brief Sheet
                     </div>
                   </div>
                 </div>
+                <!-- / Required dates -->
               </div>
-              <!-- / Required dates -->
             </div>
             <!-- / Information -->
             
@@ -342,29 +344,28 @@ Create New Brief Sheet
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
                 <span class="custom-text-danger-1">*</span>
               </div>
-              <div class="panel-body">
-                <div class="form-group">
-                  <div class="row-fluid" id="departmentCBModule">
-                    @foreach ($departments as $department)
-                      <div class="col-lg-3">
-                        <!--<div class="checkbox1">
-                          <label class="i-checks">-->
-                            <input 
-                              class="i-check1"
-                              type="checkbox" 
-                              name="department[{{ $department->id }}]" 
-                              value="{{ $department->id }}"
-                              @if(array_key_exists($department->id, old('department',[]))) checked @endif
-                              >
-                            <i></i>                            
-                            {{ $department->name }} 
-                          <!--</label>
-                        </div>-->        
-                      </div>
-                    @endforeach
-                  </div>
+              <div class="panel-body m-b-n m-t-xs">                
+                <div class="row" id="departmentCBModule">
+                  @foreach ($departments as $department)
+                    <div class="col-lg-3 m-b-xs">
+                      <!--<div class="checkbox1">
+                        <label class="i-checks">-->
+                          <input 
+                            class="i-check1"
+                            type="checkbox" 
+                            name="department[{{ $department->id }}]" 
+                            value="{{ $department->id }}"
+                            @if(array_key_exists($department->id, old('department',[]))) checked @endif
+                            > &nbsp;
+                          <i></i>                            
+                          {{$department->name}} 
+                        <!--</label>
+                      </div>-->        
+                    </div>
+                  @endforeach
                 </div>
 
+                <!-- Desciplines form attached file -->
                 <div class="row">
                   <ul class="pull-right m-r-md text-brand-1 l-s-n" id="departmentAttachmentListBlock">
                     @foreach($departments as $department)
@@ -379,6 +380,7 @@ Create New Brief Sheet
                     @endforeach
                   </ul>
                 </div>
+                <!-- / Desciplines form attached file -->
               </div>
             </div>
             <!-- / Desciplines Required -->
@@ -569,23 +571,12 @@ Create New Brief Sheet
                   title="Attach any supporting material here. Provide multiple files in single zip folder where possible."> 
                 </i> 
               </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n">
                 <div class="row" style="padding-left:15px;padding-right:15px">
                   <div class="col-lg-12 col-sm-12"> <!-- col-lg-10 col-sm-8 -->
                     <div class="form-group">
                       <input name="attachments[]" class="" multiple ui-jq="filestyle" ui-options="{icon:false, buttonName:'btn-brand1', buttonText:'Attach Files'}" type="file">
-                      <!--<input type="file" name="attachments[]" multiple class="btn1" readonly clas="form-control" > Browse-->
                     </div>  
-                  </div>
-                  <div class="col-lg-2 col-sm-4 hide"> <!-- hide for now -->
-                    <button class="btn btn-primary btn-block">Add File(s)</button>
-                  </div>
-                  <div class="col-sm-12 hide"> <!-- hide for now -->
-                    <ul>
-                      <li>file list</li>
-                      <li>file list</li>
-                      <li>file list</li>
-                    </ul>
                   </div>
                 </div>
               </div>
