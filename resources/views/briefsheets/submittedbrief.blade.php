@@ -518,9 +518,9 @@ Submitted - Brief Sheet
             <!-- What do want the target audience to -->
             <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
-                06 - What do want the target audience to ...
+                06 - What do I want the target audience to...
               </div>
-              <div class="panel-body bg-light lter">
+              <div class="panel-body bg-light lter m-b-n">
                 <div class="row">
                   <div class="col-lg-4">
                     <h4>Think</h4>
@@ -602,7 +602,7 @@ Submitted - Brief Sheet
                       @if (count($brief->attachmentsNotAmend) < 1)
                         <p class="text-muted">No attachment.</p>
                       @else
-                        <ul>
+                        <ul class="p-l-sm">
                         @foreach ($brief->attachmentsNotAmend as $attachment)
                           <li>
                             <ul class="p-l-n l-s-n">

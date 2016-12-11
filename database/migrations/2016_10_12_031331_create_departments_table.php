@@ -15,7 +15,7 @@ class CreateDepartmentsTable extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 300);
+            $table->string('name', 30);
             $table->Integer('parent_id')->default(0);
             $table->string('email', 200)->nullable();
             $table->Integer('attachment_id')->default(0);

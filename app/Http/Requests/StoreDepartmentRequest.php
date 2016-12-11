@@ -26,7 +26,7 @@ class StoreDepartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'        =>  'bail|required|unique:departments,name',
+            'name'        =>  'bail|required|max:20|unique:departments,name',
             'email.*'     =>  'bail|email',
             'attachment'  =>  'bail|max:5120',
         ];
@@ -36,6 +36,7 @@ class StoreDepartmentRequest extends FormRequest
     {
         return [
             'name.required' =>  'Name must not be empty.',
+            'name.max'      =>  'The Name may not be greater than 20 characters.',
             'name.unique'   =>  'Name is already taken.',
             'email.*.email' =>  'One or more of the email(s) is not a valid email address.',
             'attachment.max'    =>  'Attached file must not exceed 5MB of size.',

@@ -43,11 +43,15 @@ Manage Departments - Vista
     <div class="wrapper-md">
 
       @if (session('new_department_success'))
-        <span class="alert-success2 p-r-sm p-l-sm">{{ session('new_department_success') }}</span>
+        <p class="p-r-sm p-l-n">
+          <span class="alert-success2 p-r-sm p-l-sm p-t-xs p-b-xs">
+            {{ session('new_department_success') }}</span></p>
       @endif
 
       @if (session('edit_department_success'))
-        <span class="alert-success2 p-r-sm p-l-sm">{{ session('edit_department_success') }}</span>
+        <p class="p-r-sm p-l-n">
+          <span class="alert-success2 p-r-sm p-l-sm p-t-xs p-b-xs">
+            {{ session('edit_department_success') }}</span></p>
       @endif
 
       <div class="panel panel-default">

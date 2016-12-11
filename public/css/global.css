@@ -446,3 +446,10 @@ fieldset[disabled] .btn-brand1.active {
   -o-transform: scale(21.5); /* Opera */
   padding: 10px;
 }
+
+.p-t-xs {
+	padding-top:3px;
+}
+.p-b-xs {
+	padding-top:3px;
+}

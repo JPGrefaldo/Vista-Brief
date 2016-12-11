@@ -270,7 +270,6 @@ Draft - Brief Sheet
                     <div class="form-group">
                       <label class="col-lg-4 control-label text-left">
                         Proposal Required by 
-                        <span class="custom-text-danger-1">*</span>
                       </label>
                       <div class="col-lg-8">
                         <div class="input-group w-md1">
@@ -493,12 +492,12 @@ Draft - Brief Sheet
             <!-- What do want the target audience to -->
             <div class="panel panel-bluegreen1 brief-panel">
               <div class="panel-heading">
-                06 - What do want the target audience to ...
+                06 - What do I want the target audience to...
               </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-n">
                 <div class="row">
                   <div class="form-group m-b-n m-t-n">
-                    <div class="col-lg-4 m-b-n">
+                    <div class="col-lg-4">
                       <textarea 
                       name="targetaudience_think"
                       class="form-control auto-height" 
@@ -506,7 +505,7 @@ Draft - Brief Sheet
                       placeholder="Think?"
                       >{{ (old('targetaudience_think')) ? old('targetaudience_think') : $brief->targetaudience_think }}</textarea>
                     </div>
-                    <div class="col-lg-4 m-b-n">
+                    <div class="col-lg-4">
                       <textarea 
                       name="targetaudience_feel"
                       class="form-control auto-height" 
@@ -514,7 +513,7 @@ Draft - Brief Sheet
                       placeholder="Feel?"
                       >{{ (old('targetaudience_feel')) ? old('targetaudience_feel') : $brief->targetaudience_feel }}</textarea>
                     </div>
-                    <div class="col-lg-4 m-b-n">
+                    <div class="col-lg-4">
                       <textarea 
                       name="targetaudience_do"
                       class="form-control auto-height" 
@@ -621,7 +620,7 @@ Draft - Brief Sheet
                     @if (!count($brief->attachmentsNotAmend))
                         <p class="text-muted">No existing attachment.</p>
                     @else
-                      <ul>
+                      <ul class="p-l-n">
                         @foreach ($brief->attachmentsNotAmend as $attachment)
                           <li>
                             <ul class="p-l-n l-s-n">

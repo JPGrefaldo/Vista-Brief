@@ -308,7 +308,6 @@ Create New Planning Request
                       <div class="form-group">
                         <label class="col-lg-4 control-label text-left">
                           Ideal Q&amp;A 
-                          <span class="custom-text-danger-1">*</span>
                         </label>
                         <div class="col-lg-8">
                           <div class="input-group w-md1">

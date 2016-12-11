@@ -45,7 +45,7 @@ Manage Departments - Vista
       @if (count($errors) > 0)
       <div class="panel panel-default">
           <div class="alert alert-danger custom-text-danger-1 m-b-n">
-            <ul class="m-b-n">
+            <ul class="m-b-n m-l-n p-l-lg">
               @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
               @endforeach
@@ -68,7 +68,8 @@ Manage Departments - Vista
                     type="text" 
                     name="name" 
                     placeholder="department name" 
-                    value="{{(old('name')) ? old('name') : $department->name}}">
+                    value="{{(old('name')) ? old('name') : $department->name}}"
+                    maxlength="20">
                 </div>
                 <div class="form-group" id="attachfileModule">                
                   <label>Attachment</label>

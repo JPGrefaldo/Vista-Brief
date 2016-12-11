@@ -120,9 +120,9 @@ Profile - Vista
       </ul>
     </div>
     <div class="padder">      
-      <div class="m-l-lg m-b padder-v">
+      <div class="m-b padder-v">
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="panel {{ (session('success_profile_changed')) ? 'panel-success' : 'panel-default' }}">
               <div class="panel-heading font-bold">
                 Edit Profile
@@ -156,6 +156,9 @@ Profile - Vista
                           placeholder="surname" 
                           value="{{ (old('surname')) ? old('surname') : Auth::user()->surname }}" >
                       </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <p style="height:14px;">&nbsp;</p>
                     </div>
                     <div class="col-sm-12 m-t-lg">
                       <label><i>Type your current password for security verification</i></label>
@@ -192,7 +195,7 @@ Profile - Vista
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="panel {{ (session('success_password_changed')) ? 'panel-success' : 'panel-default' }}">
               <div class="panel-heading font-bold">
                 Change Password
