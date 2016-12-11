@@ -132,14 +132,16 @@ Brief Sheets - Vista
                         <i></i>
                       </label>
                     </td>
-                    <td>{{ $brief->jobnumber }}</td>
+                    <td><span class="text-ellipsis">
+                      {{$brief->jobnumber}}
+                    </span></td>
                     <td>
                       @if (count($brief->client))
-                        {{ $brief->client->name }}
+                        {{$brief->client->name}}
                       @endif
                     </td>
-                    <td><span class="text-ellipsis">{{ $brief->jobname }}</span></td>
-                    <td><span class="text-ellipsis">{{ $brief->keydeliverables }}</span></td>
+                    <td>{{$brief->jobname}}</td>
+                    <td>{{$brief->keydeliverables}}</td>
                     <td>
                       @if (count($brief->user))
                         {{ $brief->user->forename }} {{ $brief->user->surname }}

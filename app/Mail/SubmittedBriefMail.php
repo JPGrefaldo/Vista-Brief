@@ -11,7 +11,7 @@ use App\Brief;
 use App\Department;
 use PDF;
 
-class SubmittedBriefMail extends Mailable
+class SubmittedBriefMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -20,6 +20,7 @@ class SubmittedBriefMail extends Mailable
     protected $updated_at;
     protected $jobnumber;
     protected $jobname;
+    protected $keydeliverables;
     protected $projectmanager;
     protected $department_name;
     protected $brief_summary;
@@ -36,6 +37,7 @@ class SubmittedBriefMail extends Mailable
         $this->updated_at       = $brief->updated_at->format('m/d/Y h:m');
         $this->jobnumber        = $brief->jobnumber;
         $this->jobname          = $brief->jobname;
+        $this->keydeliverables  = $brief->keydeliverables;
         $this->projectmanager   = $brief->projectmanager;
         $this->department_name  = $department_name;
         $this->brief_summary    = $brief->summary;
@@ -61,6 +63,7 @@ class SubmittedBriefMail extends Mailable
                         'updated_at'        => $this->updated_at,
                         'jobnumber'         => $this->jobnumber,
                         'jobname'           => $this->jobname,
+                        'keydeliverables'   => $this->keydeliverables,
                         'projectmanager'    => $this->projectmanager,
                         'department_name'   => $this->department_name,
                         'brief_summary'     => $this->brief_summary,
