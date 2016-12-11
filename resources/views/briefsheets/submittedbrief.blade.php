@@ -378,7 +378,7 @@ Submitted - Brief Sheet
                 </div>
 
                 <div class="row">
-                  <ul class="pull-right m-r-md text-brand-1" id="departmentAttachmentListBlock">
+                  <ul class="pull-right m-r-md text-brand-1 l-s-n" id="departmentAttachmentListBlock">
                     @foreach($departments as $department)
                       @if (count($department->attachment))
                         <li class="highlight1 hide" id="liDFile-{{$department->id}}">

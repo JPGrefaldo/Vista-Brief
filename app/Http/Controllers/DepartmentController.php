@@ -131,7 +131,7 @@ class DepartmentController extends Controller
     if ( !empty($file) ) {
       $filetype = $file->getClientMimeType();
       $file_ext = $file->extension();
-      $filename = "$name file.$file_ext";
+      $filename = "$name Brief Form.$file_ext";
 
       $attachments = (count($department->attachment)) ? $department->attachment : new Attachment();
       $attachments->user_id = $request->user()->id;
