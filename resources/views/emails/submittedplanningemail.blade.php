@@ -11,11 +11,15 @@
 <body>
 
 <h3>Vista Briefs</h3>
-<span class="text-muted">{{ $updated_at }}</span>
+<span class="text-muted">{{$updated_at}}</span>
 
-<p><strong>Planning Request: {{ $title }}</strong></p>
+<p><strong>Planning Request: {{$title}}</strong></p>
 
-<p>To <span class="text-muted">{{ $client }}</span></p>
+<p>To <span class="text-muted">{{$client}}</span></p>
+
+<p>&nbsp;</p>
+<p class="text-muted">Title:</p>
+<p>{{$title}}</p>
 
 <p>Planning Request attached</p>
 

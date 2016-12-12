@@ -18,11 +18,19 @@
 <p>To <span class="text-muted">{{ $projectmanager }}; {{ $department_name }}</span></p>
 
 <p>&nbsp;</p>
-<p>Brief Summary:</p>
+<p class="text-muted">Job Name:</p>
+<p>{{ $jobname }}</p>
+
+<p>&nbsp;</p>
+<p class="text-muted">Key Deliverables:</p>
+<p>{{ $keydeliverables }}</p>
+
+<p>&nbsp;</p>
+<p class="text-muted">Brief Summary:</p>
 <p>{{ $brief_summary }}</p>
 
 <p>&nbsp;</p>
-<p>Amended Brief Sheet attached</p>
+<p class="text-muted">Amended Brief Sheet attached</p>
 
 </body>
 </html>
