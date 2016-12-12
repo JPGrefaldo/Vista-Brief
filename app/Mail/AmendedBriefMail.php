@@ -11,7 +11,7 @@ use App\Brief;
 use App\Department;
 use PDF;
 
-class AmendedBriefMail extends Mailable
+class AmendedBriefMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 

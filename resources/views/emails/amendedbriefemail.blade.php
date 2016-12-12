@@ -11,23 +11,23 @@
 <body>
 
 <h3>Vista Briefs</h3>
-<span class="text-muted">{{ $updated_at }}</span>
+<span class="text-muted">{{$updated_at}}</span>
 
-<p><strong>Brief Sheet: {{ $jobnumber }} - {{ $jobname }}</strong></p>
+<p><strong>Brief Sheet: {{$jobnumber}} - {{$jobname}}</strong></p>
 
-<p>To <span class="text-muted">{{ $projectmanager }}; {{ $department_name }}</span></p>
+<p>To <span class="text-muted">{{$projectmanager }}, {{$department_name}}</span></p>
 
 <p>&nbsp;</p>
 <p class="text-muted">Job Name:</p>
-<p>{{ $jobname }}</p>
+<p>{{$jobname}}</p>
 
 <p>&nbsp;</p>
 <p class="text-muted">Key Deliverables:</p>
-<p>{{ $keydeliverables }}</p>
+<p>{{$keydeliverables}}</p>
 
 <p>&nbsp;</p>
 <p class="text-muted">Brief Summary:</p>
-<p>{{ $brief_summary }}</p>
+<p>{{$brief_summary}}</p>
 
 <p>&nbsp;</p>
 <p class="text-muted">Amended Brief Sheet attached</p>

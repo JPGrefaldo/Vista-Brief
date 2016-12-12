@@ -138,13 +138,15 @@ class BriefAddEditController extends Controller
       // Send email to selected departments
       if ( $is_draft == 0 && !empty($request->input('department')) ) {
         $departments_to_be_email = Department::find($request->input('department'));
+        $email_recipient = array();
 
         foreach ($departments_to_be_email as $department) {
           foreach(explode(',',$department->email) as $email) {
             if(!empty($email)) {
-              $mailer
-                ->to($email)
-                ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
+              // $mailer
+              //   ->to($email)
+              //   ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
+              array_push($email_recipient, $email);
             }
             $department_to_be_email_to_user[] = $department->name;
           }
@@ -158,10 +160,12 @@ class BriefAddEditController extends Controller
         }
 
         if(!empty($request->user()->email)) {
-          $mailer
-            ->to($request->user()->email)
-            ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
+          array_push($email_recipient, $request->user()->email);
         }
+
+        $mailer
+          ->to($email_recipient)
+          ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
       }        
 
       return redirect()->route('briefsheets')->with('new_brief_success', 'Successfully created new brief sheet: '.$jobname.'.');
@@ -292,13 +296,15 @@ class BriefAddEditController extends Controller
       // Send email to selected departments
       if ( $is_draft == 0 && !empty($request->input('department')) ) {
         $departments_to_be_email = Department::find($request->input('department'));
+        $email_recipient = array();
 
         foreach ($departments_to_be_email as $department) {
           foreach(explode(',',$department->email) as $email) {
             if(!empty($email)) {
-              $mailer
-                ->to($email)
-                ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));              
+              // $mailer
+              //   ->to($email)
+              //   ->send(new \App\Mail\SubmittedBriefMail($brief,$department->name));
+              array_push($email_recipient, $email);
             }
             $department_to_be_email_to_user[] = $department->name;
           }
@@ -312,12 +318,12 @@ class BriefAddEditController extends Controller
         }
 
         if(!empty($request->user()->email)) {
-          $department_to_be_email_to_user = 
-          $mailer
-            ->to($request->user()->email)
-            ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
+          array_push($email_recipient, $request->user()->email);
         }
-
+        
+        $mailer
+          ->to($email_recipient)
+          ->send(new \App\Mail\SubmittedBriefMail($brief,$department_to_be_email_to_user));
       }
 
       return redirect()->route('briefsheets')->with('update_brief_success', 'Successfully updated brief sheet: '.$jobname.'.');

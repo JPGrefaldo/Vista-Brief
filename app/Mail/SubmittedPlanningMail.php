@@ -11,7 +11,7 @@ use App\Planning;
 use App\Department;
 use PDF;
 
-class SubmittedPlanningMail extends Mailable
+class SubmittedPlanningMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 

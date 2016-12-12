@@ -104,11 +104,11 @@ class PlanningController extends Controller
       $planning->save();
 
       $mailer
-        ->to('planning@wearevista.co.uk')
+        ->to(array('planning@wearevista.co.uk', $request->user()->email))
         ->send(new \App\Mail\SubmittedPlanningMail($planning));
-      $mailer
-        ->to($request->user()->email)
-        ->send(new \App\Mail\SubmittedPlanningMail($planning));
+      // $mailer
+      //   ->to($request->user()->email)
+      //   ->send(new \App\Mail\SubmittedPlanningMail($planning));
 
     	return redirect()->route('planningrequests')->with('new_planning_success', 'Successfully created new planning request: '.$title.'.');
     }

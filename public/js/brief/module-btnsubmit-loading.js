@@ -16,7 +16,7 @@ var btnLoadingModule = (function(){
 	$confirm_submit.on('click', onSubmit)
 	$btn_draft.on('click', onDraft)
 
-	function onDraft(e) {		
+	function onDraft(e) {
 		$btn_submit.hide()
 		$btn_draft.hide()
 
