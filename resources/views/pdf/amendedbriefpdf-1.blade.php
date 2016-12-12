@@ -121,6 +121,7 @@ if ($brief->projectstatus_id == 1) {
         </div>
       </div>
       <!-- / Information -->
+
     </div>
   </div>
 </div>
@@ -129,6 +130,7 @@ if ($brief->projectstatus_id == 1) {
   <div class="row bg-white" style="height:50px"></div>
 </div>
 
+<!-- Amends -->
 <div class="page-break">
   <div class="row bg-white">
 
@@ -195,11 +197,13 @@ if ($brief->projectstatus_id == 1) {
 
   </div>
 </div>
+<!-- / Amends -->
 
 <div class="">
   <div class="row bg-white" style="height:50px"></div>
 </div>
 
+<!-- Original Brief -->
 <div class="page-break">
   <div class="row bg-white">
 
@@ -217,7 +221,7 @@ if ($brief->projectstatus_id == 1) {
         @if ($brief->summary)
         <div class="col-xs-12 m-b-lg">
           <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#01 Brief Summary</strong></p>
-          <p class="bg-light p-l-sm">{!! nl2br(e($brief->summary)) !!}&nbsp;</p>
+          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->summary)) !!}&nbsp;</p>
         </div>
         @endif
 
@@ -336,4 +340,5 @@ if ($brief->projectstatus_id == 1) {
 
   </div>
 </div>
+<!-- / Original Brief -->
 @endsection
