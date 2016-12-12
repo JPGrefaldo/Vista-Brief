@@ -617,26 +617,26 @@ Draft - Brief Sheet
                     @if (!count($brief->attachmentsNotAmend))
                       <p class="m-l-n text-muted">No existing attachment.</p>
                     @else
-                      <ul class="p-l-n">
+                      <ul class="p-l-n l-s-n m-l-n">
                         @foreach ($brief->attachmentsNotAmend as $attachment)
                           <li>
                             <ul class="p-l-n l-s-n">
                               <li>
-                                <i class="{{ $attachment->classNames }} text-md"></i>
+                                <i class="{{$attachment->classNames}} text-md"></i>
                                 <a 
                                   class="text-brand1 a-hover-ltblue" 
-                                  href="{{ route('download_attachment', [$attachment->id]) }}">
-                                  {{ $attachment->filename }}
+                                  href="{{route('download_attachment', [$attachment->id])}}">
+                                  {{$attachment->filename}}
                                 </a>
                               </li>
                               <li class="text-muted">
                                 @if (count($attachment->user))
                                   Uploaded by {{ $attachment->user->forename }} 
-                                  {{ $attachment->user->surname }}
+                                  {{$attachment->user->surname}}
                                 @else
                                   &lt;missing user info&gt;
                                 @endif
-                                 - {{ $attachment->updated_at->format('h:m:s l, d M Y') }}</li>
+                                 - {{$attachment->updated_at->format('h:m:s l, d M Y')}}</li>
                             </ul>
                           </li>
                         @endforeach

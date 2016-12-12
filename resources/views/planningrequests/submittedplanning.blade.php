@@ -357,7 +357,7 @@ Planning Request
                   @if (count($planning->attachments) < 1)
                     <p class="text-muted">No attachment.</p>
                   @else
-                    <ul class="p-l-sm m-b-n">                    
+                    <ul class="p-l-n m-b-n l-s-n">                    
                       @foreach ($planning->attachments as $attachment)
                         <li>
                           <ul class="p-l-n l-s-n">

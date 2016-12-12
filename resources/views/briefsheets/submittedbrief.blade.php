@@ -662,7 +662,7 @@ Submitted - Brief Sheet
                       @if (count($brief->attachmentsNotAmend) < 1)
                         <p class="text-muted">No attachment.</p>
                       @else
-                        <ul class="p-l-sm">
+                        <ul class="p-l-n l-s-n">
                         @foreach ($brief->attachmentsNotAmend as $attachment)
                           <li>
                             <ul class="p-l-n l-s-n">
