@@ -82,9 +82,9 @@ class DepartmentController extends Controller
 
     $file = $request->file('attachment');
     if ( !empty($file) ) {
-      //$filename = $file->getClientOriginalName();
+      // $filename = $file->getClientOriginalName();
       $filetype = $file->getClientMimeType();
-      $file_ext = $file->extension();
+      $file_ext = $file->getClientOriginalExtension();
       $filename = "$name Brief Form.$file_ext";
 
       $attachments = new Attachment();
@@ -148,8 +148,6 @@ class DepartmentController extends Controller
 
     return redirect()->route('departments')->with('edit_department_success', $name.' had been successfully edited.');
   }
-
-
 
   public function postDeleteDepartment(Request $request)
   {
