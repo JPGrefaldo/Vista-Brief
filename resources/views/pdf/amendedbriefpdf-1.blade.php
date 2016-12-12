@@ -71,22 +71,22 @@ if ($brief->projectstatus_id == 1) {
       <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Job Name</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->jobname }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->jobname }}&nbsp;</p>
         </div>
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>Your Budget</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->budget }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->budget }}&nbsp;</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Key Deliverables</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->keydeliverables }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->keydeliverables }}&nbsp;</p>
         </div>
         <div class="col-xs-3">
             <label class="control-label text-left"><strong>Project Manager</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->projectmanager }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->projectmanager }}&nbsp;</p>
         </div>
       </div>
 
@@ -148,11 +148,12 @@ if ($brief->projectstatus_id == 1) {
             <p class="text-muted m-b-xs">
               Amended by 
               @if (count($amend->user))
-              {{ $amend->user->forename }} {{ $amend->user->surname }}
+                {{$amend->user->forename}} {{$amend->user->surname}}
               @else
               &lt;missing info&gt;
               @endif
-               - {{ $amend->updated_at->format('l, M d, Y - h:m') }}</p>
+               - {{ $amend->updated_at->format('l, M d, Y - h:m') }}
+            </p>
             <p class="text-muted">
               Amend for 
               @foreach ($departments as $department)
@@ -311,8 +312,8 @@ if ($brief->projectstatus_id == 1) {
           <p class="bg-brand-1 p-l-sm text-white" style="{{$ps_color}}">
             <strong>#10 Attachments</strong></p>
           @foreach ($brief->attachmentsNotAmend as $attachment)
-          <div class="col-xs-12">
-            <ul class="p-l-md l-s-n">
+          <div>
+            <ul class="p-l-n l-s-n">
               <li>
                 <i class="{{ $attachment->classNames }} text-md"></i> 
                 <a 
@@ -322,7 +323,7 @@ if ($brief->projectstatus_id == 1) {
                 </a>
               </li>
             </ul>
-            <h6 class="p-l-md text-muted">
+            <h6 class="p-l-xs text-muted">
               @if (count($attachment->user))
                 Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
               @else

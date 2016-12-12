@@ -38,25 +38,25 @@ Planning Request File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Taken By</strong></label>
-        	<p class="bg-light p-l-sm">{{ $planning->taken_by }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->taken_by }}&nbsp;</p>
         </div>
 
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Name/Title</strong></label>
-        	<p class="bg-light p-l-sm">{{ $planning->contact_name }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_name }}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Email</strong></label>
-        	<p class="bg-light p-l-sm">{{ $planning->contact_email }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_email }}&nbsp;</p>
         </div>
 
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Landline</strong></label>
-        	<p class="bg-light p-l-sm">{{ $planning->contact_landline }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_landline }}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Mobile</strong></label>
-        	<p class="bg-light p-l-sm">{{ $planning->contact_mobile }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_mobile }}&nbsp;</p>
         </div>
       </div>
       <!-- / Information -->
@@ -68,7 +68,7 @@ Planning Request File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Title</strong></label>
-          <p class="bg-light p-l-sm">{{ $planning->title }}&nbsp;</p>
+          <p class="bg-light p-l-sm p-r-sm">{{ $planning->title }}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Status</strong></label>
@@ -84,11 +84,11 @@ Planning Request File
 
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Budget</strong></label>
-          <p class="bg-light p-l-sm">{{ $planning->budget }}&nbsp;</p>
+          <p class="bg-light p-l-sm p-r-sm">{{ $planning->budget }}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Format of Response</strong></label>
-          <p class="bg-light p-l-sm">
+          <p class="bg-light p-l-sm p-r-sm">
             @if (count($planning->formofresponse))
               {{ $planning->formofresponse->name }}
             @else
@@ -149,12 +149,14 @@ Planning Request File
       <!-- / Timings -->
 
       <!-- Job Spec -->
+      @if ($planning->job_specifications)
       <div class="row">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white" style="margin-bottom:0px;"><strong>Job Spec</strong></p>
-          <p class="bg-light p-l-sm" style="margin-top:0px;">{!! nl2br(e($planning->job_specifications)) !!}&nbsp;</p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($planning->job_specifications)) !!}&nbsp;</p>
         </div>
       </div>
+      @endif
       <!-- / Job Spec -->
 
       <!-- Attachments -->      
@@ -165,7 +167,7 @@ Planning Request File
         </div>
         @foreach ($planning->attachments as $attachment)
         <div class="col-xs-12">
-          <ul class="p-l-md l-s-n">
+          <ul class="p-l-n l-s-n">
             <li>
               <i class="{{ $attachment->classNames }} text-md"></i> 
               <a 
@@ -175,7 +177,7 @@ Planning Request File
               </a>
             </li>
           </ul>
-          <h6 class="p-l-md text-muted">
+          <h6 class="p-l-n text-muted">
             @if (count($attachment->user))
               Uploaded by {{ $attachment->user->forename }} {{ $attachment->user->surname }}
             @else
