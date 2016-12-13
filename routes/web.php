@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/test1', function() {
+	echo '<p>-'.date('h:i:s M. d, Y').'-</p>';
+});
+
 /* Access */
 Route::get('/', [
 	'uses'	=>	'UserController@formSignin',

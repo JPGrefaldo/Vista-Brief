@@ -183,7 +183,7 @@ Planning Request File
             @else
               Upload by &lt;missing info&gt;
             @endif
-             - {{ $attachment->updated_at->format('h:m:s l, M d, Y') }}
+             - {{ $attachment->updated_at->format('h:i:s l, M d, Y') }}
           </h6>
         </div>
         @endforeach

@@ -635,7 +635,7 @@ Draft - Brief Sheet
                                 @else
                                   &lt;missing user info&gt;
                                 @endif
-                                 - {{$attachment->updated_at->format('h:m:s l, d M Y')}}</li>
+                                 - {{$attachment->updated_at->format('h:i:s l, d M Y')}}</li>
                             </ul>
                           </li>
                         @endforeach

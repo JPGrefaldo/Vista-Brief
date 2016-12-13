@@ -436,7 +436,7 @@ Submitted - Brief Sheet
                     <div class="col-sm-12">
                       <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>
                       <h6 class="text-muted">
-                        {{ $amend->updated_at->format('h:m:s l, d M Y') }} - 
+                        {{ $amend->updated_at->format('h:i:s l, d M Y') }} - 
                         @if ($amend->user)
                           {{ $amend->user->forename }} {{ $amend->user->surname }}
                         @endif
@@ -682,7 +682,7 @@ Submitted - Brief Sheet
                                 @else
                                   &lt;missing user info&gt;
                                 @endif
-                                 - {{ $attachment->updated_at->format('h:m l, d M Y') }}</li>
+                                 - {{ $attachment->updated_at->format('h:i:s l, d M Y') }}</li>
                             </ul>
                           </li>
                         @endforeach

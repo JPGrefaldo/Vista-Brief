@@ -375,7 +375,7 @@ Planning Request
                                 {{ $attachment->user->forename }} 
                                 {{ $attachment->user->surname }} - 
                               @endif
-                              {{ $attachment->updated_at->format('h:m:s l, d M Y') }}
+                              {{ $attachment->updated_at->format('h:i:s l, d M Y') }}
                             </li>
                           </ul>
                         </li>
