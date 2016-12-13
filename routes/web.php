@@ -224,9 +224,13 @@ Route::group(['middleware' => 'auth'], function() {
 			]);
 
 			/* Storage */
-			Route::get('/storage/{days}', [
+			Route::get('/storage/', [
 				'uses'	=>	'StorageController@index',
 				'as'	=>	'storage'
+			]);
+			Route::get('/storage/delete/{days}', [
+				'uses'	=>	'StorageController@index',
+				'as'	=>	'storagedelete'
 			]);
 		});
 	});	/* / Admin Middleware */

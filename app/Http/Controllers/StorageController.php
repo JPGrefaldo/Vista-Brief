@@ -14,36 +14,33 @@ use Illuminate\Support\Collection;
 
 class StorageController extends Controller
 {
-  public function index($days) 
+  public function index() 
   {
-  	// return view('storage.index');
-
-  	// $exists = Storage::disk('temp_pdf')->files();
-
-  	// foreach ($exists as $e) {
-  	// 	echo '<p>'.gettype($e).'</p>';
-  	// }
-
-  	// exit('-'.Storage::disk('temp_pdf')->dirname().'-');
-  	// exit(storage_path());
-
+  	$days = 1;
   	$timeInPast = Carbon::now()->subDays($days);
 
     $files = collect(Storage::disk('temp_pdf')->files())
     ->filter(function ($file) use ($timeInPast) {
-    	// echo '<p>'.$file.'</p>';
-    	// if (file_exists($file)) {
-          return Carbon::createFromTimestamp(filemtime(storage_path().'/app/temp/'.$file))
-             ->lt($timeInPast);
-      // } else {
-      // 	echo 'file not exists';
-      // }
-    })
-    ->each(function ($file) {
-        // Filesystem->delete($file);
-        echo '<p>'.$file.'</p>';
+      return Carbon::createFromTimestamp(filemtime(storage_path().'/app/temp/'.$file))
+         ->lt($timeInPast);
     });
 
-    dd($files);
+    $count = count($files);
+  	return view('storage.index', compact('count'));
+  }
+
+  public function delete($days) 
+  {
+  	$timeInPast = Carbon::now()->subDays($days);
+
+    $files = collect(Storage::disk('temp_pdf')->files())
+    ->filter(function ($file) use ($timeInPast) {
+      return Carbon::createFromTimestamp(filemtime(storage_path().'/app/temp/'.$file))
+         ->lt($timeInPast);
+    })
+    ->each(function ($file) {
+        echo '<p>'.$file.'</p>';
+        // Storage::disk('temp_pdf')->delete($file);
+    });
   }
 }
