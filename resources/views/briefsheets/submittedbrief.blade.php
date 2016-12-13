@@ -321,19 +321,22 @@ Submitted - Brief Sheet
               <div class="panel-heading">
                 Post New Amend
               </div>
-              <div class="panel-body">
+              <div class="panel-body m-b-sm">
                 <form class="bs-example form-horizontal" action="{{ route('postnewamend') }}" method="post" enctype="multipart/form-data">
-                <div class="row" style="padding-left:33px;padding-right:30px">
+                <div class="row" style="padding-left:30px;padding-right:30px">
                   <div class="form-group">
-                    <!--<div class="checkbox">
-                      <label class="i-checks">-->
-                        <input class="i-check1" type="checkbox" name="internal">
-                        <i></i> &nbsp;
+                    <div class="checkbox checkbox-brand1 checkbox-md">
+                      <input 
+                        id="internalamend" 
+                        type="checkbox" 
+                        name="internal">
+                      <label for="internalamend">
                         Internal Amend 
-                      <!--</label>
-                    </div>-->
+                      </label>
+                    </div>
                   </div>
                 </div>
+
                 <div class="row" style="padding-left:30px;padding-right:30px">
                   <div class="form-group">
                     <textarea 
@@ -357,19 +360,18 @@ Submitted - Brief Sheet
                   <div class="col-sm-12" id="departmentCBModule">
                     <p class="text-brand-1">Who to notify?</p>
                     @foreach ($departments as $department)
-                      <div class="col-lg-3 m-b-xs" style="padding-left:4px">
-                        <!--<div class="checkbox">
-                          <label class="i-checks">-->
-                            <input 
-                              class="i-check1"
-                              type="checkbox" 
-                              name="department[{{ $department->id }}]" 
-                              value="{{ $department->id }}" 
-                              @if(array_key_exists($department->id, old('department',[]))) checked @endif>
-                            <i></i> &nbsp;
+                      <div class="col-lg-3 m-b-sm m-l-n">
+                        <div class="checkbox checkbox-brand1 checkbox-md">
+                          <input 
+                            id="department{{$department->id}}" 
+                            type="checkbox" 
+                            name="department[{{$department->id}}]" 
+                            value="{{$department->id}}"
+                            @if(array_key_exists($department->id, old('department',[]))) checked @endif>
+                          <label for="department{{$department->id}}">
                             {{$department->name}} 
-                          <!--</label>
-                        </div>-->        
+                          </label>
+                        </div>
                       </div>
                     @endforeach
                   </div>
@@ -503,23 +505,22 @@ Submitted - Brief Sheet
               <div class="panel-body m-t-xs">
                 <div class="row">
                   @foreach ($departments as $department)
-                    <div class="col-lg-3 m-b-xs">
-                      <!--<div class="checkbox">
-                        <label class="i-checks">-->
-                          <input 
-                            class="i-check1"
-                            disabled
-                            type="checkbox" 
-                            name="department[{{ $department->id }}]" 
-                            value="{{ $department->id }}"                              
-                            @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
-                              checked
-                            @endif
-                            > &nbsp;
-                          <i></i>
-                          {{$department->name}}
-                        <!--</label>
-                      </div>-->         
+                    <div class="col-lg-3 m-b-sm">
+                      <div class="checkbox checkbox-brand1 checkbox-md">
+                        <input 
+                          disabled
+                          id="department{{$department->id}}" 
+                          type="checkbox" 
+                          name="department[{{$department->id}}]" 
+                          value="{{$department->id}}"
+                          @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
+                            checked
+                          @endif
+                          >
+                        <label for="department{{$department->id}}">
+                          {{$department->name}} 
+                        </label>
+                      </div>
                     </div>
                   @endforeach
                 </div>
@@ -699,6 +700,7 @@ Submitted - Brief Sheet
         
       </div>
     </div>
+
   </div>
   <!-- / main -->
 </div>

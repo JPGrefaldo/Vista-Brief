@@ -371,29 +371,28 @@ Draft - Brief Sheet
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
                 <span class="custom-text-danger-1">*</span>
               </div>
-              <div class="panel-body m-b-n m-t-xs">
+              <div class="panel-body m-b-n-sm m-t-xxs">
                 <div class="row" id="departmentCBModule">
                   @foreach ($departments as $department)
-                    <div class="col-lg-3 m-b-xs">
-                      <!--<div class="checkbox">
-                        <label class="i-checks">-->
-                          <input 
-                            class="i-check1"
-                            type="checkbox" 
-                            name="department[{{ $department->id }}]" 
-                            value="{{ $department->id }}"
-                            @if ( old('department') )
-                              @if(array_key_exists($department->id, old('department',[]))) checked @endif
-                            @else                                
-                              @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
-                                checked
-                              @endif
+                    <div class="col-lg-3 m-b-sm">
+                      <div class="checkbox checkbox-brand1 checkbox-md">
+                        <input 
+                          id="department{{$department->id}}" 
+                          type="checkbox" 
+                          name="department[{{$department->id}}]" 
+                          value="{{$department->id}}"
+                          @if ( old('department') )
+                            @if(array_key_exists($department->id, old('department',[]))) checked @endif
+                          @else                                
+                            @if(in_array($department->id, explode(',',$brief->disciplines_required_ids)))
+                              checked
                             @endif
-                            > &nbsp;
-                          <i></i> 
-                          {{$department->name}}
-                        <!--</label>
-                      </div>-->          
+                          @endif
+                          >
+                        <label for="department{{$department->id}}">
+                          {{$department->name}} 
+                        </label>
+                      </div>
                     </div>
                   @endforeach
                 </div>
@@ -690,6 +689,7 @@ Draft - Brief Sheet
             </div>
           </form>
         </div>
+
       </div>
     </div>
 

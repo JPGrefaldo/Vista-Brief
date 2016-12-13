@@ -443,6 +443,9 @@ fieldset[disabled] .btn-brand1.active {
 .m-t-xxs {
 	margin-top: 2px;
 }
+.m-b-xxs {
+	margin-bottom: 2px;
+}
 
 .i-check1 {
   /* Double-sized Checkboxes */
@@ -459,3 +462,164 @@ fieldset[disabled] .btn-brand1.active {
 .p-b-xs {
 	padding-top:3px;
 }
+
+/* =============
+   Checkbox from Component
+============= */
+.checkbox {
+  padding-left: 20px;
+}
+.checkbox label {
+  display: inline-block;
+  padding-left: 5px;
+  position: relative;
+}
+.checkbox label::before {
+  -o-transition: 0.1s ease-in-out;
+  -webkit-transition: 0.1s ease-in-out;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  content: "";
+  display: inline-block;
+  height: 17px;
+  left: 0;
+  margin-left: -20px;
+  position: absolute;
+  transition: 0.1s ease-in-out;
+  width: 17px;
+  outline: none !important;
+}
+.checkbox label::after {
+  color: #555555;
+  display: inline-block;
+  font-size: 11px;
+  height: 16px;
+  left: 0;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 1px;
+  position: absolute;
+  top: 0;
+  width: 16px;
+}
+.checkbox input[type="checkbox"] {
+  cursor: pointer;
+  opacity: 0;
+  z-index: 1;
+  outline: none !important;
+}
+.checkbox input[type="checkbox"]:disabled + label {
+  opacity: 0.65;
+}
+.checkbox input[type="checkbox"]:focus + label::before {
+  outline-offset: -2px;
+  outline: none;
+  outline: thin dotted;
+}
+.checkbox input[type="checkbox"]:checked + label::after {
+  content: "\f00c";
+  font-family: 'FontAwesome';
+}
+.checkbox input[type="checkbox"]:disabled + label::before {
+  background-color: #eeeeee;
+  cursor: not-allowed;
+}
+.checkbox.checkbox-circle label::before {
+  border-radius: 50%;
+}
+.checkbox.checkbox-inline {
+  margin-top: 0;
+}
+.checkbox.checkbox-single label {
+  height: 17px;
+}
+.checkbox-custom input[type="checkbox"]:checked + label::before {
+  background-color: #5fbeaa;
+  border-color: #5fbeaa;
+}
+.checkbox-custom input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-primary input[type="checkbox"]:checked + label::before {
+  background-color: #5d9cec;
+  border-color: #5d9cec;
+}
+.checkbox-primary input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-danger input[type="checkbox"]:checked + label::before {
+  background-color: #f05050;
+  border-color: #f05050;
+}
+.checkbox-danger input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-info input[type="checkbox"]:checked + label::before {
+  background-color: #34d3eb;
+  border-color: #34d3eb;
+}
+.checkbox-info input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-warning input[type="checkbox"]:checked + label::before {
+  background-color: #ffbd4a;
+  border-color: #ffbd4a;
+}
+.checkbox-warning input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-success input[type="checkbox"]:checked + label::before {
+  background-color: #81c868;
+  border-color: #81c868;
+}
+.checkbox-success input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-purple input[type="checkbox"]:checked + label::before {
+  background-color: #7266ba;
+  border-color: #7266ba;
+}
+.checkbox-purple input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-pink input[type="checkbox"]:checked + label::before {
+  background-color: #fb6d9d;
+  border-color: #fb6d9d;
+}
+.checkbox-pink input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-inverse input[type="checkbox"]:checked + label::before {
+  background-color: #4c5667;
+  border-color: #4c5667;
+}
+.checkbox-inverse input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+.checkbox-brand1 input[type="checkbox"]:checked + label::before {
+  background-color: #00385b;
+  border-color: #00385b;
+}
+.checkbox-brand1 input[type="checkbox"]:checked + label::after {
+  color: #ffffff;
+}
+
+
+.checkbox-md label::before {
+	width: 22px;
+	height: 22px;
+}
+.checkbox-md label::after {
+  font-size: 16px;
+  height: 21px;
+  left: 0;
+  margin-left: -20px;
+  padding-left: 3px;
+  padding-top: 0px;
+  top: 0;
+  width: 21px;
+}
+/* =============
+  / Checkbox from Component
+============= */
