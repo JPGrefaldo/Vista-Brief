@@ -54,6 +54,13 @@ return [
             'visibility' => 'public',
         ],
 
+
+        'temp_pdf' => [
+            'driver' => 'local',
+            'root' => storage_path('app/temp'),
+            'visibility' => 'public',
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => 'your-key',

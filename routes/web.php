@@ -179,7 +179,8 @@ Route::group(['middleware' => 'auth'], function() {
 				'as'	=>	'quicksearchuser'
 			]);
 			
-			Route::get('/departments', [	/* Department Ruoting */
+			/* Department Ruoting */
+			Route::get('/departments', [
 				'uses'	=>	'DepartmentController@index',
 				'as'	=>	'departments'
 			]);
@@ -201,7 +202,7 @@ Route::group(['middleware' => 'auth'], function() {
 			]);
 
 			/* Clients */
-			Route::get('/clients', [	/* Clients */
+			Route::get('/clients', [
 				'uses'	=>	'ClientController@index',
 				'as'	=>	'clients'
 			]);
@@ -220,6 +221,12 @@ Route::group(['middleware' => 'auth'], function() {
 			Route::get('/clients/find/criteria', [
 				'uses'	=>	'SearchController@quickSearchClient',
 				'as'	=>	'quicksearchclient'
+			]);
+
+			/* Storage */
+			Route::get('/storage/{days}', [
+				'uses'	=>	'StorageController@index',
+				'as'	=>	'storage'
 			]);
 		});
 	});	/* / Admin Middleware */
