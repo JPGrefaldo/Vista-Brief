@@ -142,13 +142,13 @@ Brief Sheets - Vista
                     </td>
                     <td class="dont-break-out">{{$brief->jobname}}</td>
                     <td class="dont-break-out">{{$brief->keydeliverables}}</td>
-                    <td class="dont-break-out">
+                    <td>
                       @if (count($brief->user))
                         {{ $brief->user->forename }} {{ $brief->user->surname }}
                       @endif
                     </td>
-                    <td class="dont-break-out">{{$brief->updated_at->format('m/d/Y')}}</td>
-                    <td class="dont-break-out">
+                    <td>{{$brief->updated_at->format('m/d/Y')}}</td>
+                    <td>
                       @if ($brief->is_draft == 1)
                         Draft
                       @else

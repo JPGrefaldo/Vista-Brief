@@ -139,7 +139,7 @@ Planning Requests - Vista
                         {{$planning->user->forename}} {{$planning->user->surname}}
                       @endif
                     </td>
-                    <td class="dont-break-out">
+                    <td>
                       @if (count($planning->formofresponse))
                         {{ (!empty($planning->formofresponse->name)) ? $planning->formofresponse->name : '' }}
                       @endif
