@@ -224,11 +224,11 @@ Route::group(['middleware' => 'auth'], function() {
 			]);
 
 			/* Storage */
-			Route::get('/storage/', [
+			Route::get('/storage', [
 				'uses'	=>	'StorageController@index',
 				'as'	=>	'storage'
 			]);
-			Route::get('/storage/delete/{days}', [
+			Route::get('/storage/delete', [
 				'uses'	=>	'StorageController@index',
 				'as'	=>	'storagedelete'
 			]);

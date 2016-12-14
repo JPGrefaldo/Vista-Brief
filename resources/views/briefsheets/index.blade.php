@@ -135,20 +135,20 @@ Brief Sheets - Vista
                     <td><span class="text-ellipsis">
                       {{$brief->jobnumber}}
                     </span></td>
-                    <td>
+                    <td class="dont-break-out">
                       @if (count($brief->client))
                         {{$brief->client->name}}
                       @endif
                     </td>
-                    <td>{{$brief->jobname}}</td>
-                    <td>{{$brief->keydeliverables}}</td>
-                    <td>
+                    <td class="dont-break-out">{{$brief->jobname}}</td>
+                    <td class="dont-break-out">{{$brief->keydeliverables}}</td>
+                    <td class="dont-break-out">
                       @if (count($brief->user))
                         {{ $brief->user->forename }} {{ $brief->user->surname }}
                       @endif
                     </td>
-                    <td>{{$brief->updated_at->format('m/d/Y')}}</td>
-                    <td>
+                    <td class="dont-break-out">{{$brief->updated_at->format('m/d/Y')}}</td>
+                    <td class="dont-break-out">
                       @if ($brief->is_draft == 1)
                         Draft
                       @else

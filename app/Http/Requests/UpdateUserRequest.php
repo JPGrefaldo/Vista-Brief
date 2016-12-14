@@ -29,7 +29,7 @@ class UpdateUserRequest extends FormRequest
             'surname'       =>  'bail|required|max:50|alpha',
             'email'         =>  'bail|required|max:200|email|unique:users,email,'.$this->user_id,
             'password'      =>  'bail|min:4|max:255|confirmed|alpha_num',
-            'password_admin'    =>  'bail|required|max:255|isadmin|adminpass'
+            'password_admin'=>  'bail|required|max:255|isadmin|adminpass'
         ];
     }
 
@@ -43,8 +43,8 @@ class UpdateUserRequest extends FormRequest
             'email.required'        =>  'Email is required.',
             'email.unique'          =>  'Email is already taken.',
             'password.confirmed'    =>  'The password you entered don\'t match.',
-            'password_admin.required'   =>  'You need to enter the correct Admin password.',
-            'password_admin.adminpass'  =>  'You need to enter the correct Admin password.',
+            'password_admin.required'   =>  'You need to enter your correct Admin password.',
+            'password_admin.adminpass'  =>  'You need to enter your correct Admin password.',
         ];
     }
 

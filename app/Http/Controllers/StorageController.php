@@ -16,8 +16,8 @@ class StorageController extends Controller
 {
   public function index() 
   {
-  	$days = 1;
-  	$timeInPast = Carbon::now()->subDays($days);
+  	$minutes = 20;
+  	$timeInPast = Carbon::now()->subMinutes($minutes);
 
     $files = collect(Storage::disk('temp_pdf')->files())
     ->filter(function ($file) use ($timeInPast) {
@@ -29,9 +29,10 @@ class StorageController extends Controller
   	return view('storage.index', compact('count'));
   }
 
-  public function delete($days) 
+  public function delete() 
   {
-  	$timeInPast = Carbon::now()->subDays($days);
+    $minutes = 20;
+  	$timeInPast = Carbon::now()->subMinutes($minutes);
 
     $files = collect(Storage::disk('temp_pdf')->files())
     ->filter(function ($file) use ($timeInPast) {

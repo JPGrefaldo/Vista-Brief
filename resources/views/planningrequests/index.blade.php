@@ -128,18 +128,18 @@ Planning Requests - Vista
                         <i></i>
                       </label>
                     </td>
-                    <td>
+                    <td class="dont-break-out">
                       @if (count($planning->client))
                         {{$planning->client->name}}
                       @endif
                     </td>
-                    <td>{{$planning->title}}</td>
-                    <td>
+                    <td class="dont-break-out">{{$planning->title}}</td>
+                    <td class="dont-break-out">
                       @if (count($planning->user))
                         {{$planning->user->forename}} {{$planning->user->surname}}
                       @endif
                     </td>
-                    <td>
+                    <td class="dont-break-out">
                       @if (count($planning->formofresponse))
                         {{ (!empty($planning->formofresponse->name)) ? $planning->formofresponse->name : '' }}
                       @endif
