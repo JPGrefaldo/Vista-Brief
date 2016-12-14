@@ -135,7 +135,7 @@ Brief Sheets - Vista
                     <td><span class="text-ellipsis">
                       {{$brief->jobnumber}}
                     </span></td>
-                    <td class="dont-break-out">
+                    <td>
                       @if (count($brief->client))
                         {{$brief->client->name}}
                       @endif

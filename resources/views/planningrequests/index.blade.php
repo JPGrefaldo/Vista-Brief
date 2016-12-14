@@ -128,7 +128,7 @@ Planning Requests - Vista
                         <i></i>
                       </label>
                     </td>
-                    <td class="dont-break-out">
+                    <td>
                       @if (count($planning->client))
                         {{$planning->client->name}}
                       @endif
