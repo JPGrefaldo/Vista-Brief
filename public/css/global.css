@@ -422,7 +422,8 @@ fieldset[disabled] .btn-brand1.active {
 }
 
 .opt-newclient {
-	background-color: #33b3a6;
+	background-color: #00385b;
+  -moz-background-color: #00385b;
 	color: #ffffff;
 }
 
