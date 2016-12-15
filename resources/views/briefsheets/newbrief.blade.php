@@ -399,7 +399,7 @@ Create New Brief Sheet
                       name="objmeasure" 
                       class="form-control auto-height" 
                       style="min-height:120px;" 
-                      placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
+                      placeholder="*What does the client want to achieve?&#x09;&#10;*Why?&#x09;&#10;*What difference will that make to their business / audience / etc?&#x09;&#10;*What does success looks like?&#x09;&#10;*How will it be measured?"
                     >{{ old('objmeasure') }}</textarea>
                   </div>          
                 </div>
