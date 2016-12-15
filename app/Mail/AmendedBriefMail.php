@@ -44,7 +44,7 @@ class AmendedBriefMail extends Mailable implements ShouldQueue
 
         $clientname = (count($brief->client)) ? $brief->client->name : "";
 
-        $this->subject          = 'Amended Brief Sheet: '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables;
+        $this->subject          = 'Amended Brief Sheet: '.$brief->jobnumber.' - '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables;
 
         $this->pdf_file_name    = 'Amended Brief Sheet: '.$brief->jobnumber.' - '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
     }

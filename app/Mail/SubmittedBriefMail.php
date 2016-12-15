@@ -44,7 +44,7 @@ class SubmittedBriefMail extends Mailable implements ShouldQueue
 
         $clientname = (count($brief->client)) ? $brief->client->name : "";
 
-        $this->subject          = 'New Brief Sheet: '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables;
+        $this->subject          = 'New Brief Sheet: '.$brief->jobnumber.' - '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables;
 
         $this->pdf_file_name    = 'New Brief Sheet: '.$brief->jobnumber.' - '.$clientname.' - '.$brief->jobname.' - '.$brief->keydeliverables.'.pdf';
     }
