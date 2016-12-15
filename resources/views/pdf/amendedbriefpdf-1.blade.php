@@ -9,7 +9,7 @@ Brief Submitted File
 if ($brief->projectstatus_id == 1) {
   $ps_color = "background-color:#5ec8d6;color:#ffffff"; //light blue #5ec8d6 
 } else {
-  $ps_color = "background-color:#00385b;color:#ffffff"; //dark blue #00385b
+  $ps_color = "background-color:#33b3a6;color:#ffffff"; //blue green #33b3a6
 }
 ?>
 
@@ -92,28 +92,28 @@ if ($brief->projectstatus_id == 1) {
 
       <div class="row">
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>Proposal Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->proposal_required_by_at)) ? $brief->proposal_required_by_at->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>1st Stage Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->firststage_required_by_at)) ? $brief->firststage_required_by_at->format('M d, Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>Project Delivered By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->project_delivered_by_at)) ? $brief->project_delivered_by_at->format('M d, Y') : '&nbsp;' }}

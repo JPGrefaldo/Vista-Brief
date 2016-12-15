@@ -9,7 +9,7 @@ Brief Submitted File
 if ($brief->projectstatus_id == 1) {
   $ps_color = "background-color:#5ec8d6;color:#ffffff"; //light blue #5ec8d6 
 } else {
-  $ps_color = "background-color:#00385b;color:#ffffff"; //dark blue #00385b
+  $ps_color = "background-color:#33b3a6;color:#ffffff"; //blue green #33b3a6
 }
 ?>
 
@@ -23,7 +23,7 @@ if ($brief->projectstatus_id == 1) {
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
+      	  <p class="pull-right text-muted">{{date('d/m/Y')}}</p>
         </div>
         <div class="col-xs-12 m-t-n">
       	  <h2 class="text-brand1">Brief Sheet</h2>
@@ -60,60 +60,60 @@ if ($brief->projectstatus_id == 1) {
       <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Job Number</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->jobnumber }}</p>
+        	<p class="bg-light p-l-sm">{{$brief->jobnumber}}</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Old Job Number</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->old_jobnumber }}&nbsp;</p>
+        	<p class="bg-light p-l-sm">{{$brief->old_jobnumber}}&nbsp;</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Job Name</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->jobname }}</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->jobname}}</p>
         </div>
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>Your Budget</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->budget }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->budget}}&nbsp;</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Key Deliverables</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->keydeliverables }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->keydeliverables}}&nbsp;</p>
         </div>
         <div class="col-xs-3">
             <label class="control-label text-left"><strong>Project Manager</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->projectmanager }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->projectmanager}}&nbsp;</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '' }}&nbsp;
+            {{(!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : ''}}&nbsp;
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>Proposal Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->proposal_required_by_at)) ? $brief->proposal_required_by_at->format('M d, Y') : '' }}&nbsp;
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>1st Stage Required By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->firststage_required_by_at)) ? $brief->firststage_required_by_at->format('M d, Y') : '' }}&nbsp;
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left text-xs">
+          <label class="control-label text-left">
             <strong>Project Delivered By</strong></label>
         	<p class="bg-light p-l-sm">
             {{ (!empty($brief->project_delivered_by_at)) ? $brief->project_delivered_by_at->format('M d, Y') : '' }}&nbsp;
