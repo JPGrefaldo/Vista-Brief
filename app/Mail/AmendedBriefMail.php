@@ -34,7 +34,7 @@ class AmendedBriefMail extends Mailable implements ShouldQueue
     public function __construct(\App\Brief $brief, $department_name)
     {
         $this->brief_id         = $brief->id;
-        $this->updated_at       = $brief->updated_at->format('m/d/Y h:m');
+        $this->updated_at       = $brief->updated_at->format('d/m/Y h:i');
         $this->jobnumber        = $brief->jobnumber;
         $this->jobname          = $brief->jobname;
         $this->keydeliverables  = $brief->keydeliverables;

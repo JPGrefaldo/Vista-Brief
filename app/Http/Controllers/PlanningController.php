@@ -51,7 +51,7 @@ class PlanningController extends Controller
     	$ideal_review_date = $this->convertTo_MysqlDate($request->input('ideal_review_date'));
     	$project_deadline_date = $this->convertTo_MysqlDate($request->input('project_deadline_date'));
     	$job_specifications = $request->input('job_spec');
-
+      
     	$planning = new Planning();
     	$planning->user_id = $user_id;
       $planning->client_id = $client_id;
@@ -131,6 +131,6 @@ class PlanningController extends Controller
     		return trim($str_input);
     	endif;
 
-    	return date('Y-m-d', strtotime($str_input));
+    	return date('Y-m-d', strtotime(str_replace('/', '-', $str_input)));
     }
 }

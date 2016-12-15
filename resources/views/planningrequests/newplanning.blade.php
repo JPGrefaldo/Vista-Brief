@@ -290,7 +290,7 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="pitch_quote_date" 
-                              placeholder="mm/dd/yy" 
+                              placeholder="dd/mm/yy" 
                               value="{{ old('pitch_quote_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
@@ -315,7 +315,7 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="ideal_qa_date" 
-                              placeholder="mm/dd/yy" 
+                              placeholder="dd/mm/yy" 
                               value="{{ old('ideal_qa_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
@@ -340,7 +340,7 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="ideal_review_date" 
-                              placeholder="mm/dd/yy" 
+                              placeholder="dd/mm/yy" 
                               value="{{ old('ideal_review_date') }}" 
                               readonly/>
                             <span class="input-group-btn">
@@ -365,7 +365,7 @@ Create New Planning Request
                               type="text" 
                               class="form-control" 
                               name="project_deadline_date" 
-                              placeholder="mm/dd/yy" 
+                              placeholder="dd/mm/yy" 
                               value="{{ old('project_deadline_date') }}"  
                               readonly/>
                             <span class="input-group-btn">

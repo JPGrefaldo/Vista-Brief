@@ -261,7 +261,6 @@ class BriefAddEditController extends Controller
       $brief->keymessages_or_propositions = $keymessages_or_propositions;
       $brief->creative = $creative;
       $brief->budget_timings_and_outputs = $budget_timings_and_outputs;
-
       $brief->save();
 
       $arr_attachment_ids = array();
@@ -369,7 +368,7 @@ class BriefAddEditController extends Controller
     		return trim($str_input);
     	endif;
 
-    	return date('Y-m-d', strtotime($str_input));
+    	return date('Y-m-d', strtotime(str_replace('/', '-', $str_input)));
     }
 
     private function convertFrom_Mysqldate($str_input) 

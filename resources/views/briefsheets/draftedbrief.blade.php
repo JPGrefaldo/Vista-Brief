@@ -252,7 +252,7 @@ Draft - Brief Sheet
                             class="form-control" 
                             name="quotereq" 
                             placeholder="mm/dd/yy" 
-                            value="{{ (old('quotereq') || empty($brief->quoted_required_by_at)) ? old('quotereq') : $brief->quoted_required_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('quotereq') || empty($brief->quoted_required_by_at)) ? old('quotereq') : $brief->quoted_required_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_quotereq">
@@ -275,7 +275,7 @@ Draft - Brief Sheet
                             class="form-control" 
                             name="proposedreq" 
                             placeholder="mm/dd/yy" 
-                            value="{{ (old('proposedreq') || empty($brief->proposal_required_by_at)) ? old('proposedreq') : $brief->proposal_required_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('proposedreq') || empty($brief->proposal_required_by_at)) ? old('proposedreq') : $brief->proposal_required_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_proposedreq">
@@ -300,7 +300,7 @@ Draft - Brief Sheet
                             class="form-control" 
                             name="stagereq" 
                             placeholder="mm/dd/yy" 
-                            value="{{ (old('stagereq') || empty($brief->firststage_required_by_at)) ? old('stagereq') : $brief->firststage_required_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('stagereq') || empty($brief->firststage_required_by_at)) ? old('stagereq') : $brief->firststage_required_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_stagereq">
@@ -323,7 +323,7 @@ Draft - Brief Sheet
                             class="form-control" 
                             name="projdelivered" 
                             placeholder="mm/dd/yy" 
-                            value="{{ (old('projdelivered') || empty($brief->project_delivered_by_at)) ? old('projdelivered') : $brief->project_delivered_by_at->format('m/d/Y') }}" 
+                            value="{{ (old('projdelivered') || empty($brief->project_delivered_by_at)) ? old('projdelivered') : $brief->project_delivered_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_projdelivered">

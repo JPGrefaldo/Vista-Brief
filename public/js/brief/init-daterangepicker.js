@@ -11,7 +11,11 @@ $(document).ready(function() {
 		'opens': 'center',
 		locale: {
 			firstDay: 1,
+			format: 'DD/MM/YYYY',
 		},
+		autoUpdateInput: false,
+	},function(chosen_date) {
+	  	$quotereq.val(chosen_date.format('DD/MM/YYYY'));
 	})
 	$btn_quotereq.click(function() {
 		$quotereq.trigger('click')
@@ -25,7 +29,11 @@ $(document).ready(function() {
 		'opens': 'center',
 		locale: {
 			firstDay: 1,
+			format: 'DD/MM/YYYY',
 		},
+		autoUpdateInput: false,
+	},function(chosen_date) {
+	  	$proposedreq.val(chosen_date.format('DD/MM/YYYY'));
 	})
 	$btn_proposedreq.click(function() {
 		$proposedreq.trigger('click')
@@ -39,7 +47,11 @@ $(document).ready(function() {
 		'opens': 'center',
 		locale: {
 			firstDay: 1,
+			format: 'DD/MM/YYYY',
 		},
+		autoUpdateInput: false,
+	},function(chosen_date) {
+	  	$stagereq.val(chosen_date.format('DD/MM/YYYY'));
 	})
 	$btn_stagereq.click(function() {
 		$stagereq.trigger('click')
@@ -53,7 +65,11 @@ $(document).ready(function() {
 		'opens': 'center',
 		locale: {
 			firstDay: 1,
+			format: 'DD/MM/YYYY',
 		},
+		autoUpdateInput: false,
+	},function(chosen_date) {
+	  	$projdelivered.val(chosen_date.format('DD/MM/YYYY'));
 	})
 	$btn_projdelivered.click(function() {
 		$projdelivered.trigger('click')

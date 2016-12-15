@@ -241,7 +241,7 @@ Planning Request
                             class="form-control" 
                             name="pitch_quote_date" 
                             placeholder="mm/dd/yy" 
-                            value="@if(!empty($planning->pitch_quote_date)) {{ $planning->pitch_quote_date->format('m/d/Y') }} @endif" 
+                            value="@if(!empty($planning->pitch_quote_date)) {{ $planning->pitch_quote_date->format('d/m/Y') }} @endif" 
                             readonly/>
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_pitch_quote_date" disabled>
@@ -264,7 +264,7 @@ Planning Request
                             class="form-control" 
                             name="ideal_qa_date" 
                             placeholder="mm/dd/yy" 
-                            value="@if(!empty($planning->ideal_qa_date)) {{ $planning->ideal_qa_date->format('m/d/Y') }} @endif"  
+                            value="@if(!empty($planning->ideal_qa_date)) {{ $planning->ideal_qa_date->format('d/m/Y') }} @endif"  
                             readonly/>
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_ideal_qa_date" disabled>
@@ -287,7 +287,7 @@ Planning Request
                             class="form-control" 
                             name="ideal_review_date" 
                             placeholder="mm/dd/yy" 
-                            value="@if(!empty($planning->ideal_review_date)) {{ $planning->ideal_review_date->format('m/d/Y') }} @endif"  
+                            value="@if(!empty($planning->ideal_review_date)) {{ $planning->ideal_review_date->format('d/m/Y') }} @endif"  
                             readonly/>
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_ideal_review_date" disabled>
@@ -310,7 +310,7 @@ Planning Request
                             class="form-control" 
                             name="project_deadline_date" 
                             placeholder="mm/dd/yy" 
-                            value="@if(!empty($planning->project_deadline_date)) {{ $planning->project_deadline_date->format('m/d/Y') }} @endif" 
+                            value="@if(!empty($planning->project_deadline_date)) {{ $planning->project_deadline_date->format('d/m/Y') }} @endif" 
                             readonly/>
                           <span class="input-group-btn">
                             <button type="button" class="btn btn-default" id="btn_project_deadline_date" disabled>

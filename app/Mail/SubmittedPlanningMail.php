@@ -18,6 +18,9 @@ class SubmittedPlanningMail extends Mailable implements ShouldQueue
     protected $subject = 'New Planning Request - Vista Brief';
     protected $planning_id;
     protected $pdf_file_name;
+    protected $updated_at;
+    protected $title;
+    protected $clientname;
 
     /**
      * Create a new message instance.
@@ -27,7 +30,7 @@ class SubmittedPlanningMail extends Mailable implements ShouldQueue
     public function __construct(\App\Planning $planning)
     {
         $this->planning_id= $planning->id;
-        $this->updated_at = $planning->updated_at->format('M d, Y h:m');
+        $this->updated_at = $planning->updated_at->format('d/m/Y h:i');
         $this->title      = $planning->title;
 
         $this->clientname = (count($planning->client)) ? $planning->client->name : "";
