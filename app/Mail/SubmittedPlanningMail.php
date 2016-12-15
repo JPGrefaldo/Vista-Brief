@@ -30,7 +30,7 @@ class SubmittedPlanningMail extends Mailable implements ShouldQueue
     public function __construct(\App\Planning $planning)
     {
         $this->planning_id= $planning->id;
-        $this->updated_at = $planning->updated_at->format('d/m/Y h:i');
+        $this->updated_at = $planning->updated_at->format('d/m/Y H:i');
         $this->title      = $planning->title;
 
         $this->clientname = (count($planning->client)) ? $planning->client->name : "";

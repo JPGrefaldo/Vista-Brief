@@ -252,7 +252,7 @@ if ($brief->projectstatus_id == 1) {
               @else
                 Upload by &lt;missing info&gt;
               @endif
-               - {{ $attachment->updated_at->format('h:i:s l, M d, Y') }}
+               - {{ $attachment->updated_at->format('H:i:s l, M d, Y') }}
             </h6>
           </div>
           @endforeach

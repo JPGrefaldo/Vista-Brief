@@ -316,11 +316,11 @@ Create New Brief Sheet
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
             <!-- Brief Summary -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #01 - Brief Summary 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Enter short overview description of the requirements here."></i> 
-                <span class="custom-text-danger-1">*</span>
+                <span class="panel-required custom-text-danger-1">*</span>
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -338,11 +338,11 @@ Create New Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #02 - Disciplines Required 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
-                <span class="custom-text-danger-1">*</span>
+                <span class="panel-required custom-text-danger-1">*</span>
               </div>
               <div class="panel-body m-b-n-sm m-t-xxs">                
                 <div class="row" id="departmentCBModule">
@@ -384,13 +384,13 @@ Create New Brief Sheet
             <!-- / Desciplines Required -->
 
             <!-- Objectives / Measure -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #03 - Objectives / Measure 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?">
                 </i> 
-                <span class="custom-text-danger-1">*</span>
+                <span class="panel-required custom-text-danger-1">*</span>
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -408,7 +408,7 @@ Create New Brief Sheet
             <!-- / Objectives / Measure -->
 
             <!-- Context -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #04 - Context 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -431,7 +431,7 @@ Create New Brief Sheet
             <!-- / Context -->
 
             <!-- Target Audience and Insight -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #05 - Target Audience and Insight 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -454,7 +454,7 @@ Create New Brief Sheet
             <!-- / Target Audience and Insight -->
 
             <!-- What do want the target audience to -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #06 - What do I want the target audience to...
               </div>
@@ -492,7 +492,7 @@ Create New Brief Sheet
             <!-- / What do want the target audience to -->
 
             <!-- Key Messages / Propositions -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #07 - Key Messages / Propositions 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -515,7 +515,7 @@ Create New Brief Sheet
             <!-- / Key Messages / Propositions -->
 
             <!-- Creative -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #08 - Creative 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -538,13 +538,13 @@ Create New Brief Sheet
             <!-- / Creative -->
 
             <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #09 - Budget, Timings and Outputs Required 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
                   title="*What immediate outputs are required?&#10;*What are the next steps?&#10;*What budget has the client or account lead set for this work?&#10;*What deadline are we working to?">
                 </i> 
-                <span class="custom-text-danger-1">*</span> 
+                <span class="panel-required custom-text-danger-1">*</span> 
               </div>
               <div class="panel-body">
                 <div class="row-fluid">
@@ -562,7 +562,7 @@ Create New Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Attachments -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #10 - Attachments 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 

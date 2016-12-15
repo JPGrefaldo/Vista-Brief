@@ -152,7 +152,7 @@ if ($brief->projectstatus_id == 1) {
               @else
               &lt;missing info&gt;
               @endif
-               - {{ $amend->updated_at->format('l, M d, Y - h:i') }}
+               - {{ $amend->updated_at->format('l, M d, Y - H:i') }}
             </p>
             <p class="text-muted">
               Amend for 
@@ -329,7 +329,7 @@ if ($brief->projectstatus_id == 1) {
               @else
                 Upload by &lt;missing info&gt;
               @endif
-               - {{ $attachment->updated_at->format('h:i:s l, M d, Y') }}
+               - {{ $attachment->updated_at->format('H:i:s l, M d, Y') }}
             </h6>
           </div>
           @endforeach

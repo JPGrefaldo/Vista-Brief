@@ -114,7 +114,7 @@ Profile - Vista
         </div>
       </div>
     </div>
-    <div class="wrapper bg-white b-b">
+    <div class="wrapper bg-white b-b hide">
       <ul class="nav nav-pills nav-sm nav-pills-brand1">
         <li class="active"><a href="">Profile</a></li>
       </ul>

@@ -317,7 +317,7 @@ Submitted - Brief Sheet
             <div class="line line-dashed b-b line-lg pull-in hide"></div>
 
             <!-- Post New Amend -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 Post New Amend
               </div>
@@ -420,7 +420,7 @@ Submitted - Brief Sheet
             <!-- / Post New Amend -->
 
             <!-- List of Ammendments -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 Amends
               </div>
@@ -436,7 +436,7 @@ Submitted - Brief Sheet
                     <div class="col-sm-12">
                       <p><span class="text-lg font-bold">Amend {{ $key+1 }}</span>@if ($amend->is_internal)<span class="font-normal"> - Internal Amend</span>@endif</p>
                       <h6 class="text-muted">
-                        {{ $amend->updated_at->format('h:i:s l, d M Y') }} - 
+                        {{ $amend->updated_at->format('H:i:s l, d M Y') }} - 
                         @if ($amend->user)
                           {{ $amend->user->forename }} {{ $amend->user->surname }}
                         @endif
@@ -483,7 +483,7 @@ Submitted - Brief Sheet
             <!-- / List of Ammendments -->
 
             <!-- Brief Summary -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #01 - Brief Summary 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Enter short overview description of the requirements here."></i> 
@@ -497,7 +497,7 @@ Submitted - Brief Sheet
             <!-- / Brief Summary -->
 
             <!-- Desciplines Required -->
-            <div class="panel panel-bluegreen1 brief-panel bg-light lter">
+            <div class="panel panel-brand1 brief-panel bg-light lter">
               <div class="panel-heading">
                 #02 - Disciplines Required 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" title="Select which teams are required for the brief and indicate which Access team number there time should go against. Please ensure this is set up in Access before submitting brief."></i> 
@@ -529,7 +529,7 @@ Submitted - Brief Sheet
             <!-- / Desciplines Required -->
 
             <!-- Objectives / Measure -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #03 - Objectives / Measure 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -545,7 +545,7 @@ Submitted - Brief Sheet
             <!-- / Objectives / Measure -->
 
             <!-- Context -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #04 - Context 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -561,7 +561,7 @@ Submitted - Brief Sheet
             <!-- / Context -->
 
             <!-- Target Audience and Insight -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #05 - Target Audience and Insight 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -577,7 +577,7 @@ Submitted - Brief Sheet
             <!-- / Target Audience and Insight -->
 
             <!-- What do want the target audience to -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 06 - What do I want the target audience to...
               </div>
@@ -601,7 +601,7 @@ Submitted - Brief Sheet
             <!-- / What do want the target audience to -->
 
             <!-- Key Messages / Propositions -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #07 - Key Messages / Propositions 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -617,7 +617,7 @@ Submitted - Brief Sheet
             <!-- / Key Messages / Propositions -->
 
             <!-- Creative -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #08 - Creative 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -633,7 +633,7 @@ Submitted - Brief Sheet
             <!-- / Creative -->
 
             <!-- Budget, Timings and Outputs Required -->
-            <div class="panel panel-bluegreen1 brief-panel">
+            <div class="panel panel-brand1 brief-panel">
               <div class="panel-heading">
                 #09 - Budget, Timings and Outputs Required 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -649,7 +649,7 @@ Submitted - Brief Sheet
             <!-- / Budget, Timings and Outputs Required -->
 
             <!-- Brief Attachments -->
-            <div class="panel panel-bluegreen1 brief-panel bg-light lter">
+            <div class="panel panel-brand1 brief-panel bg-light lter">
               <div class="panel-heading">
                 #10 - Brief Sheet Attached Files 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
@@ -682,7 +682,7 @@ Submitted - Brief Sheet
                                 @else
                                   &lt;missing user info&gt;
                                 @endif
-                                 - {{ $attachment->updated_at->format('h:i:s l, d M Y') }}</li>
+                                 - {{ $attachment->updated_at->format('H:i:s l, d M Y') }}</li>
                             </ul>
                           </li>
                         @endforeach
