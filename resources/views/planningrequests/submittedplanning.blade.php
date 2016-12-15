@@ -240,7 +240,7 @@ Planning Request
                             type="text" 
                             class="form-control" 
                             name="pitch_quote_date" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($planning->pitch_quote_date)) {{ $planning->pitch_quote_date->format('d/m/Y') }} @endif" 
                             readonly/>
                           <span class="input-group-btn">
@@ -263,7 +263,7 @@ Planning Request
                             type="text" 
                             class="form-control" 
                             name="ideal_qa_date" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($planning->ideal_qa_date)) {{ $planning->ideal_qa_date->format('d/m/Y') }} @endif"  
                             readonly/>
                           <span class="input-group-btn">
@@ -286,7 +286,7 @@ Planning Request
                             type="text" 
                             class="form-control" 
                             name="ideal_review_date" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($planning->ideal_review_date)) {{ $planning->ideal_review_date->format('d/m/Y') }} @endif"  
                             readonly/>
                           <span class="input-group-btn">
@@ -309,7 +309,7 @@ Planning Request
                             type="text" 
                             class="form-control" 
                             name="project_deadline_date" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($planning->project_deadline_date)) {{ $planning->project_deadline_date->format('d/m/Y') }} @endif" 
                             readonly/>
                           <span class="input-group-btn">

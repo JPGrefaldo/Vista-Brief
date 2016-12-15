@@ -232,7 +232,7 @@ Create New Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="quotereq" 
-                            placeholder="mm/dd/yy"
+                            placeholder="dd/mm/yy"
                             value="{{ old('quotereq') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -253,7 +253,7 @@ Create New Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="proposedreq" 
-                            placeholder="mm/dd/yy"                            
+                            placeholder="dd/mm/yy"                            
                             value="{{ old('proposedreq') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -276,7 +276,7 @@ Create New Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="stagereq" 
-                            placeholder="mm/dd/yy"
+                            placeholder="dd/mm/yy"
                             value="{{ old('stagereq') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -297,7 +297,7 @@ Create New Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="projdelivered" 
-                            placeholder="mm/dd/yy"
+                            placeholder="dd/mm/yy"
                             value="{{ old('projdelivered') }}" 
                             readonly />
                           <span class="input-group-btn">

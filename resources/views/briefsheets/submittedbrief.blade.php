@@ -223,7 +223,7 @@ Submitted - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="quotereq" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($brief->quoted_required_by_at)) {{ $brief->quoted_required_by_at->format('d/m/Y') }} @endif" 
                             readonly 
                             disabled />
@@ -247,7 +247,7 @@ Submitted - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="proposedreq" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($brief->proposal_required_by_at)) {{ $brief->proposal_required_by_at->format('d/m/Y') }} @endif"
                             readonly 
                             disabled />
@@ -272,7 +272,7 @@ Submitted - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="stagereq" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($brief->firststage_required_by_at)) {{ $brief->firststage_required_by_at->format('d/m/Y') }} @endif" 
                             readonly 
                             disabled />
@@ -295,7 +295,7 @@ Submitted - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="projdelivered" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="@if(!empty($brief->project_delivered_by_at)) {{ $brief->project_delivered_by_at->format('d/m/Y') }} @endif"
                             readonly 
                             disabled />

@@ -251,7 +251,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="quotereq" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="{{ (old('quotereq') || empty($brief->quoted_required_by_at)) ? old('quotereq') : $brief->quoted_required_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -274,7 +274,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="proposedreq" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="{{ (old('proposedreq') || empty($brief->proposal_required_by_at)) ? old('proposedreq') : $brief->proposal_required_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -299,7 +299,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="stagereq" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="{{ (old('stagereq') || empty($brief->firststage_required_by_at)) ? old('stagereq') : $brief->firststage_required_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
@@ -322,7 +322,7 @@ Draft - Brief Sheet
                             type="text" 
                             class="form-control" 
                             name="projdelivered" 
-                            placeholder="mm/dd/yy" 
+                            placeholder="dd/mm/yy" 
                             value="{{ (old('projdelivered') || empty($brief->project_delivered_by_at)) ? old('projdelivered') : $brief->project_delivered_by_at->format('d/m/Y') }}" 
                             readonly />
                           <span class="input-group-btn">
