@@ -388,7 +388,7 @@ Create New Brief Sheet
               <div class="panel-heading">
                 #03 - Objectives / Measure 
                 <i class="icon icon-question ctooltip" data-toggle="tooltip" data-placement="right" 
-                  title="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?">
+                  title="*What does the client want to achieve?&#;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?">
                 </i> 
                 <span class="panel-required custom-text-danger-1">*</span>
               </div>
@@ -399,7 +399,7 @@ Create New Brief Sheet
                       name="objmeasure" 
                       class="form-control auto-height" 
                       style="min-height:120px;" 
-                      placeholder="*What does the client want to achieve?&#x0a;&#x09;&#x09;*Why?&#x0a;&#x09;&#x09;*What difference will that make to their business / audience / etc?&#x0a;&#x09;&#x09;*What does success looks like?&#x0a;&#x09;&#x09;*How will it be measured?"
+                      placeholder="*What does the client want to achieve?&#x0a;&#x09;&#10;*Why?&#x0a;&#x09;&#10;*What difference will that make to their business / audience / etc?&#x0a;&#x09;&#10;*What does success looks like?&#x0a;&#x09;&#10;*How will it be measured?"
                     >{{ old('objmeasure') }}</textarea>
                   </div>          
                 </div>
