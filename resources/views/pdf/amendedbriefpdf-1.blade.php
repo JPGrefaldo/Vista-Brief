@@ -20,10 +20,11 @@ if ($brief->projectstatus_id == 1) {
       <!-- Title -->
       <div class="row m-b-md">
         <div class="col-xs-6 m-b-n m-t-n">
-      	  <h1 class="text-default">VISTA</h1>
+          <img src="/images/Vista_logo_Vista_gray.png" width="121" height="59">
+      	  <h1 class="text-default hide">VISTA TEXT</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
+      	  <p class="pull-right text-muted">{{date('d/m/Y')}}</p>
         </div>
         <div class="col-xs-12 m-t-n">
       	  <h2 class="text-brand1">Brief Sheet</h2>
@@ -37,7 +38,7 @@ if ($brief->projectstatus_id == 1) {
           <label class="control-label text-left"><strong>Client</strong></label>
         	<p class="bg-light p-l-sm">
             @if (count($brief->client))
-              {{ $brief->client->name }}
+              {{$brief->client->name}}
             @else
               &lt;client info missing&gt;
             @endif
@@ -48,7 +49,7 @@ if ($brief->projectstatus_id == 1) {
           <label class="control-label text-left"><strong>Project Status</strong></label>
         	<p class="bg-light p-l-sm" style="{{$ps_color}}">
             @if (count($brief->projectstatus))
-              {{ $brief->projectstatus->name }}
+              {{$brief->projectstatus->name}}
             @else
               &lt;status info missing&gt;
             @endif
@@ -60,33 +61,33 @@ if ($brief->projectstatus_id == 1) {
       <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Job Number</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->jobnumber }}&nbsp;</p>
+        	<p class="bg-light p-l-sm">{{$brief->jobnumber}}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Old Job Number</strong></label>
-        	<p class="bg-light p-l-sm">{{ $brief->old_jobnumber }}&nbsp;</p>
+        	<p class="bg-light p-l-sm">{{$brief->old_jobnumber}}&nbsp;</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Job Name</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->jobname }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->jobname}}&nbsp;</p>
         </div>
         <div class="col-xs-3">
           <label class="control-label text-left"><strong>Your Budget</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->budget }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->budget}}&nbsp;</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xs-9">
           <label class="control-label text-left"><strong>Key Deliverables</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->keydeliverables }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->keydeliverables}}&nbsp;</p>
         </div>
         <div class="col-xs-3">
             <label class="control-label text-left"><strong>Project Manager</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $brief->projectmanager }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$brief->projectmanager}}&nbsp;</p>
         </div>
       </div>
 
@@ -95,7 +96,7 @@ if ($brief->projectstatus_id == 1) {
           <label class="control-label text-left">
             <strong>Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '&nbsp;' }}
+            {{(!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '&nbsp;'}}
           </p>
         </div>
         <div class="col-xs-3">

@@ -131,9 +131,17 @@ Route::group(['middleware' => 'auth'], function() {
 	/* / Planning Requests */
 
 	/* PDF Generator: Test Controller */
-	Route::get('/pdf/file/{id}', [
+	Route::get('/pdf/file/brief/{id}', [
 		'uses'	=> 'PdfController@get_pdfSubmittedBriefAttachment',
-		'as'	=>	'pdfbriefsubmit'
+		'as'	=>	'pdf_brief'
+	]);
+	Route::get('/pdf/file/amend/{id}', [
+		'uses'	=> 'PdfController@get_pdfAmendedBriefAttachment',
+		'as'	=>	'pdf_amend'
+	]);
+	Route::get('/pdf/file/planning/{id}', [
+		'uses'	=> 'PdfController@get_pdfSubmittedPlanningAttachment',
+		'as'	=>	'pdf_planning'
 	]);
 	/* / PDF Generator */
 

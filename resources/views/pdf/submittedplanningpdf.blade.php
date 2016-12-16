@@ -12,10 +12,11 @@ Planning Request File
       <!-- Title -->
       <div class="row m-b-md">
         <div class="col-xs-6 m-b-n m-t-n">
-      	  <h1 class="text-default">VISTA</h1>
+          <img src="/images/Vista_logo_Vista_gray.png" width="121" height="59">
+      	  <h1 class="text-default hide">VISTA TEXT</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
-      	  <p class="pull-right text-muted">{{ date('d/m/Y') }}</p>
+      	  <p class="pull-right text-muted">{{date('d/m/Y')}}</p>
         </div>
         <div class="col-xs-12 m-t-n">
       	  <h2 class="text-brand1">Planning Request</h2>
@@ -29,7 +30,7 @@ Planning Request File
           <label class="control-label text-left"><strong>Client</strong></label>
         	<p class="bg-light p-l-sm">
             @if (count($planning->client))
-              {{ $planning->client->name }}
+              {{$planning->client->name}}
             @else
               &lt;client info missing&gt;
             @endif
@@ -38,25 +39,25 @@ Planning Request File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Taken By</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->taken_by }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$planning->taken_by}}&nbsp;</p>
         </div>
 
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Name/Title</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_name }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$planning->contact_name}}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Email</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_email }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$planning->contact_email}}&nbsp;</p>
         </div>
 
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Landline</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_landline }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$planning->contact_landline}}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Mobile</strong></label>
-        	<p class="bg-light p-l-sm p-r-sm">{{ $planning->contact_mobile }}&nbsp;</p>
+        	<p class="bg-light p-l-sm p-r-sm">{{$planning->contact_mobile}}&nbsp;</p>
         </div>
       </div>
       <!-- / Information -->
@@ -68,13 +69,13 @@ Planning Request File
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Title</strong></label>
-          <p class="bg-light p-l-sm p-r-sm">{{ $planning->title }}&nbsp;</p>
+          <p class="bg-light p-l-sm p-r-sm">{{$planning->title}}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Status</strong></label>
           <p class="bg-light p-l-sm">            
             @if (count($planning->jobstatus))
-              {{ $planning->jobstatus->name }}
+              {{$planning->jobstatus->name}}
             @else
               &lt;status info missing&gt;
             @endif
@@ -84,13 +85,13 @@ Planning Request File
 
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Budget</strong></label>
-          <p class="bg-light p-l-sm p-r-sm">{{ $planning->budget }}&nbsp;</p>
+          <p class="bg-light p-l-sm p-r-sm">{{$planning->budget}}&nbsp;</p>
         </div>
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Format of Response</strong></label>
           <p class="bg-light p-l-sm p-r-sm">
             @if (count($planning->formofresponse))
-              {{ $planning->formofresponse->name }}
+              {{$planning->formofresponse->name}}
             @else
               &lt;format info missing&gt;
             @endif
@@ -108,7 +109,7 @@ Planning Request File
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Pitch/Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($planning->pitch_quote_date)) ? $planning->pitch_quote_date->format('M d, Y') : '&nbsp;' }}
+            {{(!empty($planning->pitch_quote_date)) ? $planning->pitch_quote_date->format('M d, Y') : '&nbsp;'}}
           </p>
         </div>
         <div class="col-xs-6 hide">
@@ -118,7 +119,7 @@ Planning Request File
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Ideal/Q&amp;A Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($planning->ideal_qa_date)) ? $planning->ideal_qa_date->format('M d, Y') : '&nbsp;' }}
+            {{(!empty($planning->ideal_qa_date)) ? $planning->ideal_qa_date->format('M d, Y') : '&nbsp;'}}
           </p>
         </div>
         <div class="col-xs-6 hide">
