@@ -20,6 +20,7 @@ if ($brief->projectstatus_id == 1) {
       <!-- Title -->
       <div class="row m-b-md">
         <div class="col-xs-6 m-b-n m-t-n">
+          <img src="http://45.55.92.158/images/Vista_logo_Vista_gray.png" width="138" height="67">
       	  <h1 class="text-default">VISTA</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
