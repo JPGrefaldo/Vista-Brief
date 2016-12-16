@@ -12,7 +12,7 @@ Planning Request File
       <!-- Title -->
       <div class="row m-b-md">
         <div class="col-xs-6 m-b-n m-t-n">
-          <img src="/images/Vista_logo_Vista_gray.png" width="121" height="59">
+          <img src="{{url('/')}}/images/Vista_logo_Vista_gray.png" width="121" height="59">
       	  <h1 class="text-default hide">VISTA TEXT</h1>
         </div>
         <div class="col-xs-6 m-t-sm">
