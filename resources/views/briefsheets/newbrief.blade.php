@@ -704,10 +704,7 @@ Create New Brief Sheet
   <script src="{{ URL::asset('js/brief/action-brief-new-department-checkbox-module.js') }}"></script>
   <script src="{{ URL::asset('js/brief/init-auto-height.js') }}"></script>
   <script src="{{ URL::asset('js/brief/module-btnsubmit-loading.js') }}"></script>
-  <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
-
-<script>
-    $('textarea[placeholder]').placeholder();
-</script>
+  <script src="{{ URL::asset('js/brief/init-placeholder.js') }}"></script>
+  
 </div>
 @endsection
