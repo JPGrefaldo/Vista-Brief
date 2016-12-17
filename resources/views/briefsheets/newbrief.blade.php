@@ -399,7 +399,7 @@ Create New Brief Sheet
                       name="objmeasure" 
                       class="form-control auto-height" 
                       style="min-height:120px;" 
-                      placeholder="*What does the client want to achieve?&#x0a;&#x09;&#10;*Why?&#x0a;&#x09;&#10;*What difference will that make to their business / audience / etc?&#x0a;&#x09;&#10;*What does success looks like?&#x0a;&#x09;&#10;*How will it be measured?"
+                      placeholder="*What does the client want to achieve?&#10;*Why?&#10;*What difference will that make to their business / audience / etc?&#10;*What does success looks like?&#10;*How will it be measured?"
                     >{{ old('objmeasure') }}</textarea>
                   </div>          
                 </div>
@@ -692,7 +692,8 @@ Create New Brief Sheet
   <link rel="stylesheet" href="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker-bs3.css') }}" type="text/css" />
   <script src="{{ URL::asset('libs/jquery/bootstrap-daterangepicker/daterangepicker.js') }}"></script>
   <!-- auto height -->
-  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>  
+  <script src="{{ URL::asset('libs/jquery/jquery.textarea_autosize/jquery.textarea_autosize.js') }}"></script>
+  <script src="{{ URL::asset('libs/jquery/jquery.placeholder/jquery.placeholder.js') }}"></script>
 
 
   <!-- load ACTION JS scripts -->
@@ -705,5 +706,8 @@ Create New Brief Sheet
   <script src="{{ URL::asset('js/brief/module-btnsubmit-loading.js') }}"></script>
   <!--<script src="{{ URL::asset('js/brief/action-brief-attachment.js') }}"></script>  -->
 
+<script>
+    $('textarea[placeholder]').placeholder();
+</script>
 </div>
 @endsection
