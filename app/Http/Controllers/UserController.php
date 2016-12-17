@@ -137,7 +137,8 @@ class UserController extends Controller
         return view('users.profile');
     }
 
-    public function postUpdateProfile(UpdateUserProfileRequest $request) {
+    public function postUpdateProfile(UpdateUserProfileRequest $request) 
+    {
         $user_id = $request->user()->id;
         $forename = $request->input('forename');
         $surname = $request->input('surname');
@@ -183,7 +184,8 @@ class UserController extends Controller
         $avatar = $request->file('avatar');
         $filename = time().'-'.'user-'.$request->user()->id.'.'.$avatar->extension();
 
-        Image::make($avatar)->resize(192,192)->save(public_path('/images/avatars/'.$filename));
+        // Image::make($avatar)->resize(192,192)->save(public_path('/images/avatars/'.$filename));
+        Image::make($avatar)->save(public_path('/images/avatars/'.$filename));
 
         $user = Auth::user();
         $old_avatar = $user->avatar;
