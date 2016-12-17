@@ -4,6 +4,7 @@
 * Copyright 2010, Daniel Stocks (http://webcloud.se)
 * Released under the MIT, BSD, and GPL Licenses.
 */
+// muted color: #98a6ad
 (function($) {
     function Placeholder(input) {
         this.input = input;

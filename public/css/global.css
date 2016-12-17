@@ -643,3 +643,7 @@ fieldset[disabled] .btn-brand1.active {
   -webkit-hyphens: auto;
   hyphens: auto;
 }
+
+.placeholder {
+  color: #98a6ad;
+}
