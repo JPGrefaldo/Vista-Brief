@@ -19,6 +19,9 @@ use App\Http\Requests\UpdateUserAvatarRequest;
 
 use Image;
 
+use Storage;
+use Carbon\Carbon;
+
 
 class UserController extends Controller
 {
@@ -129,6 +132,21 @@ class UserController extends Controller
 
     public function dashboard()
     {
+        /* DELETE PDF TEMPORARY FILES */
+        $minutes = 20;
+        $timeInPast = Carbon::now()->subMinutes($minutes);
+
+        $files = collect(Storage::disk('temp_pdf')->files())
+        ->filter(function ($file) use ($timeInPast) {
+          return Carbon::createFromTimestamp(filemtime(storage_path().'/app/temp/'.$file))
+             ->lt($timeInPast);
+        })
+        ->each(function ($file) {
+            // echo '<p>'.$file.'</p>';
+            Storage::disk('temp_pdf')->delete($file);
+        });
+        /* / DELETE PDF TEMPORARY FILES */
+
         return view('dashboard');
     }
 

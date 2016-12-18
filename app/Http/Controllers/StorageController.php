@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use Storage;
-
 use Carbon\Carbon;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Collection;
+// use Illuminate\Filesystem\Filesystem;
+// use Illuminate\Support\Collection;
 
 class StorageController extends Controller
 {

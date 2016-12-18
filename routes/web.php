@@ -237,7 +237,7 @@ Route::group(['middleware' => 'auth'], function() {
 				'as'	=>	'storage'
 			]);
 			Route::get('/storage/delete', [
-				'uses'	=>	'StorageController@index',
+				'uses'	=>	'StorageController@delete',
 				'as'	=>	'storagedelete'
 			]);
 		});
