@@ -93,31 +93,31 @@ if ($brief->projectstatus_id == 1) {
 
       <div class="row">
         <div class="col-xs-3">
-          <label class="control-label text-left">
+          <label class="control-label text-left text-sm">
             <strong>Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{(!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('M d, Y') : '&nbsp;'}}
+            {{(!empty($brief->quoted_required_by_at)) ? $brief->quoted_required_by_at->format('d M Y') : '&nbsp;'}}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left">
+          <label class="control-label text-left text-sm">
             <strong>Proposal Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->proposal_required_by_at)) ? $brief->proposal_required_by_at->format('M d, Y') : '&nbsp;' }}
+            {{ (!empty($brief->proposal_required_by_at)) ? $brief->proposal_required_by_at->format('d M Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left">
+          <label class="control-label text-left text-sm">
             <strong>1st Stage Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->firststage_required_by_at)) ? $brief->firststage_required_by_at->format('M d, Y') : '&nbsp;' }}
+            {{ (!empty($brief->firststage_required_by_at)) ? $brief->firststage_required_by_at->format('d M Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-3">
-          <label class="control-label text-left">
+          <label class="control-label text-left text-sm">
             <strong>Project Delivered By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{ (!empty($brief->project_delivered_by_at)) ? $brief->project_delivered_by_at->format('M d, Y') : '&nbsp;' }}
+            {{ (!empty($brief->project_delivered_by_at)) ? $brief->project_delivered_by_at->format('d M Y') : '&nbsp;' }}
           </p>
         </div>
       </div>
@@ -153,7 +153,7 @@ if ($brief->projectstatus_id == 1) {
               @else
               &lt;missing info&gt;
               @endif
-               - {{ $amend->updated_at->format('l, M d, Y - H:i') }}
+               - {{ $amend->updated_at->format('l, d M Y - H:i') }}
             </p>
             <p class="text-muted">
               Amend for 
@@ -184,7 +184,7 @@ if ($brief->projectstatus_id == 1) {
               @else
               &lt;missing info&gt;
               @endif
-               - {{ $attachment->updated_at->format('l, M d, Y') }}</h6>
+               - {{ $attachment->updated_at->format('l, d M Y') }}</h6>
           </div>
           @endforeach
 
@@ -330,7 +330,7 @@ if ($brief->projectstatus_id == 1) {
               @else
                 Upload by &lt;missing info&gt;
               @endif
-               - {{ $attachment->updated_at->format('H:i:s l, M d, Y') }}
+               - {{ $attachment->updated_at->format('H:i:s l, d M Y') }}
             </h6>
           </div>
           @endforeach

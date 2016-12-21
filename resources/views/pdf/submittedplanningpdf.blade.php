@@ -109,7 +109,7 @@ Planning Request File
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Pitch/Quote Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{(!empty($planning->pitch_quote_date)) ? $planning->pitch_quote_date->format('M d, Y') : '&nbsp;'}}
+            {{(!empty($planning->pitch_quote_date)) ? $planning->pitch_quote_date->format('d M Y') : '&nbsp;'}}
           </p>
         </div>
         <div class="col-xs-6 hide">
@@ -119,7 +119,7 @@ Planning Request File
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Ideal/Q&amp;A Required By</strong></label>
         	<p class="bg-light p-l-sm">
-            {{(!empty($planning->ideal_qa_date)) ? $planning->ideal_qa_date->format('M d, Y') : '&nbsp;'}}
+            {{(!empty($planning->ideal_qa_date)) ? $planning->ideal_qa_date->format('d M Y') : '&nbsp;'}}
           </p>
         </div>
         <div class="col-xs-6 hide">
@@ -129,7 +129,7 @@ Planning Request File
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Ideal Review Required By</strong></label>
           <p class="bg-light p-l-sm">
-            {{ (!empty($planning->ideal_review_date)) ? $planning->ideal_review_date->format('M d, Y') : '&nbsp;' }}
+            {{ (!empty($planning->ideal_review_date)) ? $planning->ideal_review_date->format('d M Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-6 hide">
@@ -139,7 +139,7 @@ Planning Request File
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Project Delivered By</strong></label>
           <p class="bg-light p-l-sm">
-            {{ (!empty($planning->project_deadline_date)) ? $planning->project_deadline_date->format('M d, Y') : '&nbsp;' }}
+            {{ (!empty($planning->project_deadline_date)) ? $planning->project_deadline_date->format('d M Y') : '&nbsp;' }}
           </p>
         </div>
         <div class="col-xs-6 hide">
@@ -184,7 +184,7 @@ Planning Request File
             @else
               Upload by &lt;missing info&gt;
             @endif
-             - {{ $attachment->updated_at->format('H:i:s l, M d, Y') }}
+             - {{ $attachment->updated_at->format('H:i:s l, d M Y') }}
           </h6>
         </div>
         @endforeach

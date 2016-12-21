@@ -30,7 +30,7 @@ class PdfController extends Controller
             $attachment->classNames = $classNames;
         }
 
-    	// return view('pdf.submittedbriefpdf-1', compact('brief', 'departments'));
+    	return view('pdf.submittedbriefpdf-1', compact('brief', 'departments'));
     	$pdf1 = PDF::loadView('pdf.submittedbriefpdf-1', compact('brief', 'departments'))
             ->setPaper('a4')
             ->setOption('encoding', 'utf-8');
