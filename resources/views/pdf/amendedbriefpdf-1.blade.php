@@ -218,7 +218,7 @@ if ($brief->projectstatus_id == 1) {
     </div>
 
     <div class="col-xs-12">
-      <div class="row m-b-md">
+      <div class="row m-b-n">
 
         @if ($brief->summary)
         <div class="col-xs-12 m-b-lg">

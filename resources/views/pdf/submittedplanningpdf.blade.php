@@ -67,7 +67,7 @@ Planning Request File
       <!-- / Information -->
 
       <!-- Job Details -->
-      <div class="row m-t-sm">
+      <div class="row m-t-md">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Job Details</strong></p>
         </div>
@@ -111,7 +111,7 @@ Planning Request File
       <!-- / Job Details -->
 
       <!-- / Timings -->
-      <div class="row m-t-sm m-b-sm">
+      <div class="row m-t-md m-b-sm">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Timings</strong></p>
         </div>
@@ -160,7 +160,7 @@ Planning Request File
 
       <!-- Job Spec -->
       @if ($planning->job_specifications)
-      <div class="row m-t-sm m-b-sm">
+      <div class="row m-t-md m-b-sm">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white" style="margin-bottom:0px;"><strong>Job Spec</strong></p>
           <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($planning->job_specifications)) !!}&nbsp;</p>
@@ -171,7 +171,7 @@ Planning Request File
 
       <!-- Attachments -->      
       @if (count($planning->attachments))
-      <div class="row m-t-sm m-b-sm">
+      <div class="row m-t-md m-b-sm">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Attachments</strong></p>
         </div>
