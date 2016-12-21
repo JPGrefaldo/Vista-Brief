@@ -142,12 +142,12 @@ if ($brief->projectstatus_id == 1) {
     </div>
 
     <div class="col-xs-12">
-      <div class="row m-b-n">
+      <div class="row m-b-n m-t-n">
 
         @if ($brief->summary)
         <div class="col-xs-12 m-b-sm">
           <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#01 Brief Summary</strong></p>
-          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->summary)) !!}&nbsp;</p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->summary)) !!}</p>
         </div>
         @endif
 
