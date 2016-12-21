@@ -7,9 +7,9 @@ Brief Submitted File
 <?php
 // dark red #a13535
 if ($brief->projectstatus_id == 1) {
-  $ps_color = "background-color:#5ec8d6;color:#ffffff"; //light blue #5ec8d6 
+  $ps_color = "background-color:#5ec8d6;color:#ffffff;"; //light blue #5ec8d6 
 } else {
-  $ps_color = "background-color:#33b3a6;color:#ffffff"; //blue green #33b3a6
+  $ps_color = "background-color:#33b3a6;color:#ffffff;"; //blue green #33b3a6
 }
 ?>
 
