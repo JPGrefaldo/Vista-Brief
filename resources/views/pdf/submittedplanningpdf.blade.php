@@ -6,7 +6,7 @@ Planning Request File
 
 
 @section('content')
-<div class="page-break bg-white">
+<div class="page-break1 bg-white">
   <div class="row bg-white">
     <div class="col-xs-12 bg-white">
       <!-- Title -->
@@ -41,7 +41,9 @@ Planning Request File
           <label class="control-label text-left"><strong>Taken By</strong></label>
         	<p class="bg-light p-l-sm p-r-sm">{{$planning->taken_by}}&nbsp;</p>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Name/Title</strong></label>
         	<p class="bg-light p-l-sm p-r-sm">{{$planning->contact_name}}&nbsp;</p>
@@ -50,7 +52,9 @@ Planning Request File
           <label class="control-label text-left"><strong>Contact Email</strong></label>
         	<p class="bg-light p-l-sm p-r-sm">{{$planning->contact_email}}&nbsp;</p>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Contact Landline</strong></label>
         	<p class="bg-light p-l-sm p-r-sm">{{$planning->contact_landline}}&nbsp;</p>
@@ -63,10 +67,13 @@ Planning Request File
       <!-- / Information -->
 
       <!-- Job Details -->
-      <div class="row">
+      <div class="row m-t-sm">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Job Details</strong></p>
         </div>
+      </div>
+
+      <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Title</strong></label>
           <p class="bg-light p-l-sm p-r-sm">{{$planning->title}}&nbsp;</p>
@@ -82,7 +89,9 @@ Planning Request File
             &nbsp;
           </p>
         </div>
+      </div>
 
+      <div class="row">
         <div class="col-xs-6">
           <label class="control-label text-left"><strong>Budget</strong></label>
           <p class="bg-light p-l-sm p-r-sm">{{$planning->budget}}&nbsp;</p>
@@ -102,7 +111,7 @@ Planning Request File
       <!-- / Job Details -->
 
       <!-- / Timings -->
-      <div class="row">
+      <div class="row m-t-sm">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white"><strong>Timings</strong></p>
         </div>
@@ -151,7 +160,7 @@ Planning Request File
 
       <!-- Job Spec -->
       @if ($planning->job_specifications)
-      <div class="row">
+      <div class="row m-t-sm">
         <div class="col-xs-12">
           <p class="bg-brand-1 p-l-sm text-white" style="margin-bottom:0px;"><strong>Job Spec</strong></p>
           <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($planning->job_specifications)) !!}&nbsp;</p>
