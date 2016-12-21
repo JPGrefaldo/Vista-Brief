@@ -98,9 +98,9 @@ Brief Sheets - Vista
                 </th>
                 <th class="bg-bluegreen1">Job Number</th>
                 <th class="bg-bluegreen1">Client</th>
-                <th class="bg-bluegreen1">Job Name</th>
-                <th class="bg-bluegreen1">Key Deliverables</th>
-                <th class="bg-bluegreen1">Last Update by</th>
+                <th class="bg-bluegreen1 fix-w-jobname">Job Name</th>
+                <th class="bg-bluegreen1 fix-w-keydeliv">Key Deliverables</th>
+                <th class="bg-bluegreen1 hide">Last Update by</th>
                 <th class="bg-bluegreen1">Last Updated</th>
                 <th class="bg-bluegreen1">Status</th>
                 <th class="bg-bluegreen1" style="width:30px;">
@@ -142,12 +142,12 @@ Brief Sheets - Vista
                     </td>
                     <td class="dont-break-out">{{$brief->jobname}}</td>
                     <td class="dont-break-out">{{$brief->keydeliverables}}</td>
-                    <td>
-                      @if (count($brief->user))
-                        {{ $brief->user->forename }} {{ $brief->user->surname }}
-                      @endif
+                    <td class="hide">
+                      <!--if (count($brief->user))
+                        $brief->user->forename $brief->user->surname
+                      endif-->
                     </td>
-                    <td>{{$brief->updated_at->format('m/d/Y')}}</td>
+                    <td>{{$brief->updated_at->format('d/m/Y')}}</td>
                     <td>
                       @if ($brief->is_draft == 1)
                         Draft

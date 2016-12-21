@@ -144,7 +144,7 @@ Planning Requests - Vista
                         {{ (!empty($planning->formofresponse->name)) ? $planning->formofresponse->name : '' }}
                       @endif
                     </td>
-                    <td>{{$planning->created_at->format('M d, Y')}}</td>
+                    <td>{{$planning->created_at->format('d/m/Y')}}</td>
                     <td><span class="text-ellipsis">
                       @if (count($planning->jobstatus))
                         {{$planning->jobstatus->name}}
