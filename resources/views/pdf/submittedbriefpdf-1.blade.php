@@ -145,9 +145,9 @@ if ($brief->projectstatus_id == 1) {
       <div class="row m-b-n">
 
         @if ($brief->summary)
-        <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#01 Brief Summary</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->summary)) !!}&nbsp;</p>
+        <div class="col-xs-12 m-b-sm">
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#01 Brief Summary</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->summary)) !!}&nbsp;</p>
         </div>
         @endif
 
@@ -155,7 +155,7 @@ if ($brief->projectstatus_id == 1) {
         <div class="col-xs-12">
           <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#02 Disciplines Required</strong></p>
         </div>
-        <div class="col-xs-12 m-b-lg">
+        <div class="col-xs-12 m-b-sm">
           <div class="row">
             @foreach ($departments as $department)
             <div class="col-xs-3">
