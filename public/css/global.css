@@ -648,12 +648,28 @@ fieldset[disabled] .btn-brand1.active {
   color: #98a6ad;
 }
 
-@media (min-width: 1300px) and (max-width: 1400px) {
+@media (min-width: 1300px) {
   .fix-w-jobname {
     width: 300px;
   }
   .fix-w-keydeliv {
     width: 290px;
+  }
+}
+@media (min-width: 1400px) {
+  .fix-w-jobname {
+    width: 320px;
+  }
+  .fix-w-keydeliv {
+    width: 310px;
+  }
+}
+@media (min-width: 1500px) {
+  .fix-w-jobname {
+    width: 340px;
+  }
+  .fix-w-keydeliv {
+    width: 330px;
   }
 }
 /*@media only screen and (min-width:960px){
