@@ -82,6 +82,7 @@ class PlanningController extends Controller
       	foreach ($files as $file):
       		$filename = $file->getClientOriginalName();
           $filetype = $file->getClientMimeType();
+          // $file_ext = $file->getClientOriginalExtension();
           $file_ext = $file->extension();
 
 	        $attachments = new Attachment();

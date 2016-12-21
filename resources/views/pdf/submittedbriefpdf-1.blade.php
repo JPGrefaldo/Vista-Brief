@@ -14,7 +14,7 @@ if ($brief->projectstatus_id == 1) {
 ?>
 
 @section('content')
-<div class="page-break">
+<div class="page-break1">
   <div class="row bg-white">
     <div class="col-xs-12">
       <!-- Title -->
@@ -130,7 +130,7 @@ if ($brief->projectstatus_id == 1) {
   <div class="row bg-white" style="height:50px"></div>
 </div>
 
-<div class="page-break">
+<div class="page-break1">
   <div class="row bg-white">
 
     <div class="col-xs-12">
