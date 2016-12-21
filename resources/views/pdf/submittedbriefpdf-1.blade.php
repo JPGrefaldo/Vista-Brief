@@ -153,7 +153,7 @@ if ($brief->projectstatus_id == 1) {
       @endif
 
       @if ($brief->disciplines_required_ids)
-      <div class="row m-t-md">
+      <div class="row m-t-sm">
         <div class="col-xs-12">
           <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#02 Disciplines Required</strong></p>
         </div>
