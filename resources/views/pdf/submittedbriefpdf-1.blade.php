@@ -172,70 +172,89 @@ if ($brief->projectstatus_id == 1) {
       </div>
       @endif
 
-        @if ($brief->objectives_or_measures)
+      @if ($brief->objectives_or_measures)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#03 Objectives / Measure</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->objectives_or_measures)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#03 Objectives / Measure</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->objectives_or_measures)) !!}&nbsp;</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->content)
+      @if ($brief->content)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#04 Context</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->content)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#04 Context</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->content)) !!}&nbsp;</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->targetaudience_and_insight)
+      @if ($brief->targetaudience_and_insight)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#05 Target Audience and Insight</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->targetaudience_and_insight)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#05 Target Audience and Insight</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->targetaudience_and_insight)) !!}</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->targetaudience_think)
+      @if ($brief->targetaudience_think)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#06 What do I want the target audience to Think?</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->targetaudience_think)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#06 What do I want the target audience to Think?</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->targetaudience_think)) !!}</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->targetaudience_feel)
+      @if ($brief->targetaudience_feel)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#06 What do I want the target audience to Feel?</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->targetaudience_feel)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#06 What do I want the target audience to Feel?</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->targetaudience_feel)) !!};</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->targetaudience_do)
+      @if ($brief->targetaudience_do)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#06 What do I want the target audience to Do?</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->targetaudience_do)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#06 What do I want the target audience to Do?</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->targetaudience_do)) !!}</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->keymessages_or_propositions)
+      @if ($brief->keymessages_or_propositions)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#07 Key Messages / Propositions</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->keymessages_or_propositions)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#07 Key Messages / Propositions</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->keymessages_or_propositions)) !!}</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->creative)
+      @if ($brief->creative)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#08 Creative</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->creative)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#08 Creative</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->creative)) !!}</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if ($brief->budget_timings_and_outputs)
+      @if ($brief->budget_timings_and_outputs)
+      <div class="row m-t-sm">
         <div class="col-xs-12 m-b-lg">
-          <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#09 Budgets, Timings and Outputs Required</strong></p>
-          <p class="bg-light p-l-sm p-r-sm">{!! nl2br(e($brief->budget_timings_and_outputs)) !!}&nbsp;</p>
+          <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#09 Budgets, Timings and Outputs Required</strong></p>
+          <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->budget_timings_and_outputs)) !!}</p>
         </div>
-        @endif
+      </div>
+      @endif
 
-        @if (count($brief->attachmentsNotAmend))
+      @if (count($brief->attachmentsNotAmend))
+      <div class="row m-t-sm m-b-n">
         <div class="col-xs-12 m-b-lg">
           <p class="bg-brand-1 p-l-sm text-white" style="{{$ps_color}}"><strong>#10 Attachments</strong></p>
           @foreach ($brief->attachmentsNotAmend as $attachment)
@@ -261,7 +280,8 @@ if ($brief->projectstatus_id == 1) {
           </div>
           @endforeach
         </div>
-        @endif
+      </div>
+      @endif
       </div>
     </div>
   </div>
