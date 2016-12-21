@@ -144,7 +144,7 @@ if ($brief->projectstatus_id == 1) {
     <div class="col-xs-12">
 
       @if ($brief->summary)
-      <div class="row m-b-md m-t-n">
+      <div class="row m-t-n">
         <div class="col-xs-12 m-b-sm">
           <p class="bg-primary p-l-sm" style="{{$ps_color}} margin-bottom:0px;"><strong>#01 Brief Summary</strong></p>
           <p class="bg-light p-l-sm p-r-sm" style="margin-top:0px;">{!! nl2br(e($brief->summary)) !!}</p>
@@ -153,7 +153,7 @@ if ($brief->projectstatus_id == 1) {
       @endif
 
       @if ($brief->disciplines_required_ids)
-      <div class="row m-b-md">
+      <div class="row m-t-md">
         <div class="col-xs-12">
           <p class="bg-primary p-l-sm" style="{{$ps_color}}"><strong>#02 Disciplines Required</strong></p>
         </div>
