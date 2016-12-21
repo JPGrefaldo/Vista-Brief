@@ -19,7 +19,7 @@
 <style>
 /* app2-for-pdf.css */
 html {
-  background-color: #f0f3f4;
+  background-color: #ffffff;
 }
 
 body {
